@@ -188,6 +188,81 @@
     .verse-text.original { font-size: 1rem; }
     .verse-text.hebrew { direction: rtl; font-size: 1.05rem; line-height: 2; }
 
+    /* Strong's clickable words */
+    .strongs-word {
+      cursor: pointer;
+      border-bottom: 1px dotted var(--accent);
+      transition: background 0.15s;
+    }
+    .strongs-word:hover {
+      background: var(--accent-light);
+      border-bottom-style: solid;
+    }
+
+    /* Strong's popup */
+    .strongs-popup {
+      display: none;
+      position: fixed;
+      z-index: 300;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      max-width: 360px;
+      min-width: 260px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .strongs-popup.open { display: block; }
+    .strongs-popup-close {
+      position: absolute; top: 8px; right: 10px;
+      background: none; border: none; font-size: 1rem;
+      cursor: pointer; color: var(--text-secondary);
+    }
+    .strongs-num {
+      font-size: 0.7rem;
+      color: white;
+      background: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .strongs-lexeme {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .strongs-translit {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .strongs-short {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      background: var(--accent-light);
+      border-radius: 6px;
+    }
+    .strongs-def {
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .strongs-def i { color: var(--accent); }
+    .strongs-loading {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
     /* Highlight color picker */
     .hl-picker {
       display: none;
@@ -455,6 +530,14 @@
     <div class="hl-dot clear" onclick="applyHighlight(null)">X</div>
   </div>
 
+  <!-- Strong's Popup -->
+  <div class="strongs-popup" id="strongsPopup">
+    <button class="strongs-popup-close" onclick="closeStrongsPopup()">&times;</button>
+    <div id="strongsContent">
+      <div class="strongs-loading">불러오는 중...</div>
+    </div>
+  </div>
+
   <!-- Main Content -->
   <main class="main">
     <div class="columns">
@@ -632,6 +715,7 @@
       }
     }
 
+    // Clean text: strip HTML tags and Strong's numbers (for Korean/original columns)
     function cleanText(text) {
       const tmp = document.createElement('div');
       tmp.innerHTML = text;
@@ -640,6 +724,87 @@
       clean = clean.replace(/\s\d{2,5}(?=\s)/g, '');
       return clean.trim();
     }
+
+    // Parse English text with <S> tags into clickable Strong's words
+    function parseStrongsText(text) {
+      const book = getBook();
+      const prefix = book.t === 'OT' ? 'H' : 'G';
+      // Replace <S>number</S> with clickable spans
+      // Pattern: word<S>1234</S> or <S>1234</S> (standalone)
+      let result = text;
+      // First handle word<S>num</S> pattern
+      result = result.replace(/([^<>\s]+)<S>(\d+)<\/S>/gi, (match, word, num) => {
+        return `<span class="strongs-word" onclick="showStrongs(event,'${prefix}${num}')" title="${prefix}${num}">${word}</span>`;
+      });
+      // Then handle standalone <S>num</S> (no preceding word, like particles)
+      result = result.replace(/<S>(\d+)<\/S>/gi, '');
+      // Clean any remaining HTML tags except our spans
+      result = result.replace(/<(?!\/?span)[^>]+>/gi, '');
+      return result;
+    }
+
+    // ============================================================
+    // Strong's Popup
+    // ============================================================
+    const strongsCache = {};
+
+    async function showStrongs(e, strongsNum) {
+      e.stopPropagation();
+      const popup = document.getElementById('strongsPopup');
+      const content = document.getElementById('strongsContent');
+
+      // Position popup near click
+      const x = Math.min(e.clientX, window.innerWidth - 380);
+      const y = Math.min(e.clientY + 10, window.innerHeight - 350);
+      popup.style.left = x + 'px';
+      popup.style.top = y + 'px';
+      popup.classList.add('open');
+
+      // Show loading
+      content.innerHTML = '<div class="strongs-loading">불러오는 중...</div>';
+
+      // Check cache
+      if (strongsCache[strongsNum]) {
+        renderStrongsPopup(strongsCache[strongsNum], strongsNum);
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/dictionary-definition/BDBT/${strongsNum}/`);
+        const data = await res.json();
+        if (data && data.length > 0) {
+          strongsCache[strongsNum] = data[0];
+          renderStrongsPopup(data[0], strongsNum);
+        } else {
+          content.innerHTML = `<div class="strongs-loading">${strongsNum} 정보를 찾을 수 없습니다.</div>`;
+        }
+      } catch (err) {
+        content.innerHTML = '<div class="strongs-loading">불러오기 실패</div>';
+      }
+    }
+
+    function renderStrongsPopup(entry, strongsNum) {
+      const content = document.getElementById('strongsContent');
+      const isHeb = strongsNum.startsWith('H');
+      content.innerHTML = `
+        <span class="strongs-num">${strongsNum}</span>
+        <div class="strongs-lexeme" ${isHeb ? 'style="direction:rtl;text-align:right;"' : ''}>${entry.lexeme || ''}</div>
+        <div class="strongs-translit">${entry.transliteration || ''} ${entry.pronunciation ? '(' + entry.pronunciation + ')' : ''}</div>
+        <div class="strongs-short">${entry.short_definition || ''}</div>
+        <div class="strongs-def">${entry.definition || ''}</div>
+      `;
+    }
+
+    function closeStrongsPopup() {
+      document.getElementById('strongsPopup').classList.remove('open');
+    }
+
+    // Close popup when clicking elsewhere
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.strongs-popup') && !e.target.closest('.strongs-word')) {
+        closeStrongsPopup();
+      }
+    });
 
     // ============================================================
     // Render
@@ -655,9 +820,11 @@
       container.innerHTML = verses.map(v => {
         const cls = lang === 'original' ? (isHebrew ? 'verse-text original hebrew' : 'verse-text original') : 'verse-text';
         const hlClass = highlights[v.verse] ? ` hl-${highlights[v.verse]}` : '';
+        // English column: parse Strong's numbers into clickable words
+        const textHtml = lang === 'english' ? parseStrongsText(v.text) : cleanText(v.text);
         return `<div class="verse${hlClass}" data-verse="${v.verse}" onclick="onVerseClick(event, ${v.verse})" oncontextmenu="onVerseRightClick(event, ${v.verse})">
           <span class="verse-num">${v.verse}</span>
-          <span class="${cls}">${cleanText(v.text)}</span>
+          <span class="${cls}">${textHtml}</span>
         </div>`;
       }).join('');
     }
