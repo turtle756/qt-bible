@@ -593,10 +593,15 @@
     }
 
     function cleanVerseText(text) {
-      // API에서 오는 HTML 태그 제거 (strikethrough 등)
+      // 1) HTML 태그 제거
       const tmp = document.createElement('div');
       tmp.innerHTML = text;
-      return tmp.textContent || tmp.innerText || '';
+      let clean = tmp.textContent || tmp.innerText || '';
+      // 2) Strong's 번호 제거 (단어 뒤에 붙는 숫자: God430 → God)
+      clean = clean.replace(/(\D)(\d{2,5})\b/g, '$1');
+      // 3) 독립된 숫자만 있는 경우 제거 (853 같은 접두사 번호)
+      clean = clean.replace(/\s\d{2,5}(?=\s)/g, '');
+      return clean.trim();
     }
 
     function renderVerses(containerId, verses, lang) {
