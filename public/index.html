@@ -227,8 +227,41 @@
       display: inline-block;
       margin-bottom: 8px;
     }
+    .strongs-clicked-word {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .strongs-korean-meaning {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+    .strongs-korean-meaning .label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .strongs-original-section {
+      padding: 8px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 6px;
+    }
+    .strongs-original-section .label {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
     .strongs-lexeme {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 2px;
@@ -237,16 +270,12 @@
       font-size: 0.85rem;
       color: var(--text-secondary);
       font-style: italic;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .strongs-short {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 8px;
-      padding: 6px 10px;
-      background: var(--accent-light);
-      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
     }
     .strongs-def {
       font-size: 0.8rem;
@@ -725,22 +754,92 @@
       return clean.trim();
     }
 
-    // Parse English text with <S> tags into clickable Strong's words
-    function parseStrongsText(text) {
+    // Parse text with <S> tags into clickable Strong's words
+    function parseStrongsText(text, lang) {
       const book = getBook();
       const prefix = book.t === 'OT' ? 'H' : 'G';
-      // Replace <S>number</S> with clickable spans
-      // Pattern: word<S>1234</S> or <S>1234</S> (standalone)
       let result = text;
-      // First handle word<S>num</S> pattern
+      // word<S>num</S> → clickable span with word displayed
       result = result.replace(/([^<>\s]+)<S>(\d+)<\/S>/gi, (match, word, num) => {
-        return `<span class="strongs-word" onclick="showStrongs(event,'${prefix}${num}')" title="${prefix}${num}">${word}</span>`;
+        const escaped = word.replace(/'/g, "\\'");
+        return `<span class="strongs-word" onclick="showStrongs(event,'${prefix}${num}','${escaped}','${lang}')" title="${prefix}${num}">${word}</span>`;
       });
-      // Then handle standalone <S>num</S> (no preceding word, like particles)
+      // standalone <S>num</S> → remove
       result = result.replace(/<S>(\d+)<\/S>/gi, '');
-      // Clean any remaining HTML tags except our spans
+      // clean other HTML tags except our spans
       result = result.replace(/<(?!\/?span)[^>]+>/gi, '');
       return result;
+    }
+
+    // ============================================================
+    // Korean meaning dictionary (common biblical terms)
+    // Fallback: auto-translate short_definition via mapping
+    // ============================================================
+    const KO_DICT = {
+      // Common biblical terms English → Korean
+      'god':'하나님, 신','lord':'주, 주님','jesus':'예수','christ':'그리스도, 기름부음 받은 자',
+      'spirit':'영, 영혼, 성령','holy':'거룩한, 성스러운','heaven':'하늘, 천국','earth':'땅, 세상',
+      'man':'사람, 남자','woman':'여자, 여인','son':'아들','father':'아버지','mother':'어머니',
+      'king':'왕','kingdom':'왕국, 나라','word':'말씀, 단어','love':'사랑, 사랑하다',
+      'faith':'믿음, 신앙','sin':'죄, 죄악','forgive':'용서하다','forgiveness':'용서',
+      'pray':'기도하다','prayer':'기도','save':'구원하다, 구하다','salvation':'구원',
+      'grace':'은혜','mercy':'자비, 긍휼','truth':'진리, 진실','life':'생명, 삶',
+      'death':'죽음','light':'빛','darkness':'어둠, 어두움','water':'물',
+      'bread':'빵, 떡','blood':'피','cross':'십자가','temple':'성전, 성소',
+      'covenant':'언약, 계약','promise':'약속','hope':'소망, 희망','peace':'평화, 평안',
+      'joy':'기쁨, 즐거움','righteous':'의로운','righteousness':'의, 의로움',
+      'judge':'심판하다, 재판관','judgment':'심판, 판단','law':'율법, 법',
+      'prophet':'선지자, 예언자','priest':'제사장','angel':'천사','devil':'마귀, 악마',
+      'satan':'사탄','evil':'악, 악한','good':'선한, 좋은','servant':'종, 하인',
+      'people':'백성, 사람들','israel':'이스라엘','david':'다윗','moses':'모세',
+      'abraham':'아브라함','beginning':'태초, 시작','create':'창조하다','created':'창조했다',
+      'make':'만들다','give':'주다','come':'오다','go':'가다','say':'말하다','said':'말했다',
+      'know':'알다','see':'보다','hear':'듣다','believe':'믿다','fear':'두려움, 경외하다',
+      'glory':'영광','praise':'찬양, 찬미하다','worship':'예배하다, 경배하다',
+      'bless':'축복하다','blessed':'복 있는, 축복받은','blessing':'축복',
+      'name':'이름','heart':'마음, 심장','soul':'영혼, 혼','body':'몸, 몸체',
+      'hand':'손','face':'얼굴','day':'날, 낮','night':'밤','fire':'불',
+      'sword':'칼, 검','power':'능력, 권세','voice':'목소리, 음성',
+      'call':'부르다','walk':'걷다, 행하다','stand':'서다','sit':'앉다',
+      'eat':'먹다','drink':'마시다','house':'집','city':'성, 도시',
+      'land':'땅, 나라','mountain':'산','sea':'바다','river':'강',
+      'tree':'나무','rock':'반석, 바위','way':'길, 도','gate':'문, 성문',
+      'door':'문','child':'아이, 자녀','children':'자녀, 아이들',
+      'brother':'형제','sister':'자매','wife':'아내','husband':'남편',
+      'head':'머리','eye':'눈','ear':'귀','mouth':'입','foot':'발',
+      'blood':'피','offering':'제물, 예물','sacrifice':'제사, 희생',
+      'altar':'제단','tabernacle':'장막, 회막','ark':'방주, 궤',
+      'wilderness':'광야','desert':'사막, 광야','garden':'동산, 정원',
+      'vine':'포도나무','sheep':'양','shepherd':'목자','lamb':'어린 양',
+      'nation':'나라, 민족','tribe':'지파, 부족','generation':'세대',
+      'testimony':'증거','commandment':'계명','statute':'율례',
+      'wrath':'진노, 분노','repent':'회개하다','baptize':'세례를 주다',
+      'apostle':'사도','disciple':'제자','church':'교회','gospel':'복음',
+      'resurrection':'부활','eternal':'영원한','forever':'영원히',
+      'amen':'아멘','hallelujah':'할렐루야',
+      'deliver':'건지다, 구출하다','redeem':'구속하다, 속량하다',
+      'sanctify':'거룩하게 하다','justify':'의롭다 하다',
+      'trespass':'범죄, 허물','iniquity':'불의, 죄악','transgression':'범법, 위반',
+      'tempt':'시험하다','temptation':'시험, 유혹',
+      'bread':'떡, 빵','daily':'날마다, 일용할',
+      'debts':'빚, 부채','debtors':'빚진 자',
+      'will':'뜻, 의지','done':'이루어지다','hallowed':'거룩히 여김을 받다',
+      'trespass':'범죄','forgive':'용서하다','lead':'인도하다','deliver':'건지다',
+    };
+
+    function getKoreanMeaning(englishWord, shortDef) {
+      // Try exact match first
+      const lower = (englishWord || '').toLowerCase().replace(/[^a-z]/g, '');
+      if (KO_DICT[lower]) return KO_DICT[lower];
+      // Try short definition words
+      if (shortDef) {
+        const words = shortDef.toLowerCase().split(/[\s,;]+/);
+        for (const w of words) {
+          const clean = w.replace(/[^a-z]/g, '');
+          if (KO_DICT[clean]) return KO_DICT[clean];
+        }
+      }
+      return null;
     }
 
     // ============================================================
@@ -748,24 +847,21 @@
     // ============================================================
     const strongsCache = {};
 
-    async function showStrongs(e, strongsNum) {
+    async function showStrongs(e, strongsNum, clickedWord, fromLang) {
       e.stopPropagation();
       const popup = document.getElementById('strongsPopup');
       const content = document.getElementById('strongsContent');
 
-      // Position popup near click
       const x = Math.min(e.clientX, window.innerWidth - 380);
       const y = Math.min(e.clientY + 10, window.innerHeight - 350);
       popup.style.left = x + 'px';
       popup.style.top = y + 'px';
       popup.classList.add('open');
 
-      // Show loading
       content.innerHTML = '<div class="strongs-loading">불러오는 중...</div>';
 
-      // Check cache
       if (strongsCache[strongsNum]) {
-        renderStrongsPopup(strongsCache[strongsNum], strongsNum);
+        renderStrongsPopup(strongsCache[strongsNum], strongsNum, clickedWord, fromLang);
         return;
       }
 
@@ -774,7 +870,7 @@
         const data = await res.json();
         if (data && data.length > 0) {
           strongsCache[strongsNum] = data[0];
-          renderStrongsPopup(data[0], strongsNum);
+          renderStrongsPopup(data[0], strongsNum, clickedWord, fromLang);
         } else {
           content.innerHTML = `<div class="strongs-loading">${strongsNum} 정보를 찾을 수 없습니다.</div>`;
         }
@@ -783,23 +879,57 @@
       }
     }
 
-    function renderStrongsPopup(entry, strongsNum) {
+    function renderStrongsPopup(entry, strongsNum, clickedWord, fromLang) {
       const content = document.getElementById('strongsContent');
       const isHeb = strongsNum.startsWith('H');
-      content.innerHTML = `
-        <span class="strongs-num">${strongsNum}</span>
-        <div class="strongs-lexeme" ${isHeb ? 'style="direction:rtl;text-align:right;"' : ''}>${entry.lexeme || ''}</div>
-        <div class="strongs-translit">${entry.transliteration || ''} ${entry.pronunciation ? '(' + entry.pronunciation + ')' : ''}</div>
-        <div class="strongs-short">${entry.short_definition || ''}</div>
-        <div class="strongs-def">${entry.definition || ''}</div>
-      `;
+      const korMeaning = getKoreanMeaning(clickedWord, entry.short_definition);
+
+      let html = `<span class="strongs-num">${strongsNum}</span>`;
+
+      // Clicked word
+      if (clickedWord) {
+        html += `<div class="strongs-clicked-word">${clickedWord}</div>`;
+      }
+
+      // Korean meaning (the star of the show)
+      html += `<div class="strongs-korean-meaning">
+        <span class="label">한국어 뜻</span>
+        ${korMeaning || entry.short_definition || ''}
+      </div>`;
+
+      // Original language section
+      if (fromLang === 'english') {
+        html += `<div class="strongs-original-section">
+          <div class="label">원어 (${isHeb ? '히브리어' : '그리스어'})</div>
+          <div class="strongs-lexeme" ${isHeb ? 'style="direction:rtl;"' : ''}>${entry.lexeme || ''}</div>
+          <div class="strongs-translit">${entry.transliteration || ''} ${entry.pronunciation ? '(' + entry.pronunciation + ')' : ''}</div>
+          <div class="strongs-short">영어 뜻: ${entry.short_definition || ''}</div>
+        </div>`;
+      } else {
+        // From original language column
+        html += `<div class="strongs-original-section">
+          <div class="label">원어</div>
+          <div class="strongs-lexeme" ${isHeb ? 'style="direction:rtl;"' : ''}>${entry.lexeme || ''}</div>
+          <div class="strongs-translit">${entry.transliteration || ''} ${entry.pronunciation ? '(' + entry.pronunciation + ')' : ''}</div>
+          <div class="strongs-short">영어 뜻: ${entry.short_definition || ''}</div>
+        </div>`;
+      }
+
+      // Detailed definition (collapsible)
+      if (entry.definition) {
+        html += `<details style="margin-top:8px;">
+          <summary style="font-size:0.75rem;color:var(--text-secondary);cursor:pointer;">상세 정의 보기</summary>
+          <div class="strongs-def">${entry.definition}</div>
+        </details>`;
+      }
+
+      content.innerHTML = html;
     }
 
     function closeStrongsPopup() {
       document.getElementById('strongsPopup').classList.remove('open');
     }
 
-    // Close popup when clicking elsewhere
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.strongs-popup') && !e.target.closest('.strongs-word')) {
         closeStrongsPopup();
@@ -820,8 +950,8 @@
       container.innerHTML = verses.map(v => {
         const cls = lang === 'original' ? (isHebrew ? 'verse-text original hebrew' : 'verse-text original') : 'verse-text';
         const hlClass = highlights[v.verse] ? ` hl-${highlights[v.verse]}` : '';
-        // English column: parse Strong's numbers into clickable words
-        const textHtml = lang === 'english' ? parseStrongsText(v.text) : cleanText(v.text);
+        // English & Original columns: parse Strong's into clickable words
+        const textHtml = (lang === 'english' || lang === 'original') ? parseStrongsText(v.text, lang) : cleanText(v.text);
         return `<div class="verse${hlClass}" data-verse="${v.verse}" onclick="onVerseClick(event, ${v.verse})" oncontextmenu="onVerseRightClick(event, ${v.verse})">
           <span class="verse-num">${v.verse}</span>
           <span class="${cls}">${textHtml}</span>
