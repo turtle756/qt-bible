@@ -1387,7 +1387,45 @@
         </details>`;
       }
 
+      // Usage search button
+      html += `<button onclick="searchStrongsUsage('${strongsNum}')" style="margin-top:8px;width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;background:var(--bg-primary);color:var(--accent);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">
+        전체 용례 검색
+      </button>`;
+      html += `<div id="strongsUsage" style="margin-top:8px;max-height:200px;overflow-y:auto;"></div>`;
+
       content.innerHTML = html;
+    }
+
+    async function searchStrongsUsage(strongsNum) {
+      const usageEl = document.getElementById('strongsUsage');
+      if (!usageEl) return;
+      usageEl.innerHTML = '<div style="text-align:center;padding:10px;color:var(--text-secondary);font-size:0.8rem;">검색 중...</div>';
+
+      const num = strongsNum.replace(/[HG]/, '');
+      const isOT = strongsNum.startsWith('H');
+      // Search in KJV for verses containing this Strong's number
+      try {
+        const res = await fetch(`${API_BASE}/search/KJV/${encodeURIComponent('<S>' + num + '</S>')}/`);
+        const results = await res.json();
+        if (!results || results.length === 0) {
+          usageEl.innerHTML = '<div style="text-align:center;padding:10px;color:var(--text-secondary);font-size:0.8rem;">용례를 찾을 수 없습니다.</div>';
+          return;
+        }
+        // Show up to 20 results
+        const limited = results.slice(0, 20);
+        usageEl.innerHTML = `<div style="font-size:0.7rem;color:var(--text-secondary);margin-bottom:4px;">총 ${results.length}회 사용 (상위 20개)</div>` +
+          limited.map(r => {
+            const book = BOOKS.find(b => b.id === r.book);
+            const bookName = book ? book.ko : `Book ${r.book}`;
+            const cleanedText = cleanText(r.text).substring(0, 60) + '...';
+            return `<div style="padding:4px 0;border-bottom:1px solid var(--border);cursor:pointer;font-size:0.75rem;" onclick="goToBook(${r.book},${r.chapter});closeStrongsPopup();">
+              <span style="color:var(--accent);font-weight:600;">${bookName} ${r.chapter}:${r.verse}</span>
+              <span style="color:var(--text-secondary);"> ${cleanedText}</span>
+            </div>`;
+          }).join('');
+      } catch (err) {
+        usageEl.innerHTML = '<div style="text-align:center;padding:10px;color:#c0392b;font-size:0.8rem;">검색 실패</div>';
+      }
     }
 
     function closeStrongsPopup() {
