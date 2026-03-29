@@ -188,6 +188,64 @@
     .verse-text.original { font-size: 1rem; }
     .verse-text.hebrew { direction: rtl; font-size: 1.05rem; line-height: 2; }
 
+    /* Interlinear mode */
+    .interlinear-verse {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 6px 8px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .interlinear-verse .verse-num {
+      width: 100%;
+      margin-bottom: 2px;
+    }
+    .il-word {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px 6px;
+      border-radius: 6px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      min-width: 50px;
+      transition: background 0.15s;
+    }
+    .il-word:hover { background: var(--accent-light); border-color: var(--accent); }
+    .il-original {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .il-original.hebrew { direction: rtl; }
+    .il-translit {
+      font-size: 0.65rem;
+      color: var(--accent);
+      font-style: italic;
+    }
+    .il-meaning {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 80px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .il-toggle {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .il-toggle.active { background: var(--accent); color: white; border-color: var(--accent); }
+
     /* Strong's clickable words */
     .strongs-word {
       cursor: pointer;
@@ -579,7 +637,13 @@
         <div class="column-body" id="engColumn"><div class="loading"><div class="spinner"></div><br>Loading...</div></div>
       </div>
       <div class="column">
-        <div class="column-header"><span id="origLangTitle">원어</span><span class="lang-label" id="origLabel">Hebrew / Greek</span></div>
+        <div class="column-header">
+          <span id="origLangTitle">원어</span>
+          <span style="display:flex;align-items:center;gap:6px;">
+            <button class="il-toggle" id="ilToggle" onclick="toggleInterlinear()">인터리니어</button>
+            <span class="lang-label" id="origLabel">Hebrew / Greek</span>
+          </span>
+        </div>
         <div class="column-body" id="origColumn"><div class="loading"><div class="spinner"></div><br>Loading...</div></div>
       </div>
     </div>
@@ -703,7 +767,7 @@
     // ============================================================
     // State
     // ============================================================
-    let state = { bookId: 1, chapter: 1 };
+    let state = { bookId: 1, chapter: 1, interlinear: false };
     let currentUser = null;
     let highlights = {}; // { verse: color }
     let soapData = { S: '', O: '', A: '', P: '' };
@@ -1274,22 +1338,96 @@
     // ============================================================
     function getBook() { return BOOKS.find(b => b.id === state.bookId); }
 
+    let lastOrigVerses = null; // store for interlinear re-render
+
     function renderVerses(containerId, verses, lang) {
       const container = document.getElementById(containerId);
       if (!verses) { container.innerHTML = '<div class="error-msg">텍스트를 불러올 수 없습니다.</div>'; return; }
       if (!verses.length) { container.innerHTML = '<div class="error-msg">데이터가 없습니다.</div>'; return; }
+
+      if (lang === 'original') lastOrigVerses = verses;
+
+      // Interlinear mode for original column
+      if (lang === 'original' && state.interlinear) {
+        renderInterlinear(container, verses);
+        return;
+      }
+
       const book = getBook();
       const isHebrew = lang === 'original' && book.t === 'OT';
       container.innerHTML = verses.map(v => {
         const cls = lang === 'original' ? (isHebrew ? 'verse-text original hebrew' : 'verse-text original') : 'verse-text';
         const hlClass = highlights[v.verse] ? ` hl-${highlights[v.verse]}` : '';
-        // English & Original columns: parse Strong's into clickable words
         const textHtml = (lang === 'english' || lang === 'original') ? parseStrongsText(v.text, lang) : cleanText(v.text);
         return `<div class="verse${hlClass}" data-verse="${v.verse}" onclick="onVerseClick(event, ${v.verse})" oncontextmenu="onVerseRightClick(event, ${v.verse})">
           <span class="verse-num">${v.verse}</span>
           <span class="${cls}">${textHtml}</span>
         </div>`;
       }).join('');
+    }
+
+    // Interlinear rendering
+    async function renderInterlinear(container, verses) {
+      const book = getBook();
+      const prefix = book.t === 'OT' ? 'H' : 'G';
+      const isHeb = book.t === 'OT';
+
+      // Collect all unique Strong's numbers
+      const allNums = new Set();
+      verses.forEach(v => {
+        const matches = v.text.matchAll(/<S>(\d+)<\/S>/gi);
+        for (const m of matches) allNums.add(prefix + m[1]);
+      });
+
+      // Pre-fetch all definitions
+      container.innerHTML = '<div class="loading"><div class="spinner"></div><br>인터리니어 로딩 중...</div>';
+      const fetchPromises = [...allNums].filter(n => !strongsCache[n]).map(async n => {
+        try {
+          const res = await fetch(`${API_BASE}/dictionary-definition/BDBT/${n}/`);
+          const data = await res.json();
+          if (data && data.length > 0) strongsCache[n] = data[0];
+        } catch (e) {}
+      });
+      await Promise.all(fetchPromises);
+
+      // Render
+      container.innerHTML = verses.map(v => {
+        const words = [];
+        // Parse word<S>num</S> pairs
+        const regex = /([^<>\s]+)<S>(\d+)<\/S>/gi;
+        let match;
+        while ((match = regex.exec(v.text)) !== null) {
+          const word = match[1];
+          const num = prefix + match[2];
+          const entry = strongsCache[num];
+          const translit = entry?.transliteration || '';
+          const meaning = getKoreanMeaning(word, entry?.short_definition) || entry?.short_definition || '';
+          words.push({ word, num, translit, meaning, isHeb });
+        }
+
+        if (words.length === 0) return '';
+
+        const wordCards = words.map(w =>
+          `<div class="il-word" onclick="showStrongs(event,'${w.num}','${w.word.replace(/'/g,"\\'")}','original')">
+            <div class="il-original${w.isHeb ? ' hebrew' : ''}">${w.word}</div>
+            <div class="il-translit">${w.translit}</div>
+            <div class="il-meaning">${w.meaning}</div>
+          </div>`
+        ).join('');
+
+        return `<div class="interlinear-verse" ${isHeb ? 'style="direction:rtl;"' : ''}>
+          <span class="verse-num">${v.verse}</span>
+          ${wordCards}
+        </div>`;
+      }).join('');
+    }
+
+    function toggleInterlinear() {
+      state.interlinear = !state.interlinear;
+      document.getElementById('ilToggle').classList.toggle('active', state.interlinear);
+      if (lastOrigVerses) {
+        renderVerses('origColumn', lastOrigVerses, 'original');
+      }
     }
 
     function onVerseClick(e, verseNum) {
