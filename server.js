@@ -66,6 +66,28 @@ async function initDB() {
       UNIQUE(user_id, log_date)
     );
   `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS reading_plans (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      plan_type VARCHAR(50) NOT NULL,
+      start_date DATE NOT NULL,
+      current_day INTEGER DEFAULT 1,
+      completed BOOLEAN DEFAULT FALSE,
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(user_id, plan_type)
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS reading_progress (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      plan_type VARCHAR(50) NOT NULL,
+      day_num INTEGER NOT NULL,
+      completed_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(user_id, plan_type, day_num)
+    );
+  `);
   console.log('DB tables ready');
 }
 
@@ -315,6 +337,94 @@ app.get('/api/qt-log', requireAuth, async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: 'Failed to get QT log' });
+  }
+});
+
+// ============================================================
+// Reading Plans API
+// ============================================================
+
+// Start or get a reading plan
+app.post('/api/plans', requireAuth, async (req, res) => {
+  const { planType } = req.body;
+  try {
+    const result = await pool.query(
+      `INSERT INTO reading_plans (user_id, plan_type, start_date)
+       VALUES ($1, $2, NOW())
+       ON CONFLICT (user_id, plan_type) DO NOTHING
+       RETURNING *`,
+      [req.user.id, planType]
+    );
+    if (result.rows.length === 0) {
+      const existing = await pool.query(
+        'SELECT * FROM reading_plans WHERE user_id = $1 AND plan_type = $2',
+        [req.user.id, planType]
+      );
+      res.json(existing.rows[0]);
+    } else {
+      res.json(result.rows[0]);
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to start plan' });
+  }
+});
+
+// Get user's active plans
+app.get('/api/plans', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM reading_plans WHERE user_id = $1 ORDER BY created_at DESC',
+      [req.user.id]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get plans' });
+  }
+});
+
+// Mark a day as completed
+app.post('/api/plans/progress', requireAuth, async (req, res) => {
+  const { planType, dayNum } = req.body;
+  try {
+    await pool.query(
+      `INSERT INTO reading_progress (user_id, plan_type, day_num)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (user_id, plan_type, day_num) DO NOTHING`,
+      [req.user.id, planType, dayNum]
+    );
+    // Update current_day in plan
+    await pool.query(
+      `UPDATE reading_plans SET current_day = GREATEST(current_day, $3 + 1)
+       WHERE user_id = $1 AND plan_type = $2`,
+      [req.user.id, planType, dayNum]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to save progress' });
+  }
+});
+
+// Get progress for a plan
+app.get('/api/plans/progress/:planType', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT day_num FROM reading_progress WHERE user_id = $1 AND plan_type = $2 ORDER BY day_num',
+      [req.user.id, req.params.planType]
+    );
+    res.json(result.rows.map(r => r.day_num));
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get progress' });
+  }
+});
+
+// Delete a plan
+app.delete('/api/plans/:planType', requireAuth, async (req, res) => {
+  try {
+    await pool.query('DELETE FROM reading_progress WHERE user_id = $1 AND plan_type = $2', [req.user.id, req.params.planType]);
+    await pool.query('DELETE FROM reading_plans WHERE user_id = $1 AND plan_type = $2', [req.user.id, req.params.planType]);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete plan' });
   }
 });
 

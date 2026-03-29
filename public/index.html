@@ -604,16 +604,54 @@
       </div>
     </div>
 
-    <!-- Calendar -->
-    <div class="calendar-card">
-      <h3>QT 캘린더</h3>
-      <div class="calendar-nav">
-        <button onclick="changeCalMonth(-1)">&#9664;</button>
-        <span id="calMonthLabel"></span>
-        <button onclick="changeCalMonth(1)">&#9654;</button>
+    <!-- Right side: Calendar + Reading Plan stacked -->
+    <div>
+      <!-- Calendar -->
+      <div class="calendar-card">
+        <h3>QT 캘린더</h3>
+        <div class="calendar-nav">
+          <button onclick="changeCalMonth(-1)">&#9664;</button>
+          <span id="calMonthLabel"></span>
+          <button onclick="changeCalMonth(1)">&#9654;</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+        <div class="calendar-streak" id="streakInfo"></div>
       </div>
-      <div class="calendar-grid" id="calendarGrid"></div>
-      <div class="calendar-streak" id="streakInfo"></div>
+
+      <!-- Reading Plan -->
+      <div class="calendar-card" style="margin-top:12px;">
+        <h3>읽기 계획</h3>
+        <div id="planArea">
+          <!-- No plan: show plan selector -->
+          <div id="planSelector">
+            <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:10px;">성경 통독 계획을 선택하세요</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('year1')">
+                <strong>1년 통독</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">365일 — 하루 3~4장</span>
+              </button>
+              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('nt90')">
+                <strong>신약 90일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">90일 — 하루 3장</span>
+              </button>
+              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('psalms30')">
+                <strong>시편 30일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">30일 — 하루 5편</span>
+              </button>
+            </div>
+          </div>
+          <!-- Active plan: show progress -->
+          <div id="planProgress" style="display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <span id="planTitle" style="font-weight:600;font-size:0.85rem;"></span>
+              <button class="nav-btn" style="font-size:0.7rem;padding:3px 8px;color:#c0392b;" onclick="deletePlan()">중단</button>
+            </div>
+            <div style="background:var(--bg-primary);border-radius:8px;height:8px;margin-bottom:8px;overflow:hidden;">
+              <div id="planBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
+            </div>
+            <div id="planStats" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:10px;"></div>
+            <div id="planToday" style="background:var(--accent-light);border-radius:8px;padding:10px;"></div>
+            <button class="nav-btn" id="planCompleteBtn" style="width:100%;margin-top:8px;padding:8px;background:var(--accent);color:white;border-color:var(--accent);" onclick="completeTodayReading()">오늘 읽기 완료</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1509,6 +1547,171 @@
     }
 
     // ============================================================
+    // Reading Plans
+    // ============================================================
+    const READING_PLANS = {
+      year1: {
+        name: '1년 통독',
+        totalDays: 365,
+        schedule: generateYear1Plan(),
+      },
+      nt90: {
+        name: '신약 90일',
+        totalDays: 90,
+        schedule: generateNT90Plan(),
+      },
+      psalms30: {
+        name: '시편 30일',
+        totalDays: 30,
+        schedule: generatePsalms30Plan(),
+      },
+    };
+
+    function generateYear1Plan() {
+      // Full Bible in 365 days: ~3.3 chapters/day
+      const schedule = [];
+      let bookIdx = 0, ch = 1;
+      for (let day = 1; day <= 365; day++) {
+        const readings = [];
+        let chaptersToday = (day % 3 === 0) ? 4 : 3;
+        for (let c = 0; c < chaptersToday && bookIdx < BOOKS.length; c++) {
+          const book = BOOKS[bookIdx];
+          readings.push({ bookId: book.id, chapter: ch, label: `${book.ko} ${ch}장` });
+          ch++;
+          if (ch > book.ch) { bookIdx++; ch = 1; }
+        }
+        schedule.push(readings);
+      }
+      return schedule;
+    }
+
+    function generateNT90Plan() {
+      // NT (Matthew-Revelation) in 90 days: ~3 chapters/day
+      const ntBooks = BOOKS.filter(b => b.t === 'NT');
+      const schedule = [];
+      let bookIdx = 0, ch = 1;
+      for (let day = 1; day <= 90; day++) {
+        const readings = [];
+        let chaptersToday = 3;
+        for (let c = 0; c < chaptersToday && bookIdx < ntBooks.length; c++) {
+          const book = ntBooks[bookIdx];
+          readings.push({ bookId: book.id, chapter: ch, label: `${book.ko} ${ch}장` });
+          ch++;
+          if (ch > book.ch) { bookIdx++; ch = 1; }
+        }
+        if (readings.length > 0) schedule.push(readings);
+      }
+      return schedule;
+    }
+
+    function generatePsalms30Plan() {
+      // Psalms 150 chapters in 30 days: 5 per day
+      const schedule = [];
+      for (let day = 0; day < 30; day++) {
+        const readings = [];
+        for (let i = 0; i < 5; i++) {
+          const ch = day * 5 + i + 1;
+          if (ch <= 150) readings.push({ bookId: 19, chapter: ch, label: `시편 ${ch}편` });
+        }
+        schedule.push(readings);
+      }
+      return schedule;
+    }
+
+    let activePlan = null;
+    let planProgress = [];
+
+    async function loadPlans() {
+      try {
+        const res = await fetch('/api/plans');
+        const plans = await res.json();
+        if (plans.length > 0) {
+          activePlan = plans[0];
+          const progRes = await fetch(`/api/plans/progress/${activePlan.plan_type}`);
+          planProgress = await progRes.json();
+          renderActivePlan();
+        } else {
+          document.getElementById('planSelector').style.display = 'block';
+          document.getElementById('planProgress').style.display = 'none';
+        }
+      } catch (e) {}
+    }
+
+    async function startPlan(planType) {
+      try {
+        const res = await fetch('/api/plans', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ planType }),
+        });
+        activePlan = await res.json();
+        planProgress = [];
+        renderActivePlan();
+      } catch (e) {}
+    }
+
+    function renderActivePlan() {
+      if (!activePlan) return;
+      const plan = READING_PLANS[activePlan.plan_type];
+      if (!plan) return;
+
+      document.getElementById('planSelector').style.display = 'none';
+      document.getElementById('planProgress').style.display = 'block';
+      document.getElementById('planTitle').textContent = plan.name;
+
+      const completedDays = planProgress.length;
+      const totalDays = plan.schedule.length;
+      const pct = Math.round((completedDays / totalDays) * 100);
+      document.getElementById('planBar').style.width = pct + '%';
+      document.getElementById('planStats').textContent = `${completedDays}/${totalDays}일 완료 (${pct}%)`;
+
+      // Today's reading
+      const todayIdx = completedDays; // next unread day (0-indexed)
+      const todayArea = document.getElementById('planToday');
+      const completeBtn = document.getElementById('planCompleteBtn');
+
+      if (todayIdx >= totalDays) {
+        todayArea.innerHTML = '<div style="text-align:center;font-size:0.9rem;color:var(--accent);font-weight:600;">통독 완료! 축하합니다!</div>';
+        completeBtn.style.display = 'none';
+      } else {
+        const readings = plan.schedule[todayIdx];
+        todayArea.innerHTML = `
+          <div style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:4px;">Day ${todayIdx + 1} 오늘 읽을 말씀</div>
+          ${readings.map(r =>
+            `<div style="font-size:0.85rem;cursor:pointer;padding:3px 0;color:var(--accent);" onclick="goToBook(${r.bookId},${r.chapter})">${r.label}</div>`
+          ).join('')}
+        `;
+        completeBtn.style.display = 'block';
+      }
+    }
+
+    async function completeTodayReading() {
+      if (!activePlan) return;
+      const dayNum = planProgress.length + 1;
+      try {
+        await fetch('/api/plans/progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ planType: activePlan.plan_type, dayNum }),
+        });
+        planProgress.push(dayNum);
+        renderActivePlan();
+      } catch (e) {}
+    }
+
+    async function deletePlan() {
+      if (!activePlan) return;
+      if (!confirm('읽기 계획을 중단하시겠습니까? 진행 기록이 삭제됩니다.')) return;
+      try {
+        await fetch(`/api/plans/${activePlan.plan_type}`, { method: 'DELETE' });
+        activePlan = null;
+        planProgress = [];
+        document.getElementById('planSelector').style.display = 'block';
+        document.getElementById('planProgress').style.display = 'none';
+      } catch (e) {}
+    }
+
+    // ============================================================
     // Theme
     // ============================================================
     function toggleTheme() {
@@ -1575,6 +1778,7 @@
       // Load
       loadChapter();
       renderCalendar();
+      loadPlans();
     })();
   </script>
 </body>
