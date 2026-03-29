@@ -40,6 +40,29 @@ async function initDB() {
       UNIQUE(user_id, book_id, chapter, note_date)
     );
   `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS highlights (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      book_id INTEGER NOT NULL,
+      chapter INTEGER NOT NULL,
+      verse INTEGER NOT NULL,
+      color VARCHAR(20) DEFAULT 'yellow',
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(user_id, book_id, chapter, verse)
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS qt_log (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      log_date DATE NOT NULL,
+      book_id INTEGER NOT NULL,
+      chapter INTEGER NOT NULL,
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(user_id, log_date)
+    );
+  `);
   console.log('DB tables ready');
 }
 
@@ -52,7 +75,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     secure: process.env.NODE_ENV === 'production',
-    maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    maxAge: 30 * 24 * 60 * 60 * 1000,
   },
 }));
 
@@ -79,7 +102,6 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
     callbackURL: process.env.CALLBACK_URL || '/auth/google/callback',
   }, async (accessToken, refreshToken, profile, done) => {
     try {
-      // Upsert user
       const result = await pool.query(
         `INSERT INTO users (google_id, email, name, avatar)
          VALUES ($1, $2, $3, $4)
@@ -99,6 +121,8 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
 // Middleware
 // ============================================================
 app.use(express.json());
+
+// Static files (login page accessible without auth)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ============================================================
@@ -109,13 +133,13 @@ app.get('/auth/google', passport.authenticate('google', {
 }));
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+  passport.authenticate('google', { failureRedirect: '/login.html' }),
   (req, res) => res.redirect('/')
 );
 
 app.get('/auth/logout', (req, res) => {
   req.logout(() => {
-    res.redirect('/');
+    res.redirect('/login.html');
   });
 });
 
@@ -136,14 +160,32 @@ app.get('/api/me', (req, res) => {
 });
 
 // ============================================================
-// Notes API
+// Auth middleware for all /api routes below
 // ============================================================
 function requireAuth(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.status(401).json({ error: 'Login required' });
 }
 
-// Save/update note
+// ============================================================
+// Account deletion
+// ============================================================
+app.delete('/api/account', requireAuth, async (req, res) => {
+  try {
+    // CASCADE will delete notes, highlights, qt_log
+    await pool.query('DELETE FROM users WHERE id = $1', [req.user.id]);
+    req.logout(() => {
+      res.json({ success: true });
+    });
+  } catch (err) {
+    console.error('Account delete error:', err);
+    res.status(500).json({ error: 'Failed to delete account' });
+  }
+});
+
+// ============================================================
+// Notes API
+// ============================================================
 app.post('/api/notes', requireAuth, async (req, res) => {
   const { bookId, chapter, date, content } = req.body;
   try {
@@ -162,7 +204,6 @@ app.post('/api/notes', requireAuth, async (req, res) => {
   }
 });
 
-// Get note
 app.get('/api/notes/:bookId/:chapter/:date', requireAuth, async (req, res) => {
   const { bookId, chapter, date } = req.params;
   try {
@@ -172,12 +213,10 @@ app.get('/api/notes/:bookId/:chapter/:date', requireAuth, async (req, res) => {
     );
     res.json(result.rows[0] || null);
   } catch (err) {
-    console.error('Get note error:', err);
     res.status(500).json({ error: 'Failed to get note' });
   }
 });
 
-// List all notes for user
 app.get('/api/notes', requireAuth, async (req, res) => {
   try {
     const result = await pool.query(
@@ -186,8 +225,88 @@ app.get('/api/notes', requireAuth, async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error('List notes error:', err);
     res.status(500).json({ error: 'Failed to list notes' });
+  }
+});
+
+// ============================================================
+// Highlights API
+// ============================================================
+app.post('/api/highlights', requireAuth, async (req, res) => {
+  const { bookId, chapter, verse, color } = req.body;
+  try {
+    const result = await pool.query(
+      `INSERT INTO highlights (user_id, book_id, chapter, verse, color)
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (user_id, book_id, chapter, verse)
+       DO UPDATE SET color = $5
+       RETURNING *`,
+      [req.user.id, bookId, chapter, verse, color || 'yellow']
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to save highlight' });
+  }
+});
+
+app.delete('/api/highlights/:bookId/:chapter/:verse', requireAuth, async (req, res) => {
+  const { bookId, chapter, verse } = req.params;
+  try {
+    await pool.query(
+      'DELETE FROM highlights WHERE user_id = $1 AND book_id = $2 AND chapter = $3 AND verse = $4',
+      [req.user.id, bookId, chapter, verse]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to remove highlight' });
+  }
+});
+
+app.get('/api/highlights/:bookId/:chapter', requireAuth, async (req, res) => {
+  const { bookId, chapter } = req.params;
+  try {
+    const result = await pool.query(
+      'SELECT verse, color FROM highlights WHERE user_id = $1 AND book_id = $2 AND chapter = $3',
+      [req.user.id, bookId, chapter]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get highlights' });
+  }
+});
+
+// ============================================================
+// QT Calendar / Log API
+// ============================================================
+app.post('/api/qt-log', requireAuth, async (req, res) => {
+  const { date, bookId, chapter } = req.body;
+  try {
+    const result = await pool.query(
+      `INSERT INTO qt_log (user_id, log_date, book_id, chapter)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (user_id, log_date)
+       DO UPDATE SET book_id = $3, chapter = $4
+       RETURNING *`,
+      [req.user.id, date, bookId, chapter]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to log QT' });
+  }
+});
+
+app.get('/api/qt-log', requireAuth, async (req, res) => {
+  const { year, month } = req.query;
+  try {
+    const result = await pool.query(
+      `SELECT log_date, book_id, chapter FROM qt_log
+       WHERE user_id = $1 AND EXTRACT(YEAR FROM log_date) = $2 AND EXTRACT(MONTH FROM log_date) = $3
+       ORDER BY log_date`,
+      [req.user.id, year || new Date().getFullYear(), month || new Date().getMonth() + 1]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get QT log' });
   }
 });
 
@@ -209,7 +328,6 @@ initDB()
   })
   .catch(err => {
     console.error('DB init failed:', err);
-    // Start anyway for static serving
     app.listen(PORT, () => {
       console.log(`QT Bible server running on port ${PORT} (DB not connected)`);
     });

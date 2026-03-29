@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DailyQT - 로그인</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #faf8f5 0%, #f0e8d8 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      text-align: center;
+      max-width: 420px;
+      padding: 48px 32px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(139,105,20,0.1);
+    }
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #8b6914;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      color: #6b5d4d;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .description {
+      color: #9a8c7a;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      padding: 0 12px;
+    }
+    .google-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      border: 2px solid #e8e0d4;
+      border-radius: 12px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 500;
+      color: #2d2417;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .google-btn:hover {
+      border-color: #8b6914;
+      background: #fdf8ee;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(139,105,20,0.15);
+    }
+    .google-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+    .features {
+      margin-top: 36px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .feature {
+      font-size: 0.8rem;
+      color: #8b6914;
+      background: #f5eddb;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .verse {
+      margin-top: 32px;
+      font-size: 0.85rem;
+      color: #9a8c7a;
+      font-style: italic;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+    .verse-ref {
+      display: block;
+      margin-top: 6px;
+      font-style: normal;
+      font-weight: 500;
+      color: #8b6914;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">DailyQT</div>
+    <p class="tagline">한국어 - English - 원어<br>3개 국어 성경 비교 QT</p>
+    <p class="description">
+      번역만으로는 담을 수 없는 말씀의 깊이를<br>
+      원어와 영어 비교를 통해 발견하세요.
+    </p>
+
+    <a href="/auth/google" class="google-btn">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Google 계정으로 시작하기
+    </a>
+
+    <div class="features">
+      <span class="feature">3개국어 비교</span>
+      <span class="feature">SOAP 묵상</span>
+      <span class="feature">QT 캘린더</span>
+      <span class="feature">구절 하이라이팅</span>
+    </div>
+
+    <p class="verse">
+      "Your word is a lamp for my feet, a light on my path."
+      <span class="verse-ref">Psalm 119:105</span>
+    </p>
+  </div>
+
+  <script>
+    // Already logged in? Redirect to main
+    fetch('/api/me').then(r => r.json()).then(data => {
+      if (data.loggedIn) window.location.href = '/';
+    });
+  </script>
+</body>
+</html>

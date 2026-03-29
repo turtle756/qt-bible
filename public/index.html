@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QT Bible - 성경 3개국어 비교</title>
+  <title>DailyQT - 3개국어 성경 비교 QT</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
@@ -16,6 +16,10 @@
       --accent-light: #f5eddb;
       --border: #e8e0d4;
       --verse-hover: #fdf8ee;
+      --highlight-yellow: rgba(255,235,59,0.3);
+      --highlight-green: rgba(129,199,132,0.3);
+      --highlight-blue: rgba(100,181,246,0.3);
+      --highlight-pink: rgba(240,98,146,0.25);
     }
     [data-theme="dark"] {
       --bg-primary: #1a1612;
@@ -26,6 +30,10 @@
       --accent-light: #2e2818;
       --border: #3a3228;
       --verse-hover: #2a2418;
+      --highlight-yellow: rgba(255,235,59,0.15);
+      --highlight-green: rgba(129,199,132,0.15);
+      --highlight-blue: rgba(100,181,246,0.15);
+      --highlight-pink: rgba(240,98,146,0.12);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -34,13 +42,12 @@
       color: var(--text-primary);
       min-height: 100vh;
     }
-    .serif { font-family: 'Noto Serif', serif; }
 
     /* Header */
     .header {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border);
-      padding: 12px 24px;
+      padding: 10px 20px;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -50,99 +57,104 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
     }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    /* Selectors */
-    .selector-group {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .logo { font-size: 1.15rem; font-weight: 700; color: var(--accent); white-space: nowrap; cursor: pointer; }
+    .selector-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     select, .nav-btn {
       background: var(--bg-primary);
       color: var(--text-primary);
       border: 1px solid var(--border);
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 6px;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       cursor: pointer;
       font-family: 'Noto Sans KR', sans-serif;
     }
-    select:focus, .nav-btn:focus {
-      outline: 2px solid var(--accent);
-      outline-offset: -1px;
-    }
-    .nav-btn {
-      padding: 6px 14px;
-      font-weight: 500;
-      transition: background 0.15s;
-    }
+    .nav-btn { font-weight: 500; transition: background 0.15s; }
     .nav-btn:hover { background: var(--accent-light); }
     .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    /* Theme toggle */
-    .theme-toggle {
-      margin-left: auto;
+    .icon-btn {
       background: none;
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 6px 10px;
+      padding: 5px 8px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--text-primary);
+      transition: background 0.15s;
     }
+    .icon-btn:hover { background: var(--accent-light); }
+    .icon-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+    .header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+    /* User profile */
+    .user-profile { display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; }
+    .user-avatar { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--accent); }
+    .user-menu {
+      display: none;
+      position: absolute;
+      top: 36px;
+      right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 0;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      z-index: 200;
+    }
+    .user-menu.open { display: block; }
+    .user-menu-item {
+      display: block;
+      width: 100%;
+      padding: 8px 16px;
+      border: none;
+      background: none;
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .user-menu-item:hover { background: var(--accent-light); }
+    .user-menu-item.danger { color: #c0392b; }
+    .user-menu-divider { height: 1px; background: var(--border); margin: 4px 0; }
+    .user-menu-header { padding: 8px 16px; font-size: 0.8rem; color: var(--text-secondary); }
 
     /* Main content */
-    .main {
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+    .main { max-width: 1600px; margin: 0 auto; padding: 12px; }
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
+      gap: 12px;
       align-items: start;
     }
-    @media (max-width: 1024px) {
-      .columns { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1024px) { .columns { grid-template-columns: 1fr; } }
 
     /* Column */
     .column {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
     }
     .column-header {
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-bottom: 1px solid var(--border);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--accent);
       background: var(--accent-light);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .column-header .lang-label {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--text-secondary);
-    }
+    .column-header .lang-label { font-size: 0.7rem; font-weight: 400; color: var(--text-secondary); }
     .column-body {
-      padding: 16px;
-      max-height: calc(100vh - 220px);
+      padding: 12px;
+      max-height: calc(100vh - 260px);
       overflow-y: auto;
     }
 
@@ -150,7 +162,7 @@
     .verse {
       display: flex;
       gap: 8px;
-      padding: 6px 8px;
+      padding: 5px 8px;
       border-radius: 6px;
       cursor: pointer;
       transition: background 0.1s;
@@ -158,227 +170,223 @@
       margin-bottom: 2px;
     }
     .verse:hover { background: var(--verse-hover); }
-    .verse.highlighted {
-      background: var(--accent-light);
-      border-left: 3px solid var(--accent);
-      padding-left: 5px;
-    }
+    .verse.synced { background: var(--accent-light); border-left: 3px solid var(--accent); padding-left: 5px; }
+    .verse.hl-yellow { background: var(--highlight-yellow); }
+    .verse.hl-green { background: var(--highlight-green); }
+    .verse.hl-blue { background: var(--highlight-blue); }
+    .verse.hl-pink { background: var(--highlight-pink); }
     .verse-num {
       color: var(--accent);
       font-weight: 700;
-      font-size: 0.75rem;
-      min-width: 24px;
+      font-size: 0.7rem;
+      min-width: 22px;
       padding-top: 3px;
       text-align: right;
       flex-shrink: 0;
     }
-    .verse-text {
-      font-size: 0.95rem;
-      color: var(--text-primary);
-    }
-    .verse-text.original {
-      font-size: 1.05rem;
-      direction: inherit;
-      unicode-bidi: embed;
-    }
-    .verse-text.hebrew {
-      direction: rtl;
-      font-size: 1.1rem;
-      line-height: 2;
-    }
+    .verse-text { font-size: 0.9rem; color: var(--text-primary); }
+    .verse-text.original { font-size: 1rem; }
+    .verse-text.hebrew { direction: rtl; font-size: 1.05rem; line-height: 2; }
 
-    /* Loading & error */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-secondary);
-    }
-    .loading .spinner {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      border: 3px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-bottom: 8px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .error-msg {
-      text-align: center;
-      padding: 40px;
-      color: #c0392b;
-      font-size: 0.9rem;
-    }
-
-    /* QT Notes section */
-    .qt-section {
-      max-width: 1600px;
-      margin: 24px auto;
-      padding: 0 16px;
-    }
-    .qt-notes {
+    /* Highlight color picker */
+    .hl-picker {
+      display: none;
+      position: fixed;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      z-index: 150;
+      gap: 6px;
     }
-    .qt-notes h3 {
-      color: var(--accent);
-      font-size: 1rem;
-      margin-bottom: 12px;
+    .hl-picker.open { display: flex; }
+    .hl-dot {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.1s;
     }
-    .qt-notes textarea {
+    .hl-dot:hover { transform: scale(1.2); }
+    .hl-dot.yellow { background: #ffeb3b; }
+    .hl-dot.green { background: #81c784; }
+    .hl-dot.blue { background: #64b5f6; }
+    .hl-dot.pink { background: #f06292; }
+    .hl-dot.clear { background: var(--bg-primary); font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
+
+    /* Loading & error */
+    .loading { text-align: center; padding: 40px; color: var(--text-secondary); }
+    .loading .spinner {
+      display: inline-block; width: 24px; height: 24px;
+      border: 3px solid var(--border); border-top-color: var(--accent);
+      border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-msg { text-align: center; padding: 40px; color: #c0392b; font-size: 0.85rem; }
+
+    /* Bottom section: SOAP Notes + Calendar side by side */
+    .bottom-section {
+      max-width: 1600px;
+      margin: 16px auto;
+      padding: 0 12px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 12px;
+    }
+    @media (max-width: 900px) { .bottom-section { grid-template-columns: 1fr; } }
+
+    /* SOAP Notes */
+    .soap-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .soap-card h3 { color: var(--accent); font-size: 0.95rem; margin-bottom: 12px; }
+    .soap-tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+    .soap-tab {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-primary);
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .soap-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+    .soap-textarea {
       width: 100%;
-      min-height: 120px;
+      min-height: 140px;
       background: var(--bg-primary);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 12px;
       font-family: 'Noto Sans KR', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-primary);
       resize: vertical;
       line-height: 1.7;
     }
-    .qt-notes textarea:focus {
-      outline: 2px solid var(--accent);
-      outline-offset: -1px;
+    .soap-textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+    .soap-actions {
+      display: flex; gap: 8px; margin-top: 10px; justify-content: space-between; align-items: center;
     }
-    .qt-notes-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-      justify-content: flex-end;
+    .soap-actions .save-btn {
+      background: var(--accent); color: white; border: none;
+      padding: 8px 24px; border-radius: 6px; font-size: 0.85rem;
+      cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
     }
-    .qt-notes-actions button {
+    .soap-actions .save-btn:hover { opacity: 0.9; }
+    .soap-actions .status { font-size: 0.75rem; color: var(--text-secondary); }
+    .soap-hint {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    /* Calendar */
+    .calendar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .calendar-card h3 { color: var(--accent); font-size: 0.95rem; margin-bottom: 12px; text-align: center; }
+    .calendar-nav {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+    }
+    .calendar-nav button {
+      background: none; border: none; color: var(--accent); cursor: pointer;
+      font-size: 1.1rem; padding: 4px 8px;
+    }
+    .calendar-nav span { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      text-align: center;
+    }
+    .calendar-day-header {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      padding: 4px 0;
+      font-weight: 600;
+    }
+    .calendar-day {
+      padding: 6px 2px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      cursor: default;
+      color: var(--text-secondary);
+    }
+    .calendar-day.has-qt {
       background: var(--accent);
       color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 6px;
-      font-size: 0.85rem;
+      font-weight: 600;
       cursor: pointer;
-      font-family: 'Noto Sans KR', sans-serif;
     }
-    .qt-notes-actions button:hover { opacity: 0.9; }
+    .calendar-day.today {
+      border: 2px solid var(--accent);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .calendar-day.empty { visibility: hidden; }
+    .calendar-streak {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     /* Book selector modal */
-    .book-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.5); justify-content: center; align-items: center;
     }
-    .book-modal.open { display: flex; }
-    .book-modal-content {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 24px;
-      max-width: 680px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
+    .modal-overlay.open { display: flex; }
+    .modal-content {
+      background: var(--bg-card); border-radius: 16px; padding: 24px;
+      max-width: 680px; width: 90%; max-height: 80vh; overflow-y: auto;
     }
-    .book-modal-content h3 {
-      font-size: 1rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .book-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 6px;
-    }
+    .modal-content h3 { font-size: 0.95rem; color: var(--accent); margin-bottom: 10px; }
+    .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 5px; }
     .book-btn {
-      background: var(--bg-primary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 4px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      text-align: center;
-      color: var(--text-primary);
-      font-family: 'Noto Sans KR', sans-serif;
-      transition: all 0.15s;
+      background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px;
+      padding: 7px 4px; font-size: 0.75rem; cursor: pointer; text-align: center;
+      color: var(--text-primary); font-family: 'Noto Sans KR', sans-serif; transition: all 0.15s;
     }
-    .book-btn:hover {
-      background: var(--accent-light);
-      border-color: var(--accent);
+    .book-btn:hover { background: var(--accent-light); border-color: var(--accent); }
+    .book-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Confirm modal */
+    .confirm-modal { text-align: center; padding: 20px; max-width: 400px; }
+    .confirm-modal p { margin: 16px 0; font-size: 0.9rem; line-height: 1.6; color: var(--text-primary); }
+    .confirm-modal .warning { color: #c0392b; font-weight: 600; }
+    .confirm-btns { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+    .confirm-btns button {
+      padding: 10px 24px; border-radius: 8px; font-size: 0.85rem;
+      cursor: pointer; font-family: 'Noto Sans KR', sans-serif; border: none;
     }
-    .book-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
+    .btn-cancel { background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border) !important; }
+    .btn-danger { background: #c0392b; color: white; }
 
     /* Scrollbar */
-    .column-body::-webkit-scrollbar { width: 6px; }
+    .column-body::-webkit-scrollbar { width: 5px; }
     .column-body::-webkit-scrollbar-track { background: transparent; }
-    .column-body::-webkit-scrollbar-thumb {
-      background: var(--border);
-      border-radius: 3px;
-    }
+    .column-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-    /* Verse sync highlight */
-    .verse.synced {
-      background: var(--accent-light);
-      transition: background 0.2s;
-    }
-
-    /* Keyboard shortcut hints */
+    /* Shortcuts */
     .shortcuts-hint {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-align: center;
-      padding: 8px;
+      font-size: 0.7rem; color: var(--text-secondary); text-align: center; padding: 8px;
     }
     .shortcuts-hint kbd {
-      background: var(--bg-primary);
-      border: 1px solid var(--border);
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-size: 0.7rem;
-    }
-
-    /* User profile */
-    .user-profile {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .user-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 2px solid var(--accent);
-    }
-    .user-name {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      max-width: 100px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .logout-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-    .logout-btn:hover { background: var(--accent-light); }
-    .save-status {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      margin-right: 8px;
+      background: var(--bg-primary); border: 1px solid var(--border);
+      padding: 1px 4px; border-radius: 3px; font-size: 0.65rem;
     }
   </style>
 </head>
@@ -386,261 +394,317 @@
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <div class="logo">QT Bible</div>
+      <div class="logo" onclick="location.reload()">DailyQT</div>
       <div class="selector-group">
-        <button class="nav-btn" id="bookSelectorBtn" title="성경 선택">
-          <span id="currentBookName">창세기</span>
-        </button>
-        <select id="chapterSelect" title="장 선택"></select>
-        <button class="nav-btn" id="prevChapter" title="이전 장">&#9664;</button>
-        <button class="nav-btn" id="nextChapter" title="다음 장">&#9654;</button>
+        <button class="nav-btn" id="bookSelectorBtn"><span id="currentBookName">창세기 1장</span></button>
+        <select id="chapterSelect"></select>
+        <button class="nav-btn" id="prevChapter">&#9664;</button>
+        <button class="nav-btn" id="nextChapter">&#9654;</button>
       </div>
-      <div class="selector-group" style="margin-left:8px;">
-        <select id="korVersion" title="한국어 번역">
-          <option value="korean">개역한글</option>
-        </select>
+      <div class="selector-group">
         <select id="engVersion" title="영어 번역">
           <option value="kjv">KJV</option>
           <option value="web">WEB</option>
         </select>
       </div>
-      <div class="selector-group" style="margin-left:auto; gap:8px;">
-        <button class="theme-toggle" id="themeToggle" title="다크모드 전환">🌙</button>
-        <!-- Auth UI -->
-        <div id="authArea">
-          <a href="/auth/google" class="nav-btn" id="loginBtn" style="text-decoration:none;">Google 로그인</a>
+      <div class="header-right">
+        <button class="icon-btn" id="themeToggle" title="다크모드">&#127769;</button>
+        <div class="user-profile" id="userProfile">
+          <img class="user-avatar" id="userAvatar" src="" alt="" referrerpolicy="no-referrer">
+          <div class="user-menu" id="userMenu">
+            <div class="user-menu-header" id="userMenuName"></div>
+            <div class="user-menu-divider"></div>
+            <button class="user-menu-item" onclick="location.href='/auth/logout'">로그아웃</button>
+            <div class="user-menu-divider"></div>
+            <button class="user-menu-item danger" onclick="showDeleteConfirm()">계정 삭제</button>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Book Selector Modal -->
-  <div class="book-modal" id="bookModal">
-    <div class="book-modal-content">
+  <div class="modal-overlay" id="bookModal">
+    <div class="modal-content">
       <h3>구약성경</h3>
       <div class="book-grid" id="otBooks"></div>
-      <h3 style="margin-top:16px;">신약성경</h3>
+      <h3 style="margin-top:14px;">신약성경</h3>
       <div class="book-grid" id="ntBooks"></div>
     </div>
+  </div>
+
+  <!-- Delete Account Confirm Modal -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal-content confirm-modal">
+      <h3>계정 삭제</h3>
+      <p>정말 계정을 삭제하시겠습니까?</p>
+      <p class="warning">모든 묵상 노트, 하이라이팅, QT 기록이 영구 삭제됩니다.<br>이 작업은 되돌릴 수 없습니다.</p>
+      <div class="confirm-btns">
+        <button class="btn-cancel" onclick="closeDeleteModal()">취소</button>
+        <button class="btn-danger" onclick="deleteAccount()">삭제하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Highlight color picker (floating) -->
+  <div class="hl-picker" id="hlPicker">
+    <div class="hl-dot yellow" onclick="applyHighlight('yellow')"></div>
+    <div class="hl-dot green" onclick="applyHighlight('green')"></div>
+    <div class="hl-dot blue" onclick="applyHighlight('blue')"></div>
+    <div class="hl-dot pink" onclick="applyHighlight('pink')"></div>
+    <div class="hl-dot clear" onclick="applyHighlight(null)">X</div>
   </div>
 
   <!-- Main Content -->
   <main class="main">
     <div class="columns">
-      <!-- Korean -->
       <div class="column">
-        <div class="column-header">
-          <span>한국어</span>
-          <span class="lang-label" id="korLabel">개역한글</span>
-        </div>
-        <div class="column-body" id="korColumn">
-          <div class="loading"><div class="spinner"></div><br>불러오는 중...</div>
-        </div>
+        <div class="column-header"><span>한국어</span><span class="lang-label">개역한글</span></div>
+        <div class="column-body" id="korColumn"><div class="loading"><div class="spinner"></div><br>불러오는 중...</div></div>
       </div>
-      <!-- English -->
       <div class="column">
-        <div class="column-header">
-          <span>English</span>
-          <span class="lang-label" id="engLabel">KJV</span>
-        </div>
-        <div class="column-body" id="engColumn">
-          <div class="loading"><div class="spinner"></div><br>Loading...</div>
-        </div>
+        <div class="column-header"><span>English</span><span class="lang-label" id="engLabel">KJV</span></div>
+        <div class="column-body" id="engColumn"><div class="loading"><div class="spinner"></div><br>Loading...</div></div>
       </div>
-      <!-- Original -->
       <div class="column">
-        <div class="column-header">
-          <span id="origLangTitle">원어</span>
-          <span class="lang-label" id="origLabel">Hebrew / Greek</span>
-        </div>
-        <div class="column-body" id="origColumn">
-          <div class="loading"><div class="spinner"></div><br>Loading...</div>
-        </div>
+        <div class="column-header"><span id="origLangTitle">원어</span><span class="lang-label" id="origLabel">Hebrew / Greek</span></div>
+        <div class="column-body" id="origColumn"><div class="loading"><div class="spinner"></div><br>Loading...</div></div>
       </div>
     </div>
   </main>
 
-  <!-- QT Notes -->
-  <section class="qt-section">
-    <div class="qt-notes">
-      <h3>📖 QT 묵상 노트 — <span id="qtDate"></span></h3>
-      <textarea id="qtNotesArea" placeholder="오늘의 묵상을 기록하세요...&#10;&#10;• 말씀 요약:&#10;• 깨달은 점:&#10;• 적용할 점:&#10;• 기도:"></textarea>
-      <div class="qt-notes-actions">
-        <button onclick="saveNotes()">저장</button>
+  <!-- Bottom: SOAP Notes + Calendar -->
+  <section class="bottom-section">
+    <!-- SOAP Notes -->
+    <div class="soap-card">
+      <h3>SOAP 묵상 노트 — <span id="qtDate"></span></h3>
+      <div class="soap-tabs">
+        <button class="soap-tab active" data-tab="S" onclick="switchSoapTab('S')">S 말씀</button>
+        <button class="soap-tab" data-tab="O" onclick="switchSoapTab('O')">O 관찰</button>
+        <button class="soap-tab" data-tab="A" onclick="switchSoapTab('A')">A 적용</button>
+        <button class="soap-tab" data-tab="P" onclick="switchSoapTab('P')">P 기도</button>
+      </div>
+      <div class="soap-hint" id="soapHint">오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.</div>
+      <textarea class="soap-textarea" id="soapArea" placeholder="여기에 기록하세요..."></textarea>
+      <div class="soap-actions">
+        <span class="status" id="saveStatus"></span>
+        <button class="save-btn" onclick="saveNotes()">저장</button>
       </div>
     </div>
-    <div class="shortcuts-hint">
-      <kbd>←</kbd> <kbd>→</kbd> 이전/다음 장 &nbsp; <kbd>B</kbd> 성경 선택
+
+    <!-- Calendar -->
+    <div class="calendar-card">
+      <h3>QT 캘린더</h3>
+      <div class="calendar-nav">
+        <button onclick="changeCalMonth(-1)">&#9664;</button>
+        <span id="calMonthLabel"></span>
+        <button onclick="changeCalMonth(1)">&#9654;</button>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+      <div class="calendar-streak" id="streakInfo"></div>
     </div>
   </section>
 
+  <div class="shortcuts-hint">
+    <kbd>←</kbd> <kbd>→</kbd> 이전/다음 장 &nbsp; <kbd>B</kbd> 성경 선택
+  </div>
+
   <script>
     // ============================================================
-    // Bible Book Data
+    // Books Data
     // ============================================================
     const BOOKS = [
-      // 구약 39권
-      { id: 1, ko: '창세기', en: 'Genesis', abbr: 'Gen', chapters: 50, testament: 'OT' },
-      { id: 2, ko: '출애굽기', en: 'Exodus', abbr: 'Exo', chapters: 40, testament: 'OT' },
-      { id: 3, ko: '레위기', en: 'Leviticus', abbr: 'Lev', chapters: 27, testament: 'OT' },
-      { id: 4, ko: '민수기', en: 'Numbers', abbr: 'Num', chapters: 36, testament: 'OT' },
-      { id: 5, ko: '신명기', en: 'Deuteronomy', abbr: 'Deu', chapters: 34, testament: 'OT' },
-      { id: 6, ko: '여호수아', en: 'Joshua', abbr: 'Jos', chapters: 24, testament: 'OT' },
-      { id: 7, ko: '사사기', en: 'Judges', abbr: 'Jdg', chapters: 21, testament: 'OT' },
-      { id: 8, ko: '룻기', en: 'Ruth', abbr: 'Rut', chapters: 4, testament: 'OT' },
-      { id: 9, ko: '사무엘상', en: '1 Samuel', abbr: '1Sa', chapters: 31, testament: 'OT' },
-      { id: 10, ko: '사무엘하', en: '2 Samuel', abbr: '2Sa', chapters: 24, testament: 'OT' },
-      { id: 11, ko: '열왕기상', en: '1 Kings', abbr: '1Ki', chapters: 22, testament: 'OT' },
-      { id: 12, ko: '열왕기하', en: '2 Kings', abbr: '2Ki', chapters: 25, testament: 'OT' },
-      { id: 13, ko: '역대상', en: '1 Chronicles', abbr: '1Ch', chapters: 29, testament: 'OT' },
-      { id: 14, ko: '역대하', en: '2 Chronicles', abbr: '2Ch', chapters: 36, testament: 'OT' },
-      { id: 15, ko: '에스라', en: 'Ezra', abbr: 'Ezr', chapters: 10, testament: 'OT' },
-      { id: 16, ko: '느헤미야', en: 'Nehemiah', abbr: 'Neh', chapters: 13, testament: 'OT' },
-      { id: 17, ko: '에스더', en: 'Esther', abbr: 'Est', chapters: 10, testament: 'OT' },
-      { id: 18, ko: '욥기', en: 'Job', abbr: 'Job', chapters: 42, testament: 'OT' },
-      { id: 19, ko: '시편', en: 'Psalms', abbr: 'Psa', chapters: 150, testament: 'OT' },
-      { id: 20, ko: '잠언', en: 'Proverbs', abbr: 'Pro', chapters: 31, testament: 'OT' },
-      { id: 21, ko: '전도서', en: 'Ecclesiastes', abbr: 'Ecc', chapters: 12, testament: 'OT' },
-      { id: 22, ko: '아가', en: 'Song of Solomon', abbr: 'Son', chapters: 8, testament: 'OT' },
-      { id: 23, ko: '이사야', en: 'Isaiah', abbr: 'Isa', chapters: 66, testament: 'OT' },
-      { id: 24, ko: '예레미야', en: 'Jeremiah', abbr: 'Jer', chapters: 52, testament: 'OT' },
-      { id: 25, ko: '예레미야애가', en: 'Lamentations', abbr: 'Lam', chapters: 5, testament: 'OT' },
-      { id: 26, ko: '에스겔', en: 'Ezekiel', abbr: 'Eze', chapters: 48, testament: 'OT' },
-      { id: 27, ko: '다니엘', en: 'Daniel', abbr: 'Dan', chapters: 12, testament: 'OT' },
-      { id: 28, ko: '호세아', en: 'Hosea', abbr: 'Hos', chapters: 14, testament: 'OT' },
-      { id: 29, ko: '요엘', en: 'Joel', abbr: 'Joe', chapters: 3, testament: 'OT' },
-      { id: 30, ko: '아모스', en: 'Amos', abbr: 'Amo', chapters: 9, testament: 'OT' },
-      { id: 31, ko: '오바댜', en: 'Obadiah', abbr: 'Oba', chapters: 1, testament: 'OT' },
-      { id: 32, ko: '요나', en: 'Jonah', abbr: 'Jon', chapters: 4, testament: 'OT' },
-      { id: 33, ko: '미가', en: 'Micah', abbr: 'Mic', chapters: 7, testament: 'OT' },
-      { id: 34, ko: '나훔', en: 'Nahum', abbr: 'Nah', chapters: 3, testament: 'OT' },
-      { id: 35, ko: '하박국', en: 'Habakkuk', abbr: 'Hab', chapters: 3, testament: 'OT' },
-      { id: 36, ko: '스바냐', en: 'Zephaniah', abbr: 'Zep', chapters: 3, testament: 'OT' },
-      { id: 37, ko: '학개', en: 'Haggai', abbr: 'Hag', chapters: 2, testament: 'OT' },
-      { id: 38, ko: '스가랴', en: 'Zechariah', abbr: 'Zec', chapters: 14, testament: 'OT' },
-      { id: 39, ko: '말라기', en: 'Malachi', abbr: 'Mal', chapters: 4, testament: 'OT' },
-      // 신약 27권
-      { id: 40, ko: '마태복음', en: 'Matthew', abbr: 'Mat', chapters: 28, testament: 'NT' },
-      { id: 41, ko: '마가복음', en: 'Mark', abbr: 'Mar', chapters: 16, testament: 'NT' },
-      { id: 42, ko: '누가복음', en: 'Luke', abbr: 'Luk', chapters: 24, testament: 'NT' },
-      { id: 43, ko: '요한복음', en: 'John', abbr: 'Joh', chapters: 21, testament: 'NT' },
-      { id: 44, ko: '사도행전', en: 'Acts', abbr: 'Act', chapters: 28, testament: 'NT' },
-      { id: 45, ko: '로마서', en: 'Romans', abbr: 'Rom', chapters: 16, testament: 'NT' },
-      { id: 46, ko: '고린도전서', en: '1 Corinthians', abbr: '1Co', chapters: 16, testament: 'NT' },
-      { id: 47, ko: '고린도후서', en: '2 Corinthians', abbr: '2Co', chapters: 13, testament: 'NT' },
-      { id: 48, ko: '갈라디아서', en: 'Galatians', abbr: 'Gal', chapters: 6, testament: 'NT' },
-      { id: 49, ko: '에베소서', en: 'Ephesians', abbr: 'Eph', chapters: 6, testament: 'NT' },
-      { id: 50, ko: '빌립보서', en: 'Philippians', abbr: 'Phi', chapters: 4, testament: 'NT' },
-      { id: 51, ko: '골로새서', en: 'Colossians', abbr: 'Col', chapters: 4, testament: 'NT' },
-      { id: 52, ko: '데살로니가전서', en: '1 Thessalonians', abbr: '1Th', chapters: 5, testament: 'NT' },
-      { id: 53, ko: '데살로니가후서', en: '2 Thessalonians', abbr: '2Th', chapters: 3, testament: 'NT' },
-      { id: 54, ko: '디모데전서', en: '1 Timothy', abbr: '1Ti', chapters: 6, testament: 'NT' },
-      { id: 55, ko: '디모데후서', en: '2 Timothy', abbr: '2Ti', chapters: 4, testament: 'NT' },
-      { id: 56, ko: '디도서', en: 'Titus', abbr: 'Tit', chapters: 3, testament: 'NT' },
-      { id: 57, ko: '빌레몬서', en: 'Philemon', abbr: 'Phm', chapters: 1, testament: 'NT' },
-      { id: 58, ko: '히브리서', en: 'Hebrews', abbr: 'Heb', chapters: 13, testament: 'NT' },
-      { id: 59, ko: '야고보서', en: 'James', abbr: 'Jam', chapters: 5, testament: 'NT' },
-      { id: 60, ko: '베드로전서', en: '1 Peter', abbr: '1Pe', chapters: 5, testament: 'NT' },
-      { id: 61, ko: '베드로후서', en: '2 Peter', abbr: '2Pe', chapters: 3, testament: 'NT' },
-      { id: 62, ko: '요한1서', en: '1 John', abbr: '1Jo', chapters: 5, testament: 'NT' },
-      { id: 63, ko: '요한2서', en: '2 John', abbr: '2Jo', chapters: 1, testament: 'NT' },
-      { id: 64, ko: '요한3서', en: '3 John', abbr: '3Jo', chapters: 1, testament: 'NT' },
-      { id: 65, ko: '유다서', en: 'Jude', abbr: 'Jud', chapters: 1, testament: 'NT' },
-      { id: 66, ko: '요한계시록', en: 'Revelation', abbr: 'Rev', chapters: 22, testament: 'NT' },
+      {id:1,ko:'창세기',en:'Genesis',ch:50,t:'OT'},{id:2,ko:'출애굽기',en:'Exodus',ch:40,t:'OT'},
+      {id:3,ko:'레위기',en:'Leviticus',ch:27,t:'OT'},{id:4,ko:'민수기',en:'Numbers',ch:36,t:'OT'},
+      {id:5,ko:'신명기',en:'Deuteronomy',ch:34,t:'OT'},{id:6,ko:'여호수아',en:'Joshua',ch:24,t:'OT'},
+      {id:7,ko:'사사기',en:'Judges',ch:21,t:'OT'},{id:8,ko:'룻기',en:'Ruth',ch:4,t:'OT'},
+      {id:9,ko:'사무엘상',en:'1 Samuel',ch:31,t:'OT'},{id:10,ko:'사무엘하',en:'2 Samuel',ch:24,t:'OT'},
+      {id:11,ko:'열왕기상',en:'1 Kings',ch:22,t:'OT'},{id:12,ko:'열왕기하',en:'2 Kings',ch:25,t:'OT'},
+      {id:13,ko:'역대상',en:'1 Chronicles',ch:29,t:'OT'},{id:14,ko:'역대하',en:'2 Chronicles',ch:36,t:'OT'},
+      {id:15,ko:'에스라',en:'Ezra',ch:10,t:'OT'},{id:16,ko:'느헤미야',en:'Nehemiah',ch:13,t:'OT'},
+      {id:17,ko:'에스더',en:'Esther',ch:10,t:'OT'},{id:18,ko:'욥기',en:'Job',ch:42,t:'OT'},
+      {id:19,ko:'시편',en:'Psalms',ch:150,t:'OT'},{id:20,ko:'잠언',en:'Proverbs',ch:31,t:'OT'},
+      {id:21,ko:'전도서',en:'Ecclesiastes',ch:12,t:'OT'},{id:22,ko:'아가',en:'Song of Solomon',ch:8,t:'OT'},
+      {id:23,ko:'이사야',en:'Isaiah',ch:66,t:'OT'},{id:24,ko:'예레미야',en:'Jeremiah',ch:52,t:'OT'},
+      {id:25,ko:'예레미야애가',en:'Lamentations',ch:5,t:'OT'},{id:26,ko:'에스겔',en:'Ezekiel',ch:48,t:'OT'},
+      {id:27,ko:'다니엘',en:'Daniel',ch:12,t:'OT'},{id:28,ko:'호세아',en:'Hosea',ch:14,t:'OT'},
+      {id:29,ko:'요엘',en:'Joel',ch:3,t:'OT'},{id:30,ko:'아모스',en:'Amos',ch:9,t:'OT'},
+      {id:31,ko:'오바댜',en:'Obadiah',ch:1,t:'OT'},{id:32,ko:'요나',en:'Jonah',ch:4,t:'OT'},
+      {id:33,ko:'미가',en:'Micah',ch:7,t:'OT'},{id:34,ko:'나훔',en:'Nahum',ch:3,t:'OT'},
+      {id:35,ko:'하박국',en:'Habakkuk',ch:3,t:'OT'},{id:36,ko:'스바냐',en:'Zephaniah',ch:3,t:'OT'},
+      {id:37,ko:'학개',en:'Haggai',ch:2,t:'OT'},{id:38,ko:'스가랴',en:'Zechariah',ch:14,t:'OT'},
+      {id:39,ko:'말라기',en:'Malachi',ch:4,t:'OT'},
+      {id:40,ko:'마태복음',en:'Matthew',ch:28,t:'NT'},{id:41,ko:'마가복음',en:'Mark',ch:16,t:'NT'},
+      {id:42,ko:'누가복음',en:'Luke',ch:24,t:'NT'},{id:43,ko:'요한복음',en:'John',ch:21,t:'NT'},
+      {id:44,ko:'사도행전',en:'Acts',ch:28,t:'NT'},{id:45,ko:'로마서',en:'Romans',ch:16,t:'NT'},
+      {id:46,ko:'고린도전서',en:'1 Corinthians',ch:16,t:'NT'},{id:47,ko:'고린도후서',en:'2 Corinthians',ch:13,t:'NT'},
+      {id:48,ko:'갈라디아서',en:'Galatians',ch:6,t:'NT'},{id:49,ko:'에베소서',en:'Ephesians',ch:6,t:'NT'},
+      {id:50,ko:'빌립보서',en:'Philippians',ch:4,t:'NT'},{id:51,ko:'골로새서',en:'Colossians',ch:4,t:'NT'},
+      {id:52,ko:'데살로니가전서',en:'1 Thessalonians',ch:5,t:'NT'},{id:53,ko:'데살로니가후서',en:'2 Thessalonians',ch:3,t:'NT'},
+      {id:54,ko:'디모데전서',en:'1 Timothy',ch:6,t:'NT'},{id:55,ko:'디모데후서',en:'2 Timothy',ch:4,t:'NT'},
+      {id:56,ko:'디도서',en:'Titus',ch:3,t:'NT'},{id:57,ko:'빌레몬서',en:'Philemon',ch:1,t:'NT'},
+      {id:58,ko:'히브리서',en:'Hebrews',ch:13,t:'NT'},{id:59,ko:'야고보서',en:'James',ch:5,t:'NT'},
+      {id:60,ko:'베드로전서',en:'1 Peter',ch:5,t:'NT'},{id:61,ko:'베드로후서',en:'2 Peter',ch:3,t:'NT'},
+      {id:62,ko:'요한1서',en:'1 John',ch:5,t:'NT'},{id:63,ko:'요한2서',en:'2 John',ch:1,t:'NT'},
+      {id:64,ko:'요한3서',en:'3 John',ch:1,t:'NT'},{id:65,ko:'유다서',en:'Jude',ch:1,t:'NT'},
+      {id:66,ko:'요한계시록',en:'Revelation',ch:22,t:'NT'},
     ];
 
     // ============================================================
     // State
     // ============================================================
-    let state = {
-      bookId: 1,
-      chapter: 1,
-      highlightedVerse: null,
+    let state = { bookId: 1, chapter: 1 };
+    let currentUser = null;
+    let highlights = {}; // { verse: color }
+    let soapData = { S: '', O: '', A: '', P: '' };
+    let currentSoapTab = 'S';
+    let calYear, calMonth;
+    let pickerVerse = null;
+
+    const SOAP_HINTS = {
+      S: '오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.',
+      O: '본문을 관찰하세요. 누가, 무엇을, 왜? 반복되는 단어나 대조는?',
+      A: '이 말씀을 내 삶에 어떻게 적용할 수 있을까요?',
+      P: '말씀을 통해 느낀 것을 기도로 올려드리세요.',
     };
 
     // ============================================================
-    // API Layer — bolls.life (free, CORS-friendly, multi-language)
+    // Auth
+    // ============================================================
+    async function checkAuth() {
+      try {
+        const res = await fetch('/api/me');
+        const data = await res.json();
+        if (!data.loggedIn) {
+          window.location.href = '/login.html';
+          return false;
+        }
+        currentUser = data.user;
+        document.getElementById('userAvatar').src = currentUser.avatar || '';
+        document.getElementById('userMenuName').textContent = currentUser.name + ' (' + currentUser.email + ')';
+        return true;
+      } catch (err) {
+        window.location.href = '/login.html';
+        return false;
+      }
+    }
+
+    // User menu
+    document.getElementById('userProfile').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('userMenu').classList.toggle('open');
+    });
+    document.addEventListener('click', () => {
+      document.getElementById('userMenu').classList.remove('open');
+    });
+
+    // Account deletion
+    function showDeleteConfirm() {
+      document.getElementById('userMenu').classList.remove('open');
+      document.getElementById('deleteModal').classList.add('open');
+    }
+    function closeDeleteModal() {
+      document.getElementById('deleteModal').classList.remove('open');
+    }
+    async function deleteAccount() {
+      try {
+        await fetch('/api/account', { method: 'DELETE' });
+        window.location.href = '/login.html';
+      } catch (err) {
+        alert('계정 삭제에 실패했습니다.');
+      }
+    }
+
+    // ============================================================
+    // Bible API
     // ============================================================
     const API_BASE = 'https://bolls.life';
+    const TR = { korean: 'KRV', kjv: 'KJV', web: 'WEB', hebrew: 'WLC', greek: 'TISCH' };
 
-    // Translation codes for bolls.life
-    const TRANSLATIONS = {
-      korean: 'KRV',     // 개역한글
-      kjv: 'KJV',        // King James
-      web: 'WEB',        // World English Bible
-      hebrew: 'WLC',     // Westminster Leningrad Codex (Hebrew OT)
-      greek: 'TISCH',    // Tischendorf Greek NT
-    };
-
-    async function fetchChapter(translationCode, bookId, chapter) {
-      const url = `${API_BASE}/get-chapter/${translationCode}/${bookId}/${chapter}/`;
+    async function fetchChapter(code, bookId, chapter) {
       try {
-        const res = await fetch(url);
+        const res = await fetch(`${API_BASE}/get-chapter/${code}/${bookId}/${chapter}/`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        return data; // Array of { pk, verse, text, ... }
+        return await res.json();
       } catch (err) {
-        console.error(`Failed to fetch ${translationCode} ${bookId}:${chapter}`, err);
+        console.error(`Fetch failed: ${code} ${bookId}:${chapter}`, err);
         return null;
       }
     }
 
-    // ============================================================
-    // Rendering
-    // ============================================================
-    function getBook() {
-      return BOOKS.find(b => b.id === state.bookId);
-    }
-
-    function cleanVerseText(text) {
-      // 1) HTML 태그 제거
+    function cleanText(text) {
       const tmp = document.createElement('div');
       tmp.innerHTML = text;
       let clean = tmp.textContent || tmp.innerText || '';
-      // 2) Strong's 번호 제거 (단어 뒤에 붙는 숫자: God430 → God)
       clean = clean.replace(/(\D)(\d{2,5})\b/g, '$1');
-      // 3) 독립된 숫자만 있는 경우 제거 (853 같은 접두사 번호)
       clean = clean.replace(/\s\d{2,5}(?=\s)/g, '');
       return clean.trim();
     }
 
+    // ============================================================
+    // Render
+    // ============================================================
+    function getBook() { return BOOKS.find(b => b.id === state.bookId); }
+
     function renderVerses(containerId, verses, lang) {
       const container = document.getElementById(containerId);
-      if (!verses) {
-        container.innerHTML = `<div class="error-msg">텍스트를 불러올 수 없습니다.<br>인터넷 연결을 확인해주세요.</div>`;
-        return;
-      }
-      if (verses.length === 0) {
-        container.innerHTML = `<div class="error-msg">해당 장의 데이터가 없습니다.</div>`;
-        return;
-      }
-
+      if (!verses) { container.innerHTML = '<div class="error-msg">텍스트를 불러올 수 없습니다.</div>'; return; }
+      if (!verses.length) { container.innerHTML = '<div class="error-msg">데이터가 없습니다.</div>'; return; }
       const book = getBook();
-      const isHebrew = lang === 'original' && book.testament === 'OT';
-
+      const isHebrew = lang === 'original' && book.t === 'OT';
       container.innerHTML = verses.map(v => {
-        const textClass = lang === 'original'
-          ? (isHebrew ? 'verse-text original hebrew' : 'verse-text original')
-          : 'verse-text';
-        const clean = cleanVerseText(v.text);
-        return `
-          <div class="verse" data-verse="${v.verse}" onclick="highlightVerse(${v.verse})">
-            <span class="verse-num">${v.verse}</span>
-            <span class="${textClass}">${clean}</span>
-          </div>`;
+        const cls = lang === 'original' ? (isHebrew ? 'verse-text original hebrew' : 'verse-text original') : 'verse-text';
+        const hlClass = highlights[v.verse] ? ` hl-${highlights[v.verse]}` : '';
+        return `<div class="verse${hlClass}" data-verse="${v.verse}" onclick="onVerseClick(event, ${v.verse})" oncontextmenu="onVerseRightClick(event, ${v.verse})">
+          <span class="verse-num">${v.verse}</span>
+          <span class="${cls}">${cleanText(v.text)}</span>
+        </div>`;
       }).join('');
     }
 
-    function highlightVerse(verseNum) {
-      // Remove previous highlights
+    function onVerseClick(e, verseNum) {
       document.querySelectorAll('.verse.synced').forEach(el => el.classList.remove('synced'));
-      // Add highlight to all columns for this verse
       document.querySelectorAll(`.verse[data-verse="${verseNum}"]`).forEach(el => {
         el.classList.add('synced');
-        // Scroll into view in each column
         el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
-      state.highlightedVerse = verseNum;
+    }
+
+    function onVerseRightClick(e, verseNum) {
+      e.preventDefault();
+      pickerVerse = verseNum;
+      const picker = document.getElementById('hlPicker');
+      picker.style.left = e.clientX + 'px';
+      picker.style.top = e.clientY + 'px';
+      picker.classList.add('open');
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.hl-picker')) {
+        document.getElementById('hlPicker').classList.remove('open');
+      }
+    });
+
+    async function applyHighlight(color) {
+      document.getElementById('hlPicker').classList.remove('open');
+      if (pickerVerse === null) return;
+      const verse = pickerVerse;
+      if (color) {
+        highlights[verse] = color;
+        await fetch('/api/highlights', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bookId: state.bookId, chapter: state.chapter, verse, color }),
+        });
+      } else {
+        delete highlights[verse];
+        await fetch(`/api/highlights/${state.bookId}/${state.chapter}/${verse}`, { method: 'DELETE' });
+      }
+      // Update UI
+      document.querySelectorAll(`.verse[data-verse="${verse}"]`).forEach(el => {
+        el.className = el.className.replace(/\shl-\w+/g, '');
+        if (color) el.classList.add(`hl-${color}`);
+      });
     }
 
     // ============================================================
@@ -649,43 +713,40 @@
     async function loadChapter() {
       const book = getBook();
       const ch = state.chapter;
-
-      // Update UI
       document.getElementById('currentBookName').textContent = `${book.ko} ${ch}장`;
 
-      // Update chapter selector
-      const chapterSelect = document.getElementById('chapterSelect');
-      chapterSelect.innerHTML = '';
-      for (let i = 1; i <= book.chapters; i++) {
-        const opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = `${i}장`;
-        if (i === ch) opt.selected = true;
-        chapterSelect.appendChild(opt);
+      const sel = document.getElementById('chapterSelect');
+      sel.innerHTML = '';
+      for (let i = 1; i <= book.ch; i++) {
+        const o = document.createElement('option');
+        o.value = i; o.textContent = `${i}장`;
+        if (i === ch) o.selected = true;
+        sel.appendChild(o);
       }
-
-      // Update nav buttons
       document.getElementById('prevChapter').disabled = (state.bookId === 1 && ch === 1);
-      document.getElementById('nextChapter').disabled = (state.bookId === 66 && ch === book.chapters);
+      document.getElementById('nextChapter').disabled = (state.bookId === 66 && ch === book.ch);
 
-      // Update original language header
-      const isOT = book.testament === 'OT';
+      const isOT = book.t === 'OT';
       document.getElementById('origLangTitle').textContent = isOT ? '히브리어' : '그리스어';
       document.getElementById('origLabel').textContent = isOT ? 'WLC (Hebrew)' : 'Tischendorf (Greek)';
 
-      // Show loading
-      ['korColumn', 'engColumn', 'origColumn'].forEach(id => {
+      ['korColumn','engColumn','origColumn'].forEach(id => {
         document.getElementById(id).innerHTML = '<div class="loading"><div class="spinner"></div><br>불러오는 중...</div>';
       });
 
-      // Determine translations
-      const korCode = TRANSLATIONS.korean;
-      const engCode = TRANSLATIONS[document.getElementById('engVersion').value] || TRANSLATIONS.kjv;
-      const origCode = isOT ? TRANSLATIONS.hebrew : TRANSLATIONS.greek;
+      const engCode = TR[document.getElementById('engVersion').value] || TR.kjv;
+      const origCode = isOT ? TR.hebrew : TR.greek;
 
-      // Fetch all three in parallel
+      // Load highlights for this chapter
+      try {
+        const hlRes = await fetch(`/api/highlights/${book.id}/${ch}`);
+        const hlData = await hlRes.json();
+        highlights = {};
+        hlData.forEach(h => { highlights[h.verse] = h.color; });
+      } catch (e) { highlights = {}; }
+
       const [korData, engData, origData] = await Promise.all([
-        fetchChapter(korCode, book.id, ch),
+        fetchChapter(TR.korean, book.id, ch),
         fetchChapter(engCode, book.id, ch),
         fetchChapter(origCode, book.id, ch),
       ]);
@@ -694,31 +755,32 @@
       renderVerses('engColumn', engData, 'english');
       renderVerses('origColumn', origData, 'original');
 
-      // Save state to URL
       history.replaceState(null, '', `?book=${state.bookId}&ch=${state.chapter}`);
-
-      // Sync scroll across columns
       setupScrollSync();
+      loadNotes();
+
+      // Log QT for today
+      const today = getTodayStr();
+      fetch('/api/qt-log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ date: today, bookId: state.bookId, chapter: state.chapter }),
+      }).catch(() => {});
     }
 
     // ============================================================
     // Scroll Sync
     // ============================================================
     function setupScrollSync() {
-      const columns = ['korColumn', 'engColumn', 'origColumn'].map(id => document.getElementById(id));
-      let isSyncing = false;
-
-      columns.forEach(col => {
+      const cols = ['korColumn','engColumn','origColumn'].map(id => document.getElementById(id));
+      let syncing = false;
+      cols.forEach(col => {
         col.addEventListener('scroll', () => {
-          if (isSyncing) return;
-          isSyncing = true;
-          const ratio = col.scrollTop / (col.scrollHeight - col.clientHeight || 1);
-          columns.forEach(other => {
-            if (other !== col) {
-              other.scrollTop = ratio * (other.scrollHeight - other.clientHeight);
-            }
-          });
-          requestAnimationFrame(() => { isSyncing = false; });
+          if (syncing) return;
+          syncing = true;
+          const r = col.scrollTop / (col.scrollHeight - col.clientHeight || 1);
+          cols.forEach(o => { if (o !== col) o.scrollTop = r * (o.scrollHeight - o.clientHeight); });
+          requestAnimationFrame(() => { syncing = false; });
         });
       });
     }
@@ -727,160 +789,140 @@
     // Navigation
     // ============================================================
     function goToBook(bookId, chapter = 1) {
-      state.bookId = bookId;
-      state.chapter = chapter;
-      closeBookModal();
+      state.bookId = bookId; state.chapter = chapter;
+      document.getElementById('bookModal').classList.remove('open');
       loadChapter();
     }
-
     function prevChapter() {
       const book = getBook();
-      if (state.chapter > 1) {
-        state.chapter--;
-      } else {
-        // Go to previous book's last chapter
-        const prevBook = BOOKS.find(b => b.id === state.bookId - 1);
-        if (prevBook) {
-          state.bookId = prevBook.id;
-          state.chapter = prevBook.chapters;
-        }
-      }
+      if (state.chapter > 1) state.chapter--;
+      else { const p = BOOKS.find(b => b.id === state.bookId - 1); if (p) { state.bookId = p.id; state.chapter = p.ch; } }
       loadChapter();
     }
-
     function nextChapter() {
       const book = getBook();
-      if (state.chapter < book.chapters) {
-        state.chapter++;
-      } else {
-        // Go to next book's first chapter
-        const nextBook = BOOKS.find(b => b.id === state.bookId + 1);
-        if (nextBook) {
-          state.bookId = nextBook.id;
-          state.chapter = 1;
-        }
-      }
+      if (state.chapter < book.ch) state.chapter++;
+      else { const n = BOOKS.find(b => b.id === state.bookId + 1); if (n) { state.bookId = n.id; state.chapter = 1; } }
       loadChapter();
     }
-
-    // ============================================================
-    // Book Modal
-    // ============================================================
     function openBookModal() {
-      const modal = document.getElementById('bookModal');
-      const otGrid = document.getElementById('otBooks');
-      const ntGrid = document.getElementById('ntBooks');
-
-      otGrid.innerHTML = BOOKS.filter(b => b.testament === 'OT').map(b =>
-        `<button class="book-btn ${b.id === state.bookId ? 'active' : ''}"
-                 onclick="goToBook(${b.id})">${b.ko}</button>`
-      ).join('');
-
-      ntGrid.innerHTML = BOOKS.filter(b => b.testament === 'NT').map(b =>
-        `<button class="book-btn ${b.id === state.bookId ? 'active' : ''}"
-                 onclick="goToBook(${b.id})">${b.ko}</button>`
-      ).join('');
-
-      modal.classList.add('open');
-    }
-
-    function closeBookModal() {
-      document.getElementById('bookModal').classList.remove('open');
+      const m = document.getElementById('bookModal');
+      document.getElementById('otBooks').innerHTML = BOOKS.filter(b=>b.t==='OT').map(b=>
+        `<button class="book-btn ${b.id===state.bookId?'active':''}" onclick="goToBook(${b.id})">${b.ko}</button>`).join('');
+      document.getElementById('ntBooks').innerHTML = BOOKS.filter(b=>b.t==='NT').map(b=>
+        `<button class="book-btn ${b.id===state.bookId?'active':''}" onclick="goToBook(${b.id})">${b.ko}</button>`).join('');
+      m.classList.add('open');
     }
 
     // ============================================================
-    // Auth
+    // SOAP Notes
     // ============================================================
-    let currentUser = null;
+    function getTodayStr() { return new Date().toISOString().slice(0, 10); }
 
-    async function checkAuth() {
-      try {
-        const res = await fetch('/api/me');
-        const data = await res.json();
-        if (data.loggedIn) {
-          currentUser = data.user;
-          renderUserProfile();
-        }
-      } catch (err) {
-        // Not logged in or server not available — guest mode
-      }
-    }
-
-    function renderUserProfile() {
-      const authArea = document.getElementById('authArea');
-      if (currentUser) {
-        authArea.innerHTML = `
-          <div class="user-profile">
-            <img class="user-avatar" src="${currentUser.avatar || ''}" alt="" referrerpolicy="no-referrer">
-            <span class="user-name">${currentUser.name}</span>
-            <a href="/auth/logout" class="logout-btn">로그아웃</a>
-          </div>`;
-      }
-    }
-
-    // ============================================================
-    // QT Notes (localStorage fallback + server sync)
-    // ============================================================
-    function getNotesKey() {
-      return `qt-notes-${state.bookId}-${state.chapter}-${new Date().toISOString().slice(0, 10)}`;
-    }
-
-    function getTodayStr() {
-      return new Date().toISOString().slice(0, 10);
+    function switchSoapTab(tab) {
+      // Save current tab content
+      soapData[currentSoapTab] = document.getElementById('soapArea').value;
+      currentSoapTab = tab;
+      document.querySelectorAll('.soap-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      document.getElementById('soapArea').value = soapData[tab] || '';
+      document.getElementById('soapHint').textContent = SOAP_HINTS[tab];
     }
 
     async function loadNotes() {
-      const textarea = document.getElementById('qtNotesArea');
-      if (currentUser) {
-        try {
-          const res = await fetch(`/api/notes/${state.bookId}/${state.chapter}/${getTodayStr()}`);
-          const note = await res.json();
-          textarea.value = note?.content || '';
-          return;
-        } catch (err) { /* fall through to localStorage */ }
+      try {
+        const res = await fetch(`/api/notes/${state.bookId}/${state.chapter}/${getTodayStr()}`);
+        const note = await res.json();
+        if (note && note.content) {
+          try {
+            const parsed = JSON.parse(note.content);
+            soapData = { S: parsed.S || '', O: parsed.O || '', A: parsed.A || '', P: parsed.P || '' };
+          } catch (e) {
+            soapData = { S: note.content, O: '', A: '', P: '' };
+          }
+        } else {
+          soapData = { S: '', O: '', A: '', P: '' };
+        }
+      } catch (e) {
+        soapData = { S: '', O: '', A: '', P: '' };
       }
-      const saved = localStorage.getItem(getNotesKey());
-      textarea.value = saved || '';
+      document.getElementById('soapArea').value = soapData[currentSoapTab] || '';
     }
 
     async function saveNotes() {
-      const text = document.getElementById('qtNotesArea').value;
-      const btn = document.querySelector('.qt-notes-actions button');
-
-      // Always save to localStorage as backup
-      localStorage.setItem(getNotesKey(), text);
-
-      if (currentUser) {
-        try {
-          btn.textContent = '저장 중...';
-          await fetch('/api/notes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              bookId: state.bookId,
-              chapter: state.chapter,
-              date: getTodayStr(),
-              content: text,
-            }),
-          });
-          btn.textContent = '클라우드 저장됨!';
-        } catch (err) {
-          btn.textContent = '로컬 저장됨';
-        }
-      } else {
-        btn.textContent = '저장됨!';
+      soapData[currentSoapTab] = document.getElementById('soapArea').value;
+      const statusEl = document.getElementById('saveStatus');
+      try {
+        statusEl.textContent = '저장 중...';
+        await fetch('/api/notes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            bookId: state.bookId,
+            chapter: state.chapter,
+            date: getTodayStr(),
+            content: JSON.stringify(soapData),
+          }),
+        });
+        statusEl.textContent = '저장됨';
+      } catch (e) {
+        statusEl.textContent = '저장 실패';
       }
-      setTimeout(() => { btn.textContent = '저장'; }, 1500);
+      setTimeout(() => { statusEl.textContent = ''; }, 2000);
+    }
+
+    // ============================================================
+    // Calendar
+    // ============================================================
+    async function renderCalendar() {
+      const label = document.getElementById('calMonthLabel');
+      label.textContent = `${calYear}년 ${calMonth}월`;
+
+      let qtDates = [];
+      try {
+        const res = await fetch(`/api/qt-log?year=${calYear}&month=${calMonth}`);
+        qtDates = (await res.json()).map(r => new Date(r.log_date).getDate());
+      } catch (e) {}
+
+      const grid = document.getElementById('calendarGrid');
+      const days = ['일','월','화','수','목','금','토'];
+      let html = days.map(d => `<div class="calendar-day-header">${d}</div>`).join('');
+
+      const firstDay = new Date(calYear, calMonth - 1, 1).getDay();
+      const daysInMonth = new Date(calYear, calMonth, 0).getDate();
+      const today = new Date();
+      const isThisMonth = today.getFullYear() === calYear && today.getMonth() + 1 === calMonth;
+
+      for (let i = 0; i < firstDay; i++) html += '<div class="calendar-day empty"></div>';
+      for (let d = 1; d <= daysInMonth; d++) {
+        const hasQt = qtDates.includes(d);
+        const isToday = isThisMonth && d === today.getDate();
+        let cls = 'calendar-day';
+        if (hasQt) cls += ' has-qt';
+        if (isToday) cls += ' today';
+        html += `<div class="${cls}">${d}</div>`;
+      }
+      grid.innerHTML = html;
+
+      // Streak
+      const streak = qtDates.length;
+      document.getElementById('streakInfo').textContent =
+        streak > 0 ? `이번 달 ${streak}일 QT 완료` : '이번 달 아직 QT 기록이 없어요';
+    }
+
+    function changeCalMonth(delta) {
+      calMonth += delta;
+      if (calMonth > 12) { calMonth = 1; calYear++; }
+      if (calMonth < 1) { calMonth = 12; calYear--; }
+      renderCalendar();
     }
 
     // ============================================================
     // Theme
     // ============================================================
     function toggleTheme() {
-      const body = document.body;
-      const isDark = body.getAttribute('data-theme') === 'dark';
-      body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      document.getElementById('themeToggle').textContent = isDark ? '🌙' : '☀️';
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('themeToggle').innerHTML = isDark ? '&#127769;' : '&#9728;&#65039;';
       localStorage.setItem('qt-theme', isDark ? 'light' : 'dark');
     }
 
@@ -892,7 +934,7 @@
       if (e.key === 'ArrowLeft') { prevChapter(); e.preventDefault(); }
       if (e.key === 'ArrowRight') { nextChapter(); e.preventDefault(); }
       if (e.key === 'b' || e.key === 'B') { openBookModal(); e.preventDefault(); }
-      if (e.key === 'Escape') { closeBookModal(); }
+      if (e.key === 'Escape') { document.getElementById('bookModal').classList.remove('open'); }
     });
 
     // ============================================================
@@ -900,11 +942,13 @@
     // ============================================================
     document.getElementById('bookSelectorBtn').addEventListener('click', openBookModal);
     document.getElementById('bookModal').addEventListener('click', (e) => {
-      if (e.target === document.getElementById('bookModal')) closeBookModal();
+      if (e.target === document.getElementById('bookModal')) document.getElementById('bookModal').classList.remove('open');
+    });
+    document.getElementById('deleteModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('deleteModal')) closeDeleteModal();
     });
     document.getElementById('chapterSelect').addEventListener('change', (e) => {
-      state.chapter = parseInt(e.target.value);
-      loadChapter();
+      state.chapter = parseInt(e.target.value); loadChapter();
     });
     document.getElementById('prevChapter').addEventListener('click', prevChapter);
     document.getElementById('nextChapter').addEventListener('click', nextChapter);
@@ -914,29 +958,31 @@
     // ============================================================
     // Init
     // ============================================================
-    (function init() {
-      // Set date
-      const today = new Date();
-      document.getElementById('qtDate').textContent =
-        `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
-
-      // Restore theme
-      const savedTheme = localStorage.getItem('qt-theme');
-      if (savedTheme === 'dark') {
+    (async function init() {
+      // Theme
+      if (localStorage.getItem('qt-theme') === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
-        document.getElementById('themeToggle').textContent = '☀️';
+        document.getElementById('themeToggle').innerHTML = '&#9728;&#65039;';
       }
 
-      // Parse URL params
+      // Date
+      const today = new Date();
+      document.getElementById('qtDate').textContent = `${today.getFullYear()}년 ${today.getMonth()+1}월 ${today.getDate()}일`;
+      calYear = today.getFullYear();
+      calMonth = today.getMonth() + 1;
+
+      // URL params
       const params = new URLSearchParams(window.location.search);
       if (params.get('book')) state.bookId = parseInt(params.get('book'));
       if (params.get('ch')) state.chapter = parseInt(params.get('ch'));
 
+      // Auth check (redirects to login if not authenticated)
+      const loggedIn = await checkAuth();
+      if (!loggedIn) return;
+
       // Load
-      checkAuth().then(() => {
-        loadChapter();
-        loadNotes();
-      });
+      loadChapter();
+      renderCalendar();
     })();
   </script>
 </body>
