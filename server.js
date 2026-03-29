@@ -88,6 +88,46 @@ async function initDB() {
       UNIQUE(user_id, plan_type, day_num)
     );
   `);
+  // Community / Groups
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS groups (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(100) NOT NULL,
+      invite_code VARCHAR(20) UNIQUE NOT NULL,
+      owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      created_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS group_members (
+      id SERIAL PRIMARY KEY,
+      group_id INTEGER REFERENCES groups(id) ON DELETE CASCADE,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      joined_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(group_id, user_id)
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS shared_notes (
+      id SERIAL PRIMARY KEY,
+      group_id INTEGER REFERENCES groups(id) ON DELETE CASCADE,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      book_id INTEGER NOT NULL,
+      chapter INTEGER NOT NULL,
+      content TEXT,
+      created_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS note_reactions (
+      id SERIAL PRIMARY KEY,
+      note_id INTEGER REFERENCES shared_notes(id) ON DELETE CASCADE,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      emoji VARCHAR(10) DEFAULT 'pray',
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(note_id, user_id)
+    );
+  `);
   console.log('DB tables ready');
 }
 
@@ -425,6 +465,125 @@ app.delete('/api/plans/:planType', requireAuth, async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ error: 'Failed to delete plan' });
+  }
+});
+
+// ============================================================
+// Community / Groups API
+// ============================================================
+
+function generateCode() {
+  return Math.random().toString(36).substring(2, 8).toUpperCase();
+}
+
+// Create group
+app.post('/api/groups', requireAuth, async (req, res) => {
+  const { name } = req.body;
+  const code = generateCode();
+  try {
+    const result = await pool.query(
+      'INSERT INTO groups (name, invite_code, owner_id) VALUES ($1, $2, $3) RETURNING *',
+      [name, code, req.user.id]
+    );
+    const group = result.rows[0];
+    await pool.query(
+      'INSERT INTO group_members (group_id, user_id) VALUES ($1, $2)',
+      [group.id, req.user.id]
+    );
+    res.json(group);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create group' });
+  }
+});
+
+// Join group by invite code
+app.post('/api/groups/join', requireAuth, async (req, res) => {
+  const { code } = req.body;
+  try {
+    const g = await pool.query('SELECT * FROM groups WHERE invite_code = $1', [code.toUpperCase()]);
+    if (g.rows.length === 0) return res.status(404).json({ error: 'Group not found' });
+    await pool.query(
+      'INSERT INTO group_members (group_id, user_id) VALUES ($1, $2) ON CONFLICT DO NOTHING',
+      [g.rows[0].id, req.user.id]
+    );
+    res.json(g.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to join group' });
+  }
+});
+
+// My groups
+app.get('/api/groups', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT g.*, (SELECT COUNT(*) FROM group_members WHERE group_id = g.id) as member_count
+       FROM groups g JOIN group_members gm ON g.id = gm.group_id
+       WHERE gm.user_id = $1 ORDER BY g.created_at DESC`,
+      [req.user.id]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get groups' });
+  }
+});
+
+// Share note to group
+app.post('/api/groups/:groupId/share', requireAuth, async (req, res) => {
+  const { bookId, chapter, content } = req.body;
+  try {
+    const result = await pool.query(
+      'INSERT INTO shared_notes (group_id, user_id, book_id, chapter, content) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [req.params.groupId, req.user.id, bookId, chapter, content]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to share note' });
+  }
+});
+
+// Get group feed
+app.get('/api/groups/:groupId/feed', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT sn.*, u.name as user_name, u.avatar as user_avatar,
+        (SELECT COUNT(*) FROM note_reactions WHERE note_id = sn.id) as reaction_count,
+        (SELECT emoji FROM note_reactions WHERE note_id = sn.id AND user_id = $2) as my_reaction
+       FROM shared_notes sn JOIN users u ON sn.user_id = u.id
+       WHERE sn.group_id = $1
+       ORDER BY sn.created_at DESC LIMIT 50`,
+      [req.params.groupId, req.user.id]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get feed' });
+  }
+});
+
+// React to a shared note
+app.post('/api/reactions/:noteId', requireAuth, async (req, res) => {
+  const { emoji } = req.body;
+  try {
+    await pool.query(
+      `INSERT INTO note_reactions (note_id, user_id, emoji) VALUES ($1, $2, $3)
+       ON CONFLICT (note_id, user_id) DO UPDATE SET emoji = $3`,
+      [req.params.noteId, req.user.id, emoji || 'pray']
+    );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to react' });
+  }
+});
+
+// Leave group
+app.delete('/api/groups/:groupId/leave', requireAuth, async (req, res) => {
+  try {
+    await pool.query(
+      'DELETE FROM group_members WHERE group_id = $1 AND user_id = $2',
+      [req.params.groupId, req.user.id]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to leave group' });
   }
 });
 
