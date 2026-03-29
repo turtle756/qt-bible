@@ -592,6 +592,13 @@
       return BOOKS.find(b => b.id === state.bookId);
     }
 
+    function cleanVerseText(text) {
+      // API에서 오는 HTML 태그 제거 (strikethrough 등)
+      const tmp = document.createElement('div');
+      tmp.innerHTML = text;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
     function renderVerses(containerId, verses, lang) {
       const container = document.getElementById(containerId);
       if (!verses) {
@@ -610,10 +617,11 @@
         const textClass = lang === 'original'
           ? (isHebrew ? 'verse-text original hebrew' : 'verse-text original')
           : 'verse-text';
+        const clean = cleanVerseText(v.text);
         return `
           <div class="verse" data-verse="${v.verse}" onclick="highlightVerse(${v.verse})">
             <span class="verse-num">${v.verse}</span>
-            <span class="${textClass}">${v.text}</span>
+            <span class="${textClass}">${clean}</span>
           </div>`;
       }).join('');
     }
