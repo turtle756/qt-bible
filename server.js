@@ -9,6 +9,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Railway runs behind a reverse proxy
+app.set('trust proxy', 1);
+
 // ============================================================
 // PostgreSQL
 // ============================================================
@@ -133,9 +136,14 @@ app.get('/auth/google', passport.authenticate('google', {
 }));
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login.html' }),
+  passport.authenticate('google', { failureRedirect: '/login.html?error=auth_failed' }),
   (req, res) => res.redirect('/')
 );
+
+// Debug: check env on startup
+console.log('GOOGLE_CLIENT_ID set:', !!process.env.GOOGLE_CLIENT_ID);
+console.log('DATABASE_URL set:', !!process.env.DATABASE_URL);
+console.log('CALLBACK_URL:', process.env.CALLBACK_URL);
 
 app.get('/auth/logout', (req, res) => {
   req.logout(() => {
