@@ -731,7 +731,7 @@
     // Bible API
     // ============================================================
     const API_BASE = 'https://bolls.life';
-    const TR = { korean: 'KRV', kjv: 'KJV', web: 'WEB', hebrew: 'WLC', greek: 'TISCH' };
+    const TR = { korean: 'KRV', kjv: 'KJV', web: 'WEB', hebrew: 'WLCa', greek: 'TISCH' };
 
     async function fetchChapter(code, bookId, chapter) {
       try {
@@ -776,6 +776,46 @@
     // Fallback: auto-translate short_definition via mapping
     // ============================================================
     const KO_DICT = {
+      // Basic English words
+      'the':'그, 그것','a':'하나의','an':'하나의','and':'그리고, 와/과','or':'또는',
+      'but':'그러나','that':'그, 그것','this':'이것','these':'이것들','those':'그것들',
+      'which':'어느, 그것','who':'누구','whom':'누구를','what':'무엇','where':'어디',
+      'when':'언제','how':'어떻게','why':'왜','not':'아니다, ~않다','no':'아니오',
+      'is':'~이다','was':'~이었다','are':'~이다','were':'~이었다','be':'~이다',
+      'been':'~이었다','being':'~임','have':'가지다','has':'가지다','had':'가졌다',
+      'do':'하다','did':'했다','does':'하다','will':'~할 것이다','shall':'~할 것이다',
+      'would':'~할 것이다','should':'~해야 한다','may':'~할 수 있다','might':'~할 수 있다',
+      'can':'~할 수 있다','could':'~할 수 있다','must':'~해야 한다',
+      'i':'나','me':'나를','my':'나의','we':'우리','us':'우리를','our':'우리의',
+      'you':'너, 당신','your':'너의','he':'그','him':'그를','his':'그의',
+      'she':'그녀','her':'그녀의','it':'그것','its':'그것의','they':'그들','them':'그들을','their':'그들의',
+      'in':'~안에','on':'~위에','at':'~에서','to':'~에게, ~으로','from':'~에서부터',
+      'with':'~와 함께','by':'~에 의해','for':'~을 위해','of':'~의','into':'~안으로',
+      'upon':'~위에','before':'~앞에, ~전에','after':'~후에','over':'~위에, 넘어',
+      'under':'~아래에','between':'~사이에','through':'~을 통해','against':'~에 대항하여',
+      'up':'위로','down':'아래로','out':'밖으로','away':'멀리',
+      'all':'모든, 전부','every':'모든, 각각의','each':'각각','some':'어떤, 일부',
+      'any':'어떤','many':'많은','much':'많은','more':'더 많은','most':'가장 많은',
+      'other':'다른','another':'또 다른','such':'그러한','same':'같은',
+      'great':'큰, 위대한','little':'작은','old':'오래된, 늙은','new':'새로운',
+      'first':'첫째, 처음','last':'마지막','own':'자기 자신의','only':'오직, 유일한',
+      'also':'또한','then':'그때, 그러면','now':'이제, 지금','here':'여기','there':'거기',
+      'so':'그래서, 그렇게','very':'매우','even':'심지어, ~조차','still':'여전히',
+      'just':'단지, 바로','never':'결코 ~않다','always':'항상','again':'다시',
+      'too':'또한, 너무','yet':'아직','about':'~에 대해',
+      'let':'~하게 하다','put':'놓다, 두다','set':'놓다, 정하다','take':'취하다, 가져가다',
+      'get':'얻다','bring':'가져오다','send':'보내다','keep':'지키다',
+      'turn':'돌다, 돌리다','fall':'떨어지다','rise':'일어나다','open':'열다',
+      'close':'닫다','break':'깨뜨리다','build':'세우다, 짓다',
+      'speak':'말하다','tell':'말하다, 알리다','ask':'묻다','answer':'대답하다',
+      'think':'생각하다','remember':'기억하다','forget':'잊다',
+      'live':'살다','die':'죽다','kill':'죽이다','destroy':'멸하다, 파괴하다',
+      'fight':'싸우다','win':'이기다','lose':'잃다',
+      'place':'장소','time':'때, 시간','thing':'것, 물건','part':'부분',
+      'number':'수, 숫자','side':'편, 옆','end':'끝','world':'세상, 세계',
+      'among':'~가운데','toward':'~을 향하여','without':'~없이','within':'~안에',
+      'according':'~에 따라','because':'~때문에','therefore':'그러므로',
+      'neither':'~도 아닌','nor':'~도 아닌',
       // Common biblical terms English → Korean
       'god':'하나님, 신','lord':'주, 주님','jesus':'예수','christ':'그리스도, 기름부음 받은 자',
       'spirit':'영, 영혼, 성령','holy':'거룩한, 성스러운','heaven':'하늘, 천국','earth':'땅, 세상',
@@ -892,10 +932,17 @@
       }
 
       // Korean meaning (the star of the show)
-      html += `<div class="strongs-korean-meaning">
-        <span class="label">한국어 뜻</span>
-        ${korMeaning || entry.short_definition || ''}
-      </div>`;
+      if (korMeaning) {
+        html += `<div class="strongs-korean-meaning">
+          <span class="label">한국어 뜻</span>
+          ${korMeaning}
+        </div>`;
+      } else {
+        html += `<div class="strongs-korean-meaning" style="border-left-color:var(--text-secondary);">
+          <span class="label">영어 뜻 (한국어 미등록)</span>
+          ${entry.short_definition || ''}
+        </div>`;
+      }
 
       // Original language section
       if (fromLang === 'english') {
