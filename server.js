@@ -194,7 +194,7 @@ app.get('/api/notes', requireAuth, async (req, res) => {
 // ============================================================
 // Fallback - serve index.html for SPA
 // ============================================================
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
