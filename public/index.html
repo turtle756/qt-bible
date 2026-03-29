@@ -1290,17 +1290,43 @@
       'wrong':'그릇된','young':'젊은',
     };
 
-    function getKoreanMeaning(englishWord, shortDef) {
-      // Try exact match first
+    // Strong's 번호 기반 한국어 사전 (strongs-ko.json에서 로드)
+    let STRONGS_KO = {};
+
+    async function loadStrongsKoDict() {
+      try {
+        const res = await fetch('/strongs-ko.json');
+        STRONGS_KO = await res.json();
+        delete STRONGS_KO._meta;
+        console.log(`Strong's 한국어 사전 로드: ${Object.keys(STRONGS_KO).length}개 항목`);
+      } catch (e) {
+        console.error('Strong\'s 한국어 사전 로드 실패:', e);
+      }
+    }
+
+    function getKoreanMeaning(englishWord, shortDef, strongsNum) {
+      // 1) Strong's 번호로 직접 조회 (가장 정확)
+      if (strongsNum && STRONGS_KO[strongsNum]) {
+        return STRONGS_KO[strongsNum].ko;
+      }
+      // 2) 영어 단어로 KO_DICT 폴백
       const lower = (englishWord || '').toLowerCase().replace(/[^a-z]/g, '');
       if (KO_DICT[lower]) return KO_DICT[lower];
-      // Try short definition words
+      // 3) short_definition 단어로 KO_DICT 폴백
       if (shortDef) {
         const words = shortDef.toLowerCase().split(/[\s,;]+/);
         for (const w of words) {
           const clean = w.replace(/[^a-z]/g, '');
           if (KO_DICT[clean]) return KO_DICT[clean];
         }
+      }
+      return null;
+    }
+
+    // Strong's 번호로 신학적 노트 가져오기
+    function getStrongsNote(strongsNum) {
+      if (strongsNum && STRONGS_KO[strongsNum] && STRONGS_KO[strongsNum].note) {
+        return STRONGS_KO[strongsNum].note;
       }
       return null;
     }
@@ -1345,7 +1371,8 @@
     function renderStrongsPopup(entry, strongsNum, clickedWord, fromLang) {
       const content = document.getElementById('strongsContent');
       const isHeb = strongsNum.startsWith('H');
-      const korMeaning = getKoreanMeaning(clickedWord, entry.short_definition);
+      const korMeaning = getKoreanMeaning(clickedWord, entry.short_definition, strongsNum);
+      const theNote = getStrongsNote(strongsNum);
 
       let html = `<span class="strongs-num">${strongsNum}</span>`;
 
@@ -1369,6 +1396,13 @@
         html += `<div class="strongs-korean-meaning" style="border-left-color:var(--text-secondary);opacity:0.7;">
           <span class="label">한국어 뜻 (미등록)</span>
           <span style="font-size:0.8rem;">${entry.short_definition || ''}</span>
+        </div>`;
+      }
+
+      // Theological note
+      if (theNote) {
+        html += `<div style="font-size:0.75rem;color:var(--text-secondary);line-height:1.5;margin-bottom:8px;padding:6px 8px;background:var(--bg-primary);border-radius:6px;border-left:2px solid var(--accent);">
+          ${theNote}
         </div>`;
       }
 
@@ -1506,7 +1540,7 @@
           const num = prefix + match[2];
           const entry = strongsCache[num];
           const translit = entry?.transliteration || '';
-          const meaning = getKoreanMeaning(word, entry?.short_definition) || entry?.short_definition || '';
+          const meaning = getKoreanMeaning(word, entry?.short_definition, num) || entry?.short_definition || '';
           words.push({ word, num, translit, meaning, isHeb });
         }
 
@@ -2219,6 +2253,9 @@
       // Auth check (redirects to login if not authenticated)
       const loggedIn = await checkAuth();
       if (!loggedIn) return;
+
+      // Load Strong's Korean dictionary
+      await loadStrongsKoDict();
 
       // Load
       loadChapter();
