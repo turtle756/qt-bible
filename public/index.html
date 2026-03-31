@@ -225,6 +225,40 @@
     .today-qt-btn.done { background: rgba(76,175,80,0.5); border-color: rgba(76,175,80,0.6); }
     .today-qt-hidden { display: none; }
 
+    /* Weekly QT List */
+    .weekly-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 0; font-size: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .weekly-item:last-child { border-bottom: none; }
+    .weekly-day { font-weight: 700; color: var(--accent); min-width: 42px; font-size: 0.72rem; }
+    .weekly-passage { flex: 1; color: var(--text-primary); }
+    .weekly-status { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; }
+    .weekly-status.done { background: #e8f5e9; color: #2e7d32; }
+    .weekly-status.today { background: var(--accent-light); color: var(--accent); font-weight: 700; }
+    .weekly-status.upcoming { background: var(--bg-primary); color: var(--text-secondary); }
+    .weekly-status.skipped { background: #fff3e0; color: #e65100; }
+    [data-theme="dark"] .weekly-status.done { background: #1b3a1b; }
+    [data-theme="dark"] .weekly-status.today { background: #2e2818; }
+    [data-theme="dark"] .weekly-status.skipped { background: #3a2a10; }
+
+    /* Skipped day prompt */
+    .skipped-prompt {
+      background: #fff3e0; border: 1px solid #ffe0b2;
+      border-radius: 12px; padding: 14px 16px;
+      margin-bottom: 12px; text-align: center;
+    }
+    .skipped-prompt p { font-size: 0.88rem; color: #e65100; margin-bottom: 10px; }
+    .skipped-prompt button {
+      padding: 8px 20px; border-radius: 8px; border: none;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer; margin: 0 4px;
+    }
+    .skipped-prompt .btn-resume { background: var(--accent); color: white; }
+    .skipped-prompt .btn-skip { background: #e0e0e0; color: #666; }
+    [data-theme="dark"] .skipped-prompt { background: #3a2a10; border-color: #5a3a10; }
+    [data-theme="dark"] .skipped-prompt p { color: #ffb74d; }
+
     /* QT Scripture Mini Viewer */
     #qtScriptureBody .qt-verse {
       padding: 4px 0;
@@ -878,17 +912,52 @@
       <!-- RIGHT: 기록 영역 -->
       <div class="qt-right">
 
-        <!-- 4. SOAP Notes -->
+        <!-- 4. Devotional Notes (adapts to maturity level) -->
         <div class="soap-card" id="soapPanel" style="margin-bottom:12px;">
-          <h3>SOAP 묵상 노트 — <span id="qtDate"></span></h3>
-          <div class="soap-tabs">
-            <button class="soap-tab active" data-tab="S" onclick="switchSoapTab('S')">S 말씀</button>
-            <button class="soap-tab" data-tab="O" onclick="switchSoapTab('O')">O 관찰</button>
-            <button class="soap-tab" data-tab="A" onclick="switchSoapTab('A')">A 적용</button>
-            <button class="soap-tab" data-tab="P" onclick="switchSoapTab('P')">P 기도</button>
+          <h3>묵상 노트 — <span id="qtDate"></span></h3>
+
+          <!-- Exploring: 자유 노트 -->
+          <div id="noteExploring" class="note-form" style="display:none;">
+            <div class="soap-hint">오늘 말씀을 읽으며 느낀 것을 자유롭게 적어보세요.</div>
+            <textarea class="soap-textarea" id="noteAreaExploring" placeholder="오늘 마음에 와닿은 것..."></textarea>
           </div>
-          <div class="soap-hint" id="soapHint">오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.</div>
-          <textarea class="soap-textarea" id="soapArea" placeholder="여기에 기록하세요..."></textarea>
+
+          <!-- Growing: SOAP 4탭 -->
+          <div id="noteGrowing" class="note-form" style="display:none;">
+            <div class="soap-tabs">
+              <button class="soap-tab active" onclick="switchNoteTab('growing','S')">S 말씀</button>
+              <button class="soap-tab" onclick="switchNoteTab('growing','O')">O 관찰</button>
+              <button class="soap-tab" onclick="switchNoteTab('growing','A')">A 적용</button>
+              <button class="soap-tab" onclick="switchNoteTab('growing','P')">P 기도</button>
+            </div>
+            <div class="soap-hint" id="noteHintGrowing">오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.</div>
+            <textarea class="soap-textarea" id="noteAreaGrowing" placeholder="여기에 기록하세요..."></textarea>
+          </div>
+
+          <!-- Close: 관찰/해석/적용 3탭 -->
+          <div id="noteClose" class="note-form" style="display:none;">
+            <div class="soap-tabs">
+              <button class="soap-tab active" onclick="switchNoteTab('close','관찰')">관찰</button>
+              <button class="soap-tab" onclick="switchNoteTab('close','해석')">해석</button>
+              <button class="soap-tab" onclick="switchNoteTab('close','적용')">적용</button>
+            </div>
+            <div class="soap-hint" id="noteHintClose">본문에서 발견한 사실을 기록하세요.</div>
+            <textarea class="soap-textarea" id="noteAreaClose" placeholder="여기에 기록하세요..."></textarea>
+          </div>
+
+          <!-- Centered: 렉시오 디비나 5탭 -->
+          <div id="noteCentered" class="note-form" style="display:none;">
+            <div class="soap-tabs">
+              <button class="soap-tab active" onclick="switchNoteTab('centered','읽기')">읽기</button>
+              <button class="soap-tab" onclick="switchNoteTab('centered','묵상')">묵상</button>
+              <button class="soap-tab" onclick="switchNoteTab('centered','기도')">기도</button>
+              <button class="soap-tab" onclick="switchNoteTab('centered','관상')">관상</button>
+              <button class="soap-tab" onclick="switchNoteTab('centered','실천')">실천</button>
+            </div>
+            <div class="soap-hint" id="noteHintCentered">천천히 읽으며 마음에 걸리는 부분을 기록하세요.</div>
+            <textarea class="soap-textarea" id="noteAreaCentered" placeholder="여기에 기록하세요..."></textarea>
+          </div>
+
           <div class="soap-actions">
             <span class="status" id="saveStatus"></span>
             <button class="save-btn" onclick="saveNotes()">저장</button>
@@ -905,6 +974,9 @@
           </div>
           <div class="calendar-grid" id="calendarGrid"></div>
           <div class="calendar-streak" id="streakInfo"></div>
+          <!-- Weekly QT List -->
+          <div id="weeklyQtList" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;"></div>
+
           <div id="calendarPlanInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
               <span id="calPlanTitle" style="font-weight:600;font-size:0.82rem;color:var(--accent);"></span>
@@ -2090,18 +2162,23 @@
     let qtGuideData = null;
     let currentGuideDay = null;
     let currentGuideTab = 'exploring';
+    let userMaturityLevel = 'exploring';
+    let noteData = {};  // {tab: text} for current level
+    let currentNoteTab = null;
 
     async function loadTodayQt() {
       try {
         const res = await fetch('/api/today-qt');
         const data = await res.json();
 
-        // Set maturity-based guide tab
+        // Set maturity-based guide tab + note form
         if (data.profile && data.profile.maturity_level) {
-          currentGuideTab = data.profile.maturity_level;
+          userMaturityLevel = data.profile.maturity_level;
+          currentGuideTab = userMaturityLevel;
           document.querySelectorAll('.qt-guide-tab').forEach(t => {
             t.classList.toggle('active', t.dataset.level === currentGuideTab);
           });
+          showNoteForm(userMaturityLevel);
         }
 
         if (!data.activePlan) {
@@ -2109,6 +2186,11 @@
           if (new URLSearchParams(window.location.search).has('test')) {
             loadQtGuide(1);
             loadQtScripture('요한복음 14:23-31');
+            showNoteForm('exploring');
+            // Show test banner
+            document.getElementById('todayQtBanner').style.display = 'block';
+            document.getElementById('todayQtPassage').textContent = '요한복음 14:23-31';
+            document.getElementById('todayQtFocus').textContent = '평안을 주시는 그리스도';
           }
           return;
         }
@@ -2139,11 +2221,23 @@
           btn.classList.add('done');
         }
 
+        // Check for skipped days (B: resume from where left off)
+        const lastCompleted = todayQtProgress.length > 0 ? Math.max(...todayQtProgress) : 0;
+        const expectedDay = lastCompleted + 1;
+        if (expectedDay < currentDay && !todayQtProgress.includes(expectedDay)) {
+          // Show skipped day prompt
+          const skippedEntry = planData.find(d => d.day === expectedDay) || todayEntry;
+          showSkippedPrompt(expectedDay, skippedEntry, todayEntry, currentDay);
+        }
+
         // Load scripture mini viewer
         loadQtScripture(todayEntry.passage);
 
         // Load QT guide data
         loadQtGuide(currentDay);
+
+        // Render weekly QT list
+        renderWeeklyQtList(planData, todayQtProgress, currentDay);
 
         // Update calendar plan info
         const completedDays = parseInt(todayQtPlan.completed_days || 0);
@@ -2257,6 +2351,106 @@
       }
 
       document.getElementById('qtGuideContent').innerHTML = html;
+    }
+
+    // ============================================================
+    // Note Form (maturity-based)
+    // ============================================================
+    const NOTE_HINTS = {
+      exploring: { default: '오늘 말씀을 읽으며 느낀 것을 자유롭게 적어보세요.' },
+      growing: { S: '오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.', O: '본문에서 관찰한 사실을 적어보세요.', A: '오늘 삶에 어떻게 적용할 수 있을까요?', P: '본문을 바탕으로 기도를 적어보세요.' },
+      close: { '관찰': '본문에서 발견한 사실을 기록하세요.', '해석': '이 말씀의 의미를 해석해보세요.', '적용': '삶에 어떤 변화를 가져올 수 있을까요?' },
+      centered: { '읽기': '천천히 읽으며 마음에 걸리는 부분을 기록하세요.', '묵상': '그 부분에 머무르며 떠오르는 생각을 적으세요.', '기도': '하나님께 솔직하게 반응하는 기도를 적으세요.', '관상': '침묵 속에서 경험한 것을 기록하세요.', '실천': '오늘 실천할 것을 적어보세요.' },
+    };
+
+    function showNoteForm(level) {
+      document.querySelectorAll('.note-form').forEach(f => f.style.display = 'none');
+      const formId = { exploring: 'noteExploring', growing: 'noteGrowing', close: 'noteClose', centered: 'noteCentered' }[level];
+      if (formId) document.getElementById(formId).style.display = 'block';
+      noteData = {};
+      const firstTab = { exploring: null, growing: 'S', close: '관찰', centered: '읽기' }[level];
+      if (firstTab) switchNoteTab(level, firstTab);
+    }
+
+    function switchNoteTab(level, tab) {
+      // Save current tab content
+      const areaId = { exploring: 'noteAreaExploring', growing: 'noteAreaGrowing', close: 'noteAreaClose', centered: 'noteAreaCentered' }[level];
+      const hintId = { growing: 'noteHintGrowing', close: 'noteHintClose', centered: 'noteHintCentered' }[level];
+      if (currentNoteTab && areaId) noteData[currentNoteTab] = document.getElementById(areaId).value;
+
+      currentNoteTab = tab;
+      if (areaId) document.getElementById(areaId).value = noteData[tab] || '';
+      if (hintId && NOTE_HINTS[level]) document.getElementById(hintId).textContent = NOTE_HINTS[level][tab] || '';
+
+      // Update active tab button
+      const formEl = document.getElementById({ exploring: 'noteExploring', growing: 'noteGrowing', close: 'noteClose', centered: 'noteCentered' }[level]);
+      if (formEl) formEl.querySelectorAll('.soap-tab').forEach(t => t.classList.toggle('active', t.textContent.includes(tab)));
+    }
+
+    // ============================================================
+    // Skipped Day Prompt
+    // ============================================================
+    function showSkippedPrompt(skippedDay, skippedEntry, currentEntry, currentDay) {
+      const banner = document.getElementById('todayQtBanner');
+      const prompt = document.createElement('div');
+      prompt.className = 'skipped-prompt';
+      prompt.innerHTML = `
+        <p>Day ${skippedDay}을 아직 완료하지 않았어요<br><strong>${skippedEntry.passage}</strong></p>
+        <button class="btn-resume" onclick="resumeSkipped(${skippedDay})">이어서 묵상하기</button>
+        <button class="btn-skip" onclick="skipDay(${skippedDay}, ${currentDay})">건너뛰기</button>
+      `;
+      banner.parentNode.insertBefore(prompt, banner);
+    }
+
+    function resumeSkipped(day) {
+      document.querySelector('.skipped-prompt')?.remove();
+      const planData = typeof todayQtPlan.plan_data === 'string'
+        ? JSON.parse(todayQtPlan.plan_data) : todayQtPlan.plan_data;
+      const entry = planData.find(d => d.day === day);
+      if (!entry) return;
+      document.getElementById('todayQtDay').textContent = `Day ${day} / ${todayQtPlan.duration}`;
+      document.getElementById('todayQtPassage').textContent = entry.passage;
+      document.getElementById('todayQtFocus').textContent = entry.focus;
+      loadQtScripture(entry.passage);
+      loadQtGuide(day);
+    }
+
+    async function skipDay(skippedDay, currentDay) {
+      document.querySelector('.skipped-prompt')?.remove();
+      // Mark skipped day as completed to move on
+      await fetch(`/api/custom-plans/${todayQtPlan.id}/progress`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dayNum: skippedDay }),
+      });
+      todayQtProgress.push(skippedDay);
+    }
+
+    // ============================================================
+    // Weekly QT List
+    // ============================================================
+    function renderWeeklyQtList(planData, progress, currentDay) {
+      const container = document.getElementById('weeklyQtList');
+      if (!planData || planData.length === 0) return;
+      container.style.display = 'block';
+
+      // Show 7 days around current day
+      const startDay = Math.max(1, currentDay - 2);
+      const endDay = Math.min(planData.length, startDay + 6);
+      const days = planData.filter(d => d.day >= startDay && d.day <= endDay);
+
+      container.innerHTML = `<div style="font-size:0.82rem;font-weight:600;color:var(--accent);margin-bottom:8px;">이번 주 QT</div>` +
+        days.map(d => {
+          let statusClass = 'upcoming', statusText = '예정';
+          if (progress.includes(d.day)) { statusClass = 'done'; statusText = '완료'; }
+          else if (d.day === currentDay) { statusClass = 'today'; statusText = '오늘'; }
+          else if (d.day < currentDay && !progress.includes(d.day)) { statusClass = 'skipped'; statusText = '미완료'; }
+          return `<div class="weekly-item">
+            <span class="weekly-day">Day ${d.day}</span>
+            <span class="weekly-passage">${d.passage}</span>
+            <span class="weekly-status ${statusClass}">${statusText}</span>
+          </div>`;
+        }).join('');
     }
 
     function goToTodayQt() {
