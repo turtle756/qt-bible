@@ -310,8 +310,13 @@ async function init() {
   if (!meRes.loggedIn) { window.location.href = '/login.html'; return; }
 
   // Check if already onboarded
-  const profile = await fetch('/api/onboarding').then(r => r.json());
-  if (profile) { window.location.href = '/'; return; }
+  try {
+    const obRes = await fetch('/api/onboarding');
+    if (obRes.ok) {
+      const profile = await obRes.json();
+      if (profile) { window.location.href = '/'; return; }
+    }
+  } catch (e) { /* continue */ }
 
   quizData = quizRes;
   topicsData = topicsRes;
@@ -537,24 +542,26 @@ async function finishOnboarding() {
 }
 
 async function startPlan() {
-  const firstTopic = selectedTopics[0] || '불안과 두려움 극복';
-  const matchedCurriculum = curriculaData.find(cur =>
-    firstTopic.includes(cur.topic.split('(')[0].trim().substring(0, 4))
-  ) || curriculaData[0];
+  try {
+    const firstTopic = selectedTopics[0] || '불안과 두려움 극복';
+    const matchedCurriculum = curriculaData.find(cur =>
+      firstTopic.includes(cur.topic.split('(')[0].trim().substring(0, 4))
+    ) || curriculaData[0];
 
-  if (matchedCurriculum) {
-    const planData = matchedCurriculum.plans['7day'] || [];
-    await fetch('/api/custom-plans', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        planName: matchedCurriculum.topic + ' - 7일',
-        topic: matchedCurriculum.topic,
-        duration: 7,
-        planData,
-      }),
-    });
-  }
+    if (matchedCurriculum) {
+      const planData = matchedCurriculum.plans['7day'] || [];
+      await fetch('/api/custom-plans', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          planName: matchedCurriculum.topic + ' - 7일',
+          topic: matchedCurriculum.topic,
+          duration: 7,
+          planData,
+        }),
+      });
+    }
+  } catch (e) { console.error('startPlan error:', e); }
   window.location.href = '/';
 }
 

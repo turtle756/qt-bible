@@ -2316,8 +2316,10 @@
       // Onboarding check - redirect if not completed
       try {
         const obRes = await fetch('/api/onboarding');
-        const obData = await obRes.json();
-        if (!obData) { window.location.href = '/onboarding.html'; return; }
+        if (obRes.ok) {
+          const obData = await obRes.json();
+          if (!obData) { window.location.href = '/onboarding.html'; return; }
+        }
       } catch (e) { /* continue if API fails */ }
 
       // Load Strong's Korean dictionary
