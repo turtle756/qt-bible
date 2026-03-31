@@ -125,6 +125,51 @@
 
     /* Main content */
     .main { max-width: 1600px; margin: 0 auto; padding: 12px; }
+
+    /* Today's QT Banner */
+    .today-qt-banner {
+      max-width: 1600px; margin: 8px auto 0; padding: 0 12px;
+    }
+    .today-qt-card {
+      background: linear-gradient(135deg, #6C63FF 0%, #8B83FF 100%);
+      border-radius: 14px;
+      padding: 18px 22px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .today-qt-card:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(108,99,255,0.3); }
+    [data-theme="dark"] .today-qt-card { background: linear-gradient(135deg, #4a4494 0%, #5c55a8 100%); }
+    .today-qt-left { display: flex; align-items: center; gap: 14px; }
+    .today-qt-day {
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .today-qt-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    .today-qt-info p { font-size: 0.8rem; opacity: 0.85; }
+    .today-qt-btn {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .today-qt-btn:hover { background: rgba(255,255,255,0.3); }
+    .today-qt-btn.done { background: rgba(76,175,80,0.5); border-color: rgba(76,175,80,0.6); }
+    .today-qt-hidden { display: none; }
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -622,6 +667,20 @@
     <button class="strongs-popup-close" onclick="closeStrongsPopup()">&times;</button>
     <div id="strongsContent">
       <div class="strongs-loading">불러오는 중...</div>
+    </div>
+  </div>
+
+  <!-- Today's QT Banner -->
+  <div class="today-qt-banner today-qt-hidden" id="todayQtBanner">
+    <div class="today-qt-card" id="todayQtCard" onclick="goToTodayQt()">
+      <div class="today-qt-left">
+        <div class="today-qt-day" id="todayQtDay">Day 1</div>
+        <div class="today-qt-info">
+          <h3 id="todayQtPassage">시편 23:1-6</h3>
+          <p id="todayQtFocus">목자이신 하나님의 완벽한 돌보심을 신뢰하라.</p>
+        </div>
+      </div>
+      <button class="today-qt-btn" id="todayQtBtn" onclick="event.stopPropagation(); completeTodayQt()">읽기 완료</button>
     </div>
   </div>
 
@@ -2254,6 +2313,13 @@
       const loggedIn = await checkAuth();
       if (!loggedIn) return;
 
+      // Onboarding check - redirect if not completed
+      try {
+        const obRes = await fetch('/api/onboarding');
+        const obData = await obRes.json();
+        if (!obData) { window.location.href = '/onboarding.html'; return; }
+      } catch (e) { /* continue if API fails */ }
+
       // Load Strong's Korean dictionary
       await loadStrongsKoDict();
 
@@ -2261,7 +2327,115 @@
       loadChapter();
       renderCalendar();
       loadPlans();
+      loadTodayQt();
     })();
+
+    // ============================================================
+    // Today's QT
+    // ============================================================
+    let todayQtPlan = null;
+    let todayQtProgress = [];
+
+    async function loadTodayQt() {
+      try {
+        const res = await fetch('/api/today-qt');
+        const data = await res.json();
+        if (!data.activePlan) return;
+
+        todayQtPlan = data.activePlan;
+        const planData = typeof todayQtPlan.plan_data === 'string'
+          ? JSON.parse(todayQtPlan.plan_data) : todayQtPlan.plan_data;
+
+        // Get progress
+        const progRes = await fetch(`/api/custom-plans/${todayQtPlan.id}/progress`);
+        todayQtProgress = await progRes.json();
+
+        const currentDay = todayQtPlan.current_day || 1;
+        const todayEntry = planData.find(d => d.day === currentDay) || planData[0];
+        if (!todayEntry) return;
+
+        const banner = document.getElementById('todayQtBanner');
+        banner.classList.remove('today-qt-hidden');
+        document.getElementById('todayQtDay').textContent =
+          `Day ${currentDay} / ${todayQtPlan.duration}`;
+        document.getElementById('todayQtPassage').textContent = todayEntry.passage;
+        document.getElementById('todayQtFocus').textContent = todayEntry.focus;
+
+        const btn = document.getElementById('todayQtBtn');
+        if (todayQtProgress.includes(currentDay)) {
+          btn.textContent = '완료됨';
+          btn.classList.add('done');
+        }
+      } catch (e) { console.error('loadTodayQt error:', e); }
+    }
+
+    function goToTodayQt() {
+      if (!todayQtPlan) return;
+      const planData = typeof todayQtPlan.plan_data === 'string'
+        ? JSON.parse(todayQtPlan.plan_data) : todayQtPlan.plan_data;
+      const currentDay = todayQtPlan.current_day || 1;
+      const entry = planData.find(d => d.day === currentDay) || planData[0];
+      if (!entry) return;
+
+      // Parse passage like "시편 23:1-6" or "빌립보서 4:4-9"
+      const match = entry.passage.match(/^(.+?)\s*(\d+):(.+)$/);
+      if (!match) return;
+      const bookName = match[1].trim();
+
+      // Find book ID by Korean name
+      const bookNames = [
+        '','창세기','출애굽기','레위기','민수기','신명기','여호수아','사사기','룻기',
+        '사무엘상','사무엘하','열왕기상','열왕기하','역대상','역대하','에스라','느헤미야','에스더',
+        '욥기','시편','잠언','전도서','아가','이사야','예레미야','예레미야애가','에스겔','다니엘',
+        '호세아','요엘','아모스','오바댜','요나','미가','나훔','하박국','스바냐','학개','스가랴','말라기',
+        '마태복음','마가복음','누가복음','요한복음','사도행전','로마서','고린도전서','고린도후서',
+        '갈라디아서','에베소서','빌립보서','골로새서','데살로니가전서','데살로니가후서',
+        '디모데전서','디모데후서','디도서','빌레몬서','히브리서','야고보서',
+        '베드로전서','베드로후서','요한일서','요한이서','요한삼서','유다서','요한계시록'
+      ];
+      const idx = bookNames.findIndex(n => n === bookName);
+      if (idx > 0) {
+        state.bookId = idx;
+        state.chapter = parseInt(match[2]);
+        document.getElementById('bookSelect').value = idx;
+        loadChapter();
+      }
+    }
+
+    async function completeTodayQt() {
+      if (!todayQtPlan) return;
+      const currentDay = todayQtPlan.current_day || 1;
+      if (todayQtProgress.includes(currentDay)) return;
+
+      await fetch(`/api/custom-plans/${todayQtPlan.id}/progress`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dayNum: currentDay }),
+      });
+
+      // Also log to QT calendar
+      const today = new Date().toISOString().split('T')[0];
+      await fetch('/api/qt-log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ date: today, bookId: state.bookId, chapter: state.chapter }),
+      });
+
+      const btn = document.getElementById('todayQtBtn');
+      btn.textContent = '완료됨';
+      btn.classList.add('done');
+      todayQtProgress.push(currentDay);
+
+      // Check if plan is fully completed
+      if (currentDay >= todayQtPlan.duration) {
+        setTimeout(() => { alert('축하합니다! 묵상 플랜을 완료했습니다.'); }, 300);
+      } else {
+        // Reload to show next day
+        setTimeout(() => loadTodayQt(), 500);
+      }
+
+      renderCalendar();
+    }
   </script>
 </body>
 </html>

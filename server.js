@@ -129,6 +129,45 @@ async function initDB() {
       UNIQUE(note_id, user_id)
     );
   `);
+  // Onboarding profiles
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS onboarding_profiles (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE UNIQUE,
+      maturity_level VARCHAR(20) NOT NULL,
+      total_score INTEGER NOT NULL,
+      motivation VARCHAR(50),
+      selected_topics TEXT[],
+      daily_amount VARCHAR(20) DEFAULT 'one_chapter',
+      parallel_reading BOOLEAN DEFAULT TRUE,
+      completed_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
+  // Custom QT plans
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS custom_plans (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      plan_name VARCHAR(200) NOT NULL,
+      topic VARCHAR(100) NOT NULL,
+      duration INTEGER NOT NULL,
+      plan_data JSONB NOT NULL,
+      current_day INTEGER DEFAULT 1,
+      started_at TIMESTAMP DEFAULT NOW(),
+      completed BOOLEAN DEFAULT FALSE
+    );
+  `);
+  // Topic progress tracking
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS topic_progress (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      plan_id INTEGER REFERENCES custom_plans(id) ON DELETE CASCADE,
+      day_num INTEGER NOT NULL,
+      completed_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(user_id, plan_id, day_num)
+    );
+  `);
   console.log('DB tables ready');
 }
 
@@ -585,6 +624,132 @@ app.delete('/api/groups/:groupId/leave', requireAuth, async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ error: 'Failed to leave group' });
+  }
+});
+
+// ============================================================
+// Onboarding & Personalized QT API
+// ============================================================
+
+// Save onboarding result
+app.post('/api/onboarding', requireAuth, async (req, res) => {
+  const { maturityLevel, totalScore, motivation, selectedTopics, dailyAmount, parallelReading } = req.body;
+  try {
+    const result = await pool.query(
+      `INSERT INTO onboarding_profiles (user_id, maturity_level, total_score, motivation, selected_topics, daily_amount, parallel_reading)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       ON CONFLICT (user_id)
+       DO UPDATE SET maturity_level = $2, total_score = $3, motivation = $4, selected_topics = $5, daily_amount = $6, parallel_reading = $7, completed_at = NOW()
+       RETURNING *`,
+      [req.user.id, maturityLevel, totalScore, motivation, selectedTopics || [], dailyAmount || 'one_chapter', parallelReading !== false]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error('Onboarding save error:', err);
+    res.status(500).json({ error: 'Failed to save onboarding' });
+  }
+});
+
+// Get onboarding profile
+app.get('/api/onboarding', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM onboarding_profiles WHERE user_id = $1',
+      [req.user.id]
+    );
+    res.json(result.rows[0] || null);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get onboarding' });
+  }
+});
+
+// Create a custom QT plan from topic
+app.post('/api/custom-plans', requireAuth, async (req, res) => {
+  const { planName, topic, duration, planData } = req.body;
+  try {
+    const result = await pool.query(
+      `INSERT INTO custom_plans (user_id, plan_name, topic, duration, plan_data)
+       VALUES ($1, $2, $3, $4, $5)
+       RETURNING *`,
+      [req.user.id, planName, topic, duration, JSON.stringify(planData)]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error('Create plan error:', err);
+    res.status(500).json({ error: 'Failed to create plan' });
+  }
+});
+
+// Get user's custom plans
+app.get('/api/custom-plans', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT cp.*,
+        (SELECT COUNT(*) FROM topic_progress WHERE plan_id = cp.id) as completed_days
+       FROM custom_plans cp WHERE cp.user_id = $1 ORDER BY cp.started_at DESC`,
+      [req.user.id]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get plans' });
+  }
+});
+
+// Mark a day completed in custom plan
+app.post('/api/custom-plans/:planId/progress', requireAuth, async (req, res) => {
+  const { dayNum } = req.body;
+  try {
+    await pool.query(
+      `INSERT INTO topic_progress (user_id, plan_id, day_num)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (user_id, plan_id, day_num) DO NOTHING`,
+      [req.user.id, req.params.planId, dayNum]
+    );
+    await pool.query(
+      `UPDATE custom_plans SET current_day = GREATEST(current_day, $2 + 1)
+       WHERE id = $1 AND user_id = $3`,
+      [req.params.planId, dayNum, req.user.id]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to save progress' });
+  }
+});
+
+// Get progress for a custom plan
+app.get('/api/custom-plans/:planId/progress', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT day_num FROM topic_progress WHERE user_id = $1 AND plan_id = $2 ORDER BY day_num',
+      [req.user.id, req.params.planId]
+    );
+    res.json(result.rows.map(r => r.day_num));
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get progress' });
+  }
+});
+
+// Get today's QT based on active plan
+app.get('/api/today-qt', requireAuth, async (req, res) => {
+  try {
+    const profile = await pool.query(
+      'SELECT * FROM onboarding_profiles WHERE user_id = $1',
+      [req.user.id]
+    );
+    const activePlan = await pool.query(
+      `SELECT cp.*,
+        (SELECT COUNT(*) FROM topic_progress WHERE plan_id = cp.id) as completed_days
+       FROM custom_plans cp
+       WHERE cp.user_id = $1 AND cp.completed = FALSE
+       ORDER BY cp.started_at DESC LIMIT 1`,
+      [req.user.id]
+    );
+    res.json({
+      profile: profile.rows[0] || null,
+      activePlan: activePlan.rows[0] || null,
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get today QT' });
   }
 });
 
