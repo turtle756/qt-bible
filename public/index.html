@@ -156,6 +156,28 @@
       body { padding-bottom: 52px; }
     }
 
+    /* QT Tab 2-column layout */
+    .qt-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 16px;
+      align-items: start;
+    }
+    .qt-right {
+      position: sticky;
+      top: 60px;
+    }
+    @media (max-width: 900px) {
+      .qt-layout {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+      }
+      .qt-right { position: static; }
+    }
+
     .main { max-width: 1600px; margin: 0 auto; padding: 12px; }
 
     /* Today's QT Banner */
@@ -809,85 +831,92 @@
 
   <!-- ===== TAB: QT (메인) ===== -->
   <div class="tab-content active" id="tabQt">
-    <div style="max-width:800px;margin:0 auto;padding:12px;">
+    <div class="qt-layout">
 
-    <!-- 1. Today's QT Banner -->
-    <div class="today-qt-banner" id="todayQtBanner" style="padding:0;margin-bottom:12px;display:none;">
-      <div class="today-qt-card" id="todayQtCard">
-        <div class="today-qt-left">
-          <div class="today-qt-day" id="todayQtDay">Day 1</div>
-          <div class="today-qt-info">
-            <h3 id="todayQtPassage">오늘의 말씀</h3>
-            <p id="todayQtFocus">온보딩을 완료하면 맞춤 QT가 시작됩니다.</p>
+      <!-- LEFT: 읽기 영역 -->
+      <div class="qt-left">
+
+        <!-- 1. Today's QT Banner -->
+        <div class="today-qt-banner" id="todayQtBanner" style="padding:0;margin-bottom:12px;display:none;">
+          <div class="today-qt-card" id="todayQtCard">
+            <div class="today-qt-left">
+              <div class="today-qt-day" id="todayQtDay">Day 1</div>
+              <div class="today-qt-info">
+                <h3 id="todayQtPassage">오늘의 말씀</h3>
+                <p id="todayQtFocus">온보딩을 완료하면 맞춤 QT가 시작됩니다.</p>
+              </div>
+            </div>
+            <button class="today-qt-btn" id="todayQtBtn" onclick="completeTodayQt()">읽기 완료</button>
           </div>
         </div>
-        <button class="today-qt-btn" id="todayQtBtn" onclick="completeTodayQt()">읽기 완료</button>
-      </div>
-    </div>
 
-    <!-- 2. Today's Scripture Mini Viewer -->
-    <div class="soap-card" id="qtScripturePanel" style="display:none;margin-bottom:12px;">
-      <h3 id="qtScriptureTitle" style="color:var(--accent);font-size:0.95rem;margin-bottom:10px;">오늘의 본문</h3>
-      <div id="qtScriptureBody" style="font-size:0.92rem;line-height:1.9;max-height:400px;overflow-y:auto;"></div>
-    </div>
-
-    <!-- 3. QT Guide Panel -->
-    <div class="qt-guide-panel" id="qtGuidePanel" style="padding:0;margin-bottom:12px;">
-      <div class="qt-guide-card">
-        <div class="qt-guide-tabs" id="qtGuideTabs">
-          <button class="qt-guide-tab active" data-level="exploring" onclick="switchGuideTab('exploring')">입문</button>
-          <button class="qt-guide-tab" data-level="growing" onclick="switchGuideTab('growing')">초급</button>
-          <button class="qt-guide-tab" data-level="close" onclick="switchGuideTab('close')">중급</button>
-          <button class="qt-guide-tab" data-level="centered" onclick="switchGuideTab('centered')">심화</button>
+        <!-- 2. Today's Scripture Mini Viewer -->
+        <div class="soap-card" id="qtScripturePanel" style="display:none;margin-bottom:12px;">
+          <h3 id="qtScriptureTitle" style="color:var(--accent);font-size:0.95rem;margin-bottom:10px;">오늘의 본문</h3>
+          <div id="qtScriptureBody" style="font-size:0.92rem;line-height:1.9;max-height:500px;overflow-y:auto;"></div>
         </div>
-        <div class="qt-guide-content" id="qtGuideContent">
-          <div style="text-align:center;color:var(--text-secondary);padding:30px 0;">
-            온보딩을 완료하면 맞춤 QT 가이드가 여기에 표시됩니다.
+
+        <!-- 3. QT Guide Panel -->
+        <div class="qt-guide-panel" id="qtGuidePanel" style="padding:0;margin-bottom:12px;">
+          <div class="qt-guide-card">
+            <div class="qt-guide-tabs" id="qtGuideTabs">
+              <button class="qt-guide-tab active" data-level="exploring" onclick="switchGuideTab('exploring')">입문</button>
+              <button class="qt-guide-tab" data-level="growing" onclick="switchGuideTab('growing')">초급</button>
+              <button class="qt-guide-tab" data-level="close" onclick="switchGuideTab('close')">중급</button>
+              <button class="qt-guide-tab" data-level="centered" onclick="switchGuideTab('centered')">심화</button>
+            </div>
+            <div class="qt-guide-content" id="qtGuideContent">
+              <div style="text-align:center;color:var(--text-secondary);padding:30px 0;">
+                온보딩을 완료하면 맞춤 QT 가이드가 여기에 표시됩니다.
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- 4. SOAP Notes -->
-    <div class="soap-card" id="soapPanel">
-      <h3>SOAP 묵상 노트 — <span id="qtDate"></span></h3>
-      <div class="soap-tabs">
-        <button class="soap-tab active" data-tab="S" onclick="switchSoapTab('S')">S 말씀</button>
-        <button class="soap-tab" data-tab="O" onclick="switchSoapTab('O')">O 관찰</button>
-        <button class="soap-tab" data-tab="A" onclick="switchSoapTab('A')">A 적용</button>
-        <button class="soap-tab" data-tab="P" onclick="switchSoapTab('P')">P 기도</button>
-      </div>
-      <div class="soap-hint" id="soapHint">오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.</div>
-      <textarea class="soap-textarea" id="soapArea" placeholder="여기에 기록하세요..."></textarea>
-      <div class="soap-actions">
-        <span class="status" id="saveStatus"></span>
-        <button class="save-btn" onclick="saveNotes()">저장</button>
-      </div>
-    </div>
+      </div><!-- end qt-left -->
 
-    <!-- 5. Calendar -->
-    <div>
-      <div class="calendar-card">
-        <h3>QT 캘린더</h3>
-        <div class="calendar-nav">
-          <button onclick="changeCalMonth(-1)">&#9664;</button>
-          <span id="calMonthLabel"></span>
-          <button onclick="changeCalMonth(1)">&#9654;</button>
-        </div>
-        <div class="calendar-grid" id="calendarGrid"></div>
-        <div class="calendar-streak" id="streakInfo"></div>
-        <!-- QT Plan progress inside calendar -->
-        <div id="calendarPlanInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-            <span id="calPlanTitle" style="font-weight:600;font-size:0.82rem;color:var(--accent);"></span>
-            <span id="calPlanProgress" style="font-size:0.75rem;color:var(--text-secondary);"></span>
+      <!-- RIGHT: 기록 영역 -->
+      <div class="qt-right">
+
+        <!-- 4. SOAP Notes -->
+        <div class="soap-card" id="soapPanel" style="margin-bottom:12px;">
+          <h3>SOAP 묵상 노트 — <span id="qtDate"></span></h3>
+          <div class="soap-tabs">
+            <button class="soap-tab active" data-tab="S" onclick="switchSoapTab('S')">S 말씀</button>
+            <button class="soap-tab" data-tab="O" onclick="switchSoapTab('O')">O 관찰</button>
+            <button class="soap-tab" data-tab="A" onclick="switchSoapTab('A')">A 적용</button>
+            <button class="soap-tab" data-tab="P" onclick="switchSoapTab('P')">P 기도</button>
           </div>
-          <div style="background:var(--bg-primary);border-radius:8px;height:6px;overflow:hidden;">
-            <div id="calPlanBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
+          <div class="soap-hint" id="soapHint">오늘 읽은 본문에서 마음에 와닿는 구절을 기록하세요.</div>
+          <textarea class="soap-textarea" id="soapArea" placeholder="여기에 기록하세요..."></textarea>
+          <div class="soap-actions">
+            <span class="status" id="saveStatus"></span>
+            <button class="save-btn" onclick="saveNotes()">저장</button>
           </div>
         </div>
-      </div>
-    </div>
+
+        <!-- 5. Calendar -->
+        <div class="calendar-card">
+          <h3>QT 캘린더</h3>
+          <div class="calendar-nav">
+            <button onclick="changeCalMonth(-1)">&#9664;</button>
+            <span id="calMonthLabel"></span>
+            <button onclick="changeCalMonth(1)">&#9654;</button>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+          <div class="calendar-streak" id="streakInfo"></div>
+          <div id="calendarPlanInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span id="calPlanTitle" style="font-weight:600;font-size:0.82rem;color:var(--accent);"></span>
+              <span id="calPlanProgress" style="font-size:0.75rem;color:var(--text-secondary);"></span>
+            </div>
+            <div style="background:var(--bg-primary);border-radius:8px;height:6px;overflow:hidden;">
+              <div id="calPlanBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end qt-right -->
 
     </div>
   </div><!-- end tabQt -->
