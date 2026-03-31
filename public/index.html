@@ -861,36 +861,14 @@
         </div>
         <div class="calendar-grid" id="calendarGrid"></div>
         <div class="calendar-streak" id="streakInfo"></div>
-      </div>
-
-      <div class="calendar-card" style="margin-top:12px;">
-        <h3>읽기 계획</h3>
-        <div id="planArea">
-          <div id="planSelector">
-            <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:10px;">성경 통독 계획을 선택하세요</div>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('year1')">
-                <strong>1년 통독</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">365일 — 하루 3~4장</span>
-              </button>
-              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('nt90')">
-                <strong>신약 90일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">90일 — 하루 3장</span>
-              </button>
-              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('psalms30')">
-                <strong>시편 30일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">30일 — 하루 5편</span>
-              </button>
-            </div>
+        <!-- QT Plan progress inside calendar -->
+        <div id="calendarPlanInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span id="calPlanTitle" style="font-weight:600;font-size:0.82rem;color:var(--accent);"></span>
+            <span id="calPlanProgress" style="font-size:0.75rem;color:var(--text-secondary);"></span>
           </div>
-          <div id="planProgress" style="display:none;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-              <span id="planTitle" style="font-weight:600;font-size:0.85rem;"></span>
-              <button class="nav-btn" style="font-size:0.7rem;padding:3px 8px;color:#c0392b;" onclick="deletePlan()">중단</button>
-            </div>
-            <div style="background:var(--bg-primary);border-radius:8px;height:8px;margin-bottom:8px;overflow:hidden;">
-              <div id="planBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
-            </div>
-            <div id="planStats" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:10px;"></div>
-            <div id="planToday" style="background:var(--accent-light);border-radius:8px;padding:10px;"></div>
-            <button class="nav-btn" id="planCompleteBtn" style="width:100%;margin-top:8px;padding:8px;background:var(--accent);color:white;border-color:var(--accent);" onclick="completeTodayReading()">오늘 읽기 완료</button>
+          <div style="background:var(--bg-primary);border-radius:8px;height:6px;overflow:hidden;">
+            <div id="calPlanBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
           </div>
         </div>
       </div>
@@ -904,37 +882,12 @@
     <section class="bottom-section" style="display:block;">
     <div>
 
-    <!-- Community Panel -->
-    <div class="soap-card" id="commPanel">
-      <h3>나눔 게시판</h3>
-      <div id="commArea">
-        <!-- No groups: show create/join -->
-        <div id="commNoGroup">
-          <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:10px;">소그룹에서 묵상을 나누세요</div>
-          <div style="display:flex;gap:6px;margin-bottom:10px;">
-            <input type="text" id="groupNameInput" placeholder="그룹 이름" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;">
-            <button class="nav-btn" style="padding:8px 14px;" onclick="createGroup()">만들기</button>
-          </div>
-          <div style="display:flex;gap:6px;">
-            <input type="text" id="inviteCodeInput" placeholder="초대 코드" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;text-transform:uppercase;">
-            <button class="nav-btn" style="padding:8px 14px;" onclick="joinGroup()">참여</button>
-          </div>
-        </div>
-        <!-- Has groups -->
-        <div id="commGroupView" style="display:none;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <select id="groupSelect" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;background:var(--bg-primary);color:var(--text-primary);font-size:0.85rem;font-family:'Noto Sans KR',sans-serif;"></select>
-            <span id="groupCode" style="font-size:0.7rem;color:var(--text-secondary);margin-left:8px;cursor:pointer;" title="클릭하여 복사"></span>
-          </div>
-          <!-- Share current SOAP -->
-          <button class="nav-btn" style="width:100%;padding:8px;margin-bottom:10px;background:var(--accent);color:white;border-color:var(--accent);" onclick="shareToGroup()">현재 묵상 공유하기</button>
-          <!-- Feed -->
-          <div id="groupFeed" style="max-height:300px;overflow-y:auto;"></div>
-          <div style="display:flex;gap:6px;margin-top:8px;">
-            <button class="nav-btn" style="font-size:0.7rem;padding:3px 8px;" onclick="showJoinCreate()">+ 그룹 추가</button>
-            <button class="nav-btn" style="font-size:0.7rem;padding:3px 8px;color:#c0392b;" onclick="leaveGroup()">나가기</button>
-          </div>
-        </div>
+    <!-- 나눔 게시판 (준비 중) -->
+    <div class="soap-card">
+      <h3>나눔</h3>
+      <div style="text-align:center;color:var(--text-secondary);padding:40px 0;">
+        <p style="font-size:1.2rem;margin-bottom:8px;">준비 중입니다</p>
+        <p style="font-size:0.85rem;">익명 묵상 나눔과 기도제목을 나눌 수 있는<br>게시판이 곧 열립니다.</p>
       </div>
     </div>
     </div>
@@ -1983,9 +1936,7 @@
     // Bottom Tab Switch
     // ============================================================
     function switchBottomTab(tab) {
-      document.getElementById('soapPanel').style.display = tab === 'soap' ? 'block' : 'none';
-      document.getElementById('commPanel').style.display = tab === 'community' ? 'block' : 'none';
-      if (tab === 'community') loadGroups();
+      // Legacy - no longer used
     }
 
     // ============================================================
@@ -1996,315 +1947,6 @@
       document.getElementById('tabBible').classList.toggle('active', tab === 'bible');
       document.getElementById('tabQt').classList.toggle('active', tab === 'qt');
       document.getElementById('tabShare').classList.toggle('active', tab === 'share');
-      if (tab === 'share') loadGroups();
-    }
-
-    // ============================================================
-    // Community
-    // ============================================================
-    let myGroups = [];
-    let activeGroupId = null;
-
-    async function loadGroups() {
-      try {
-        const res = await fetch('/api/groups');
-        myGroups = await res.json();
-        if (myGroups.length > 0) {
-          document.getElementById('commNoGroup').style.display = 'none';
-          document.getElementById('commGroupView').style.display = 'block';
-          const sel = document.getElementById('groupSelect');
-          sel.innerHTML = myGroups.map(g =>
-            `<option value="${g.id}">${g.name} (${g.member_count}명)</option>`
-          ).join('');
-          if (!activeGroupId) activeGroupId = myGroups[0].id;
-          sel.value = activeGroupId;
-          sel.onchange = () => { activeGroupId = parseInt(sel.value); loadGroupFeed(); updateGroupCode(); };
-          updateGroupCode();
-          loadGroupFeed();
-        } else {
-          document.getElementById('commNoGroup').style.display = 'block';
-          document.getElementById('commGroupView').style.display = 'none';
-        }
-      } catch (e) {}
-    }
-
-    function updateGroupCode() {
-      const g = myGroups.find(g => g.id === activeGroupId);
-      if (g) {
-        const codeEl = document.getElementById('groupCode');
-        codeEl.textContent = `초대코드: ${g.invite_code}`;
-        codeEl.onclick = () => {
-          navigator.clipboard.writeText(g.invite_code);
-          codeEl.textContent = '복사됨!';
-          setTimeout(() => { codeEl.textContent = `초대코드: ${g.invite_code}`; }, 1500);
-        };
-      }
-    }
-
-    async function createGroup() {
-      const name = document.getElementById('groupNameInput').value.trim();
-      if (!name) return;
-      try {
-        await fetch('/api/groups', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name }),
-        });
-        document.getElementById('groupNameInput').value = '';
-        loadGroups();
-      } catch (e) {}
-    }
-
-    async function joinGroup() {
-      const code = document.getElementById('inviteCodeInput').value.trim();
-      if (!code) return;
-      try {
-        const res = await fetch('/api/groups/join', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ code }),
-        });
-        if (!res.ok) { alert('유효하지 않은 초대 코드입니다.'); return; }
-        document.getElementById('inviteCodeInput').value = '';
-        loadGroups();
-      } catch (e) {}
-    }
-
-    function showJoinCreate() {
-      document.getElementById('commNoGroup').style.display = 'block';
-    }
-
-    async function shareToGroup() {
-      if (!activeGroupId) return;
-      soapData[currentSoapTab] = document.getElementById('soapArea').value;
-      const book = getBook();
-      const content = `[${book.ko} ${state.chapter}장] ${Object.entries(soapData).filter(([k,v])=>v).map(([k,v])=>`\n【${k}】${v}`).join('')}`;
-      try {
-        await fetch(`/api/groups/${activeGroupId}/share`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ bookId: state.bookId, chapter: state.chapter, content }),
-        });
-        loadGroupFeed();
-      } catch (e) {}
-    }
-
-    async function loadGroupFeed() {
-      if (!activeGroupId) return;
-      const feed = document.getElementById('groupFeed');
-      try {
-        const res = await fetch(`/api/groups/${activeGroupId}/feed`);
-        const notes = await res.json();
-        if (notes.length === 0) {
-          feed.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-secondary);font-size:0.85rem;">아직 공유된 묵상이 없습니다.</div>';
-          return;
-        }
-        feed.innerHTML = notes.map(n => {
-          const date = new Date(n.created_at).toLocaleDateString('ko-KR');
-          const reacted = n.my_reaction ? ' active' : '';
-          return `<div style="padding:10px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;background:var(--bg-primary);">
-            <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
-              <img src="${n.user_avatar || ''}" style="width:20px;height:20px;border-radius:50%;" referrerpolicy="no-referrer">
-              <span style="font-size:0.8rem;font-weight:600;">${n.user_name}</span>
-              <span style="font-size:0.7rem;color:var(--text-secondary);margin-left:auto;">${date}</span>
-            </div>
-            <div style="font-size:0.8rem;line-height:1.6;white-space:pre-wrap;color:var(--text-primary);">${n.content}</div>
-            <div style="margin-top:6px;display:flex;align-items:center;gap:8px;">
-              <button class="nav-btn${reacted}" style="font-size:0.7rem;padding:2px 8px;" onclick="reactToNote(${n.id})">
-                🙏 ${n.reaction_count || 0}
-              </button>
-            </div>
-          </div>`;
-        }).join('');
-      } catch (e) {
-        feed.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-secondary);">로딩 실패</div>';
-      }
-    }
-
-    async function reactToNote(noteId) {
-      try {
-        await fetch(`/api/reactions/${noteId}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ emoji: 'pray' }),
-        });
-        loadGroupFeed();
-      } catch (e) {}
-    }
-
-    async function leaveGroup() {
-      if (!activeGroupId) return;
-      if (!confirm('이 그룹에서 나가시겠습니까?')) return;
-      try {
-        await fetch(`/api/groups/${activeGroupId}/leave`, { method: 'DELETE' });
-        activeGroupId = null;
-        loadGroups();
-      } catch (e) {}
-    }
-
-    // ============================================================
-    // Reading Plans
-    // ============================================================
-    const READING_PLANS = {
-      year1: {
-        name: '1년 통독',
-        totalDays: 365,
-        schedule: generateYear1Plan(),
-      },
-      nt90: {
-        name: '신약 90일',
-        totalDays: 90,
-        schedule: generateNT90Plan(),
-      },
-      psalms30: {
-        name: '시편 30일',
-        totalDays: 30,
-        schedule: generatePsalms30Plan(),
-      },
-    };
-
-    function generateYear1Plan() {
-      // Full Bible in 365 days: ~3.3 chapters/day
-      const schedule = [];
-      let bookIdx = 0, ch = 1;
-      for (let day = 1; day <= 365; day++) {
-        const readings = [];
-        let chaptersToday = (day % 3 === 0) ? 4 : 3;
-        for (let c = 0; c < chaptersToday && bookIdx < BOOKS.length; c++) {
-          const book = BOOKS[bookIdx];
-          readings.push({ bookId: book.id, chapter: ch, label: `${book.ko} ${ch}장` });
-          ch++;
-          if (ch > book.ch) { bookIdx++; ch = 1; }
-        }
-        schedule.push(readings);
-      }
-      return schedule;
-    }
-
-    function generateNT90Plan() {
-      // NT (Matthew-Revelation) in 90 days: ~3 chapters/day
-      const ntBooks = BOOKS.filter(b => b.t === 'NT');
-      const schedule = [];
-      let bookIdx = 0, ch = 1;
-      for (let day = 1; day <= 90; day++) {
-        const readings = [];
-        let chaptersToday = 3;
-        for (let c = 0; c < chaptersToday && bookIdx < ntBooks.length; c++) {
-          const book = ntBooks[bookIdx];
-          readings.push({ bookId: book.id, chapter: ch, label: `${book.ko} ${ch}장` });
-          ch++;
-          if (ch > book.ch) { bookIdx++; ch = 1; }
-        }
-        if (readings.length > 0) schedule.push(readings);
-      }
-      return schedule;
-    }
-
-    function generatePsalms30Plan() {
-      // Psalms 150 chapters in 30 days: 5 per day
-      const schedule = [];
-      for (let day = 0; day < 30; day++) {
-        const readings = [];
-        for (let i = 0; i < 5; i++) {
-          const ch = day * 5 + i + 1;
-          if (ch <= 150) readings.push({ bookId: 19, chapter: ch, label: `시편 ${ch}편` });
-        }
-        schedule.push(readings);
-      }
-      return schedule;
-    }
-
-    let activePlan = null;
-    let planProgress = [];
-
-    async function loadPlans() {
-      try {
-        const res = await fetch('/api/plans');
-        const plans = await res.json();
-        if (plans.length > 0) {
-          activePlan = plans[0];
-          const progRes = await fetch(`/api/plans/progress/${activePlan.plan_type}`);
-          planProgress = await progRes.json();
-          renderActivePlan();
-        } else {
-          document.getElementById('planSelector').style.display = 'block';
-          document.getElementById('planProgress').style.display = 'none';
-        }
-      } catch (e) {}
-    }
-
-    async function startPlan(planType) {
-      try {
-        const res = await fetch('/api/plans', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planType }),
-        });
-        activePlan = await res.json();
-        planProgress = [];
-        renderActivePlan();
-      } catch (e) {}
-    }
-
-    function renderActivePlan() {
-      if (!activePlan) return;
-      const plan = READING_PLANS[activePlan.plan_type];
-      if (!plan) return;
-
-      document.getElementById('planSelector').style.display = 'none';
-      document.getElementById('planProgress').style.display = 'block';
-      document.getElementById('planTitle').textContent = plan.name;
-
-      const completedDays = planProgress.length;
-      const totalDays = plan.schedule.length;
-      const pct = Math.round((completedDays / totalDays) * 100);
-      document.getElementById('planBar').style.width = pct + '%';
-      document.getElementById('planStats').textContent = `${completedDays}/${totalDays}일 완료 (${pct}%)`;
-
-      // Today's reading
-      const todayIdx = completedDays; // next unread day (0-indexed)
-      const todayArea = document.getElementById('planToday');
-      const completeBtn = document.getElementById('planCompleteBtn');
-
-      if (todayIdx >= totalDays) {
-        todayArea.innerHTML = '<div style="text-align:center;font-size:0.9rem;color:var(--accent);font-weight:600;">통독 완료! 축하합니다!</div>';
-        completeBtn.style.display = 'none';
-      } else {
-        const readings = plan.schedule[todayIdx];
-        todayArea.innerHTML = `
-          <div style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:4px;">Day ${todayIdx + 1} 오늘 읽을 말씀</div>
-          ${readings.map(r =>
-            `<div style="font-size:0.85rem;cursor:pointer;padding:3px 0;color:var(--accent);" onclick="goToBook(${r.bookId},${r.chapter})">${r.label}</div>`
-          ).join('')}
-        `;
-        completeBtn.style.display = 'block';
-      }
-    }
-
-    async function completeTodayReading() {
-      if (!activePlan) return;
-      const dayNum = planProgress.length + 1;
-      try {
-        await fetch('/api/plans/progress', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planType: activePlan.plan_type, dayNum }),
-        });
-        planProgress.push(dayNum);
-        renderActivePlan();
-      } catch (e) {}
-    }
-
-    async function deletePlan() {
-      if (!activePlan) return;
-      if (!confirm('읽기 계획을 중단하시겠습니까? 진행 기록이 삭제됩니다.')) return;
-      try {
-        await fetch(`/api/plans/${activePlan.plan_type}`, { method: 'DELETE' });
-        activePlan = null;
-        planProgress = [];
-        document.getElementById('planSelector').style.display = 'block';
-        document.getElementById('planProgress').style.display = 'none';
-      } catch (e) {}
     }
 
     // ============================================================
@@ -2388,7 +2030,6 @@
       // Load
       loadChapter();
       renderCalendar();
-      loadPlans();
       loadTodayQt();
     })();
 
@@ -2440,6 +2081,14 @@
 
         // Load QT guide data
         loadQtGuide(currentDay);
+
+        // Update calendar plan info
+        const completedDays = parseInt(todayQtPlan.completed_days || 0);
+        const calPlanInfo = document.getElementById('calendarPlanInfo');
+        calPlanInfo.style.display = 'block';
+        document.getElementById('calPlanTitle').textContent = todayQtPlan.plan_name || todayQtPlan.topic;
+        document.getElementById('calPlanProgress').textContent = `${completedDays} / ${todayQtPlan.duration}일`;
+        document.getElementById('calPlanBar').style.width = Math.round(completedDays / todayQtPlan.duration * 100) + '%';
       } catch (e) { console.error('loadTodayQt error:', e); }
     }
 
