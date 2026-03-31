@@ -355,9 +355,7 @@ function renderQuizStep(c, idx) {
     </div>
     <div class="nav-row">
       <button class="btn-back ${idx === 0 ? 'hidden' : ''}" onclick="prevStep()">이전</button>
-      <button class="btn-next ${answers[q.id] ? 'active' : ''}" onclick="nextStep()">
-        ${idx === 11 ? '관심 주제 선택' : '다음'}
-      </button>
+      <span></span>
     </div>
   `;
 }
@@ -478,6 +476,14 @@ function renderResult(c) {
 function selectAnswer(qId, choiceId, score) {
   answers[qId] = { id: choiceId, score };
   render();
+  // Auto-advance after short delay
+  setTimeout(() => {
+    if (currentStep < 12) {
+      currentStep++;
+      render();
+      window.scrollTo(0, 0);
+    }
+  }, 350);
 }
 function toggleTopic(topic) {
   const idx = selectedTopics.indexOf(topic);
