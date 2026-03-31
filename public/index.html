@@ -124,6 +124,38 @@
     .user-menu-header { padding: 8px 16px; font-size: 0.8rem; color: var(--text-secondary); }
 
     /* Main content */
+    /* Main Tabs */
+    .main-tabs {
+      max-width: 1600px; margin: 0 auto;
+      display: flex; gap: 0;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 12px;
+    }
+    .main-tab {
+      flex: 1; padding: 12px 0;
+      text-align: center; font-size: 0.88rem; font-weight: 600;
+      color: var(--text-secondary); background: none; border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer; transition: all 0.15s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .main-tab:hover { color: var(--accent); }
+    .main-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    /* Mobile: bottom tabs */
+    @media (max-width: 768px) {
+      .main-tabs {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        z-index: 200; border-top: 1px solid var(--border);
+        border-bottom: none; padding: 0;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+      }
+      .main-tab { padding: 10px 0; font-size: 0.82rem; }
+      body { padding-bottom: 52px; }
+    }
+
     .main { max-width: 1600px; margin: 0 auto; padding: 12px; }
 
     /* Today's QT Banner */
@@ -688,6 +720,13 @@
     </div>
   </header>
 
+  <!-- Main Tab Navigation -->
+  <nav class="main-tabs" id="mainTabs">
+    <button class="main-tab active" data-tab="bible" onclick="switchMainTab('bible')">성경 읽기</button>
+    <button class="main-tab" data-tab="qt" onclick="switchMainTab('qt')">매일 QT</button>
+    <button class="main-tab" data-tab="share" onclick="switchMainTab('share')">나누기</button>
+  </nav>
+
   <!-- Book Selector Modal -->
   <div class="modal-overlay" id="bookModal">
     <div class="modal-content">
@@ -728,7 +767,10 @@
     </div>
   </div>
 
-  <!-- Today's QT Banner -->
+  <!-- ===== TAB: 성경 읽기 ===== -->
+  <div class="tab-content active" id="tabBible">
+
+  <!-- Today's QT Banner (visible in bible tab too as reminder) -->
   <div class="today-qt-banner today-qt-hidden" id="todayQtBanner">
     <div class="today-qt-card" id="todayQtCard" onclick="goToTodayQt()">
       <div class="today-qt-left">
@@ -780,16 +822,12 @@
       </div>
     </div>
   </main>
+  </div><!-- end tabBible -->
 
-  <!-- Bottom: SOAP Notes + Calendar -->
-  <section class="bottom-section">
-    <!-- Left panel: tabs for SOAP / Community -->
+  <!-- ===== TAB: 매일 QT ===== -->
+  <div class="tab-content" id="tabQt">
+    <section class="bottom-section" style="display:block;">
     <div>
-    <div style="display:flex;gap:4px;margin-bottom:10px;">
-      <button class="soap-tab active" id="tabSoap" onclick="switchBottomTab('soap')">SOAP 묵상</button>
-      <button class="soap-tab" id="tabAi" onclick="switchBottomTab('ai')">AI 도우미</button>
-      <button class="soap-tab" id="tabComm" onclick="switchBottomTab('community')">소그룹 나눔</button>
-    </div>
 
     <!-- SOAP Notes -->
     <div class="soap-card" id="soapPanel">
@@ -808,32 +846,17 @@
       </div>
     </div>
 
-    <!-- AI Devotional Panel -->
-    <div class="soap-card" id="aiPanel" style="display:none;">
-      <h3>AI 묵상 도우미</h3>
-      <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
-        <button class="nav-btn" onclick="askAI('background')" style="flex:1;min-width:80px;padding:10px 8px;text-align:center;">
-          <div style="font-size:0.75rem;">📖</div>
-          <div style="font-size:0.8rem;font-weight:600;">배경 설명</div>
-        </button>
-        <button class="nav-btn" onclick="askAI('questions')" style="flex:1;min-width:80px;padding:10px 8px;text-align:center;">
-          <div style="font-size:0.75rem;">❓</div>
-          <div style="font-size:0.8rem;font-weight:600;">묵상 질문</div>
-        </button>
-        <button class="nav-btn" onclick="askAI('explain')" style="flex:1;min-width:80px;padding:10px 8px;text-align:center;">
-          <div style="font-size:0.75rem;">🔤</div>
-          <div style="font-size:0.8rem;font-weight:600;">원어 뉘앙스</div>
-        </button>
-      </div>
-      <div id="aiResult" style="font-size:0.85rem;line-height:1.7;color:var(--text-primary);max-height:350px;overflow-y:auto;">
-        <div style="text-align:center;color:var(--text-secondary);padding:30px 0;">
-          위 버튼을 눌러 현재 읽고 있는 장에 대한<br>AI 묵상 도움을 받으세요.
-        </div>
-      </div>
     </div>
+    </section>
+  </div><!-- end tabQt -->
+
+  <!-- ===== TAB: 나누기 ===== -->
+  <div class="tab-content" id="tabShare">
+    <section class="bottom-section" style="display:block;">
+    <div>
 
     <!-- Community Panel -->
-    <div class="soap-card" id="commPanel" style="display:none;">
+    <div class="soap-card" id="commPanel">
       <h3>소그룹 나눔</h3>
       <div id="commArea">
         <!-- No groups: show create/join -->
@@ -916,7 +939,8 @@
         </div>
       </div>
     </div>
-  </section>
+    </section>
+  </div><!-- end tabShare -->
 
   <div class="shortcuts-hint">
     <kbd>←</kbd> <kbd>→</kbd> 이전/다음 장 &nbsp; <kbd>B</kbd> 성경 선택
@@ -1960,58 +1984,19 @@
     // ============================================================
     function switchBottomTab(tab) {
       document.getElementById('soapPanel').style.display = tab === 'soap' ? 'block' : 'none';
-      document.getElementById('aiPanel').style.display = tab === 'ai' ? 'block' : 'none';
       document.getElementById('commPanel').style.display = tab === 'community' ? 'block' : 'none';
-      document.getElementById('tabSoap').classList.toggle('active', tab === 'soap');
-      document.getElementById('tabAi').classList.toggle('active', tab === 'ai');
-      document.getElementById('tabComm').classList.toggle('active', tab === 'community');
       if (tab === 'community') loadGroups();
     }
 
     // ============================================================
-    // AI Devotional Helper
+    // Main Tab Switch
     // ============================================================
-    const aiCache = {};
-
-    async function askAI(mode) {
-      const book = getBook();
-      const cacheKey = `${book.id}-${state.chapter}-${mode}`;
-      const resultEl = document.getElementById('aiResult');
-
-      if (aiCache[cacheKey]) {
-        resultEl.innerHTML = formatAIResponse(aiCache[cacheKey]);
-        return;
-      }
-
-      resultEl.innerHTML = '<div style="text-align:center;padding:30px;"><div class="spinner" style="display:inline-block;width:20px;height:20px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;"></div><br><span style="color:var(--text-secondary);font-size:0.85rem;">AI가 분석 중...</span></div>';
-
-      try {
-        const res = await fetch('/api/ai/devotional', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ bookName: book.ko, chapter: state.chapter, mode }),
-        });
-        const data = await res.json();
-        if (data.content) {
-          aiCache[cacheKey] = data.content;
-          resultEl.innerHTML = formatAIResponse(data.content);
-        } else {
-          resultEl.innerHTML = '<div style="color:#c0392b;text-align:center;padding:20px;">AI 응답을 받지 못했습니다.</div>';
-        }
-      } catch (err) {
-        resultEl.innerHTML = '<div style="color:#c0392b;text-align:center;padding:20px;">AI 요청에 실패했습니다.</div>';
-      }
-    }
-
-    function formatAIResponse(text) {
-      // Simple markdown-like formatting
-      return text
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n\n/g, '</p><p style="margin-top:10px;">')
-        .replace(/\n(\d+\.\s)/g, '<br>$1')
-        .replace(/\n-\s/g, '<br>• ')
-        .replace(/\n/g, '<br>')
-        .replace(/^/, '<p>').replace(/$/, '</p>');
+    function switchMainTab(tab) {
+      document.querySelectorAll('.main-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      document.getElementById('tabBible').classList.toggle('active', tab === 'bible');
+      document.getElementById('tabQt').classList.toggle('active', tab === 'qt');
+      document.getElementById('tabShare').classList.toggle('active', tab === 'share');
+      if (tab === 'share') loadGroups();
     }
 
     // ============================================================
@@ -2392,7 +2377,7 @@
           const obRes = await fetch('/api/onboarding');
           if (obRes.ok) {
             const obData = await obRes.json();
-            if (!obData) { window.location.href = '/onboarding.html'; return; }
+            if (!obData) { window.location.href = '/onboarding'; return; }
           }
         } catch (e) { /* continue if API fails */ }
       }

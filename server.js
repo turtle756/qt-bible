@@ -789,6 +789,13 @@ app.post('/api/ai/devotional', requireAuth, async (req, res) => {
 });
 
 // ============================================================
+// Clean URL routes
+// ============================================================
+app.get('/onboarding', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'onboarding.html'));
+});
+
+// ============================================================
 // Fallback - serve index.html for SPA
 // ============================================================
 app.get('/{*path}', (req, res) => {
