@@ -64,6 +64,10 @@
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  @keyframes slideOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-40px); }
+  }
   .question-icon {
     width: 48px; height: 48px;
     background: var(--primary-bg);
@@ -475,15 +479,19 @@ function renderResult(c) {
 // ============================================================
 function selectAnswer(qId, choiceId, score) {
   answers[qId] = { id: choiceId, score };
+  // Show selected state, then slide out and advance
   render();
-  // Auto-advance after short delay
-  setTimeout(() => {
-    if (currentStep < 12) {
-      currentStep++;
-      render();
-      window.scrollTo(0, 0);
+  if (currentStep < 12) {
+    const card = document.querySelector('.question-card');
+    if (card) {
+      card.style.animation = 'slideOut 0.3s ease forwards';
+      card.addEventListener('animationend', () => {
+        currentStep++;
+        render();
+        window.scrollTo(0, 0);
+      }, { once: true });
     }
-  }, 350);
+  }
 }
 function toggleTopic(topic) {
   const idx = selectedTopics.indexOf(topic);
