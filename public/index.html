@@ -722,9 +722,9 @@
 
   <!-- Main Tab Navigation -->
   <nav class="main-tabs" id="mainTabs">
-    <button class="main-tab active" data-tab="bible" onclick="switchMainTab('bible')">성경 읽기</button>
-    <button class="main-tab" data-tab="qt" onclick="switchMainTab('qt')">매일 QT</button>
-    <button class="main-tab" data-tab="share" onclick="switchMainTab('share')">나누기</button>
+    <button class="main-tab active" data-tab="qt" onclick="switchMainTab('qt')">QT</button>
+    <button class="main-tab" data-tab="bible" onclick="switchMainTab('bible')">성경</button>
+    <button class="main-tab" data-tab="share" onclick="switchMainTab('share')">나눔</button>
   </nav>
 
   <!-- Book Selector Modal -->
@@ -767,8 +767,8 @@
     </div>
   </div>
 
-  <!-- ===== TAB: 성경 읽기 ===== -->
-  <div class="tab-content active" id="tabBible">
+  <!-- ===== TAB: 성경 ===== -->
+  <div class="tab-content" id="tabBible">
 
   <!-- Today's QT Banner (visible in bible tab too as reminder) -->
   <div class="today-qt-banner today-qt-hidden" id="todayQtBanner">
@@ -781,21 +781,6 @@
         </div>
       </div>
       <button class="today-qt-btn" id="todayQtBtn" onclick="event.stopPropagation(); completeTodayQt()">읽기 완료</button>
-    </div>
-  </div>
-
-  <!-- QT Guide Panel -->
-  <div class="qt-guide-panel today-qt-hidden" id="qtGuidePanel">
-    <div class="qt-guide-card">
-      <div class="qt-guide-tabs">
-        <button class="qt-guide-tab active" onclick="switchGuideTab('exploring')">입문</button>
-        <button class="qt-guide-tab" onclick="switchGuideTab('growing')">초급</button>
-        <button class="qt-guide-tab" onclick="switchGuideTab('close')">중급</button>
-        <button class="qt-guide-tab" onclick="switchGuideTab('centered')">심화</button>
-      </div>
-      <div class="qt-guide-content" id="qtGuideContent">
-        가이드를 불러오는 중...
-      </div>
     </div>
   </div>
 
@@ -824,10 +809,27 @@
   </main>
   </div><!-- end tabBible -->
 
-  <!-- ===== TAB: 매일 QT ===== -->
-  <div class="tab-content" id="tabQt">
+  <!-- ===== TAB: QT (메인) ===== -->
+  <div class="tab-content active" id="tabQt">
     <section class="bottom-section" style="display:block;">
     <div>
+
+    <!-- QT Guide Panel -->
+    <div class="qt-guide-panel" id="qtGuidePanel" style="padding:0;margin-bottom:12px;">
+      <div class="qt-guide-card">
+        <div class="qt-guide-tabs">
+          <button class="qt-guide-tab active" onclick="switchGuideTab('exploring')">입문</button>
+          <button class="qt-guide-tab" onclick="switchGuideTab('growing')">초급</button>
+          <button class="qt-guide-tab" onclick="switchGuideTab('close')">중급</button>
+          <button class="qt-guide-tab" onclick="switchGuideTab('centered')">심화</button>
+        </div>
+        <div class="qt-guide-content" id="qtGuideContent">
+          <div style="text-align:center;color:var(--text-secondary);padding:30px 0;">
+            온보딩을 완료하면 맞춤 QT 가이드가 여기에 표시됩니다.
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- SOAP Notes -->
     <div class="soap-card" id="soapPanel">
@@ -847,17 +849,64 @@
     </div>
 
     </div>
+
+    <!-- Calendar + Reading Plan (in QT tab) -->
+    <div>
+      <div class="calendar-card">
+        <h3>QT 캘린더</h3>
+        <div class="calendar-nav">
+          <button onclick="changeCalMonth(-1)">&#9664;</button>
+          <span id="calMonthLabel"></span>
+          <button onclick="changeCalMonth(1)">&#9654;</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+        <div class="calendar-streak" id="streakInfo"></div>
+      </div>
+
+      <div class="calendar-card" style="margin-top:12px;">
+        <h3>읽기 계획</h3>
+        <div id="planArea">
+          <div id="planSelector">
+            <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:10px;">성경 통독 계획을 선택하세요</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('year1')">
+                <strong>1년 통독</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">365일 — 하루 3~4장</span>
+              </button>
+              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('nt90')">
+                <strong>신약 90일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">90일 — 하루 3장</span>
+              </button>
+              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('psalms30')">
+                <strong>시편 30일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">30일 — 하루 5편</span>
+              </button>
+            </div>
+          </div>
+          <div id="planProgress" style="display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <span id="planTitle" style="font-weight:600;font-size:0.85rem;"></span>
+              <button class="nav-btn" style="font-size:0.7rem;padding:3px 8px;color:#c0392b;" onclick="deletePlan()">중단</button>
+            </div>
+            <div style="background:var(--bg-primary);border-radius:8px;height:8px;margin-bottom:8px;overflow:hidden;">
+              <div id="planBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
+            </div>
+            <div id="planStats" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:10px;"></div>
+            <div id="planToday" style="background:var(--accent-light);border-radius:8px;padding:10px;"></div>
+            <button class="nav-btn" id="planCompleteBtn" style="width:100%;margin-top:8px;padding:8px;background:var(--accent);color:white;border-color:var(--accent);" onclick="completeTodayReading()">오늘 읽기 완료</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     </section>
   </div><!-- end tabQt -->
 
-  <!-- ===== TAB: 나누기 ===== -->
+  <!-- ===== TAB: 나눔 ===== -->
   <div class="tab-content" id="tabShare">
     <section class="bottom-section" style="display:block;">
     <div>
 
     <!-- Community Panel -->
     <div class="soap-card" id="commPanel">
-      <h3>소그룹 나눔</h3>
+      <h3>나눔 게시판</h3>
       <div id="commArea">
         <!-- No groups: show create/join -->
         <div id="commNoGroup">
@@ -890,55 +939,6 @@
     </div>
     </div>
 
-    <!-- Right side: Calendar + Reading Plan stacked -->
-    <div>
-      <!-- Calendar -->
-      <div class="calendar-card">
-        <h3>QT 캘린더</h3>
-        <div class="calendar-nav">
-          <button onclick="changeCalMonth(-1)">&#9664;</button>
-          <span id="calMonthLabel"></span>
-          <button onclick="changeCalMonth(1)">&#9654;</button>
-        </div>
-        <div class="calendar-grid" id="calendarGrid"></div>
-        <div class="calendar-streak" id="streakInfo"></div>
-      </div>
-
-      <!-- Reading Plan -->
-      <div class="calendar-card" style="margin-top:12px;">
-        <h3>읽기 계획</h3>
-        <div id="planArea">
-          <!-- No plan: show plan selector -->
-          <div id="planSelector">
-            <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:10px;">성경 통독 계획을 선택하세요</div>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('year1')">
-                <strong>1년 통독</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">365일 — 하루 3~4장</span>
-              </button>
-              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('nt90')">
-                <strong>신약 90일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">90일 — 하루 3장</span>
-              </button>
-              <button class="nav-btn" style="text-align:left;padding:10px 12px;" onclick="startPlan('psalms30')">
-                <strong>시편 30일</strong><br><span style="font-size:0.75rem;color:var(--text-secondary);">30일 — 하루 5편</span>
-              </button>
-            </div>
-          </div>
-          <!-- Active plan: show progress -->
-          <div id="planProgress" style="display:none;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-              <span id="planTitle" style="font-weight:600;font-size:0.85rem;"></span>
-              <button class="nav-btn" style="font-size:0.7rem;padding:3px 8px;color:#c0392b;" onclick="deletePlan()">중단</button>
-            </div>
-            <div style="background:var(--bg-primary);border-radius:8px;height:8px;margin-bottom:8px;overflow:hidden;">
-              <div id="planBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
-            </div>
-            <div id="planStats" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:10px;"></div>
-            <div id="planToday" style="background:var(--accent-light);border-radius:8px;padding:10px;"></div>
-            <button class="nav-btn" id="planCompleteBtn" style="width:100%;margin-top:8px;padding:8px;background:var(--accent);color:white;border-color:var(--accent);" onclick="completeTodayReading()">오늘 읽기 완료</button>
-          </div>
-        </div>
-      </div>
-    </div>
     </section>
   </div><!-- end tabShare -->
 
@@ -2454,7 +2454,6 @@
 
         qtGuideData = guide;
         currentGuideDay = day;
-        document.getElementById('qtGuidePanel').classList.remove('today-qt-hidden');
         renderGuideTab(currentGuideTab);
       } catch (e) { console.error('loadQtGuide error:', e); }
     }
