@@ -5651,8 +5651,8 @@
     "note": "tsôʼn (tsone) — Original: צאון צאן o Transliteration: tsôn tseôn Phonetic: tsone BDB Definition : small cattle, sheep, sheep and goats, flock, flocks small cattle (usually of sheep and goats) of multitude (simile) "
   },
   "H6817": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "부르짖다, 도움을 외치다",
+    "note": "צָעַק (tsâʻaq) — Original: צעק Transliteration: tsâ‛aq Phonetic: tsaw-ak BDB Definition : to cry, cry out, call, cry for help (Qal) to cry, cry out (for help) to cry, cry out (in distress or need) to make outcry, clamour (Niphal) to be summoned (Piel) to cry aloud (in grief) (Hiphil) to call together Origin: a primitive root TWOT entry: 1947 Part(s) of speech: Verb"
   },
   "H6960": {
     "ko": "모으다",
@@ -6143,16 +6143,16 @@
     "note": "pâthach (paw-thakh') — Original: פּתח Transliteration: pâthach Phonetic: paw-thakh BDB Definition : to open (Qal) to open (Niphal) to be opened, be let loose, be thrown open (Piel) to free to loosen to open, open oneself ("
   },
   "H6779": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "싹이 나다, 자라나다",
+    "note": "צָמַח (tsâmach) — bear"
   },
   "H6845": {
     "ko": "귀히 여기다",
     "note": "tsâphan -- esteem"
   },
   "H6908": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "모으다, 집합시키다",
+    "note": "קָבַץ (qâbats) — assemble"
   },
   "H7114": {
     "ko": "짧게 하다, 수확하다",
@@ -6515,8 +6515,8 @@
     "note": "pâthal (paw-thal') — Original: פּתל Transliteration: pâthal Phonetic: paw-thal BDB Definition : to twist (Niphal) to be twisted to wrestle (Hithpael) to be twisted Origin: a primitive root TWOT entry: 1857 Part(s) of spe"
   },
   "H6743": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "형통하다, 성공하다",
+    "note": "צָלַח (tsâlach) — break out"
   },
   "H6776": {
     "ko": "이랑(면적 단위)",
@@ -6747,7 +6747,7 @@
     "note": "prósōpon — 얼굴, 외모, 모습; 1. the face a. the front of the human head b. countenance, look 1. the face so far forth as it is th..."
   },
   "G4862": {
-    "ko": "함께",
+    "ko": "함께, ~와 같이",
     "note": "sýn (soon) — 함께"
   },
   "G4990": {
@@ -6875,8 +6875,8 @@
     "note": "tsemer -- wool"
   },
   "H6828": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "북쪽, 북방",
+    "note": "צָפֹון (tsâphôwn) — north"
   },
   "H7205": {
     "ko": "르우벤",
@@ -32368,15 +32368,15 @@
     "note": "synkathízō (soong-kath-id'-zo) — 함께; 함께"
   },
   "G4777": {
-    "ko": "함께",
+    "ko": "함께 고난받다, 고난을 같이 당하다",
     "note": "synkakopathéō (soong-kak-op-ath-eh'-o) — 함께"
   },
   "G4778": {
-    "ko": "함께",
+    "ko": "함께 학대받다, 함께 고통받다",
     "note": "synkakouchéō (soong-kak-oo-kheh'-o) — 함께; 교제"
   },
   "G4779": {
-    "ko": "함께",
+    "ko": "함께 부르다, 소집하다",
     "note": "synkaléō (soong-kal-eh'-o) — 함께; 함께"
   },
   "G4780": {
@@ -32384,11 +32384,11 @@
     "note": "synkalýptō (soong-kal-oop'-to) — 덮다, 가리다"
   },
   "G4781": {
-    "ko": "함께",
+    "ko": "함께 구부리다, 굽히다",
     "note": "synkámptō (soong-kamp'-to) — 함께; 마음"
   },
   "G4782": {
-    "ko": "함께",
+    "ko": "함께 내려가다",
     "note": "synkatabaínō (soong-kat-ab-ah'-ee-no) — 함께"
   },
   "G4783": {
@@ -32400,15 +32400,15 @@
     "note": "synkatatíthemai (soong-kat-at-ith'-em-ahee) — 함께; 함께; 함께"
   },
   "G4785": {
-    "ko": "함께",
+    "ko": "함께 투표하다, 같은 수에 넣다",
     "note": "synkatapsēphízō (soong-kat-aps-ay-fid'-zo) — be depositing a ballot in the urn (i.e. by voting for) to assign one a place among, to vote one a place among; 함께"
   },
   "G4786": {
-    "ko": "함께",
+    "ko": "함께 섞다, 혼합하다",
     "note": "synkeránnymi (soong-ker-an'-noo-mee) — 함께; to unite"
   },
   "G4787": {
-    "ko": "함께",
+    "ko": "동요시키다, 선동하다",
     "note": "synkinéō (soong-kin-eh'-o) — 함께; to throw into commotion, excite, stir up"
   },
   "G4788": {
@@ -32420,7 +32420,7 @@
     "note": "synklēronómos (soong-klay-ron-om'-os) — 상속자; 함께"
   },
   "G4790": {
-    "ko": "함께",
+    "ko": "함께 참여하다, 동참하다",
     "note": "synkoinōnéō (soong-koy-no-neh'-o) — 교제"
   },
   "G4791": {
@@ -32432,11 +32432,11 @@
     "note": "synkomízō (soong-kom-id'-zo) — 함께; 함께"
   },
   "G4793": {
-    "ko": "함께",
+    "ko": "함께 판단하다, 비교하다, 해석하다",
     "note": "synkrínō (soong-kree'-no) — 함께; to interpret; to compare"
   },
   "G4794": {
-    "ko": "함께",
+    "ko": "함께 구부러지다, 몸을 굽히다",
     "note": "synkýptō (soong-koop'-to) — 함께"
   },
   "G4795": {
@@ -32448,11 +32448,11 @@
     "note": "synchaírō (soong-khah'-ee-ro) — 기쁨; 함께"
   },
   "G4797": {
-    "ko": "함께",
+    "ko": "혼란시키다, 당황하게 하다",
     "note": "synchéō (soong-kheh'-o) — 함께; 마음, 생각; to confound or bewilder"
   },
   "G4798": {
-    "ko": "함께",
+    "ko": "함께 사용하다, 교제하다",
     "note": "synchráomai (soong-khrah'-om-ahee) — 함께; 함께"
   },
   "G4799": {
@@ -32516,7 +32516,7 @@
     "note": "syláō (soo-lah'-o) — 빼앗다"
   },
   "G4814": {
-    "ko": "함께",
+    "ko": "함께 이야기하다, 대화하다",
     "note": "syllaléō (sool-lal-eh'-o) — 함께"
   },
   "G4815": {
@@ -32532,11 +32532,11 @@
     "note": "syllogízomai (sool-log-id'-zom-ahee) — 함께; 이성, 이유"
   },
   "G4818": {
-    "ko": "함께",
+    "ko": "함께 슬퍼하다, 같이 근심하다",
     "note": "syllypéō (sool-loop-eh'-o) — 함께; 함께"
   },
   "G4819": {
-    "ko": "함께",
+    "ko": "함께 일어나다, 동시에 발생하다",
     "note": "symbaínō (soom-bah'-ee-no) — 함께; 함께; of things which fall out at the same time, to happen, turn out, come to pass"
   },
   "G4820": {
@@ -32548,7 +32548,7 @@
     "note": "symbasileúō (soom-bas-il-yoo'-o) — 함께; 나라, 왕국"
   },
   "G4822": {
-    "ko": "함께",
+    "ko": "함께 묶다, 결합하다, 가르치다",
     "note": "symbibázō (soom-bib-ad'-zo) — 함께; 마음, 생각; 귀신"
   },
   "G4823": {
@@ -32576,7 +32576,7 @@
     "note": "symmartyréō (soom-mar-too-reh'-o) — 증인"
   },
   "G4829": {
-    "ko": "함께",
+    "ko": "함께 나누다, 분배에 참여하다",
     "note": "symmerízomai (soom-mer-id'-zom-ahee) — 함께; to assign a portion; 함께"
   },
   "G4830": {
@@ -32584,7 +32584,7 @@
     "note": "symmétochos (soom-met'-okh-os) — 왕"
   },
   "G4831": {
-    "ko": "함께",
+    "ko": "함께 본받다, 동일하게 모방하다",
     "note": "symmimētḗs (soom-mim-ay-tace') — an imitator of others"
   },
   "G4832": {
@@ -32608,19 +32608,19 @@
     "note": "symparagínomai (soom-par-ag-in'-om-ahee) — 함께; to come to ones help"
   },
   "G4837": {
-    "ko": "함께",
+    "ko": "함께 위로하다, 서로 격려하다",
     "note": "symparakaléō (soom-par-ak-al-eh'-o) — 함께; 힘"
   },
   "G4838": {
-    "ko": "함께",
+    "ko": "함께 데려가다, 동행하다",
     "note": "symparalambánō (soom-par-al-am-ban'-o) — 함께; 함께"
   },
   "G4839": {
-    "ko": "함께",
+    "ko": "함께 머물다, 계속 함께하다",
     "note": "symparaménō (soom-par-am-en'-o) — 함께; 함께"
   },
   "G4840": {
-    "ko": "함께",
+    "ko": "함께 있다, 동석하다",
     "note": "sympáreimi (soom-par'-i-mee) — 함께"
   },
   "G4841": {
@@ -32628,7 +32628,7 @@
     "note": "sympáschō (soom-pas'-kho) — 함께; 악"
   },
   "G4842": {
-    "ko": "함께",
+    "ko": "함께 보내다, 동행시키다",
     "note": "sympémpō (soom-pem'-po) — 함께"
   },
   "G4843": {
@@ -32664,7 +32664,7 @@
     "note": "sympresbýteros (soom-pres-boo'-ter-os) — 장로"
   },
   "G4851": {
-    "ko": "함께",
+    "ko": "유익하다, 이롭다",
     "note": "symphérō (soom-fer'-o) — 함께; 함께"
   },
   "G4852": {
@@ -32676,11 +32676,11 @@
     "note": "symphylétēs (soom-foo-let'-ace) — 백성"
   },
   "G4854": {
-    "ko": "함께",
+    "ko": "함께 자라다, 연합된",
     "note": "sýmphytos (soom'-foo-tos) — 함께; 함께; 친족"
   },
   "G4855": {
-    "ko": "함께",
+    "ko": "함께 자라다, 같이 싹트다",
     "note": "symphýō (soom-foo'-o) — 함께; 함께"
   },
   "G4856": {
@@ -32716,15 +32716,15 @@
     "note": "synagōgḗ (soon-ag-o-gay') — 함께; 함께; 회당"
   },
   "G4865": {
-    "ko": "함께",
+    "ko": "함께 싸우다, 힘써 돕다",
     "note": "synagōnízomai (soon-ag-o-nid'-zom-ahee) — 함께"
   },
   "G4866": {
-    "ko": "함께",
+    "ko": "함께 싸우다, 함께 수고하다",
     "note": "synathléō (soon-ath-leh'-o) — 함께"
   },
   "G4867": {
-    "ko": "함께",
+    "ko": "함께 모으다, 소집하다",
     "note": "synathroízō (soon-ath-royd'-zo) — 함께; to assemble; 함께"
   },
   "G4868": {
@@ -32744,7 +32744,7 @@
     "note": "synalízō (soon-al-id'-zo) — 함께; 함께"
   },
   "G4872": {
-    "ko": "함께",
+    "ko": "함께 올라가다",
     "note": "synanabaínō (soon-an-ab-ah'-ee-no) — 함께"
   },
   "G4873": {
@@ -32752,19 +32752,19 @@
     "note": "synanákeimai (soon-an-ak'-i-mahee) — 함께"
   },
   "G4874": {
-    "ko": "함께",
+    "ko": "함께 섞이다, 어울리다",
     "note": "synanamígnymi (soon-an-am-ig'-noo-mee) — 함께; 함께"
   },
   "G4875": {
-    "ko": "함께",
+    "ko": "함께 쉬다, 같이 안식하다",
     "note": "synanapaúomai (soon-an-ap-ow'-om-ahee) — 함께; 거짓말"
   },
   "G4876": {
-    "ko": "함께",
+    "ko": "만나다, 우연히 마주치다",
     "note": "synantáō (soon-an-tah'-o) — 함께"
   },
   "G4877": {
-    "ko": "함께",
+    "ko": "만남, 마주침",
     "note": "synántēsis (soon-an'-tay-sis) — 함께"
   },
   "G4878": {
@@ -32772,23 +32772,23 @@
     "note": "synantilambánomai (soon-an-tee-lam-ban'-om-ahee) — 함께; 함께"
   },
   "G4879": {
-    "ko": "함께",
+    "ko": "함께 끌려가다, 같이 쓸려가다",
     "note": "synapágō (soon-ap-ag'-o) — 함께; 함께"
   },
   "G4880": {
-    "ko": "함께",
+    "ko": "함께 죽다, 같이 죽음을 당하다",
     "note": "synapothnḗskō (soon-ap-oth-nace'-ko) — 함께; 함께"
   },
   "G4881": {
-    "ko": "함께",
+    "ko": "함께 멸망하다, 같이 망하다",
     "note": "synapóllymi (soon-ap-ol'-loo-mee) — 함께; 함께"
   },
   "G4882": {
-    "ko": "함께",
+    "ko": "함께 보내다, 같이 파견하다",
     "note": "synapostéllō (soon-ap-os-tel'-lo) — 함께"
   },
   "G4883": {
-    "ko": "함께",
+    "ko": "함께 짜다, 결합시키다",
     "note": "synarmologéō (soon-ar-mol-og-eh'-o) — 함께; 함께"
   },
   "G4884": {
@@ -32796,11 +32796,11 @@
     "note": "synarpázō (soon-ar-pad'-zo) — to seize by force; 주인; to seize by force and carry away"
   },
   "G4885": {
-    "ko": "함께",
+    "ko": "함께 자라다, 같이 성장하다",
     "note": "synauxánō (soon-owx-an'-o) — 함께; 함께"
   },
   "G4886": {
-    "ko": "함께",
+    "ko": "함께 묶는 것, 결속, 인대",
     "note": "sýndesmos (soon'-des-mos) — 함께; 함께"
   },
   "G4887": {
@@ -32820,7 +32820,7 @@
     "note": "syndromḗ (soon-drom-ay') — 함께"
   },
   "G4891": {
-    "ko": "함께",
+    "ko": "함께 일으키다, 같이 부활시키다",
     "note": "synegeírō (soon-eg-i'-ro) — 함께; 생명"
   },
   "G4892": {
@@ -32836,7 +32836,7 @@
     "note": "syneídō (soon-i'-do) — 함께; 마음, 생각; 함께"
   },
   "G4895": {
-    "ko": "함께",
+    "ko": "함께 있다, 동행하다",
     "note": "sýneimi (soon'-i-mee) — 함께"
   },
   "G4896": {
@@ -32852,7 +32852,7 @@
     "note": "synékdēmos (soon-ek'-day-mos) — 동료"
   },
   "G4899": {
-    "ko": "함께",
+    "ko": "함께 택함받은, 공동으로 선택된",
     "note": "syneklektós (soon-ek-lek-tos') — 영원한"
   },
   "G4900": {
@@ -32868,7 +32868,7 @@
     "note": "synépomai (soon-ep'-om-ahee) — 함께"
   },
   "G4903": {
-    "ko": "함께",
+    "ko": "함께 일하다, 협력하다",
     "note": "synergéō (soon-erg-eh'-o) — 함께; 능력"
   },
   "G4904": {
@@ -32892,7 +32892,7 @@
     "note": "synetós (soon-et'-os) — 이해하다"
   },
   "G4909": {
-    "ko": "함께",
+    "ko": "함께 기뻐하다, 동의하다",
     "note": "syneudokéō (soon-yoo-dok-eh'-o) — 함께; 함께"
   },
   "G4910": {
@@ -32900,11 +32900,11 @@
     "note": "syneuōchéō (soon-yoo-o-kheh'-o) — 함께; 함께"
   },
   "G4911": {
-    "ko": "함께",
+    "ko": "함께 일어서다, 공모하여 반항하다",
     "note": "synephístēmi (soon-ef-is'-tay-mee) — 함께; 함께"
   },
   "G4912": {
-    "ko": "함께",
+    "ko": "함께 붙잡다, 억누르다, 에워싸다",
     "note": "synéchō (soon-ekh'-o) — 함께; 함께; of a besieged city"
   },
   "G4913": {
@@ -32912,7 +32912,7 @@
     "note": "synḗdomai (soon-ay'-dom-ahee) — 함께; 빛"
   },
   "G4914": {
-    "ko": "함께",
+    "ko": "관습, 습관",
     "note": "synḗtheia (soon-ay'-thi-ah) — 함께; custom; a being used to, accustomed"
   },
   "G4915": {
@@ -32928,7 +32928,7 @@
     "note": "synthláō (soon-thlah'-o) — to break to pieces, shatter"
   },
   "G4918": {
-    "ko": "함께",
+    "ko": "함께 밀다, 눌러붙다, 군중 속에서 밀리다",
     "note": "synthlíbō (soon-thlee'-bo) — 함께"
   },
   "G4919": {
@@ -32936,7 +32936,7 @@
     "note": "synthrýptō (soon-throop'-to) — break in pieces, to crush; metaph."
   },
   "G4921": {
-    "ko": "함께",
+    "ko": "함께 세우다, 추천하다, 입증하다",
     "note": "synistáō (soon-is-tah'-o) — 함께; 함께; 나라, 민족"
   },
   "G4922": {
@@ -32964,11 +32964,11 @@
     "note": "synomoréō (soon-om-or-eh'-o) — 인접하다"
   },
   "G4928": {
-    "ko": "함께",
+    "ko": "압박, 고통, 환난",
     "note": "synochḗ (soon-okh-ay') — 함께; the contracting part of a way; metaph. straits, distress, anguish"
   },
   "G4929": {
-    "ko": "함께",
+    "ko": "함께 명하다, 지시하다",
     "note": "syntássō (soon-tas-so) — 함께; 함께"
   },
   "G4930": {
@@ -32976,7 +32976,7 @@
     "note": "syntéleia (soon-tel'-i-ah) — 끝, 완성"
   },
   "G4931": {
-    "ko": "함께",
+    "ko": "완전히 끝내다, 완성하다",
     "note": "synteléō (soon-tel-eh'-o) — 함께; to end completely; to accomplish, bring to fulfilment"
   },
   "G4932": {
@@ -32996,7 +32996,7 @@
     "note": "syntómōs (soon-tom'-oce) — 말씀"
   },
   "G4936": {
-    "ko": "함께",
+    "ko": "함께 달리다, 모여들다",
     "note": "syntréchō (soon-trekh'-o) — 함께; 함께; metaph."
   },
   "G4937": {
@@ -33008,19 +33008,19 @@
     "note": "sýntrimma (soon-trim'-mah) — 멸망, 파멸"
   },
   "G4939": {
-    "ko": "함께",
+    "ko": "함께 양육된, 어릴 때부터 함께한 동무",
     "note": "sýntrophos (soon'-trof-os) — 함께; 함께; companion of ones childhood and youth"
   },
   "G4940": {
-    "ko": "함께",
+    "ko": "만나다, 같은 장소에서 마주치다",
     "note": "syntynchánō (soon-toong-khan'-o) — 함께"
   },
   "G4941": {
-    "ko": "함께",
+    "ko": "순풍, 행운 (고유명사)",
     "note": "Syntýchē (soon-too'-khay) — 교회"
   },
   "G4942": {
-    "ko": "함께",
+    "ko": "함께 위선을 행하다, 같이 가장하다",
     "note": "synypokrínomai (soon-oo-pok-rin'-om-ahee) — 함께; 함께"
   },
   "G4943": {
@@ -33028,11 +33028,11 @@
     "note": "synypourgéō (soon-oop-oorg-eh'-o) — 함께"
   },
   "G4944": {
-    "ko": "함께",
+    "ko": "함께 해산의 고통을 겪다, 같이 고통받다",
     "note": "synōdínō (soon-o-dee'-no) — 함께; 함께"
   },
   "G4945": {
-    "ko": "함께",
+    "ko": "공모, 음모",
     "note": "synōmosía (soon-o-mos-ee'-ah) — 함께; a conspiracy"
   },
   "G4946": {
@@ -33072,7 +33072,7 @@
     "note": "sýssōmos (soos'-so-mos) — 몸; 교회"
   },
   "G4955": {
-    "ko": "함께",
+    "ko": "함께 반란을 일으킨 자, 동료 폭도",
     "note": "systasiastḗs (soos-tas-ee-as-tace') — 동료"
   },
   "G4956": {
@@ -33084,7 +33084,7 @@
     "note": "systauróō (soos-tow-ro'-o) — 십자가에 못 박히다"
   },
   "G4958": {
-    "ko": "함께",
+    "ko": "함께 걷어내다, 줄이다, 단축하다",
     "note": "systéllō (soos-tel'-lo) — 함께; to diminish; to shorten, abridge"
   },
   "G4959": {
@@ -33092,7 +33092,7 @@
     "note": "systenázō (soos-ten-ad'-zo) — 함께"
   },
   "G4960": {
-    "ko": "함께",
+    "ko": "같은 줄에 서다, 대응하다",
     "note": "systoichéō (soos-toy-kheh'-o) — 함께; so once of a type in the OT which answers to the antitype in the NT"
   },
   "G4961": {
@@ -33104,7 +33104,7 @@
     "note": "systréphō (soos-tref'-o) — 함께; to collect, combine, unite"
   },
   "G4963": {
-    "ko": "함께",
+    "ko": "무리를 지음, 폭동, 반란",
     "note": "systrophḗ (soos-trof-ay') — 함께; 나라, 민족; a concourse of disorderly persons, a riot"
   },
   "G4964": {
@@ -34064,7 +34064,7 @@
     "note": "‛abash — (Qal) to shrivel, waste away"
   },
   "H5686": {
-    "ko": "함께",
+    "ko": "꼬다, 함께 엮다",
     "note": "‛abath — (Piel) to wind, weave, weave together"
   },
   "H5687": {
@@ -39728,8 +39728,8 @@
     "note": "Tsâlâph -- Zalaph"
   },
   "H6765": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "슬로브핫 (인명)",
+    "note": "צְלׇפְחָד (Tsᵉlophchâd) — Zelophehad"
   },
   "H6766": {
     "ko": "셀사(지명)",
@@ -39808,8 +39808,8 @@
     "note": "Tsᵉmârayim -- Zemaraim"
   },
   "H6788": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "나무 꼭대기 가지, 우듬지",
+    "note": "צַמֶּרֶת (tsammereth) — highest branch"
   },
   "H6789": {
     "ko": "소멸하다/삼키다",
@@ -39864,12 +39864,12 @@
     "note": "tsᵉnêphâh -- [idiom] toss"
   },
   "H6803": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "항아리, 그릇",
+    "note": "צִנְצֶנֶת (tsintseneth) — pot"
   },
   "H6804": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "관, 통로",
+    "note": "צַנְתָּרָה (tsantârâh) — pipe"
   },
   "H6805": {
     "ko": "반지",
@@ -39984,8 +39984,8 @@
     "note": "tsappachath -- cruse"
   },
   "H6836": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "망대, 파수",
+    "note": "צְפִיָּה (tsᵉphîyâh) — watching"
   },
   "H6837": {
     "ko": "스비온(인명)",
@@ -40004,8 +40004,8 @@
     "note": "tsâphîyn -- hid"
   },
   "H6841": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "숫염소",
+    "note": "צְפִיר (tsᵉphîyr) — he"
   },
   "H6842": {
     "ko": "염소",
@@ -40124,8 +40124,8 @@
     "note": "Tsᵉrûwʻâh -- Zeruah"
   },
   "H6872": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "보따리, 주머니, 자갈",
+    "note": "צְרֹור (tsᵉrôwr) — bag"
   },
   "H6873": {
     "ko": "울부짖다",
@@ -40140,16 +40140,16 @@
     "note": "tsᵉrîy -- balm"
   },
   "H6876": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "두로 사람",
+    "note": "צֹרִי (Tsôrîy) — of Tyre"
   },
   "H6877": {
     "ko": "높은",
     "note": "tsᵉrîyach -- high place"
   },
   "H6878": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "부족함, 필요",
+    "note": "צֹרֶךְ (tsôrek) — need"
   },
   "H6879": {
     "ko": "나병 환자",
@@ -40184,8 +40184,8 @@
     "note": "Tsârᵉphath -- Zarephath"
   },
   "H6888": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "스레라 (지명)",
+    "note": "צְרֵרָה (Tsᵉrêrâh) — Zererath"
   },
   "H6889": {
     "ko": "세렛(인명)",
@@ -40236,8 +40236,8 @@
     "note": "qᵉbûwrâh -- burial"
   },
   "H6901": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "선택하다",
+    "note": "קָבַל (qâbal) — choose"
   },
   "H6902": {
     "ko": "받다",
@@ -40252,8 +40252,8 @@
     "note": "qôbel -- war"
   },
   "H6905": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "앞에, 맞은편에",
+    "note": "קָבָל (qâbâl) — before"
   },
   "H6906": {
     "ko": "강탈하다",
@@ -40296,8 +40296,8 @@
     "note": "qiddâh -- cassia"
   },
   "H6917": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "오래된, 옛",
+    "note": "קָדוּם (qâdûwm) — ancient"
   },
   "H6919": {
     "ko": "태우다",
@@ -40352,8 +40352,8 @@
     "note": "qadmôwnîy -- ancient"
   },
   "H6932": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "그데못 (지명)",
+    "note": "קְדֵמֹות (Qᵉdêmôwth) — Kedemoth"
   },
   "H6933": {
     "ko": "첫째",
@@ -40412,16 +40412,16 @@
     "note": "qᵉdêshâh -- harlot"
   },
   "H6949": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "무뎌지다, 둔하여지다",
+    "note": "קָהָה (qâhâh) — be set on edge"
   },
   "H6950": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "모으다, 집합시키다",
+    "note": "קָהַל (qâhal) — assemble"
   },
   "H6952": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "회중, 모임",
+    "note": "קְהִלָּה (qᵉhillâh) — assembly"
   },
   "H6953": {
     "ko": "전도자",
@@ -40512,8 +40512,8 @@
     "note": "qᵉvutstsâh -- lock"
   },
   "H6978": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "줄 위에 줄 (반복을 나타내는 표현)",
+    "note": "קַו־קַו (qav-qav) — [idiom] meted out"
   },
   "H6979": {
     "ko": "깨뜨리다",
@@ -40580,8 +40580,8 @@
     "note": "qâṭôn -- be a small"
   },
   "H6995": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "새끼손가락",
+    "note": "קֹטֶן (qôṭen) — little finger"
   },
   "H6996": {
     "ko": "동쪽",
@@ -40592,8 +40592,8 @@
     "note": "Qâṭân -- Hakkatan"
   },
   "H6998": {
-    "ko": "오류",
-    "note": "HTTP Error 429: Too Many Requests"
+    "ko": "꺾다, 따다 (나뭇가지를)",
+    "note": "קָטַף (qâṭaph) — crop off"
   },
   "H6999": {
     "ko": "태우다",
@@ -43092,11 +43092,11 @@
     "note": "sâgab (saw-gab') — to be high, be inaccessibly high(Qal)to be (too) high (for capture)to be high (of prosperity)(Niphal)to be highto be set"
   },
   "H7683": {
-    "ko": "오류",
+    "ko": "실수로 범한 죄, 부지중에 범한 죄",
     "note": "shâgag (shaw-gag') — to go astray, err, commit sin or error(Qal)to err (mentally)to sin (ignorantly or inadvertently)"
   },
   "H7684": {
-    "ko": "오류",
+    "ko": "실수로 범한 죄, 부지중에 범한 죄",
     "note": "shᵉgâgâh (sheg-aw-gaw') — sin, sin of error or inadvertence, inadvertent sinerror"
   },
   "H7685": {
@@ -43124,7 +43124,7 @@
     "note": "saggîyʼ (sag-ghee') — great, much (adjective)greatmuch, manyexceedingly (adverb)"
   },
   "H7691": {
-    "ko": "오류",
+    "ko": "실수, 허물",
     "note": "shᵉgîyʼâh (sheg-ee-aw') — error"
   },
   "H7692": {
@@ -44064,7 +44064,7 @@
     "note": "shikkârôwn (shik-kaw-rone') — drunkenness"
   },
   "H7944": {
-    "ko": "오류",
+    "ko": "실수, 허물",
     "note": "shal (shal) — error, faultmeaning uncertain"
   },
   "H7945": {
@@ -53252,7 +53252,7 @@
     "note": "Abioúd (ab-ee-ood') the son of Bela and grandson of Benjamin (1 Ch. 8:3)"
   },
   "G12": {
-    "ko": "~에게",
+    "ko": "깊은 곳, 무저갱",
     "note": "ábyssos (ab'-us-sos) bottomless; unbounded"
   },
   "G13": {
@@ -53268,11 +53268,11 @@
     "note": "agathopoiéō (ag-ath-op-oy-eh'-o) to do good, do something which profits others; to do well, do right"
   },
   "G16": {
-    "ko": "~의",
+    "ko": "선행, 덕행",
     "note": "agathopoiḯa (ag-ath-op-oy-ee'-ah) a course of right action, well doing, virtue"
   },
   "G17": {
-    "ko": "안에",
+    "ko": "선을 행하는",
     "note": "agathopoiós (ag-ath-op-oy-os') acting rightly, doing well, virtuous"
   },
   "G19": {
@@ -53284,7 +53284,7 @@
     "note": "agallíasis (ag-al-lee'-as-is) exultation, extreme joy, gladness"
   },
   "G21": {
-    "ko": "~에게",
+    "ko": "크게 기뻐하다, 환호하다",
     "note": "agalliáō (ag-al-lee-ah'-o) to exult, rejoice exceedingly, be exceeding glad"
   },
   "G22": {
@@ -53368,7 +53368,7 @@
     "note": "adēmonéō (ad-ay-mon-eh'-o) be full of heaviness"
   },
   "G106": {
-    "ko": "~로부터",
+    "ko": "동쪽, 동방",
     "note": "ázymos (ad'-zoo-mos) unfermented, free from leaven or yeast"
   },
   "G107": {
@@ -53384,7 +53384,7 @@
     "note": "athyméō (ath-oo-meh'-o) to be disheartened, dispirited, broken in spirit"
   },
   "G122": {
-    "ko": "~의",
+    "ko": "염소의, 염소 가죽",
     "note": "aígeios (ah'-ee-ghi-os) of a goat, goatskin"
   },
   "G124": {
@@ -53412,27 +53412,27 @@
     "note": "Ainṓn (ahee-nohn') the name of a place \"near to Salim\" at which John baptised"
   },
   "G138": {
-    "ko": "~을 위해",
+    "ko": "선택하다",
     "note": "hairéomai (hahee-reh'-om-ahee) to take for oneself, to prefer, choose; to choose by vote, elect to office"
   },
   "G140": {
-    "ko": "~에게",
+    "ko": "선택하다",
     "note": "hairetízō (hahee-ret-id'-zo) to choose; to belong to a sect"
   },
   "G141": {
-    "ko": "~에게",
+    "ko": "분파적인, 이단적인",
     "note": "hairetikós (hahee-ret-ee-kos') fitted or able to take or choose a thing; schismatic, factious, a follower of a false doctrine"
   },
   "G143": {
-    "ko": "~에게",
+    "ko": "감지하다, 인식하다",
     "note": "aisthánomai (ahee-sthan'-om-ahee) to perceive"
   },
   "G146": {
-    "ko": "~을 위해",
+    "ko": "하나",
     "note": "aischrokerdḗs (ahee-skhrok-er-dace') eager for base gain, greedy for money"
   },
   "G147": {
-    "ko": "~을 위해",
+    "ko": "더러운 이익을 탐함",
     "note": "aischrokerdōs (ahee-skhrok-er-doce') eagerness for base gain"
   },
   "G148": {
@@ -53448,7 +53448,7 @@
     "note": "aischrós (ahee-skhros') filthy, baseness, dishonour"
   },
   "G151": {
-    "ko": "안에",
+    "ko": "추잡함, 더러움",
     "note": "aischrótēs (ahee-skhrot'-ace) obscenity, filthiness"
   },
   "G157": {
@@ -53460,15 +53460,15 @@
     "note": "aítion (ah'-ee-tee-on) cause, fault"
   },
   "G160": {
-    "ko": "~을 위해",
+    "ko": "보다",
     "note": "aiphnídios (aheef-nid'-ee-os) unexpected, sudden, unforeseen"
   },
   "G162": {
-    "ko": "~에게",
+    "ko": "포로, 포로 상태",
     "note": "aichmalōteúō (aheekh-mal-o-tew'-o) to make captive, take captive, capture"
   },
   "G168": {
-    "ko": "안에",
+    "ko": "정결한, 깨끗한",
     "note": "akathártēs (ak-ath-ar'-tace) impurity, filthiness"
   },
   "G171": {
@@ -53500,11 +53500,11 @@
     "note": "akatáschetos (ak-at-as'-khet-os) that can not be restrained"
   },
   "G186": {
-    "ko": "안에",
+    "ko": "흔들리지 않는, 굳건한",
     "note": "aklinḗs (ak-lee-nace') not inclining, firm, unmoved"
   },
   "G187": {
-    "ko": "~에게",
+    "ko": "오다",
     "note": "akmázō (ak-mad'-zo) to flourish, come to maturity"
   },
   "G188": {
@@ -53512,7 +53512,7 @@
     "note": "akmḗn (ak-mane') a point; extremity, climax, acme, highest degree"
   },
   "G192": {
-    "ko": "~의",
+    "ko": "부족함, 필요",
     "note": "akrasía (ak-ras-ee'-a) want of self-control, incontinence, intemperance"
   },
   "G194": {
@@ -53556,11 +53556,11 @@
     "note": "alalázō (al-al-ad'-zo) to repeat frequently the cry \"alala\" as soldiers used to do on entering into battle; to utter a joyful sound"
   },
   "G216": {
-    "ko": "~의",
+    "ko": "부족함, 필요",
     "note": "álalos (al'-al-os) speechless, dumb, wanting the faculty of speech"
   },
   "G219": {
-    "ko": "~의",
+    "ko": "닭 울 때 (새벽 3시~6시)",
     "note": "alektorophōnía (al-ek-tor-of-o-nee'-ah) the crowing of a cock or rooster, cock-crowing"
   },
   "G221": {
@@ -53580,11 +53580,11 @@
     "note": "áleuron (al'-yoo-ron) wheat flour, meal"
   },
   "G229": {
-    "ko": "~에게",
+    "ko": "갈다, 빻다",
     "note": "alḗthō (al-ay'-tho) to grind"
   },
   "G232": {
-    "ko": "~에게",
+    "ko": "물고기",
     "note": "halieúō (hal-ee-yoo'-o) to fish"
   },
   "G233": {
@@ -53604,7 +53604,7 @@
     "note": "allogenḗs (al-log-en-ace') sprung from another tribe, a foreigner, alien"
   },
   "G242": {
-    "ko": "~에게",
+    "ko": "물",
     "note": "hállomai (hal'-lom-ahee) to leap; to spring up, gush up: of water"
   },
   "G244": {
@@ -53612,7 +53612,7 @@
     "note": "allotriepískopos (al-lot-ree-ep-is'-kop-os) one who takes the supervision of affairs pertaining to others and in no wise to himself, a meddler in other mens affairs"
   },
   "G246": {
-    "ko": "~을 위해",
+    "ko": "왕국, 통치",
     "note": "allóphylos (al-lof'-oo-los) foreign"
   },
   "G247": {
@@ -53636,7 +53636,7 @@
     "note": "halykós (hal-oo-kos') salt"
   },
   "G253": {
-    "ko": "~로부터",
+    "ko": "근심이 없는, 덜 슬픈",
     "note": "alypóteros (al-oo-pot'-er-os) free from pain or grief"
   },
   "G255": {
@@ -53652,7 +53652,7 @@
     "note": "hálōn (hal'-ohn) a ground plot or threshing floor, i.e. a place in the field made hard after the harvest by a roller, where grain was threshed out"
   },
   "G259": {
-    "ko": "~에게",
+    "ko": "취하다, 가지다",
     "note": "hálōsis (hal'-o-sis) a catching, capture, to be taken"
   },
   "G270": {
@@ -53664,11 +53664,11 @@
     "note": "amémptōs (am-emp'-toce) blameless, so that there is no cause for censure"
   },
   "G275": {
-    "ko": "~로부터",
+    "ko": "염려, 근심",
     "note": "amérimnos (am-er'-im-nos) free from anxiety, free from care"
   },
   "G276": {
-    "ko": "~에게",
+    "ko": "방황하다, 죄를 범하다",
     "note": "ametáthetos (am-et-ath'-et-os) not transposed, not to be transferred, fixed, unalterable"
   },
   "G277": {
@@ -53676,7 +53676,7 @@
     "note": "ametakínētos (am-et-ak-in'-ay-tos) not to be moved from its place, unmoved; metaph. firmly persistent"
   },
   "G278": {
-    "ko": "~의",
+    "ko": "회개하다, 회개",
     "note": "ametamélētos (am-et-am-el'-ay-tos) not repentant of, unregretted"
   },
   "G279": {
@@ -53700,11 +53700,11 @@
     "note": "amoibḗ (am-oy-bay') requital, recompence"
   },
   "G288": {
-    "ko": "안에",
+    "ko": "포도나무",
     "note": "ámpelos (am'-pel-os) a vine"
   },
   "G289": {
-    "ko": "안에",
+    "ko": "포도원지기",
     "note": "ampelourgós (am-pel-oor-gos') a vinedresser"
   },
   "G291": {
@@ -53712,7 +53712,7 @@
     "note": "Amplías (am-plee'-as) a Christian living in Rome"
   },
   "G294": {
-    "ko": "~에게",
+    "ko": "두다, 놓다",
     "note": "amphiénnymi (am-fee-en'-noo-mee) to put on, to clothe"
   },
   "G295": {
@@ -53724,7 +53724,7 @@
     "note": "amṓmētos (am-o'-may-tos) that cannot be censured, blameless"
   },
   "G311": {
-    "ko": "~의",
+    "ko": "두다, 놓다",
     "note": "anabolḗ (an-ab-ol-ay') delay, a putting off"
   },
   "G315": {
@@ -53736,7 +53736,7 @@
     "note": "anankastōs (an-ang-kas-toce') by force or constrain"
   },
   "G323": {
-    "ko": "~을 위해",
+    "ko": "선포하다, 전파하다",
     "note": "anádeixis (an-ad'-ike-sis) a pointing out, a public showing forth; a proclaiming, announcing, inaugurating of such as are elected to office"
   },
   "G324": {
@@ -53744,7 +53744,7 @@
     "note": "anadéchomai (an-ad-ekh'-om-ahee) to take up, take upons self, undertake, assume; to receive, entertain anyone hospitably"
   },
   "G328": {
-    "ko": "~에게",
+    "ko": "허리를 동이다, 준비하다",
     "note": "anazṓnnymi (an-ad-zone'-noo-mee) to gird up; metaph. be prepared"
   },
   "G335": {
@@ -53760,7 +53760,7 @@
     "note": "anakainízō (an-ak-ahee-nid'-zo) to renew, renovate"
   },
   "G344": {
-    "ko": "~에게",
+    "ko": "돌이키다, 돌아서다",
     "note": "anakámptō (an-ak-amp'-to) to bend back, to turn back; to return"
   },
   "G348": {
@@ -53780,11 +53780,11 @@
     "note": "ánalos (an'-al-os) without salt, unsalted"
   },
   "G366": {
-    "ko": "~에게",
+    "ko": "돌아오다, 돌아가다",
     "note": "ananḗphō (an-an-ay'-fo) to return to soberness"
   },
   "G368": {
-    "ko": "~에게",
+    "ko": "반박할 수 없는, 부인할 수 없는",
     "note": "anantírrhētos (an-an-tir'-hray-tos) not to be contradicted, undeniable"
   },
   "G369": {
@@ -53792,7 +53792,7 @@
     "note": "anantirrhḗtōs (an-an-tir-hray'-toce) without contradiction"
   },
   "G370": {
-    "ko": "~을 위해",
+    "ko": "합당하지 않은, 자격 없는",
     "note": "anáxios (an-ax'-ee-os) unworthy, unfit for a thing"
   },
   "G371": {
@@ -53800,7 +53800,7 @@
     "note": "anaxíōs (an-ax-ee'-oce) in an unworthy manner"
   },
   "G374": {
-    "ko": "~에게",
+    "ko": "설득하여 선동하다, 충동하다",
     "note": "anapeíthō (an-ap-i'-tho) to stir up by persuasion, to solicit, incite"
   },
   "G379": {
@@ -53808,11 +53808,11 @@
     "note": "anapológētos (an-ap-ol-og'-ay-tos) without defense or excuse; that which cannot be defended, inexcusable"
   },
   "G380": {
-    "ko": "~에게",
+    "ko": "두루마리를 펴다",
     "note": "anaptýssō (an-ap-toos'-o) to unroll"
   },
   "G382": {
-    "ko": "안에",
+    "ko": "셀 수 없는",
     "note": "anaríthmētos (an-ar-ith'-may-tos) innumerable"
   },
   "G384": {
@@ -53820,19 +53820,19 @@
     "note": "anaskeuázō (an-ask-yoo-ad'-zo) to pack up baggage in order to carry it away to another place; of an enemy"
   },
   "G385": {
-    "ko": "~에게",
+    "ko": "끌어올리다",
     "note": "anaspáō (an-as-pah'-o) to draw up"
   },
   "G387": {
-    "ko": "~에게",
+    "ko": "두다, 놓다",
     "note": "anastatóō (an-as-tat-o'-o) to stir up, excite, unsettle"
   },
   "G392": {
-    "ko": "함께",
+    "ko": "순서대로 정리하다, 엮다",
     "note": "anatássomai (an-at-as'-som-ahee) to put together in order, arrange, compose"
   },
   "G397": {
-    "ko": "~에게",
+    "ko": "가져오다",
     "note": "anatréphō (an-at-ref'-o) to nurse up, nourish up; to bring up"
   },
   "G398": {
@@ -53856,7 +53856,7 @@
     "note": "anexichníastos (an-ex-ikh-nee'-as-tos) that cannot be searched out, that cannot be comprehended"
   },
   "G422": {
-    "ko": "~에게",
+    "ko": "수치, 부끄러움",
     "note": "anepaíschyntos (an-ep-ah'-ee-skhoon-tos) having no cause to be ashamed"
   },
   "G423": {
@@ -53864,7 +53864,7 @@
     "note": "anepílēptos (an-ep-eel'-ape-tos) not apprehended, that cannot be laid hold of; that cannot be reprehended, not open to censure, irreproachable"
   },
   "G424": {
-    "ko": "~에게",
+    "ko": "두다, 놓다",
     "note": "anérchomai (an-erkh'-om-ahee) to go up; to go up to a higher place: to Jerusalem"
   },
   "G428": {
@@ -53884,7 +53884,7 @@
     "note": "ánthos (anth'-os) a flower"
   },
   "G439": {
-    "ko": "~의",
+    "ko": "숯불 더미",
     "note": "anthrakiá (anth-rak-ee-ah') a heap of burning coals"
   },
   "G443": {
@@ -53892,15 +53892,15 @@
     "note": "anthrōpoktónos (anth-ro-pok-ton'-os) a manslayer, murderer"
   },
   "G445": {
-    "ko": "~에게",
+    "ko": "총독이 되다",
     "note": "anthypateúō (anth-oo-pat-yoo'-o) to be a proconsul"
   },
   "G457": {
-    "ko": "안에",
+    "ko": "열다",
     "note": "ánoixis (an'-oix-is) an opening"
   },
   "G464": {
-    "ko": "~에게",
+    "ko": "전쟁, 싸움",
     "note": "antagōnízomai (an-tag-o-nid'-zom-ahee) to struggle, fight"
   },
   "G465": {
@@ -53908,7 +53908,7 @@
     "note": "antállagma (an-tal'-ag-mah) that which is given in place of another thing by way of exchange; what is given either in order to keep or to acquire anything"
   },
   "G466": {
-    "ko": "~에게",
+    "ko": "교대로 채우다, 보충하다",
     "note": "antanaplēróō (an-tan-ap-lay-ro'-o) to fill up in turn"
   },
   "G469": {
@@ -53928,7 +53928,7 @@
     "note": "antikathístēmi (an-tee-kath-is'-tay-mee) to put in place of another; to place in opposition"
   },
   "G479": {
-    "ko": "~에게",
+    "ko": "답례로 초청하다",
     "note": "antikaléō (an-tee-kal-eh'-o) to invite in turn"
   },
   "G481": {
@@ -53944,7 +53944,7 @@
     "note": "antiloidoréō (an-tee-loy-dor-eh'-o) to revile in turn, to retort railing"
   },
   "G488": {
-    "ko": "~에게",
+    "ko": "돌이키다, 돌아서다",
     "note": "antimetréō (an-tee-met-reh'-o) to measure back, to measure in return, repay"
   },
   "G490": {
@@ -53952,11 +53952,11 @@
     "note": "Antiócheia (an-tee-okh'-i-ah) Capital of Syria, situated on the river Orontes, founded by Seleucus Nicanor in 300 B.C. and named in honour of his father, Antiochus. Many Greek-Jews lived there and it was here that the followers of Christ were first called Christians.; A city in Pisidia on the borders Phrygia, founded by Seleucus Nicanor. Under the Romans it became a \"colonia\" and was also called Caesarea"
   },
   "G491": {
-    "ko": "~의",
+    "ko": "안디옥 사람",
     "note": "Antiocheús (an-tee-okh-yoos') an Antiochian, a native of Antioch"
   },
   "G492": {
-    "ko": "~에게",
+    "ko": "앉다, 거하다",
     "note": "antiparérchomai (an-tee-par-er'-khom-ahee) to pass by opposite to"
   },
   "G493": {
@@ -54004,7 +54004,7 @@
     "note": "axínē (ax-ee'-nay) an axe"
   },
   "G526": {
-    "ko": "~에게",
+    "ko": "닫다",
     "note": "apallotrióō (ap-al-lot-ree-o'-o) to alienate, estrange; to be shut out from ones fellowship and intimacy"
   },
   "G527": {
@@ -54016,7 +54016,7 @@
     "note": "apeídō (ap-i'-do) to look away from one thing and at another; to look at from somewhere, either from a distance or from a certain present condition of things"
   },
   "G555": {
-    "ko": "~의",
+    "ko": "두다, 놓다",
     "note": "apékdysis (ap-ek'-doo-sis) a putting off, laying aside"
   },
   "G563": {
@@ -54040,15 +54040,15 @@
     "note": "haplōs (hap-loce') simply, openly, frankly, sincerely"
   },
   "G582": {
-    "ko": "~로부터",
+    "ko": "아들",
     "note": "apographḗ (ap-og-raf-ay') a writing off, transcript (from some pattern); an enrolment or registration in the public records of persons together with their income and property, as the basis of a census or valuation, i.e. that it might appear how much tax should be levied upon each one"
   },
   "G583": {
-    "ko": "~로부터",
+    "ko": "기록하다, 쓰다",
     "note": "apográphō (ap-og-raf'-o) to write off, copy (from some pattern); to enter in a register or records"
   },
   "G584": {
-    "ko": "~로부터",
+    "ko": "아들",
     "note": "apodeíknymi (ap-od-ike'-noo-mee) to point away from ones self, to point out, show forth, to expose to view, exhibit; to declare, to show, to prove what kind of person anyone is, to prove by arguments, demonstrate"
   },
   "G585": {
@@ -54068,7 +54068,7 @@
     "note": "apodiorízō (ap-od-ee-or-id'-zo) to disjoin, part, separate from another; making divisions or separations"
   },
   "G605": {
-    "ko": "~에게",
+    "ko": "안식하다, 쉬다",
     "note": "apokatástasis (ap-ok-at-as'-tas-is) restoration"
   },
   "G610": {
@@ -54088,11 +54088,11 @@
     "note": "apoloúō (ap-ol-oo'-o) to wash off or away"
   },
   "G633": {
-    "ko": "~의",
+    "ko": "하나",
     "note": "aponíptō (ap-on-ip'-to) to wash off; to wash off ones self, to wash off for ones self"
   },
   "G635": {
-    "ko": "~에게",
+    "ko": "방황하다, 죄를 범하다",
     "note": "apoplanáō (ap-op-lan-ah'-o) to cause to go astray; to lead away from the truth to error"
   },
   "G636": {
@@ -54116,11 +54116,11 @@
     "note": "apostegázō (ap-os-teg-ad'-zo) to uncover, take off the roof"
   },
   "G655": {
-    "ko": "~의",
+    "ko": "혐오하다, 몹시 싫어하다",
     "note": "apostygéō (ap-os-toog-eh'-o) to dislike, abhor, have a horror of"
   },
   "G664": {
-    "ko": "~에게",
+    "ko": "수금, 하프",
     "note": "apotómōs (ap-ot-om'-oce) abruptly, precipitously; sharply, severely, curtly"
   },
   "G682": {
@@ -54148,7 +54148,7 @@
     "note": "Áraps (ar'-aps) an Arabian"
   },
   "G691": {
-    "ko": "~에게",
+    "ko": "게으르다, 지체하다",
     "note": "argéō (arg-eh'-o) to be idle, inactive, to linger, delay"
   },
   "G695": {
@@ -54156,7 +54156,7 @@
     "note": "argyrokópos (ar-goo-rok-op'-os) a silversmith"
   },
   "G698": {
-    "ko": "~의",
+    "ko": "아레오바고 관원",
     "note": "Areopagítēs (ar-eh-op-ag-ee'-tace) a member of the court of Areopagus, an Areopagite"
   },
   "G702": {
@@ -54180,7 +54180,7 @@
     "note": "árktos (ark'-tos) a bear"
   },
   "G719": {
-    "ko": "안에",
+    "ko": "연합하다, 합하다",
     "note": "harmós (har-mos') a joining, a joint"
   },
   "G723": {
@@ -54188,7 +54188,7 @@
     "note": "árotron (ar'-ot-ron) a plough"
   },
   "G725": {
-    "ko": "~의",
+    "ko": "강탈, 빼앗음",
     "note": "harpagmós (har-pag-mos') the act of seizing, robbery; a thing seized or to be seized"
   },
   "G734": {
@@ -54240,11 +54240,11 @@
     "note": "Asḗr (as-ayr') the eighth son of Jacob"
   },
   "G771": {
-    "ko": "안에",
+    "ko": "흔들리지 않는, 굳건한",
     "note": "asthénēma (as-then'-ay-mah) infirmity"
   },
   "G774": {
-    "ko": "~의",
+    "ko": "아시아 사람",
     "note": "Asianós (as-ee-an-os') a native of Asia, Asian, Asiatic"
   },
   "G777": {
@@ -54292,7 +54292,7 @@
     "note": "asphalízō (as-fal-id'-zo) to make firm, to make secure (against harm); to be made secure"
   },
   "G812": {
-    "ko": "~에게",
+    "ko": "무질서하게 행하다",
     "note": "ataktéō (at-ak-teh'-o) to be disorderly"
   },
   "G814": {
@@ -54300,7 +54300,7 @@
     "note": "atáktōs (at-ak'-toce) disorderly, out of ranks (often so of soldiers); irregular, inordinate, immoderate pleasures"
   },
   "G817": {
-    "ko": "~로부터",
+    "ko": "없이, ~을 제외하고",
     "note": "áter (at'-er) without, apart from"
   },
   "G821": {
@@ -54316,7 +54316,7 @@
     "note": "Augoûstos (ow'-goos-tos) the first Roman emperor; title conferred upon Roman emperors"
   },
   "G832": {
-    "ko": "~에게",
+    "ko": "관, 통로",
     "note": "auléō (ow-leh'-o) to play on the flute, to pipe"
   },
   "G834": {
@@ -54384,11 +54384,11 @@
     "note": "Belíal (bel-ee'-al) a name of Satan"
   },
   "G959": {
-    "ko": "~의",
+    "ko": "딸",
     "note": "Berníkē (ber-nee'-kay) the eldest daughter of Herod Agrippa I. Acts 12:1"
   },
   "G961": {
-    "ko": "~의",
+    "ko": "베뢰아 사람",
     "note": "Beroiaîos (ber-oy-ah'-yos) a resident of Berea"
   },
   "G963": {
@@ -54412,7 +54412,7 @@
     "note": "bibliarídion (bib-lee-ar-id'-ee-on) a little book"
   },
   "G977": {
-    "ko": "~에게",
+    "ko": "먹다, 음식",
     "note": "bibrṓskō (bib-ro'-sko) to eat"
   },
   "G978": {
@@ -54424,7 +54424,7 @@
     "note": "bióō (bee-o'-o) to spend life, live"
   },
   "G986": {
-    "ko": "~의",
+    "ko": "블라스도 (헤롯의 궁내관, 인명)",
     "note": "Blástos (blas'-tos) the chamberlain of Herod Agrippa I"
   },
   "G1007": {
@@ -54432,19 +54432,19 @@
     "note": "Bosór (bos-or') the father of Balaam"
   },
   "G1008": {
-    "ko": "~을 위해",
+    "ko": "증가하다, 번성하다",
     "note": "botánē (bot-an'-ay) an herb fit for fodder, green herb, growing plant"
   },
   "G1009": {
-    "ko": "~의",
+    "ko": "포도송이",
     "note": "bótrys (bot'-rooce) a bunch or cluster of grapes"
   },
   "G1010": {
-    "ko": "~에게",
+    "ko": "의원, 산헤드린 공회원",
     "note": "bouleutḗs (bool-yoo-tace') a councillor, senator; a member of the Sanhedrin"
   },
   "G1020": {
-    "ko": "~에게",
+    "ko": "천천히 항해하다",
     "note": "bradyploéō (brad-oo-plo-eh'-o) to sail slowly"
   },
   "G1022": {
@@ -54468,7 +54468,7 @@
     "note": "Gád (gad) the seventh son of the patriarch Jacob, by Zilpah, Leahs maid"
   },
   "G1054": {
-    "ko": "~의",
+    "ko": "갈라디아 사람",
     "note": "Galatikós (gal-at-ee-kos') a citizen of Galatia"
   },
   "G1061": {
@@ -54476,11 +54476,11 @@
     "note": "gamískō (gam-is'-ko) give in marriage"
   },
   "G1066": {
-    "ko": "~로부터",
+    "ko": "생명, 살다",
     "note": "Gedeṓn (ghed-eh-own') a of the judge of Israel who delivered them from the Midianites"
   },
   "G1070": {
-    "ko": "~에게",
+    "ko": "웃다",
     "note": "geláō (ghel-ah'-o) to laugh"
   },
   "G1102": {
@@ -54500,7 +54500,7 @@
     "note": "gonypetéō (gon-oo-pet-eh'-o) to fall on the knees, the act of imploring aid, and of expressing reverence and honour"
   },
   "G1136": {
-    "ko": "~로부터",
+    "ko": "왕",
     "note": "Gṓg (gogue) the king of the land of Magog who will come from the north and attack the land of Israel"
   },
   "G1148": {
@@ -54508,11 +54508,11 @@
     "note": "Dalmanouthá (dal-man-oo-thah') is a town on the west side of the Sea of Galilee, near Magdala"
   },
   "G1149": {
-    "ko": "~로부터",
+    "ko": "강, 시내",
     "note": "Dalmatía (dal-mat-ee'-ah) a part of Illyricum on the Adriatic Sea; on the east adjoining Pannonia and upper Moesia, on the north separated from Liburia by the river Titus, and extending southwards as far as the river Drinus and the city Lissus"
   },
   "G1153": {
-    "ko": "~의",
+    "ko": "다메섹 사람",
     "note": "Damaskēnós (dam-as-kay-nos') of Damascus"
   },
   "G1164": {
@@ -54536,7 +54536,7 @@
     "note": "dekapénte (dek-ap-en'-teh) fifteen"
   },
   "G1179": {
-    "ko": "~로부터",
+    "ko": "땅, 지면",
     "note": "Dekápolis (dek-ap'-ol-is) a track of land so called from the ten cities that were in it"
   },
   "G1180": {
@@ -54556,7 +54556,7 @@
     "note": "dexiolábos (dex-ee-ol-ab'-os) throwing with the right hand, a slinger, an archer, javelinmen"
   },
   "G1193": {
-    "ko": "~의",
+    "ko": "먹다, 음식",
     "note": "dermátinos (der-mat'-ee-nos) made of skin, leathern"
   },
   "G1197": {
@@ -54596,7 +54596,7 @@
     "note": "diakōlýō (dee-ak-o-loo'-o) to hinder, prevent"
   },
   "G1255": {
-    "ko": "함께",
+    "ko": "함께 이야기하다, 대화하다",
     "note": "dialaléō (dee-al-al-eh'-o) to converse together, to talk with"
   },
   "G1257": {
@@ -54604,15 +54604,15 @@
     "note": "dialeípō (dee-al-i'-po) to interpose a delay, to intermit, leave off for a time something already begun"
   },
   "G1259": {
-    "ko": "~에게",
+    "ko": "화해하다",
     "note": "diallássō (dee-al-las'-so) to change; to change the mind of anyone, to reconcile"
   },
   "G1262": {
-    "ko": "~에게",
+    "ko": "해체하다, 풀다",
     "note": "dialýō (dee-al-oo'-o) to dissolve"
   },
   "G1264": {
-    "ko": "~에게",
+    "ko": "전쟁, 싸움",
     "note": "diamáchomai (dee-am-akh'-om-ahee) to fight out; contend fiercely"
   },
   "G1284": {
@@ -54640,7 +54640,7 @@
     "note": "diapheúgō (dee-af-yoo'-go) to flee through danger, to escape"
   },
   "G1314": {
-    "ko": "~에게",
+    "ko": "세심하게 지키다",
     "note": "diaphylássō (dee-af-oo-las'-so) to guard carefully"
   },
   "G1315": {
@@ -54656,7 +54656,7 @@
     "note": "didaktós (did-ak-tos') that can be taught; taught, instructed by one"
   },
   "G1328": {
-    "ko": "안에",
+    "ko": "비교하다, 해석하다",
     "note": "diermēneutḗs (dee-er-main-yoo-tace') an interpreter"
   },
   "G1337": {
@@ -54692,7 +54692,7 @@
     "note": "Diotrephḗs (dee-ot-ref-ace') a proud arrogant Christian mentioned in 3 Jo. 9"
   },
   "G1363": {
-    "ko": "~에게",
+    "ko": "두 배로 하다",
     "note": "diplóō (dip-lo'-o) to double"
   },
   "G1364": {
@@ -54700,7 +54700,7 @@
     "note": "dís (dece) twice"
   },
   "G1365": {
-    "ko": "~에게",
+    "ko": "의심하다, 흔들리다",
     "note": "distázō (dis-tad'-zo) to doubt, waiver"
   },
   "G1366": {
@@ -54720,11 +54720,11 @@
     "note": "dicházō (dee-khad'-zo) to cut into two parts, cleave asunder, sever"
   },
   "G1376": {
-    "ko": "~에게",
+    "ko": "박해자",
     "note": "diṓktēs (dee-oke'-tace) persecutor"
   },
   "G1389": {
-    "ko": "~에게",
+    "ko": "속이다, 타락시키다",
     "note": "dolóō (dol-o'-o) to ensnare; to corrupt"
   },
   "G1393": {
@@ -54748,11 +54748,11 @@
     "note": "Droúsilla (droo'-sil-lah) the daughter of Agrippa the elder, wife of Felix, the governor of Judaea, a most licentious woman"
   },
   "G1418": {
-    "ko": "~의",
+    "ko": "앉다, 거하다",
     "note": "dys- (doos) prefix conveying the idea of difficulty, opposition, injuriousness, similar to our \"mis-\" or \"un-\" prefixes"
   },
   "G1421": {
-    "ko": "~에게",
+    "ko": "비교하다, 해석하다",
     "note": "dysermḗneutos (doos-er-mane'-yoo-tos) hard to interpret, difficult to explain"
   },
   "G1423": {
@@ -54804,7 +54804,7 @@
     "note": "Hebraḯs (heb-rah-is') Hebrew, the Hebrew language, not that however in which the OT was written but the Chaldee, which at the time of Jesus and the apostles had long superseded it in Palestine"
   },
   "G1447": {
-    "ko": "안에",
+    "ko": "히브리어로, 아람어로",
     "note": "Hebraïstí (heb-rah-is-tee') in Hebrew, i.e. in Chaldee"
   },
   "G1452": {
@@ -54812,7 +54812,7 @@
     "note": "engýteron (eng-goo'-ter-on) nearer"
   },
   "G1460": {
-    "ko": "~에게",
+    "ko": "앉다, 거하다",
     "note": "enkatoikéō (eng-kat-oy-keh'-o) to dwell among"
   },
   "G1464": {
@@ -54840,7 +54840,7 @@
     "note": "ethnikōs (eth-nee-koce') like the Gentiles"
   },
   "G1498": {
-    "ko": "~에게",
+    "ko": "일어나다, 발생하다",
     "note": "eíēn (i'-ane) to be, to exist, to happen, to be present"
   },
   "G1499": {
@@ -54848,7 +54848,7 @@
     "note": "ei kaí (i kahee) even, if, although"
   },
   "G1502": {
-    "ko": "~에게",
+    "ko": "양보하다, 굴복하다",
     "note": "eíkō (i'-ko) to yield"
   },
   "G1523": {
@@ -54868,7 +54868,7 @@
     "note": "eiskaléō (ice-kal-eh'-o) to call into ones self, to invite in to ones house"
   },
   "G1530": {
-    "ko": "~에게",
+    "ko": "뚫고 나가다",
     "note": "eispēdáō (ice-pay-dah'-o) to spring in, to rush in impetuously"
   },
   "G1531": {
@@ -54876,7 +54876,7 @@
     "note": "eisporeúomai (ice-por-yoo'-om-ahee) to go into, enter; to be carried into or put into"
   },
   "G1532": {
-    "ko": "~에게",
+    "ko": "뛰어 들어가다",
     "note": "eistréchō (ice-trekh'-o) to run in"
   },
   "G1536": {
@@ -54916,7 +54916,7 @@
     "note": "ekeîse (ek-i'-seh) there, at that place"
   },
   "G1569": {
-    "ko": "~에게",
+    "ko": "읽다",
     "note": "ékthambos (ek'-tham-bos) quite astonished, amazed; terrifying, dreadful"
   },
   "G1570": {
@@ -54924,7 +54924,7 @@
     "note": "ékthetos (ek'-thet-os) cast out, exposed"
   },
   "G1572": {
-    "ko": "~에게",
+    "ko": "불",
     "note": "ekkaíō (ek-kah'-yo) to burn out; to set on fire"
   },
   "G1573": {
@@ -54932,11 +54932,11 @@
     "note": "ekkakéō (ek-kak-eh'-o) to be utterly spiritless, to be wearied out, exhausted"
   },
   "G1574": {
-    "ko": "~에게",
+    "ko": "두다, 놓다",
     "note": "ekkentéō (ek-ken-teh'-o) to put out, dig out; to dig through, transfix, pierce"
   },
   "G1575": {
-    "ko": "~의",
+    "ko": "꺾어 내다, 끊다",
     "note": "ekkláō (ek-klah'-o) to break off, to cut off"
   },
   "G1576": {
@@ -54948,23 +54948,23 @@
     "note": "ekkolymbáō (ek-kol-oom-bah'-o) to swim out of"
   },
   "G1580": {
-    "ko": "~에게",
+    "ko": "밖으로 옮기다, 운반하다",
     "note": "ekkomízō (ek-kom-id'-zo) to carry out"
   },
   "G1582": {
-    "ko": "~로부터",
+    "ko": "매달리다",
     "note": "ekkrémamai (ek-krem'-am-ahee) to hang from"
   },
   "G1583": {
-    "ko": "~에게",
+    "ko": "말하다",
     "note": "eklaléō (ek-lal-eh'-o) to speak out, divulge"
   },
   "G1584": {
-    "ko": "~을 위해",
+    "ko": "빛나다, 빛을 발하다",
     "note": "eklámpō (ek-lam'-po) to shine forth"
   },
   "G1585": {
-    "ko": "~을 위해",
+    "ko": "잊다",
     "note": "eklanthánomai (ek-lan-than'-om-ahee) to cause to forget; to forget"
   },
   "G1591": {
@@ -54972,7 +54972,7 @@
     "note": "ekmássō (ek-mas'-so) to wipe off, to wipe away"
   },
   "G1592": {
-    "ko": "~의",
+    "ko": "비웃다, 조롱하다",
     "note": "ekmyktērízō (ek-mook-ter-id'-zo) to deride by turning up the nose, to sneer at, to scoff at"
   },
   "G1593": {
@@ -54984,15 +54984,15 @@
     "note": "hekoúsion (hek-oo'-see-on) voluntary"
   },
   "G1597": {
-    "ko": "~로부터",
+    "ko": "때, 시간",
     "note": "ékpalai (eh'-pal-ahee) from of old; of a long time"
   },
   "G1598": {
-    "ko": "~에게",
+    "ko": "능력, 힘",
     "note": "ekpeirázō (ek-pi-rad'-zo) to prove, test, thoroughly; to put to proof Gods character and power"
   },
   "G1600": {
-    "ko": "~을 위해",
+    "ko": "읽다",
     "note": "ekpetánnymi (ek-pet-an'-noo-mee) to spread out, stretch forth"
   },
   "G1604": {
@@ -55004,7 +55004,7 @@
     "note": "ekporneúō (ek-porn-yoo'-o) to go a whoring, \"give ones self over to fornication\""
   },
   "G1609": {
-    "ko": "~에게",
+    "ko": "맹세하다, 맹세",
     "note": "ekptýō (ek-ptoo'-o) to spit out; reject, spurn, loathe"
   },
   "G1612": {
@@ -55012,7 +55012,7 @@
     "note": "ekstréphō (ek-stref'-o) to turn or twist out, tear up; to turn inside out, invert"
   },
   "G1613": {
-    "ko": "~에게",
+    "ko": "환난, 어려움",
     "note": "ektarássō (ek-tar-as'-so) to agitate, trouble, exceedingly"
   },
   "G1616": {
@@ -55036,7 +55036,7 @@
     "note": "héktos (hek'-tos) the sixth"
   },
   "G1624": {
-    "ko": "~에게",
+    "ko": "방향을 틀다, 피하다",
     "note": "ektrépō (ek-trep'-o) to turn or twist out; to turn off or aside"
   },
   "G1626": {
@@ -55044,7 +55044,7 @@
     "note": "éktrōma (ek'-tro-mah) an abortion, abortive birth; an untimely birth"
   },
   "G1627": {
-    "ko": "~을 위해",
+    "ko": "가져오다",
     "note": "ekphérō (ek-fer'-o) to carry out, to bear forth; to bring i.e. lead out"
   },
   "G1629": {
@@ -55056,7 +55056,7 @@
     "note": "ékphobos (ek'-fob-os) stricken with fear or terror, exceedingly, frightened, terrified"
   },
   "G1633": {
-    "ko": "~로부터",
+    "ko": "나오다, 나가다",
     "note": "ekchōréō (ek-kho-reh'-o) to depart from; to remove from in the sense of fleeing from"
   },
   "G1634": {
@@ -55064,7 +55064,7 @@
     "note": "ekpsýchō (ek-psoo'-kho) to expire, to breathe out ones life"
   },
   "G1635": {
-    "ko": "~을 위해",
+    "ko": "하나",
     "note": "hekṓn (hek-own') unforced, voluntary, willing; of ones own will"
   },
   "G1636": {
@@ -55076,11 +55076,11 @@
     "note": "Elamítēs (el-am-ee'-tace) an Elamite, i.e. an inhabitant of the province of Elymais, a region stretching southwards to the Persian Gulf, but boundaries of which are variously given"
   },
   "G1641": {
-    "ko": "~에게",
+    "ko": "만들다",
     "note": "elattonéō (el-at-ton-eh-o) to be less, inferior, (in possessions); to make less, diminish"
   },
   "G1642": {
-    "ko": "~에게",
+    "ko": "만들다",
     "note": "elattóō (el-at-to'-o) to make less or inferior: in dignity; to be made less or inferior: in dignity"
   },
   "G1644": {
@@ -55104,15 +55104,15 @@
     "note": "élenxis (el'-eng-xis) refutation, rebuke"
   },
   "G1652": {
-    "ko": "~에게",
+    "ko": "불쌍한, 가련한",
     "note": "eleeinós (el-eh-i-nos') to be pitied, miserable"
   },
   "G1660": {
-    "ko": "안에",
+    "ko": "오심, 강림",
     "note": "éleusis (el'-yoo-sis) a coming, advent"
   },
   "G1661": {
-    "ko": "~의",
+    "ko": "상아의, 상아로 만든",
     "note": "elephántinos (el-ef-an'-tee-nos) of ivory"
   },
   "G1662": {
@@ -55136,15 +55136,15 @@
     "note": "Elissaîos (el-is-sah'-yos) a distinguished OT prophet, the disciple, companion, and successor of Elijah"
   },
   "G1667": {
-    "ko": "함께",
+    "ko": "접다, 함께 말다",
     "note": "helíssō (hel-is'-so) to roll up, fold together"
   },
   "G1668": {
-    "ko": "안에",
+    "ko": "상처, 헌데, 고름 나는 부스럼",
     "note": "hélkos (hel'-kos) a wound, esp. a wound producing a discharge pus; a sore, an ulcer"
   },
   "G1669": {
-    "ko": "~에게",
+    "ko": "만들다",
     "note": "helkóō (hel-ko'-o) to make sore, cause to ulcerate; to be ulcerated"
   },
   "G1671": {
@@ -55184,15 +55184,15 @@
     "note": "Elýmas (el-oo'-mas) the Arabic name of the Jewish magnus or sorcerer Barjesus, Act 13:6"
   },
   "G1682": {
-    "ko": "~을 위해",
+    "ko": "엘로이 (나의 하나님, 아람어)",
     "note": "eloḯ (el-o-ee') Aramaic for the phrase \"my God\""
   },
   "G1686": {
-    "ko": "~에게",
+    "ko": "담그다, 찍다",
     "note": "embáptō (em-bap'-to) to dip in"
   },
   "G1687": {
-    "ko": "~에게",
+    "ko": "들어가다",
     "note": "embateúō (em-bat-yoo'-o) to enter, to frequent, haunt; to enter"
   },
   "G1694": {
@@ -55208,15 +55208,15 @@
     "note": "emperipatéō (em-per-ee-pat-eh'-o) to go about in, walk in"
   },
   "G1708": {
-    "ko": "안에",
+    "ko": "모으다, 집합시키다",
     "note": "emplokḗ (em-plok-ay') an interweaving, braiding, a knot; an elaborate gathering of ones hair into knots"
   },
   "G1709": {
-    "ko": "~에게",
+    "ko": "먹다, 음식",
     "note": "empnéō (emp-neh'-o) to breathe in or on; to inhale"
   },
   "G1714": {
-    "ko": "~에게",
+    "ko": "불",
     "note": "emprḗthō (em-pray'-tho) to burn; destroy by fire"
   },
   "G1717": {
@@ -55276,11 +55276,11 @@
     "note": "éndyma (en'-doo-mah) garment, raiment, cloak, an outer garment"
   },
   "G1745": {
-    "ko": "안에",
+    "ko": "두다, 놓다",
     "note": "éndysis (en'-doo-sis) a putting on"
   },
   "G1755": {
-    "ko": "안에",
+    "ko": "일하심, 역사, 운행",
     "note": "enérgēma (en-erg'-ay-mah) thing wrought; effect operation"
   },
   "G1756": {
@@ -55308,15 +55308,15 @@
     "note": "enístēmi (en-is'-tay-mee) to place in or among, to put in; to be upon, impend, threaten"
   },
   "G1766": {
-    "ko": "안에",
+    "ko": "아홉째",
     "note": "énnatos (en'-nat-os) ninth"
   },
   "G1767": {
-    "ko": "안에",
+    "ko": "아홉",
     "note": "ennéa (en-neh'-ah) nine"
   },
   "G1768": {
-    "ko": "안에",
+    "ko": "아흔아홉",
     "note": "ennenēkontaennéa (en-nen-ay-kon-tah-en-neh'-ah) ninety nine"
   },
   "G1770": {
@@ -55332,7 +55332,7 @@
     "note": "henótēs (hen-ot-ace') unity; unanimity, agreement"
   },
   "G1776": {
-    "ko": "~에게",
+    "ko": "환난, 어려움",
     "note": "enochléō (en-okh-leh'-o) to excite, disturbance, to trouble, annoy"
   },
   "G1777": {
@@ -55360,19 +55360,19 @@
     "note": "entós (en-tos') within, inside"
   },
   "G1792": {
-    "ko": "~에게",
+    "ko": "생명, 살다",
     "note": "entrypháō (en-troo-fah'-o) to live in luxury, live delicately or luxuriously, to revel in; to take delight in"
   },
   "G1794": {
-    "ko": "함께",
+    "ko": "감싸다, 함께 말다",
     "note": "entylíssō (en-too-lis'-so) to roll up, wrap together"
   },
   "G1795": {
-    "ko": "~에게",
+    "ko": "새기다, 각인하다",
     "note": "entypóō (en-too-po'-o) to engrave, imprint (a figure)"
   },
   "G1796": {
-    "ko": "~에게",
+    "ko": "모욕하다",
     "note": "enybrízō (en-oo-brid'-zo) to insult"
   },
   "G1797": {
@@ -55392,15 +55392,15 @@
     "note": "Enṓch (en-oke') the son of Jared and father of Methuselah"
   },
   "G1804": {
-    "ko": "~을 위해",
+    "ko": "길, 도",
     "note": "exangéllō (ex-ang-el'-lo) to tell out or forth; to declare abroad, divulge, publish"
   },
   "G1805": {
-    "ko": "~에게",
+    "ko": "구속하다, 구속",
     "note": "exagorázō (ex-ag-or-ad'-zo) to redeem; to buy up, to buy up for ones self, for ones use"
   },
   "G1806": {
-    "ko": "~에게",
+    "ko": "이끌어 내다",
     "note": "exágō (ex-ag'-o) to lead out"
   },
   "G1812": {
@@ -55408,15 +55408,15 @@
     "note": "hexakósioi (hex-ak-os'-ee-oy) six hundred"
   },
   "G1814": {
-    "ko": "~에게",
+    "ko": "뛰어오르다",
     "note": "exállomai (ex-al'-lom-ahee) to leap up"
   },
   "G1816": {
-    "ko": "~을 위해",
+    "ko": "만들다",
     "note": "exanatéllō (ex-an-at-el'-lo) to make spring up, cause to shoot forth; to spring up"
   },
   "G1817": {
-    "ko": "~에게",
+    "ko": "회중, 모임",
     "note": "exanístēmi (ex-an-is'-tay-mee) to make to rise up, to rise up, to produce; to rise (in an assembly to speak)"
   },
   "G1819": {
@@ -55428,7 +55428,7 @@
     "note": "exaporéomai (ex-ap-or-eh'-om-ahee) to be utterly at loss, be utterly destitute of measures or resources, to renounce all hope, be in despair"
   },
   "G1822": {
-    "ko": "~에게",
+    "ko": "완성하다, 준비시키다",
     "note": "exartízō (ex-ar-tid'-zo) to complete, finish"
   },
   "G1823": {
@@ -55436,19 +55436,19 @@
     "note": "exastráptō (ex-as-trap'-to) to send forth lightning, to lighten; to flash out like lightning, to shine, be radiant"
   },
   "G1825": {
-    "ko": "~로부터",
+    "ko": "깨우다, 일으키다",
     "note": "exegeírō (ex-eg-i'-ro) to arouse, raise up (from sleep); to rouse up, stir up, incite"
   },
   "G1826": {
-    "ko": "~을 위해",
+    "ko": "나오다, 나가다",
     "note": "éxeimi (ex'-i-mee) to go forth, go out"
   },
   "G1827": {
-    "ko": "~에게",
+    "ko": "책망하다, 죄를 드러내다",
     "note": "exelénchō (ex-el-eng'-kho) to prove to be in the wrong, convict"
   },
   "G1828": {
-    "ko": "~에게",
+    "ko": "죄, 죄를 짓다",
     "note": "exélkō (ex-el'-ko) to draw out; metaph. lure forth: in hunting and fishing as game is lured from its hiding place, so man by lure is allured from the safety of self-restraint to sin. In Jas 1:14, the language of the hunting is transferred to the seduction of a harlot."
   },
   "G1829": {
@@ -55468,11 +55468,11 @@
     "note": "hexēs (hex-ace') successively in order; the next following, the next in succession"
   },
   "G1837": {
-    "ko": "~을 위해",
+    "ko": "울려 퍼지다, 소리가 나다",
     "note": "exēchéomai (ex-ay-kheh'-om-ahee) to sound forth, emit, sound, resound"
   },
   "G1840": {
-    "ko": "~에게",
+    "ko": "능력, 힘",
     "note": "exischýō (ex-is-khoo'-o) to be eminently able, able, to have full strength"
   },
   "G1841": {
@@ -55484,7 +55484,7 @@
     "note": "exolothreúō (ex-ol-oth-ryoo'-o) to destroy out of its place, destroy utterly, to extirpate"
   },
   "G1844": {
-    "ko": "~을 위해",
+    "ko": "맹세하다, 맹세",
     "note": "exorkízō (ex-or-kid'-zo) to extract an oath, to force to an oath; to adjure"
   },
   "G1845": {
@@ -55496,7 +55496,7 @@
     "note": "exoudenóō (ex-oo-den-o'-o) to hold and treat as of no account, utterly to despise; to set at nought, treat with contempt"
   },
   "G1848": {
-    "ko": "~의",
+    "ko": "말하다",
     "note": "exouthenéō (ex-oo-then-eh'-o) to make of no account, despise utterly"
   },
   "G1851": {
@@ -55528,7 +55528,7 @@
     "note": "epángelma (ep-ang'-el-mah) a promise"
   },
   "G1863": {
-    "ko": "~에게",
+    "ko": "가져오다",
     "note": "epágō (ep-ag'-o) to lead or bring upon; to bring a thing on one"
   },
   "G1864": {
@@ -55536,7 +55536,7 @@
     "note": "epagōnízomai (ep-ag-o-nid'-zom-ahee) to contend"
   },
   "G1865": {
-    "ko": "함께",
+    "ko": "함께 모이다, 군집하다",
     "note": "epathroízō (ep-ath-roid'-zo) to gather together (to others already present)"
   },
   "G1866": {
@@ -55552,7 +55552,7 @@
     "note": "épainos (ep'-ahee-nos) approbation, commendation, praise"
   },
   "G1869": {
-    "ko": "~에게",
+    "ko": "교만한, 교만",
     "note": "epaírō (ep-ahee'-ro) to lift up, raise up, raise on high; metaph. to be lifted up with pride, to exalt ones self"
   },
   "G1871": {
@@ -55568,7 +55568,7 @@
     "note": "epanístamai (ep-an-is'-tam-ahee) to cause to rise up against, to raise up against"
   },
   "G1882": {
-    "ko": "~에게",
+    "ko": "생명, 살다",
     "note": "epanórthōsis (ep-an-or'-tho-sis) restoration to an upright or right state; correction, improvement of life or character"
   },
   "G1885": {
@@ -55580,11 +55580,11 @@
     "note": "epaúrion (ep-ow'-ree-on) on the morrow, the next day"
   },
   "G1888": {
-    "ko": "안에",
+    "ko": "현행범으로, 도둑질하는 현장에서",
     "note": "epautophṓrōi (ep-ow-tof-o'-ro) in the act; caught in the act of theft"
   },
   "G1890": {
-    "ko": "~에게",
+    "ko": "거품을 내뿜다",
     "note": "epaphrízō (ep-af-rid'-zo) to foam up; to cast out as foam, foam out"
   },
   "G1894": {
@@ -55620,19 +55620,19 @@
     "note": "ependýtēs (ep-en-doo'-tace) an upper garment"
   },
   "G1904": {
-    "ko": "~에게",
+    "ko": "오다",
     "note": "epérchomai (ep-er'-khom-ahee) to come to arrive; to come upon, overtake, one"
   },
   "G1908": {
-    "ko": "~에게",
+    "ko": "먹다, 음식",
     "note": "epēreázō (ep-ay-reh-ad'-zo) to insult; to treat abusively, use despitefully"
   },
   "G1912": {
-    "ko": "~에게",
+    "ko": "두다, 놓다",
     "note": "epibaréō (ep-ee-bar-eh'-o) to put a burden upon, to load; to be burdensome"
   },
   "G1913": {
-    "ko": "~에게",
+    "ko": "두다, 놓다",
     "note": "epibibázō (ep-ee-bee-bad'-zo) to cause to mount; to place upon"
   },
   "G1915": {
@@ -55640,7 +55640,7 @@
     "note": "epíblēma (ep-ib'-lay-mah) that which is thrown or put upon a thing, or that which is added to it"
   },
   "G1916": {
-    "ko": "~에게",
+    "ko": "외치다, 부르짖다",
     "note": "epiboáō (ep-ee-bo-ah'-o) to cry out to, cry out"
   },
   "G1917": {
@@ -55660,7 +55660,7 @@
     "note": "epigínomai (ep-ig-in'-om-ahee) to become or happen afterwards; to come to, arrive: of time"
   },
   "G1926": {
-    "ko": "~에게",
+    "ko": "받다, 영접하다",
     "note": "epidéchomai (ep-ee-dekh'-om-ahee) to receive hospitality; to admit, i.e. not to reject"
   },
   "G1927": {
@@ -55692,11 +55692,11 @@
     "note": "epithanátios (ep-ee-than-at'-ee-os) doomed to death"
   },
   "G1936": {
-    "ko": "안에",
+    "ko": "앉다, 거하다",
     "note": "epíthesis (ep-ith'-es-is) a laying on, imposition"
   },
   "G1940": {
-    "ko": "~에게",
+    "ko": "앉다, 거하다",
     "note": "epikathízō (ep-ee-kath-id'-zo) to cause to sit upon, to set upon; to sit upon"
   },
   "G1944": {
@@ -55704,7 +55704,7 @@
     "note": "epikatáratos (ep-ee-kat-ar'-at-os) accursed, execrable, exposed to divine vengeance, lying under Gods curse"
   },
   "G1946": {
-    "ko": "~의",
+    "ko": "에피쿠로스 학파 사람",
     "note": "Epikoúreios (ep-ee-koo'-ri-os) belonging to the sect of Epicurius, the philosopher"
   },
   "G1947": {
@@ -55716,7 +55716,7 @@
     "note": "epikrínō (ep-ee-kree'-no) to adjudge, approve by ones decision, decree, give sentence"
   },
   "G1952": {
-    "ko": "~을 위해",
+    "ko": "부족하다, 이르지 못하다",
     "note": "epileípō (ep-ee-li'-po) to fail, not to suffer for (any purpose, for the attainment of an end)"
   },
   "G1954": {
@@ -55736,7 +55736,7 @@
     "note": "epimelōs (ep-ee-mel-oce') diligently, carefully"
   },
   "G1962": {
-    "ko": "~에게",
+    "ko": "동의하다, 승낙하다",
     "note": "epineúō (ep-een-yoo'-o) to nod to; to express approval, to assent"
   },
   "G1964": {
@@ -55748,11 +55748,11 @@
     "note": "epíorkos (ep-ee'-or-kos) a false swearer, a perjurer"
   },
   "G1966": {
-    "ko": "~에게",
+    "ko": "오다",
     "note": "epioûsa (ep-ee-oo'-sah) to come upon, approach"
   },
   "G1969": {
-    "ko": "~에게",
+    "ko": "돕다, 도움",
     "note": "epiplḗssō (ep-ee-place'-so) to strike upon, beat upon; to chastise with words, to chide, upbraid, rebuke"
   },
   "G1970": {
@@ -55760,27 +55760,27 @@
     "note": "epipnígō (ep-ee-pnee'-go) to throttle upon, to overgrow, to choke"
   },
   "G1973": {
-    "ko": "~을 위해",
+    "ko": "사모하는, 그리워하는",
     "note": "epipóthētos (ep-ee-poth'-ay-tos) longed for"
   },
   "G1974": {
-    "ko": "안에",
+    "ko": "사모함, 열망",
     "note": "epipothía (ep-ee-poth-ee'-ah) longing"
   },
   "G1975": {
-    "ko": "~에게",
+    "ko": "여행하다, 나아가다",
     "note": "epiporeúomai (ep-ee-por-yoo'-om-ahee) to go or journey to; to go to, traverse"
   },
   "G1976": {
-    "ko": "~에게",
+    "ko": "꿰매다, 붙이다",
     "note": "epirrháptō (ep-ir-hrap'-to) to sew upon, sew to"
   },
   "G1978": {
-    "ko": "안에",
+    "ko": "표가 있는, 유명한, 특별한",
     "note": "epísēmos (ep-is'-ay-mos) having a mark on it, marked, stamped, coined; marked"
   },
   "G1979": {
-    "ko": "~을 위해",
+    "ko": "먹다, 음식",
     "note": "episitismós (ep-ee-sit-is-mos') foraging, providing food; supplies, provisions, food"
   },
   "G1980": {
@@ -55800,11 +55800,11 @@
     "note": "epistomízō (ep-ee-stom-id'-zo) to bridle or stop up the mouth; metaph. to stop the mouth, reduce to silence"
   },
   "G1998": {
-    "ko": "함께",
+    "ko": "함께 달려오다, 모여들다",
     "note": "episyntréchō (ep-ee-soon-trekh'-o) to run together besides"
   },
   "G1999": {
-    "ko": "함께",
+    "ko": "적대적 결탁, 집회",
     "note": "episýstasis (ep-ee-soo'-stas-is) a hostile banding together or concourse"
   },
   "G2000": {
@@ -55812,7 +55812,7 @@
     "note": "episphalḗs (ep-ee-sfal-ace') prone to fall"
   },
   "G2002": {
-    "ko": "~에게",
+    "ko": "쌓다, 축적하다",
     "note": "episōreúō (ep-ee-so-ryoo'-o) to heap up, accumulate in piles"
   },
   "G2003": {
@@ -55832,7 +55832,7 @@
     "note": "epicheiréō (ep-ee-khi-reh'-o) to put the hand to; to take in hand, undertake, attempt"
   },
   "G2025": {
-    "ko": "~에게",
+    "ko": "읽다",
     "note": "epichríō (ep-ee-khree'-o) to spread on, anoint anything upon anything"
   },
   "G2027": {
