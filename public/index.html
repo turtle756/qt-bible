@@ -2313,14 +2313,16 @@
       const loggedIn = await checkAuth();
       if (!loggedIn) return;
 
-      // Onboarding check - redirect if not completed
-      try {
-        const obRes = await fetch('/api/onboarding');
-        if (obRes.ok) {
-          const obData = await obRes.json();
-          if (!obData) { window.location.href = '/onboarding.html'; return; }
-        }
-      } catch (e) { /* continue if API fails */ }
+      // Onboarding check - redirect if not completed (skip if ?test=1)
+      if (!new URLSearchParams(window.location.search).has('test')) {
+        try {
+          const obRes = await fetch('/api/onboarding');
+          if (obRes.ok) {
+            const obData = await obRes.json();
+            if (!obData) { window.location.href = '/onboarding.html'; return; }
+          }
+        } catch (e) { /* continue if API fails */ }
+      }
 
       // Load Strong's Korean dictionary
       await loadStrongsKoDict();
