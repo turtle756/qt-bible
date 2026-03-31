@@ -203,6 +203,20 @@
     .today-qt-btn.done { background: rgba(76,175,80,0.5); border-color: rgba(76,175,80,0.6); }
     .today-qt-hidden { display: none; }
 
+    /* QT Scripture Mini Viewer */
+    #qtScriptureBody .qt-verse {
+      padding: 4px 0;
+    }
+    #qtScriptureBody .qt-verse-num {
+      display: inline-block;
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 1.5em;
+      vertical-align: super;
+      margin-right: 2px;
+    }
+
     /* QT Guide Panel */
     .qt-guide-panel {
       max-width: 1600px; margin: 0 auto; padding: 0 12px;
@@ -692,13 +706,11 @@
   <header class="header">
     <div class="header-inner">
       <div class="logo" onclick="location.reload()">DailyQT</div>
-      <div class="selector-group">
+      <div class="selector-group" id="bibleSelectors">
         <button class="nav-btn" id="bookSelectorBtn"><span id="currentBookName">창세기 1장</span></button>
         <select id="chapterSelect"></select>
         <button class="nav-btn" id="prevChapter">&#9664;</button>
         <button class="nav-btn" id="nextChapter">&#9654;</button>
-      </div>
-      <div class="selector-group">
         <select id="engVersion" title="영어 번역">
           <option value="kjv">KJV</option>
           <option value="web">WEB</option>
@@ -770,20 +782,6 @@
   <!-- ===== TAB: 성경 ===== -->
   <div class="tab-content" id="tabBible">
 
-  <!-- Today's QT Banner (visible in bible tab too as reminder) -->
-  <div class="today-qt-banner today-qt-hidden" id="todayQtBanner">
-    <div class="today-qt-card" id="todayQtCard" onclick="goToTodayQt()">
-      <div class="today-qt-left">
-        <div class="today-qt-day" id="todayQtDay">Day 1</div>
-        <div class="today-qt-info">
-          <h3 id="todayQtPassage">시편 23:1-6</h3>
-          <p id="todayQtFocus">목자이신 하나님의 완벽한 돌보심을 신뢰하라.</p>
-        </div>
-      </div>
-      <button class="today-qt-btn" id="todayQtBtn" onclick="event.stopPropagation(); completeTodayQt()">읽기 완료</button>
-    </div>
-  </div>
-
   <!-- Main Content -->
   <main class="main">
     <div class="columns">
@@ -811,17 +809,36 @@
 
   <!-- ===== TAB: QT (메인) ===== -->
   <div class="tab-content active" id="tabQt">
-    <section class="bottom-section" style="display:block;">
-    <div>
+    <div style="max-width:800px;margin:0 auto;padding:12px;">
 
-    <!-- QT Guide Panel -->
+    <!-- 1. Today's QT Banner -->
+    <div class="today-qt-banner" id="todayQtBanner" style="padding:0;margin-bottom:12px;display:none;">
+      <div class="today-qt-card" id="todayQtCard">
+        <div class="today-qt-left">
+          <div class="today-qt-day" id="todayQtDay">Day 1</div>
+          <div class="today-qt-info">
+            <h3 id="todayQtPassage">오늘의 말씀</h3>
+            <p id="todayQtFocus">온보딩을 완료하면 맞춤 QT가 시작됩니다.</p>
+          </div>
+        </div>
+        <button class="today-qt-btn" id="todayQtBtn" onclick="completeTodayQt()">읽기 완료</button>
+      </div>
+    </div>
+
+    <!-- 2. Today's Scripture Mini Viewer -->
+    <div class="soap-card" id="qtScripturePanel" style="display:none;margin-bottom:12px;">
+      <h3 id="qtScriptureTitle" style="color:var(--accent);font-size:0.95rem;margin-bottom:10px;">오늘의 본문</h3>
+      <div id="qtScriptureBody" style="font-size:0.92rem;line-height:1.9;max-height:400px;overflow-y:auto;"></div>
+    </div>
+
+    <!-- 3. QT Guide Panel -->
     <div class="qt-guide-panel" id="qtGuidePanel" style="padding:0;margin-bottom:12px;">
       <div class="qt-guide-card">
-        <div class="qt-guide-tabs">
-          <button class="qt-guide-tab active" onclick="switchGuideTab('exploring')">입문</button>
-          <button class="qt-guide-tab" onclick="switchGuideTab('growing')">초급</button>
-          <button class="qt-guide-tab" onclick="switchGuideTab('close')">중급</button>
-          <button class="qt-guide-tab" onclick="switchGuideTab('centered')">심화</button>
+        <div class="qt-guide-tabs" id="qtGuideTabs">
+          <button class="qt-guide-tab active" data-level="exploring" onclick="switchGuideTab('exploring')">입문</button>
+          <button class="qt-guide-tab" data-level="growing" onclick="switchGuideTab('growing')">초급</button>
+          <button class="qt-guide-tab" data-level="close" onclick="switchGuideTab('close')">중급</button>
+          <button class="qt-guide-tab" data-level="centered" onclick="switchGuideTab('centered')">심화</button>
         </div>
         <div class="qt-guide-content" id="qtGuideContent">
           <div style="text-align:center;color:var(--text-secondary);padding:30px 0;">
@@ -831,7 +848,7 @@
       </div>
     </div>
 
-    <!-- SOAP Notes -->
+    <!-- 4. SOAP Notes -->
     <div class="soap-card" id="soapPanel">
       <h3>SOAP 묵상 노트 — <span id="qtDate"></span></h3>
       <div class="soap-tabs">
@@ -848,9 +865,7 @@
       </div>
     </div>
 
-    </div>
-
-    <!-- Calendar + Reading Plan (in QT tab) -->
+    <!-- 5. Calendar -->
     <div>
       <div class="calendar-card">
         <h3>QT 캘린더</h3>
@@ -874,7 +889,7 @@
       </div>
     </div>
 
-    </section>
+    </div>
   </div><!-- end tabQt -->
 
   <!-- ===== TAB: 나눔 ===== -->
@@ -1947,6 +1962,8 @@
       document.getElementById('tabBible').classList.toggle('active', tab === 'bible');
       document.getElementById('tabQt').classList.toggle('active', tab === 'qt');
       document.getElementById('tabShare').classList.toggle('active', tab === 'share');
+      // Show/hide bible selectors based on tab
+      document.getElementById('bibleSelectors').style.display = tab === 'bible' ? 'flex' : 'none';
     }
 
     // ============================================================
@@ -2024,6 +2041,9 @@
         } catch (e) { /* continue if API fails */ }
       }
 
+      // Hide bible selectors initially (QT tab is default)
+      document.getElementById('bibleSelectors').style.display = 'none';
+
       // Load Strong's Korean dictionary
       await loadStrongsKoDict();
 
@@ -2046,10 +2066,20 @@
       try {
         const res = await fetch('/api/today-qt');
         const data = await res.json();
+
+        // Set maturity-based guide tab
+        if (data.profile && data.profile.maturity_level) {
+          currentGuideTab = data.profile.maturity_level;
+          document.querySelectorAll('.qt-guide-tab').forEach(t => {
+            t.classList.toggle('active', t.dataset.level === currentGuideTab);
+          });
+        }
+
         if (!data.activePlan) {
           // Test mode: show Day 1 guide anyway
           if (new URLSearchParams(window.location.search).has('test')) {
             loadQtGuide(1);
+            loadQtScripture('요한복음 14:23-31');
           }
           return;
         }
@@ -2066,8 +2096,9 @@
         const todayEntry = planData.find(d => d.day === currentDay) || planData[0];
         if (!todayEntry) return;
 
+        // Show banner
         const banner = document.getElementById('todayQtBanner');
-        banner.classList.remove('today-qt-hidden');
+        banner.style.display = 'block';
         document.getElementById('todayQtDay').textContent =
           `Day ${currentDay} / ${todayQtPlan.duration}`;
         document.getElementById('todayQtPassage').textContent = todayEntry.passage;
@@ -2078,6 +2109,9 @@
           btn.textContent = '완료됨';
           btn.classList.add('done');
         }
+
+        // Load scripture mini viewer
+        loadQtScripture(todayEntry.passage);
 
         // Load QT guide data
         loadQtGuide(currentDay);
@@ -2090,6 +2124,48 @@
         document.getElementById('calPlanProgress').textContent = `${completedDays} / ${todayQtPlan.duration}일`;
         document.getElementById('calPlanBar').style.width = Math.round(completedDays / todayQtPlan.duration * 100) + '%';
       } catch (e) { console.error('loadTodayQt error:', e); }
+    }
+
+    async function loadQtScripture(passage) {
+      // Parse "시편 23:1-6" → book=19, chapter=23, verseStart=1, verseEnd=6
+      const match = passage.match(/^(.+?)\s*(\d+):(\d+)(?:-(\d+))?$/);
+      if (!match) return;
+
+      const bookName = match[1].trim();
+      const chapter = parseInt(match[2]);
+      const vStart = parseInt(match[3]);
+      const vEnd = match[4] ? parseInt(match[4]) : vStart;
+
+      const bookNames = [
+        '','창세기','출애굽기','레위기','민수기','신명기','여호수아','사사기','룻기',
+        '사무엘상','사무엘하','열왕기상','열왕기하','역대상','역대하','에스라','느헤미야','에스더',
+        '욥기','시편','잠언','전도서','아가','이사야','예레미야','예레미야애가','에스겔','다니엘',
+        '호세아','요엘','아모스','오바댜','요나','미가','나훔','하박국','스바냐','학개','스가랴','말라기',
+        '마태복음','마가복음','누가복음','요한복음','사도행전','로마서','고린도전서','고린도후서',
+        '갈라디아서','에베소서','빌립보서','골로새서','데살로니가전서','데살로니가후서',
+        '디모데전서','디모데후서','디도서','빌레몬서','히브리서','야고보서',
+        '베드로전서','베드로후서','요한일서','요한이서','요한삼서','유다서','요한계시록'
+      ];
+      const bookIdx = bookNames.findIndex(n => n === bookName);
+      if (bookIdx <= 0) return;
+
+      try {
+        // Fetch from bolls.life KRV
+        const res = await fetch(`https://bolls.life/get-text/KRV/${bookIdx}/${chapter}/`);
+        const verses = await res.json();
+        const filtered = verses.filter(v => v.verse >= vStart && v.verse <= vEnd);
+
+        if (filtered.length === 0) return;
+
+        const panel = document.getElementById('qtScripturePanel');
+        panel.style.display = 'block';
+        document.getElementById('qtScriptureTitle').textContent = passage;
+        document.getElementById('qtScriptureBody').innerHTML = filtered.map(v =>
+          `<div class="qt-verse"><span class="qt-verse-num">${v.verse}</span>${v.text}</div>`
+        ).join('');
+      } catch (e) {
+        console.error('loadQtScripture error:', e);
+      }
     }
 
     async function loadQtGuide(day) {
