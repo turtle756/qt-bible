@@ -170,6 +170,64 @@
     .today-qt-btn:hover { background: rgba(255,255,255,0.3); }
     .today-qt-btn.done { background: rgba(76,175,80,0.5); border-color: rgba(76,175,80,0.6); }
     .today-qt-hidden { display: none; }
+
+    /* QT Guide Panel */
+    .qt-guide-panel {
+      max-width: 1600px; margin: 0 auto; padding: 0 12px;
+    }
+    .qt-guide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .qt-guide-tabs {
+      display: flex; border-bottom: 1px solid var(--border);
+      background: var(--accent-light);
+    }
+    .qt-guide-tab {
+      flex: 1; padding: 10px; text-align: center;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--text-secondary); cursor: pointer;
+      border: none; background: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .qt-guide-tab:hover { color: var(--accent); }
+    .qt-guide-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .qt-guide-content {
+      padding: 18px;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .qt-guide-content h4 {
+      font-size: 0.82rem; color: var(--accent);
+      margin: 14px 0 6px; font-weight: 700;
+    }
+    .qt-guide-content h4:first-child { margin-top: 0; }
+    .qt-guide-content p { margin-bottom: 8px; }
+    .qt-guide-content .qt-keyword {
+      background: var(--accent-light); padding: 8px 12px;
+      border-radius: 8px; margin: 8px 0;
+      font-size: 0.83rem; border-left: 3px solid var(--accent);
+    }
+    .qt-guide-content .qt-prayer {
+      background: var(--verse-hover); padding: 10px 14px;
+      border-radius: 8px; margin: 8px 0;
+      font-style: italic; font-size: 0.85rem;
+      white-space: pre-line;
+    }
+    .qt-guide-content .qt-crossref {
+      display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0;
+    }
+    .qt-guide-content .qt-crossref span {
+      background: var(--accent-light); padding: 3px 10px;
+      border-radius: 12px; font-size: 0.75rem; color: var(--accent);
+    }
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -681,6 +739,21 @@
         </div>
       </div>
       <button class="today-qt-btn" id="todayQtBtn" onclick="event.stopPropagation(); completeTodayQt()">읽기 완료</button>
+    </div>
+  </div>
+
+  <!-- QT Guide Panel -->
+  <div class="qt-guide-panel today-qt-hidden" id="qtGuidePanel">
+    <div class="qt-guide-card">
+      <div class="qt-guide-tabs">
+        <button class="qt-guide-tab active" onclick="switchGuideTab('exploring')">입문</button>
+        <button class="qt-guide-tab" onclick="switchGuideTab('growing')">초급</button>
+        <button class="qt-guide-tab" onclick="switchGuideTab('close')">중급</button>
+        <button class="qt-guide-tab" onclick="switchGuideTab('centered')">심화</button>
+      </div>
+      <div class="qt-guide-content" id="qtGuideContent">
+        가이드를 불러오는 중...
+      </div>
     </div>
   </div>
 
@@ -2335,16 +2408,25 @@
     })();
 
     // ============================================================
-    // Today's QT
+    // Today's QT + Guide
     // ============================================================
     let todayQtPlan = null;
     let todayQtProgress = [];
+    let qtGuideData = null;
+    let currentGuideDay = null;
+    let currentGuideTab = 'exploring';
 
     async function loadTodayQt() {
       try {
         const res = await fetch('/api/today-qt');
         const data = await res.json();
-        if (!data.activePlan) return;
+        if (!data.activePlan) {
+          // Test mode: show Day 1 guide anyway
+          if (new URLSearchParams(window.location.search).has('test')) {
+            loadQtGuide(1);
+          }
+          return;
+        }
 
         todayQtPlan = data.activePlan;
         const planData = typeof todayQtPlan.plan_data === 'string'
@@ -2370,7 +2452,73 @@
           btn.textContent = '완료됨';
           btn.classList.add('done');
         }
+
+        // Load QT guide data
+        loadQtGuide(currentDay);
       } catch (e) { console.error('loadTodayQt error:', e); }
+    }
+
+    async function loadQtGuide(day) {
+      try {
+        // Try topic1 for now (will expand to match active plan topic later)
+        const res = await fetch('/data/qt-guides-topic1.json');
+        if (!res.ok) return;
+        const allGuides = await res.json();
+        const guide = allGuides.find(g => g.day === day);
+        if (!guide) return;
+
+        qtGuideData = guide;
+        currentGuideDay = day;
+        document.getElementById('qtGuidePanel').classList.remove('today-qt-hidden');
+        renderGuideTab(currentGuideTab);
+      } catch (e) { console.error('loadQtGuide error:', e); }
+    }
+
+    function switchGuideTab(tab) {
+      currentGuideTab = tab;
+      document.querySelectorAll('.qt-guide-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      renderGuideTab(tab);
+    }
+
+    function renderGuideTab(tab) {
+      if (!qtGuideData) return;
+      const g = qtGuideData;
+      const c = g.common || {};
+      const d = g[tab] || {};
+      let html = '';
+
+      // Common: background + key verse + key word
+      html += `<h4>오늘의 배경</h4><p>${c.background || ''}</p>`;
+      if (c.key_verse) html += `<div class="qt-keyword">${c.key_verse}</div>`;
+      if (c.key_word) html += `<h4>핵심 원어</h4><div class="qt-keyword">${c.key_word}</div>`;
+
+      if (tab === 'exploring') {
+        if (d.question_1) html += `<h4>묵상 질문 1</h4><p>${d.question_1}</p>`;
+        if (d.question_2) html += `<h4>묵상 질문 2</h4><p>${d.question_2}</p>`;
+        if (d.prayer_guide) html += `<h4>기도 가이드</h4><div class="qt-prayer">${d.prayer_guide}</div>`;
+      } else if (tab === 'growing') {
+        if (d.scripture_focus) html += `<h4>집중 구절</h4><p>${d.scripture_focus}</p>`;
+        if (d.observation) html += `<h4>관찰 질문</h4><p>${d.observation}</p>`;
+        if (d.application) html += `<h4>적용 질문</h4><p>${d.application}</p>`;
+        if (d.prayer_guide) html += `<h4>ACTS 기도</h4><div class="qt-prayer">${d.prayer_guide.replace(/\\n/g, '\n')}</div>`;
+      } else if (tab === 'close') {
+        if (d.context) html += `<h4>문맥과 배경</h4><p>${d.context}</p>`;
+        if (d.observation_deep) html += `<h4>깊은 관찰</h4><p>${d.observation_deep}</p>`;
+        if (d.interpretation) html += `<h4>해석</h4><p>${d.interpretation}</p>`;
+        if (d.application_deep) html += `<h4>깊은 적용</h4><p>${d.application_deep}</p>`;
+        if (d.cross_reference && d.cross_reference.length) {
+          html += `<h4>관련 구절</h4><div class="qt-crossref">${d.cross_reference.map(r => `<span>${r}</span>`).join('')}</div>`;
+        }
+      } else if (tab === 'centered') {
+        if (d.lectio) html += `<h4>읽기 (Lectio)</h4><p>${d.lectio}</p>`;
+        if (d.meditatio) html += `<h4>묵상 (Meditatio)</h4><p>${d.meditatio}</p>`;
+        if (d.oratio) html += `<h4>기도 (Oratio)</h4><p>${d.oratio}</p>`;
+        if (d.contemplatio) html += `<h4>관상 (Contemplatio)</h4><p>${d.contemplatio}</p>`;
+        if (d.actio) html += `<h4>실천 (Actio)</h4><p>${d.actio}</p>`;
+      }
+
+      document.getElementById('qtGuideContent').innerHTML = html;
     }
 
     function goToTodayQt() {

@@ -226,6 +226,17 @@
   }
   .btn-start:hover { background: var(--primary-light); }
 
+  /* Test skip button */
+  .btn-test-skip {
+    position: fixed; bottom: 16px; right: 16px;
+    padding: 8px 16px;
+    background: #e0e0e0; color: #666;
+    border: 1px solid #ccc; border-radius: 8px;
+    font-size: 12px; cursor: pointer; z-index: 999;
+    opacity: 0.6; transition: opacity 0.2s;
+  }
+  .btn-test-skip:hover { opacity: 1; }
+
   /* Hidden */
   .hidden { display: none !important; }
 </style>
@@ -233,6 +244,7 @@
 <body>
 
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<button class="btn-test-skip" onclick="window.location.href='/?test=1'">테스트 모드 →</button>
 
 <div class="onboarding-container" id="container">
   <!-- Dynamically rendered -->
@@ -309,14 +321,16 @@ async function init() {
   ]);
   if (!meRes.loggedIn) { window.location.href = '/login.html'; return; }
 
-  // Check if already onboarded
-  try {
-    const obRes = await fetch('/api/onboarding');
-    if (obRes.ok) {
-      const profile = await obRes.json();
-      if (profile) { window.location.href = '/'; return; }
-    }
-  } catch (e) { /* continue */ }
+  // Check if already onboarded (skip if ?test param)
+  if (!new URLSearchParams(window.location.search).has('test')) {
+    try {
+      const obRes = await fetch('/api/onboarding');
+      if (obRes.ok) {
+        const profile = await obRes.json();
+        if (profile) { window.location.href = '/'; return; }
+      }
+    } catch (e) { /* continue */ }
+  }
 
   quizData = quizRes;
   topicsData = topicsRes;
