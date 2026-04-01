@@ -279,6 +279,7 @@
     }
     .settings-level-btn:hover { border-color: var(--accent); background: var(--accent-light); }
     .settings-level-btn.active { border-color: var(--accent); background: var(--accent-light); }
+    .settings-level-btn strong { color: var(--accent); }
 
     /* Weekly QT List */
     .weekly-item {
@@ -391,7 +392,26 @@
       gap: 12px;
       align-items: start;
     }
-    @media (max-width: 1024px) { .columns { grid-template-columns: 1fr; } }
+    .bible-lang-tabs { display: none; }
+    @media (max-width: 1024px) {
+      .bible-lang-tabs {
+        display: flex; gap: 0;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border);
+        padding: 0 12px;
+        max-width: 1600px; margin: 0 auto;
+      }
+      .bible-lang-tab {
+        flex: 1; padding: 10px; text-align: center;
+        font-size: 0.82rem; font-weight: 600;
+        color: var(--text-secondary); background: none; border: none;
+        border-bottom: 2px solid transparent; cursor: pointer;
+      }
+      .bible-lang-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+      .columns { display: block !important; }
+      .column { display: none !important; }
+      .column.mobile-active { display: block !important; }
+    }
 
     /* Column */
     .column {
@@ -921,6 +941,13 @@
 
   <!-- ===== TAB: 성경 ===== -->
   <div class="tab-content" id="tabBible">
+
+  <!-- Bible Language Tabs (mobile only) -->
+  <div class="bible-lang-tabs">
+    <button class="bible-lang-tab active" onclick="switchBibleLang('kor')">한국어</button>
+    <button class="bible-lang-tab" onclick="switchBibleLang('eng')">English</button>
+    <button class="bible-lang-tab" onclick="switchBibleLang('orig')">원어</button>
+  </div>
 
   <!-- Main Content -->
   <main class="main">
@@ -2312,6 +2339,20 @@
     document.getElementById('engVersion').addEventListener('change', loadChapter);
 
     // ============================================================
+    // Bible Language Tabs (mobile)
+    // ============================================================
+    function switchBibleLang(lang) {
+      const cols = document.querySelectorAll('.column');
+      const tabs = document.querySelectorAll('.bible-lang-tab');
+      cols.forEach(c => c.classList.remove('mobile-active'));
+      tabs.forEach(t => t.classList.remove('active'));
+
+      const idx = {kor: 0, eng: 1, orig: 2}[lang];
+      if (cols[idx]) cols[idx].classList.add('mobile-active');
+      if (tabs[idx]) tabs[idx].classList.add('active');
+    }
+
+    // ============================================================
     // Init
     // ============================================================
     (async function init() {
@@ -2346,6 +2387,9 @@
           }
         } catch (e) { /* continue if API fails */ }
       }
+
+      // Default mobile bible language tab
+      switchBibleLang('kor');
 
       // Hide bible selectors initially (QT tab is default)
       document.getElementById('bibleSelectors').style.display = 'none';

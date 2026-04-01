@@ -7,105 +7,223 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: linear-gradient(135deg, #faf8f5 0%, #f0e8d8 100%);
+      background: linear-gradient(150deg, #faf8f5 0%, #f3ead8 50%, #ebe0cc 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+      overflow: hidden;
     }
-    .login-container {
+
+    /* Subtle dot pattern overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, #c9b68a 0.6px, transparent 0.6px);
+      background-size: 28px 28px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .login-card {
       text-align: center;
-      max-width: 420px;
-      padding: 48px 32px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(139,105,20,0.1);
+      width: 100%;
+      max-width: 440px;
+      padding: 52px 36px 44px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      box-shadow: 0 12px 48px rgba(139, 105, 20, 0.1), 0 2px 8px rgba(139, 105, 20, 0.06);
+      position: relative;
+      z-index: 1;
     }
+
+    /* Decorative top bar */
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #c9a834, #8b6914);
+      border-radius: 0 0 4px 4px;
+    }
+
     .logo {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #8b6914;
-      margin-bottom: 8px;
+      letter-spacing: -0.02em;
     }
+
     .tagline {
-      color: #6b5d4d;
-      font-size: 1rem;
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-    .description {
-      color: #9a8c7a;
-      font-size: 0.85rem;
+      color: #5a4e3c;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-top: 10px;
       line-height: 1.7;
-      margin-bottom: 36px;
-      padding: 0 12px;
     }
+
+    .tagline strong {
+      font-weight: 500;
+      color: #8b6914;
+    }
+
+    .divider {
+      width: 32px;
+      height: 1px;
+      background: #d4c9a8;
+      margin: 28px auto;
+    }
+
+    .welcome-text {
+      color: #7a6e5c;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      padding: 0 8px;
+    }
+
     .google-btn {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       background: white;
       border: 2px solid #e8e0d4;
-      border-radius: 12px;
-      padding: 14px 32px;
+      border-radius: 14px;
+      padding: 15px 36px;
       font-size: 1rem;
       font-family: 'Noto Sans KR', sans-serif;
       font-weight: 500;
       color: #2d2417;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
       text-decoration: none;
+      box-shadow: 0 2px 8px rgba(139, 105, 20, 0.06);
     }
+
     .google-btn:hover {
       border-color: #8b6914;
-      background: #fdf8ee;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(139,105,20,0.15);
+      background: #fffcf5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 105, 20, 0.15);
     }
+
+    .google-btn:active {
+      transform: translateY(0);
+    }
+
     .google-btn svg {
       width: 20px;
       height: 20px;
+      flex-shrink: 0;
     }
+
     .features {
       margin-top: 36px;
       display: flex;
-      gap: 16px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .feature {
       font-size: 0.8rem;
       color: #8b6914;
-      background: #f5eddb;
-      padding: 6px 14px;
+      background: linear-gradient(135deg, #f9f1de, #f3e8cc);
+      padding: 7px 16px;
       border-radius: 20px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
     }
+
+    .verse-section {
+      margin-top: 36px;
+      padding: 20px 16px;
+      background: #faf6ed;
+      border-radius: 12px;
+      border-left: 3px solid #d4be6a;
+    }
+
     .verse {
-      margin-top: 32px;
-      font-size: 0.85rem;
-      color: #9a8c7a;
-      font-style: italic;
-      line-height: 1.6;
-      padding: 0 20px;
+      font-size: 0.88rem;
+      color: #6b5d4d;
+      line-height: 1.75;
+      word-break: keep-all;
     }
+
     .verse-ref {
       display: block;
-      margin-top: 6px;
-      font-style: normal;
+      margin-top: 8px;
       font-weight: 500;
+      font-size: 0.8rem;
       color: #8b6914;
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 40px 24px 36px;
+        border-radius: 20px;
+      }
+
+      .logo {
+        font-size: 1.9rem;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+      }
+
+      .google-btn {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .features {
+        gap: 8px;
+      }
+
+      .feature {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+      }
+
+      .verse-section {
+        padding: 16px 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .login-card {
+        padding: 32px 18px 28px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-card">
     <div class="logo">DailyQT</div>
-    <p class="tagline">한국어 - English - 원어<br>3개 국어 성경 비교 QT</p>
-    <p class="description">
-      번역만으로는 담을 수 없는 말씀의 깊이를<br>
-      원어와 영어 비교를 통해 발견하세요.
+    <p class="tagline">
+      오늘 하루, <strong>나만의 묵상</strong>을 시작하세요<br>
+      매일 말씀과 함께하는 개인 맞춤 QT
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="welcome-text">
+      하루 한 말씀, 4단계 묵상 가이드와 함께<br>
+      깊이 있는 QT를 경험해 보세요.
     </p>
 
     <a href="/auth/google" class="google-btn">
@@ -114,16 +232,18 @@
     </a>
 
     <div class="features">
-      <span class="feature">3개국어 비교</span>
-      <span class="feature">SOAP 묵상</span>
+      <span class="feature">개인 맞춤 QT</span>
+      <span class="feature">4단계 묵상 가이드</span>
+      <span class="feature">익명 나눔</span>
       <span class="feature">QT 캘린더</span>
-      <span class="feature">구절 하이라이팅</span>
     </div>
 
-    <p class="verse">
-      "Your word is a lamp for my feet, a light on my path."
-      <span class="verse-ref">Psalm 119:105</span>
-    </p>
+    <div class="verse-section">
+      <p class="verse">
+        "주의 말씀은 내 발에 등이요 내 길에 빛이니이다"
+        <span class="verse-ref">시편 119:105</span>
+      </p>
+    </div>
   </div>
 
   <script>
