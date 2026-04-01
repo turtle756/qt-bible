@@ -315,13 +315,17 @@ let parallelReading = true;
 // ============================================================
 // Load data
 // ============================================================
+let curriculaExtended = [];
+
 async function init() {
-  const [quizRes, topicsRes, curriculaRes, meRes] = await Promise.all([
+  const [quizRes, topicsRes, curriculaRes, extRes, meRes] = await Promise.all([
     fetch('/data/onboarding-quiz.json').then(r => r.json()),
     fetch('/data/topics-db.json').then(r => r.json()),
     fetch('/data/curricula.json').then(r => r.json()),
+    fetch('/data/curricula-extended.json').then(r => r.json()).catch(() => []),
     fetch('/api/me').then(r => r.json()),
   ]);
+  curriculaExtended = extRes;
   if (!meRes.loggedIn) { window.location.href = '/login.html'; return; }
 
   // Check if already onboarded (skip if ?test param)
@@ -451,15 +455,17 @@ function renderStyleSelect(c) {
 }
 
 function findCurriculum(topicName) {
-  return curriculaData.find(cur =>
+  // First check original 10 (has 7/14/30 day plans)
+  const orig = curriculaData.find(cur =>
     topicName.includes(cur.topic.split('(')[0].trim().substring(0, 4))
   );
-}
+  if (orig) return { type: 'original', data: orig };
 
-function findTopicVerses(topicName) {
-  const match = topicsData.find(t => t.topic === topicName);
-  if (!match) return null;
-  return match.verses.map((v, i) => ({ day: i + 1, passage: v, focus: match.description }));
+  // Then check extended 129 (has 30-day days array)
+  const ext = curriculaExtended.find(c => c.topic === topicName);
+  if (ext) return { type: 'extended', data: ext };
+
+  return null;
 }
 
 function renderResult(c) {
@@ -475,13 +481,19 @@ function renderResult(c) {
     centered: '그리스도 중심의 성숙한 신앙을 가지고 계시네요. 받은 은혜를 나누는 여정을 시작해보세요.',
   };
 
-  // Match selected topics to curricula or verse data
+  // Match selected topics to curricula
   const firstTopic = selectedTopics[0] || '불안';
-  const matched = findCurriculum(firstTopic);
-  const previewDays = matched
-    ? (matched.plans?.['30day'] || matched.plans?.['7day'] || []).slice(0, 5)
-    : (findTopicVerses(firstTopic) || []).slice(0, 5);
-  const planTitle = matched ? matched.topic : firstTopic;
+  const found = findCurriculum(firstTopic);
+  let previewDays = [];
+  let planTitle = firstTopic;
+
+  if (found && found.type === 'original') {
+    previewDays = (found.data.plans?.['30day'] || found.data.plans?.['7day'] || []).slice(0, 5);
+    planTitle = found.data.topic;
+  } else if (found && found.type === 'extended') {
+    previewDays = (found.data.days || []).slice(0, 5);
+    planTitle = found.data.topic;
+  }
 
   // Topic queue HTML
   const queueHtml = selectedTopics.length > 1 ? `
@@ -507,7 +519,7 @@ function renderResult(c) {
     <div class="plan-preview">
       <h3>첫 번째 묵상 플랜</h3>
       <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">
-        "${planTitle}" · ${matched ? '30' : previewDays.length}일 플랜
+        "${planTitle}" · ${found ? '30' : previewDays.length}일 플랜
       </p>
       ${previewDays.map(d => `
         <div class="plan-day">
@@ -589,25 +601,20 @@ async function finishOnboarding() {
 async function startPlan() {
   try {
     const firstTopic = selectedTopics[0] || '불안';
-    const matched = findCurriculum(firstTopic);
+    const found = findCurriculum(firstTopic);
 
     let planName, topic, duration, planData;
 
-    if (matched) {
-      // Full curriculum available (10 topics)
-      planData = matched.plans['30day'] || matched.plans['14day'] || matched.plans['7day'] || [];
-      planName = matched.topic;
-      topic = matched.topic;
+    if (found && found.type === 'original') {
+      planData = found.data.plans['30day'] || found.data.plans['14day'] || found.data.plans['7day'] || [];
+      planName = found.data.topic;
+      topic = found.data.topic;
       duration = planData.length;
-    } else {
-      // Verse-based plan from topics-db (130 topics)
-      const verses = findTopicVerses(firstTopic);
-      if (verses) {
-        planData = verses;
-        planName = firstTopic;
-        topic = firstTopic;
-        duration = verses.length;
-      }
+    } else if (found && found.type === 'extended') {
+      planData = found.data.days || [];
+      planName = found.data.topic;
+      topic = found.data.topic;
+      duration = planData.length;
     }
 
     if (planData && planData.length > 0) {

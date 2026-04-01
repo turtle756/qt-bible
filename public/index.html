@@ -2821,7 +2821,7 @@
 
     async function startNextPlan(topicName) {
       try {
-        // Fetch curricula to find matching plan
+        // Check original 10 curricula
         const curRes = await fetch('/data/curricula.json');
         const curricula = await curRes.json();
         const matched = curricula.find(c => topicName.includes(c.topic.split('(')[0].trim().substring(0, 4)));
@@ -2832,13 +2832,13 @@
           planName = matched.topic;
           duration = planData.length;
         } else {
-          // Verse-based from topics-db
-          const topRes = await fetch('/data/topics-db.json');
-          const allTopics = await topRes.json();
-          const topicMatch = allTopics.find(t => t.topic === topicName);
-          if (topicMatch) {
-            planData = topicMatch.verses.map((v, i) => ({ day: i + 1, passage: v, focus: topicMatch.description }));
-            planName = topicName;
+          // Check extended 129 curricula
+          const extRes = await fetch('/data/curricula-extended.json');
+          const extended = await extRes.json();
+          const extMatch = extended.find(c => c.topic === topicName);
+          if (extMatch) {
+            planData = extMatch.days || [];
+            planName = extMatch.topic;
             duration = planData.length;
           }
         }
