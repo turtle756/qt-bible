@@ -2552,13 +2552,39 @@
       }
     }
 
+    const TOPIC_FILE_MAP = {
+      '불안과 두려움 극복': 1, '불안': 1,
+      '자존감 회복': 2, '자존감 회복 (하나님 안에서의 정체성)': 2,
+      '분노 다스리기': 3,
+      '상실과 슬픔 속 위로': 4,
+      '외로움에서 하나님의 동행 발견': 5,
+      '용서하는 삶': 6,
+      '기도의 능력': 7,
+      '감사의 삶': 8,
+      '리더십과 섬김': 9,
+      '재정과 청지기 의식': 10,
+    };
+    let guideCache = {}; // topicNum -> array
+
     async function loadQtGuide(day) {
       try {
-        // Try topic1 for now (will expand to match active plan topic later)
-        const res = await fetch('/data/qt-guides-topic1.json');
-        if (!res.ok) return;
-        const allGuides = await res.json();
-        const guide = allGuides.find(g => g.day === day);
+        // Determine topic number from active plan
+        let topicNum = 1;
+        if (todayQtPlan) {
+          const planTopic = todayQtPlan.topic || todayQtPlan.plan_name || '';
+          for (const [name, num] of Object.entries(TOPIC_FILE_MAP)) {
+            if (planTopic.includes(name)) { topicNum = num; break; }
+          }
+        }
+
+        // Load from cache or fetch
+        if (!guideCache[topicNum]) {
+          const res = await fetch(`/data/qt-guides-topic${topicNum}.json`);
+          if (!res.ok) return;
+          guideCache[topicNum] = await res.json();
+        }
+
+        const guide = guideCache[topicNum].find(g => g.day === day);
         if (!guide) return;
 
         qtGuideData = guide;
