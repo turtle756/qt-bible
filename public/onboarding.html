@@ -346,46 +346,51 @@ async function init() {
 }
 
 // ============================================================
-// Render
+// Render — 3 Steps: 성숙도 → 주제 선택 → 분량 → 결과
 // ============================================================
+let maturityChoice = null; // exploring/growing/close/centered
+
 function render() {
   const c = document.getElementById('container');
-  const totalSteps = 15; // 12 quiz + topic + style + result
+  const totalSteps = 4; // maturity + topics + style + result
   const progress = Math.min((currentStep + 1) / totalSteps * 100, 100);
   document.getElementById('progressFill').style.width = progress + '%';
 
-  if (currentStep < 12) {
-    renderQuizStep(c, currentStep);
-  } else if (currentStep === 12) {
-    renderTopicSelect(c);
-  } else if (currentStep === 13) {
-    renderStyleSelect(c);
-  } else {
-    renderResult(c);
-  }
+  if (currentStep === 0) renderMaturityStep(c);
+  else if (currentStep === 1) renderTopicSelect(c);
+  else if (currentStep === 2) renderStyleSelect(c);
+  else renderResult(c);
 }
 
-function renderQuizStep(c, idx) {
-  const q = quizData.questions[idx];
+function renderMaturityStep(c) {
   c.innerHTML = `
-    <div class="step-counter">${idx + 1} / 12</div>
+    <div class="step-counter">1 / 3</div>
     <div class="question-card">
-      <div class="question-icon">${icon(q.icon)}</div>
-      ${q.subtitle ? `<div class="question-subtitle">${q.subtitle}</div>` : ''}
-      <div class="question-text">${q.text}</div>
+      <div class="question-icon">${icon('book')}</div>
+      <div class="question-subtitle">어떤 답을 골라도 괜찮아요</div>
+      <div class="question-text">성경을 얼마나 읽어보셨나요?</div>
       <div class="choices">
-        ${q.choices.map(ch => `
-          <button class="choice-btn ${answers[q.id] === ch.id ? 'selected' : ''}"
-                  onclick="selectAnswer(${q.id}, '${ch.id}', ${ch.score})">
-            <div class="choice-icon">${icon(ch.icon)}</div>
-            <span>${ch.text}</span>
-          </button>
-        `).join('')}
+        <button class="choice-btn ${maturityChoice === 'exploring' ? 'selected' : ''}"
+                onclick="selectMaturity('exploring')">
+          <div class="choice-icon">${icon('seed')}</div>
+          <span>거의 처음이에요</span>
+        </button>
+        <button class="choice-btn ${maturityChoice === 'growing' ? 'selected' : ''}"
+                onclick="selectMaturity('growing')">
+          <div class="choice-icon">${icon('sprout')}</div>
+          <span>가끔 읽거나 교회에서 들어요</span>
+        </button>
+        <button class="choice-btn ${maturityChoice === 'close' ? 'selected' : ''}"
+                onclick="selectMaturity('close')">
+          <div class="choice-icon">${icon('tree')}</div>
+          <span>꾸준히 묵상하고 있어요</span>
+        </button>
+        <button class="choice-btn ${maturityChoice === 'centered' ? 'selected' : ''}"
+                onclick="selectMaturity('centered')">
+          <div class="choice-icon">${icon('fruit')}</div>
+          <span>수년간 깊이 묵상해왔어요</span>
+        </button>
       </div>
-    </div>
-    <div class="nav-row">
-      <button class="btn-back ${idx === 0 ? 'hidden' : ''}" onclick="prevStep()">이전</button>
-      <span></span>
     </div>
   `;
 }
@@ -393,11 +398,11 @@ function renderQuizStep(c, idx) {
 function renderTopicSelect(c) {
   const categories = [...new Set(topicsData.map(t => t.category))];
   c.innerHTML = `
-    <div class="step-counter">관심 주제 선택</div>
+    <div class="step-counter">2 / 3</div>
     <div class="question-card">
       <div class="question-icon">${icon('compass')}</div>
       <div class="question-text">어떤 주제로 묵상하고 싶으세요?</div>
-      <p style="font-size:14px;color:var(--text-light);margin-bottom:20px;">관심 있는 주제를 여러 개 선택해주세요. 선택한 주제를 바탕으로 맞춤 묵상 플랜을 만들어드려요.</p>
+      <p style="font-size:14px;color:var(--text-light);margin-bottom:20px;">관심 있는 주제를 여러 개 선택해주세요.</p>
       <div class="topic-grid">
         ${categories.map(cat => `
           <div class="topic-category-title">${cat}</div>
@@ -417,39 +422,27 @@ function renderTopicSelect(c) {
 
 function renderStyleSelect(c) {
   c.innerHTML = `
-    <div class="step-counter">묵상 스타일 설정</div>
+    <div class="step-counter">3 / 3</div>
     <div class="question-card">
-      <div class="question-icon">${icon('book')}</div>
-      <div class="question-text">하루에 얼마나 읽고 싶나요?</div>
-      <div class="style-options" style="margin-bottom:24px;">
-        <div class="style-option ${dailyAmount === 'short' ? 'selected' : ''}" onclick="setAmount('short')">
+      <div class="question-icon">${icon('clock')}</div>
+      <div class="question-text">하루에 얼마나 묵상하고 싶나요?</div>
+      <div class="choices">
+        <button class="choice-btn ${dailyAmount === 'short' ? 'selected' : ''}"
+                onclick="selectAmount('short')">
           <div class="choice-icon">${icon('clock')}</div>
-          <div><div class="style-label">5-10절 (5분)</div><div class="style-sub">짧지만 깊이 있게</div></div>
-        </div>
-        <div class="style-option ${dailyAmount === 'one_chapter' ? 'selected' : ''}" onclick="setAmount('one_chapter')">
+          <span>짧게 (5분)</span>
+        </button>
+        <button class="choice-btn ${dailyAmount === 'one_chapter' ? 'selected' : ''}"
+                onclick="selectAmount('one_chapter')">
           <div class="choice-icon">${icon('book')}</div>
-          <div><div class="style-label">한 장 (10분)</div><div class="style-sub">가장 일반적인 분량</div></div>
-        </div>
-        <div class="style-option ${dailyAmount === 'long' ? 'selected' : ''}" onclick="setAmount('long')">
+          <span>보통 (10분)</span>
+        </button>
+        <button class="choice-btn ${dailyAmount === 'long' ? 'selected' : ''}"
+                onclick="selectAmount('long')">
           <div class="choice-icon">${icon('books')}</div>
-          <div><div class="style-label">여러 장 (20분+)</div><div class="style-sub">통독과 함께 깊이 있게</div></div>
-        </div>
+          <span>깊게 (20분+)</span>
+        </button>
       </div>
-      <div class="question-text" style="font-size:18px;">구약/신약을 병행할까요?</div>
-      <div class="style-options">
-        <div class="style-option ${parallelReading ? 'selected' : ''}" onclick="setParallel(true)">
-          <div class="choice-icon">${icon('books')}</div>
-          <div><div class="style-label">병행 읽기</div><div class="style-sub">구약과 신약을 함께</div></div>
-        </div>
-        <div class="style-option ${!parallelReading ? 'selected' : ''}" onclick="setParallel(false)">
-          <div class="choice-icon">${icon('book')}</div>
-          <div><div class="style-label">한 권씩</div><div class="style-sub">하나에 집중해서</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="nav-row">
-      <button class="btn-back" onclick="prevStep()">이전</button>
-      <button class="btn-next active" onclick="finishOnboarding()">결과 보기</button>
     </div>
   `;
 }
@@ -471,9 +464,10 @@ function findCurriculum(topicName) {
 }
 
 function renderResult(c) {
-  const totalScore = Object.values(answers).reduce((s, a) => s + (a.score || 0), 0);
-  const level = quizData.scoring.levels.find(l => totalScore >= l.min && totalScore <= l.max)
-    || quizData.scoring.levels[0];
+  const levelKey = maturityChoice || 'exploring';
+  const levelNames = { exploring: '입문', growing: '초급', close: '중급', centered: '심화' };
+  const levelLabels = { exploring: '호기심 많은 씨앗', growing: '쑥쑥 자라는 새싹', close: '뿌리를 내리는 나무', centered: '생명을 낳는 열매' };
+  const level = { name: levelNames[levelKey], name_en: levelKey, label: levelLabels[levelKey] };
 
   const levelIcons = { exploring: 'seed', growing: 'sprout', close: 'tree', centered: 'fruit' };
   const levelDescs = {
@@ -541,34 +535,43 @@ function renderResult(c) {
 // ============================================================
 // Interactions
 // ============================================================
-function selectAnswer(qId, choiceId, score) {
-  answers[qId] = { id: choiceId, score };
-  // Show selected state, then slide out and advance
+function selectMaturity(level) {
+  maturityChoice = level;
   render();
-  if (currentStep < 12) {
-    const card = document.querySelector('.question-card');
-    if (card) {
-      card.style.animation = 'slideOut 0.3s ease forwards';
-      card.addEventListener('animationend', () => {
-        currentStep++;
-        render();
-        window.scrollTo(0, 0);
-      }, { once: true });
-    }
+  // Auto-advance with slide animation
+  const card = document.querySelector('.question-card');
+  if (card) {
+    card.style.animation = 'slideOut 0.3s ease forwards';
+    card.addEventListener('animationend', () => {
+      currentStep = 1;
+      render();
+      window.scrollTo(0, 0);
+    }, { once: true });
   }
 }
+
+function selectAmount(val) {
+  dailyAmount = val;
+  render();
+  // Auto-advance to result
+  const card = document.querySelector('.question-card');
+  if (card) {
+    card.style.animation = 'slideOut 0.3s ease forwards';
+    card.addEventListener('animationend', () => {
+      finishOnboarding();
+    }, { once: true });
+  }
+}
+
 function toggleTopic(topic) {
   const idx = selectedTopics.indexOf(topic);
   if (idx >= 0) selectedTopics.splice(idx, 1);
   else selectedTopics.push(topic);
   render();
 }
-function setAmount(val) { dailyAmount = val; render(); }
-function setParallel(val) { parallelReading = val; render(); }
 
 function nextStep() {
-  if (currentStep < 12 && !answers[quizData.questions[currentStep].id]) return;
-  if (currentStep === 12 && selectedTopics.length === 0) return;
+  if (currentStep === 1 && selectedTopics.length === 0) return;
   currentStep++;
   render();
   window.scrollTo(0, 0);
@@ -651,24 +654,21 @@ function optimizeTopicOrder(maturityLevel, selectedTopicNames, dailyAmountSettin
 }
 
 async function finishOnboarding() {
-  const totalScore = Object.values(answers).reduce((s, a) => s + (a.score || 0), 0);
-  const level = quizData.scoring.levels.find(l => totalScore >= l.min && totalScore <= l.max)
-    || quizData.scoring.levels[quizData.scoring.levels.length - 1];
-  const motivation = answers[1]?.id || 'a';
+  const level = maturityChoice || 'exploring';
 
   // Optimize topic order with dynamic penalty algorithm
-  selectedTopics = optimizeTopicOrder(level.name_en, selectedTopics, dailyAmount);
+  selectedTopics = optimizeTopicOrder(level, selectedTopics, dailyAmount);
 
   await fetch('/api/onboarding', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      maturityLevel: level.name_en,
-      totalScore,
-      motivation,
+      maturityLevel: level,
+      totalScore: 0,
+      motivation: '',
       selectedTopics,
       dailyAmount,
-      parallelReading,
+      parallelReading: true,
     }),
   });
   currentStep = 14;
