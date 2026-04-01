@@ -450,6 +450,18 @@ function renderStyleSelect(c) {
   `;
 }
 
+function findCurriculum(topicName) {
+  return curriculaData.find(cur =>
+    topicName.includes(cur.topic.split('(')[0].trim().substring(0, 4))
+  );
+}
+
+function findTopicVerses(topicName) {
+  const match = topicsData.find(t => t.topic === topicName);
+  if (!match) return null;
+  return match.verses.map((v, i) => ({ day: i + 1, passage: v, focus: match.description }));
+}
+
 function renderResult(c) {
   const totalScore = Object.values(answers).reduce((s, a) => s + (a.score || 0), 0);
   const level = quizData.scoring.levels.find(l => totalScore >= l.min && totalScore <= l.max)
@@ -463,12 +475,27 @@ function renderResult(c) {
     centered: '그리스도 중심의 성숙한 신앙을 가지고 계시네요. 받은 은혜를 나누는 여정을 시작해보세요.',
   };
 
-  // Find first matching curriculum for user's selected topics
-  const firstTopic = selectedTopics[0] || '불안과 두려움 극복';
-  const matchedCurriculum = curriculaData.find(cur =>
-    firstTopic.includes(cur.topic.split('(')[0].trim().substring(0, 4))
-  ) || curriculaData[0];
-  const previewDays = (matchedCurriculum?.plans?.['7day'] || []).slice(0, 5);
+  // Match selected topics to curricula or verse data
+  const firstTopic = selectedTopics[0] || '불안';
+  const matched = findCurriculum(firstTopic);
+  const previewDays = matched
+    ? (matched.plans?.['30day'] || matched.plans?.['7day'] || []).slice(0, 5)
+    : (findTopicVerses(firstTopic) || []).slice(0, 5);
+  const planTitle = matched ? matched.topic : firstTopic;
+
+  // Topic queue HTML
+  const queueHtml = selectedTopics.length > 1 ? `
+    <div style="margin-top:16px;padding:14px;background:var(--primary-bg);border-radius:12px;">
+      <div style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:8px;">나의 묵상 여정</div>
+      ${selectedTopics.map((t, i) => `
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;${i > 0 ? 'opacity:0.5;' : ''}">
+          <span style="background:${i === 0 ? 'var(--primary)' : 'var(--border)'};color:${i === 0 ? 'white' : 'var(--text-light)'};border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">${i + 1}</span>
+          <span style="font-size:14px;${i === 0 ? 'font-weight:600;' : ''}">${t}</span>
+          ${i === 0 ? '<span style="font-size:11px;color:var(--primary);font-weight:600;margin-left:auto;">시작</span>' : ''}
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
 
   c.innerHTML = `
     <div class="result-card">
@@ -478,9 +505,9 @@ function renderResult(c) {
       <div class="result-desc">${levelDescs[level.name_en]}</div>
     </div>
     <div class="plan-preview">
-      <h3>당신을 위한 첫 번째 묵상 플랜</h3>
+      <h3>첫 번째 묵상 플랜</h3>
       <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">
-        "${matchedCurriculum?.topic || firstTopic}" · 7일 플랜
+        "${planTitle}" · ${matched ? '30' : previewDays.length}일 플랜
       </p>
       ${previewDays.map(d => `
         <div class="plan-day">
@@ -491,6 +518,7 @@ function renderResult(c) {
           </div>
         </div>
       `).join('')}
+      ${queueHtml}
     </div>
     <button class="btn-start" onclick="startPlan()">묵상 여정 시작하기</button>
   `;
@@ -560,22 +588,33 @@ async function finishOnboarding() {
 
 async function startPlan() {
   try {
-    const firstTopic = selectedTopics[0] || '불안과 두려움 극복';
-    const matchedCurriculum = curriculaData.find(cur =>
-      firstTopic.includes(cur.topic.split('(')[0].trim().substring(0, 4))
-    ) || curriculaData[0];
+    const firstTopic = selectedTopics[0] || '불안';
+    const matched = findCurriculum(firstTopic);
 
-    if (matchedCurriculum) {
-      const planData = matchedCurriculum.plans['7day'] || [];
+    let planName, topic, duration, planData;
+
+    if (matched) {
+      // Full curriculum available (10 topics)
+      planData = matched.plans['30day'] || matched.plans['14day'] || matched.plans['7day'] || [];
+      planName = matched.topic;
+      topic = matched.topic;
+      duration = planData.length;
+    } else {
+      // Verse-based plan from topics-db (130 topics)
+      const verses = findTopicVerses(firstTopic);
+      if (verses) {
+        planData = verses;
+        planName = firstTopic;
+        topic = firstTopic;
+        duration = verses.length;
+      }
+    }
+
+    if (planData && planData.length > 0) {
       await fetch('/api/custom-plans', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          planName: matchedCurriculum.topic + ' - 7일',
-          topic: matchedCurriculum.topic,
-          duration: 7,
-          planData,
-        }),
+        body: JSON.stringify({ planName, topic, duration, planData }),
       });
     }
   } catch (e) { console.error('startPlan error:', e); }

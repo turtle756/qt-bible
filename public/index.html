@@ -2776,6 +2776,84 @@
       closeSettings();
     }
 
+    // ============================================================
+    // Plan Complete → Next Topic
+    // ============================================================
+    async function showPlanComplete() {
+      // Get user's selected topics from onboarding profile
+      let nextTopic = null;
+      try {
+        const res = await fetch('/api/onboarding');
+        const profile = await res.json();
+        if (profile && profile.selected_topics) {
+          const topics = profile.selected_topics;
+          // Get all completed plan topics
+          const plansRes = await fetch('/api/custom-plans');
+          const plans = await plansRes.json();
+          const completedTopics = plans.filter(p => p.completed).map(p => p.topic);
+          // Find next unstarted topic
+          nextTopic = topics.find(t => !completedTopics.some(ct => ct.includes(t.substring(0, 4))));
+        }
+      } catch(e) {}
+
+      const banner = document.getElementById('todayQtBanner');
+      const left = document.querySelector('.qt-left');
+      const completeHtml = `
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;margin-bottom:16px;">
+          <div style="font-size:2rem;margin-bottom:12px;">&#10024;</div>
+          <h2 style="font-size:1.3rem;color:var(--accent);margin-bottom:8px;">묵상 플랜을 완료했습니다!</h2>
+          <p style="color:var(--text-secondary);margin-bottom:20px;">${todayQtPlan.plan_name || todayQtPlan.topic}</p>
+          ${nextTopic ? `
+            <div style="background:var(--accent-light);border-radius:12px;padding:16px;margin-bottom:16px;text-align:left;">
+              <div style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:6px;">다음 추천 주제</div>
+              <div style="font-size:1rem;font-weight:600;color:var(--accent);">${nextTopic}</div>
+            </div>
+            <button onclick="startNextPlan('${nextTopic.replace(/'/g, "\\'")}')" style="width:100%;padding:14px;background:var(--accent);color:white;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;">다음 묵상 시작하기</button>
+          ` : `
+            <p style="color:var(--text-secondary);font-size:0.9rem;">모든 관심 주제를 완료했습니다!</p>
+          `}
+        </div>
+      `;
+      banner.style.display = 'none';
+      document.getElementById('qtScripturePanel').style.display = 'none';
+      document.getElementById('qtGuidePanel').innerHTML = completeHtml;
+    }
+
+    async function startNextPlan(topicName) {
+      try {
+        // Fetch curricula to find matching plan
+        const curRes = await fetch('/data/curricula.json');
+        const curricula = await curRes.json();
+        const matched = curricula.find(c => topicName.includes(c.topic.split('(')[0].trim().substring(0, 4)));
+
+        let planData, planName, duration;
+        if (matched) {
+          planData = matched.plans['30day'] || matched.plans['14day'] || matched.plans['7day'] || [];
+          planName = matched.topic;
+          duration = planData.length;
+        } else {
+          // Verse-based from topics-db
+          const topRes = await fetch('/data/topics-db.json');
+          const allTopics = await topRes.json();
+          const topicMatch = allTopics.find(t => t.topic === topicName);
+          if (topicMatch) {
+            planData = topicMatch.verses.map((v, i) => ({ day: i + 1, passage: v, focus: topicMatch.description }));
+            planName = topicName;
+            duration = planData.length;
+          }
+        }
+
+        if (planData && planData.length > 0) {
+          await fetch('/api/custom-plans', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ planName: planName, topic: planName, duration, planData }),
+          });
+        }
+        window.location.reload();
+      } catch(e) { console.error('startNextPlan error:', e); }
+    }
+
     function goToTodayQt() {
       if (!todayQtPlan) return;
       const planData = typeof todayQtPlan.plan_data === 'string'
@@ -2835,7 +2913,11 @@
 
       // Check if plan is fully completed
       if (currentDay >= todayQtPlan.duration) {
-        setTimeout(() => { alert('축하합니다! 묵상 플랜을 완료했습니다.'); }, 300);
+        // Mark plan as completed
+        try {
+          await fetch(`/api/custom-plans/${todayQtPlan.id}/complete`, { method: 'POST' });
+        } catch(e) {}
+        showPlanComplete();
       } else {
         // Reload to show next day
         setTimeout(() => loadTodayQt(), 500);

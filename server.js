@@ -737,6 +737,19 @@ app.post('/api/custom-plans/:planId/progress', requireAuth, async (req, res) => 
   }
 });
 
+// Mark plan as completed
+app.post('/api/custom-plans/:planId/complete', requireAuth, async (req, res) => {
+  try {
+    await pool.query(
+      'UPDATE custom_plans SET completed = TRUE WHERE id = $1 AND user_id = $2',
+      [req.params.planId, req.user.id]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to complete plan' });
+  }
+});
+
 // Get progress for a custom plan
 app.get('/api/custom-plans/:planId/progress', requireAuth, async (req, res) => {
   try {
