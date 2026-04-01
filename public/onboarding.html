@@ -577,11 +577,87 @@ function prevStep() {
   if (currentStep > 0) { currentStep--; render(); window.scrollTo(0, 0); }
 }
 
+// ============================================================
+// Dynamic Penalty Algorithm — 주제 순서 최적화
+// ============================================================
+const WEIGHT_TABLE = {
+  exploring: { 0:100, 1:90, 2:80, 3:60, 4:50, 5:40, 6:20 },
+  growing:   { 0:100, 1:85, 2:80, 3:75, 4:65, 5:55, 6:40 },
+  close:     { 0:100, 1:70, 2:75, 3:85, 4:80, 5:70, 6:65 },
+  centered:  { 0:100, 1:60, 2:70, 3:80, 4:85, 5:90, 6:95 },
+};
+
+function optimizeTopicOrder(maturityLevel, selectedTopicNames, dailyAmountSetting) {
+  if (selectedTopicNames.length <= 1) return selectedTopicNames;
+
+  // Enrich with metadata from topicsData
+  const enriched = selectedTopicNames.map((name, idx) => {
+    const meta = topicsData.find(t => t.topic === name) || {};
+    return {
+      name,
+      category_code: meta.category_code ?? 5,
+      is_heavy: meta.is_heavy || false,
+      is_crisis: meta.is_crisis || false,
+      selection_order: idx,
+    };
+  });
+
+  const N = enriched.length;
+  const weights = WEIGHT_TABLE[maturityLevel] || WEIGHT_TABLE.growing;
+
+  // Initial scores
+  enriched.forEach((t, i) => {
+    t.base_score = (weights[t.category_code] || 50);
+    t.order_bonus = (N - i) * 2;
+    t.crisis_bonus = t.is_crisis ? 1000 : 0;
+    t.initial_score = t.base_score + t.order_bonus + t.crisis_bonus;
+  });
+
+  const result = [];
+  const remaining = [...enriched];
+  let prev = null;
+
+  while (remaining.length > 0) {
+    for (const t of remaining) {
+      t.dynamic_score = t.initial_score;
+      if (prev) {
+        // Rule 1: Same category penalty
+        if (t.category_code === prev.category_code) t.dynamic_score -= 30;
+        // Rule 2: Heavy + Heavy penalty (based on daily amount)
+        if (prev.is_heavy && t.is_heavy) {
+          if (dailyAmountSetting === 'short') t.dynamic_score -= 40;
+          else if (dailyAmountSetting === 'one_chapter') t.dynamic_score -= 20;
+          else t.dynamic_score -= 5;
+        }
+      }
+    }
+
+    // Multi-key sort: score desc → light first if prev heavy → category order → selection order
+    remaining.sort((a, b) => {
+      if (b.dynamic_score !== a.dynamic_score) return b.dynamic_score - a.dynamic_score;
+      if (prev && prev.is_heavy) {
+        if (a.is_heavy !== b.is_heavy) return a.is_heavy ? 1 : -1;
+      }
+      if (a.category_code !== b.category_code) return a.category_code - b.category_code;
+      return a.selection_order - b.selection_order;
+    });
+
+    const best = remaining.shift();
+    result.push(best.name);
+    prev = best;
+  }
+
+  return result;
+}
+
 async function finishOnboarding() {
   const totalScore = Object.values(answers).reduce((s, a) => s + (a.score || 0), 0);
   const level = quizData.scoring.levels.find(l => totalScore >= l.min && totalScore <= l.max)
-    || quizData.scoring.levels[0];
+    || quizData.scoring.levels[quizData.scoring.levels.length - 1];
   const motivation = answers[1]?.id || 'a';
+
+  // Optimize topic order with dynamic penalty algorithm
+  selectedTopics = optimizeTopicOrder(level.name_en, selectedTopics, dailyAmount);
 
   await fetch('/api/onboarding', {
     method: 'POST',
