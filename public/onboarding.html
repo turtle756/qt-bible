@@ -457,12 +457,14 @@ function renderStyleSelect(c) {
 function findCurriculum(topicName) {
   // First check original 10 (has 7/14/30 day plans)
   const orig = curriculaData.find(cur =>
-    topicName.includes(cur.topic.split('(')[0].trim().substring(0, 4))
+    cur.topic.includes(topicName) || topicName.includes(cur.topic)
   );
   if (orig) return { type: 'original', data: orig };
 
   // Then check extended 129 (has 30-day days array)
-  const ext = curriculaExtended.find(c => c.topic === topicName);
+  const ext = curriculaExtended.find(c =>
+    c.topic === topicName || c.topic.includes(topicName) || topicName.includes(c.topic)
+  );
   if (ext) return { type: 'extended', data: ext };
 
   return null;
