@@ -170,7 +170,7 @@
       { "name": "입문", "name_en": "exploring", "label": "호기심 많은 씨앗", "min": 0, "max": 6 },
       { "name": "초급", "name_en": "growing", "label": "쑥쑥 자라는 새싹", "min": 7, "max": 13 },
       { "name": "중급", "name_en": "close", "label": "뿌리를 내리는 나무", "min": 14, "max": 20 },
-      { "name": "심화", "name_en": "centered", "label": "생명을 낳는 열매", "min": 21, "max": 27 }
+      { "name": "심화", "name_en": "centered", "label": "생명을 낳는 열매", "min": 21, "max": 29 }
     ]
   }
 }

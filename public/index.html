@@ -2553,41 +2553,120 @@
     }
 
     const TOPIC_FILE_MAP = {
+      // 원본 10개
       '불안과 두려움 극복': 1, '불안': 1,
       '자존감 회복': 2, '자존감 회복 (하나님 안에서의 정체성)': 2,
-      '분노 다스리기': 3,
-      '상실과 슬픔 속 위로': 4,
-      '외로움에서 하나님의 동행 발견': 5,
-      '용서하는 삶': 6,
-      '기도의 능력': 7,
-      '감사의 삶': 8,
-      '리더십과 섬김': 9,
-      '재정과 청지기 의식': 10,
+      '분노 다스리기': 3, '분노': 3,
+      '상실과 슬픔 속 위로': 4, '상실': 4,
+      '외로움에서 하나님의 동행 발견': 5, '외로움': 5,
+      '용서하는 삶': 6, '용서': 6,
+      '기도의 능력': 7, '기도': 7,
+      '감사의 삶': 8, '감사': 8,
+      '리더십과 섬김': 9, '리더십': 9,
+      '재정과 청지기 의식': 10, '재정': 10,
+      // 인기 20개
+      '두려움': 11,
+      '우울': 12,
+      '슬픔': 13,
+      '스트레스': 14,
+      '수치심': 15,
+      '죄책감': 16,
+      '고독/소외': 17, '고독': 17, '소외': 17,
+      '질병': 18,
+      '사별': 19,
+      '중독': 20,
+      '시험/입시': 21, '시험': 21, '입시': 21,
+      '예배': 22,
+      '영적 전쟁': 23,
+      '회개': 24,
+      '사랑': 25,
+      '겸손': 26,
+      '인내': 27,
+      '지혜': 28,
+      '부부 갈등': 29, '부부갈등': 29,
+      '직장 생활': 30, '직장생활': 30,
     };
     let guideCache = {}; // topicNum -> array
+
+    const FALLBACK_TEMPLATES = {
+      exploring: {
+        question_1: '오늘 읽은 말씀에서 가장 마음에 와닿는 부분은 무엇인가요?',
+        question_2: '이 말씀이 오늘 하루에 어떤 위로나 힘이 될 수 있을까요?',
+        prayer_guide: '하나님, 오늘 이 말씀을 통해 제 마음에 말씀해 주세요. 제가 들을 수 있는 귀와 순종할 수 있는 마음을 주세요.'
+      },
+      growing: {
+        scripture_focus: '오늘의 본문 전체',
+        observation: '이 본문에서 하나님은 어떤 분으로 묘사되고 있나요?',
+        application: '오늘 이 말씀을 삶에서 실천할 수 있는 구체적인 한 가지는 무엇인가요?',
+        prayer_guide: 'Adoration(찬양): 말씀을 통해 만나게 하시는 하나님을 찬양합니다.\nConfession(고백): 말씀대로 살지 못한 부분을 고백합니다.\nThanksgiving(감사): 오늘도 말씀으로 인도해 주심을 감사합니다.\nSupplication(간구): 이 말씀을 삶에서 실천할 힘을 주세요.'
+      },
+      close: {
+        context: '본문의 앞뒤 문맥을 읽고 전체 흐름 속에서 이 구절의 위치를 파악해보세요.',
+        observation_deep: '본문에서 반복되는 단어나 대조되는 개념이 있는지 관찰해보세요.',
+        interpretation: '원저자가 원독자에게 전하고자 했던 핵심 메시지는 무엇인가요?',
+        application_deep: '이 말씀이 내 내면의 어떤 부분을 조명하고 있는지 깊이 성찰해보세요.',
+        cross_reference: []
+      },
+      centered: {
+        lectio: '본문을 천천히 소리 내어 세 번 읽으세요. 매번 다른 부분에 주목하며 읽어보세요.',
+        meditatio: '읽는 중 마음에 강하게 부딪히는 단어나 구절에 머무르며, 그것이 내게 어떤 의미인지 묵상하세요.',
+        oratio: '묵상한 것을 가지고 하나님께 솔직하게 기도하세요. 형식에 얽매이지 마세요.',
+        contemplatio: '기도의 말을 멈추고 5분간 침묵 속에 머무르세요. 하나님의 임재 안에서 쉬세요.',
+        actio: '오늘 묵상을 통해 받은 한 가지를 삶에서 실천해보세요.'
+      }
+    };
 
     async function loadQtGuide(day) {
       try {
         // Determine topic number from active plan
-        let topicNum = 1;
+        let topicNum = 0;
         if (todayQtPlan) {
           const planTopic = todayQtPlan.topic || todayQtPlan.plan_name || '';
           for (const [name, num] of Object.entries(TOPIC_FILE_MAP)) {
-            if (planTopic.includes(name)) { topicNum = num; break; }
+            if (planTopic.includes(name) || name.includes(planTopic)) { topicNum = num; break; }
           }
         }
 
-        // Load from cache or fetch
-        if (!guideCache[topicNum]) {
-          const res = await fetch(`/data/qt-guides-topic${topicNum}.json`);
-          if (!res.ok) return;
-          guideCache[topicNum] = await res.json();
+        if (topicNum > 0) {
+          // Load from cache or fetch
+          if (!guideCache[topicNum]) {
+            const res = await fetch(`/data/qt-guides-topic${topicNum}.json`);
+            if (res.ok) {
+              guideCache[topicNum] = await res.json();
+            }
+          }
+
+          if (guideCache[topicNum]) {
+            const guide = guideCache[topicNum].find(g => g.day === day);
+            if (guide) {
+              qtGuideData = guide;
+              currentGuideDay = day;
+              renderGuideTab(currentGuideTab);
+              return;
+            }
+          }
         }
 
-        const guide = guideCache[topicNum].find(g => g.day === day);
-        if (!guide) return;
+        // Fallback: no full guide available, use template
+        const planTopic = todayQtPlan?.topic || '';
+        const planData = todayQtPlan?.plan_data ?
+          (typeof todayQtPlan.plan_data === 'string' ? JSON.parse(todayQtPlan.plan_data) : todayQtPlan.plan_data) : [];
+        const todayEntry = planData.find(d => d.day === day);
 
-        qtGuideData = guide;
+        qtGuideData = {
+          topic: planTopic,
+          day: day,
+          passage: todayEntry?.passage || '',
+          common: {
+            background: `"${planTopic}" 주제의 ${day}일차 묵상입니다. 오늘의 본문을 천천히 읽어보세요.`,
+            key_verse: todayEntry?.focus || '',
+            key_word: ''
+          },
+          exploring: FALLBACK_TEMPLATES.exploring,
+          growing: FALLBACK_TEMPLATES.growing,
+          close: FALLBACK_TEMPLATES.close,
+          centered: FALLBACK_TEMPLATES.centered,
+        };
         currentGuideDay = day;
         renderGuideTab(currentGuideTab);
       } catch (e) { console.error('loadQtGuide error:', e); }
