@@ -225,6 +225,50 @@
     .today-qt-btn.done { background: rgba(76,175,80,0.5); border-color: rgba(76,175,80,0.6); }
     .today-qt-hidden { display: none; }
 
+    /* Feed */
+    .feed-write-btn {
+      flex: 1; padding: 12px; border: 2px dashed var(--border);
+      border-radius: 12px; background: var(--bg-card);
+      color: var(--accent); font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .feed-write-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+    .feed-write-btn.feed-prayer { color: #6C63FF; }
+    .feed-write-btn.feed-prayer:hover { border-color: #6C63FF; background: #F0EEFF; }
+    [data-theme="dark"] .feed-write-btn.feed-prayer:hover { background: #2a2840; }
+    .feed-post {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px; margin-bottom: 10px;
+    }
+    .feed-post-type {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 8px; margin-bottom: 8px;
+    }
+    .feed-post-type.devotion { background: var(--accent-light); color: var(--accent); }
+    .feed-post-type.prayer { background: #F0EEFF; color: #6C63FF; }
+    [data-theme="dark"] .feed-post-type.prayer { background: #2a2840; }
+    .feed-post-passage {
+      font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+    .feed-post-content {
+      font-size: 0.88rem; line-height: 1.7; color: var(--text-primary);
+      white-space: pre-wrap; margin-bottom: 10px;
+    }
+    .feed-post-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; color: var(--text-secondary);
+    }
+    .feed-react-btn {
+      background: none; border: 1px solid var(--border); border-radius: 16px;
+      padding: 4px 12px; font-size: 0.78rem; cursor: pointer;
+      color: var(--text-secondary); transition: all 0.15s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .feed-react-btn:hover { border-color: #6C63FF; color: #6C63FF; }
+    .feed-react-btn.reacted { border-color: #6C63FF; color: #6C63FF; background: #F0EEFF; }
+    [data-theme="dark"] .feed-react-btn.reacted { background: #2a2840; }
+
     /* Settings level buttons */
     .settings-level-btn {
       display: block; width: 100%; text-align: left;
@@ -1036,13 +1080,39 @@
     <section class="bottom-section" style="display:block;">
     <div>
 
-    <!-- 나눔 게시판 (준비 중) -->
-    <div class="soap-card">
-      <h3>나눔</h3>
-      <div style="text-align:center;color:var(--text-secondary);padding:40px 0;">
-        <p style="font-size:1.2rem;margin-bottom:8px;">준비 중입니다</p>
-        <p style="font-size:0.85rem;">익명 묵상 나눔과 기도제목을 나눌 수 있는<br>게시판이 곧 열립니다.</p>
+    <!-- 나눔 피드 -->
+    <div style="max-width:600px;margin:0 auto;">
+
+      <!-- Write buttons -->
+      <div style="display:flex;gap:8px;margin-bottom:14px;">
+        <button class="feed-write-btn" onclick="openFeedWrite('devotion')">묵상 나눔</button>
+        <button class="feed-write-btn feed-prayer" onclick="openFeedWrite('prayer')">기도제목</button>
       </div>
+
+      <!-- Write form (hidden) -->
+      <div class="soap-card" id="feedWriteForm" style="display:none;margin-bottom:14px;">
+        <h3 id="feedWriteTitle">묵상 나눔</h3>
+        <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:8px;">모든 글은 익명으로 공유됩니다.</p>
+        <input type="text" id="feedPassageInput" placeholder="본문 (선택, 예: 시편 23:1-6)" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;">
+        <textarea id="feedContentInput" placeholder="나누고 싶은 내용을 적어주세요..." style="width:100%;min-height:100px;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;font-size:0.88rem;line-height:1.6;resize:vertical;"></textarea>
+        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px;">
+          <button class="nav-btn" onclick="closeFeedWrite()">취소</button>
+          <button class="save-btn" onclick="submitFeedPost()">공유하기</button>
+        </div>
+      </div>
+
+      <!-- Feed list -->
+      <div id="feedList">
+        <div style="text-align:center;color:var(--text-secondary);padding:40px 0;">
+          <div class="spinner" style="display:inline-block;width:20px;height:20px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+        </div>
+      </div>
+
+      <!-- Load more -->
+      <div id="feedLoadMore" style="display:none;text-align:center;padding:16px;">
+        <button class="nav-btn" onclick="loadFeed(true)">더 보기</button>
+      </div>
+
     </div>
     </div>
 
@@ -2101,8 +2171,102 @@
       document.getElementById('tabBible').classList.toggle('active', tab === 'bible');
       document.getElementById('tabQt').classList.toggle('active', tab === 'qt');
       document.getElementById('tabShare').classList.toggle('active', tab === 'share');
-      // Show/hide bible selectors based on tab
       document.getElementById('bibleSelectors').style.display = tab === 'bible' ? 'flex' : 'none';
+      if (tab === 'share') loadFeed();
+    }
+
+    // ============================================================
+    // Sharing Feed
+    // ============================================================
+    let feedPage = 1;
+    let feedWriteType = 'devotion';
+
+    function openFeedWrite(type) {
+      feedWriteType = type;
+      document.getElementById('feedWriteForm').style.display = 'block';
+      document.getElementById('feedWriteTitle').textContent = type === 'devotion' ? '묵상 나눔' : '기도제목';
+      document.getElementById('feedPassageInput').style.display = type === 'devotion' ? 'block' : 'none';
+      document.getElementById('feedContentInput').value = '';
+      document.getElementById('feedPassageInput').value = '';
+      document.getElementById('feedContentInput').focus();
+    }
+
+    function closeFeedWrite() {
+      document.getElementById('feedWriteForm').style.display = 'none';
+    }
+
+    async function submitFeedPost() {
+      const content = document.getElementById('feedContentInput').value.trim();
+      if (!content) return;
+      const passage = document.getElementById('feedPassageInput').value.trim();
+      try {
+        await fetch('/api/feed', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: feedWriteType, content, passage: passage || null }),
+        });
+        closeFeedWrite();
+        feedPage = 1;
+        loadFeed();
+      } catch (e) { alert('공유에 실패했습니다.'); }
+    }
+
+    async function loadFeed(more) {
+      if (more) feedPage++;
+      else feedPage = 1;
+
+      try {
+        const res = await fetch(`/api/feed?page=${feedPage}`);
+        const posts = await res.json();
+        const html = posts.map(p => {
+          const time = timeAgo(new Date(p.created_at));
+          const typeLabel = p.type === 'prayer' ? '기도제목' : '묵상';
+          const reacted = p.my_reaction ? ' reacted' : '';
+          return `<div class="feed-post">
+            <span class="feed-post-type ${p.type}">${typeLabel}</span>
+            ${p.passage ? `<div class="feed-post-passage">${p.passage}</div>` : ''}
+            <div class="feed-post-content">${escapeHtml(p.content)}</div>
+            <div class="feed-post-meta">
+              <span>익명 · ${time}</span>
+              <button class="feed-react-btn${reacted}" onclick="reactToFeed(${p.id}, this)">
+                기도합니다 ${p.reaction_count || 0}
+              </button>
+            </div>
+          </div>`;
+        }).join('');
+
+        const list = document.getElementById('feedList');
+        if (more) list.innerHTML += html;
+        else list.innerHTML = html || '<div style="text-align:center;color:var(--text-secondary);padding:40px 0;font-size:0.88rem;">아직 나눔이 없습니다.<br>첫 번째 나눔을 시작해보세요!</div>';
+
+        document.getElementById('feedLoadMore').style.display = posts.length >= 20 ? 'block' : 'none';
+      } catch (e) {
+        document.getElementById('feedList').innerHTML = '<div style="text-align:center;color:var(--text-secondary);padding:40px 0;">불러오기 실패</div>';
+      }
+    }
+
+    async function reactToFeed(postId, btn) {
+      try {
+        const res = await fetch(`/api/feed/${postId}/react`, { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+        const data = await res.json();
+        btn.className = `feed-react-btn${data.reacted ? ' reacted' : ''}`;
+        btn.innerHTML = `기도합니다 ${data.count}`;
+      } catch (e) {}
+    }
+
+    function timeAgo(date) {
+      const diff = Math.floor((Date.now() - date.getTime()) / 1000);
+      if (diff < 60) return '방금 전';
+      if (diff < 3600) return `${Math.floor(diff / 60)}분 전`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)}시간 전`;
+      if (diff < 604800) return `${Math.floor(diff / 86400)}일 전`;
+      return date.toLocaleDateString('ko-KR');
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
     }
 
     // ============================================================

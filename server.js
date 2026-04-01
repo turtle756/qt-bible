@@ -168,6 +168,27 @@ async function initDB() {
       UNIQUE(user_id, plan_id, day_num)
     );
   `);
+  // Anonymous sharing feed
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS shared_feed (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      type VARCHAR(20) NOT NULL DEFAULT 'devotion',
+      content TEXT NOT NULL,
+      passage VARCHAR(100),
+      created_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS feed_reactions (
+      id SERIAL PRIMARY KEY,
+      post_id INTEGER REFERENCES shared_feed(id) ON DELETE CASCADE,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      type VARCHAR(20) DEFAULT 'pray',
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(post_id, user_id)
+    );
+  `);
   console.log('DB tables ready');
 }
 
@@ -785,6 +806,90 @@ app.post('/api/ai/devotional', requireAuth, async (req, res) => {
   } catch (err) {
     console.error('AI error:', err);
     res.status(500).json({ error: 'AI request failed' });
+  }
+});
+
+// ============================================================
+// ============================================================
+// Sharing Feed API (anonymous)
+// ============================================================
+
+// Create post (devotion or prayer)
+app.post('/api/feed', requireAuth, async (req, res) => {
+  const { type, content, passage } = req.body;
+  if (!content || !content.trim()) return res.status(400).json({ error: 'Content required' });
+  if (!['devotion', 'prayer'].includes(type)) return res.status(400).json({ error: 'Invalid type' });
+  try {
+    const result = await pool.query(
+      'INSERT INTO shared_feed (user_id, type, content, passage) VALUES ($1, $2, $3, $4) RETURNING id, type, content, passage, created_at',
+      [req.user.id, type, content.trim(), passage || null]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error('Feed post error:', err);
+    res.status(500).json({ error: 'Failed to post' });
+  }
+});
+
+// Get feed (anonymous - no user info returned)
+app.get('/api/feed', requireAuth, async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = 20;
+  const offset = (page - 1) * limit;
+  try {
+    const result = await pool.query(
+      `SELECT sf.id, sf.type, sf.content, sf.passage, sf.created_at,
+        (SELECT COUNT(*) FROM feed_reactions WHERE post_id = sf.id) as reaction_count,
+        (SELECT type FROM feed_reactions WHERE post_id = sf.id AND user_id = $1) as my_reaction
+       FROM shared_feed sf
+       ORDER BY sf.created_at DESC
+       LIMIT $2 OFFSET $3`,
+      [req.user.id, limit, offset]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get feed' });
+  }
+});
+
+// React to post (pray)
+app.post('/api/feed/:postId/react', requireAuth, async (req, res) => {
+  try {
+    const existing = await pool.query(
+      'SELECT id FROM feed_reactions WHERE post_id = $1 AND user_id = $2',
+      [req.params.postId, req.user.id]
+    );
+    if (existing.rows.length > 0) {
+      await pool.query('DELETE FROM feed_reactions WHERE post_id = $1 AND user_id = $2',
+        [req.params.postId, req.user.id]);
+    } else {
+      await pool.query(
+        'INSERT INTO feed_reactions (post_id, user_id, type) VALUES ($1, $2, $3)',
+        [req.params.postId, req.user.id, 'pray']
+      );
+    }
+    const count = await pool.query(
+      'SELECT COUNT(*) as cnt FROM feed_reactions WHERE post_id = $1',
+      [req.params.postId]
+    );
+    const myReaction = await pool.query(
+      'SELECT type FROM feed_reactions WHERE post_id = $1 AND user_id = $2',
+      [req.params.postId, req.user.id]
+    );
+    res.json({ count: parseInt(count.rows[0].cnt), reacted: myReaction.rows.length > 0 });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to react' });
+  }
+});
+
+// Delete own post
+app.delete('/api/feed/:postId', requireAuth, async (req, res) => {
+  try {
+    await pool.query('DELETE FROM shared_feed WHERE id = $1 AND user_id = $2',
+      [req.params.postId, req.user.id]);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete' });
   }
 });
 
