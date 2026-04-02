@@ -16,7 +16,8 @@
     "description": "불안과 걱정에 대한 하나님의 약속과 지각에 뛰어난 평강의 위로",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "불안과 두려움 극복"
   },
   {
     "category": "감정/내면",
@@ -35,7 +36,8 @@
     "description": "상황과 사람에 대한 두려움을 극복하는 하나님 신뢰와 온전한 사랑",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "두려움"
   },
   {
     "category": "감정/내면",
@@ -54,7 +56,8 @@
     "description": "홀로 남겨졌다고 느낄 때 함께하시는 임마누엘 하나님의 영원한 동행",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "외로움에서 하나님의 동행 발견"
   },
   {
     "category": "감정/내면",
@@ -73,7 +76,8 @@
     "description": "상실과 애통의 시간에 주어지는 하늘의 위로와 눈물을 씻기시는 소망",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "슬픔"
   },
   {
     "category": "감정/내면",
@@ -92,7 +96,8 @@
     "description": "혈기와 분노를 다스리고 하나님의 의를 이루기 위한 성경적 지혜와 절제",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "분노 다스리기"
   },
   {
     "category": "감정/내면",
@@ -111,7 +116,8 @@
     "description": "영적, 육체적 깊은 침체 속에서 영혼을 소생시키는 소망과 회복의 말씀",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "우울"
   },
   {
     "category": "감정/내면",
@@ -129,7 +135,8 @@
     "description": "삶의 압박과 무거운 짐을 주님께 맡기고 쉼을 누리는 영적 안식",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "스트레스"
   },
   {
     "category": "감정/내면",
@@ -148,7 +155,8 @@
     "description": "비교의식과 시기를 버리고 십자가 안에서 자족함과 형제 사랑을 배움",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "질투"
   },
   {
     "category": "감정/내면",
@@ -167,7 +175,8 @@
     "description": "세상의 정죄함을 넘어서는 그리스도의 보혈과 명예를 회복하시는 은혜",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "수치심"
   },
   {
     "category": "감정/내면",
@@ -186,7 +195,8 @@
     "description": "참된 회개에 따르는 하나님의 완전한 사죄와 양심의 자유로움",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "죄책감"
   },
   {
     "category": "감정/내면",
@@ -205,7 +215,8 @@
     "description": "창조주이자 구속주이신 하나님의 눈으로 바라본 변함없는 존귀한 자아상",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "자존감 회복 (하나님 안에서의 정체성)"
   },
   {
     "category": "감정/내면",
@@ -223,7 +234,8 @@
     "description": "사람들에게 버림받았을 때 다가오는 하나님의 절대적이고 무조건적인 수용",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "거절감"
   },
   {
     "category": "감정/내면",
@@ -241,7 +253,8 @@
     "description": "과거의 얽매임에서 벗어나 상처를 선용하시는 하나님 안에서 새로운 시작 결단",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "후회"
   },
   {
     "category": "감정/내면",
@@ -260,7 +273,8 @@
     "description": "연이은 실패와 무너짐 속에서도 영원한 반석이신 주님을 의지하여 다시 일어섬",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "좌절"
   },
   {
     "category": "감정/내면",
@@ -278,7 +292,8 @@
     "description": "하나님의 성품과 약속에 대한 믿음이 흔들릴 때 확신을 더하시는 말씀",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "의심"
   },
   {
     "category": "감정/내면",
@@ -297,7 +312,8 @@
     "description": "삶의 방향을 잃고 복잡할 때 빛이 되시며 길을 지도하시는 명확한 지혜",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "혼란"
   },
   {
     "category": "감정/내면",
@@ -315,7 +331,8 @@
     "description": "모든 것을 포기하고 싶을 때 새 힘을 공급하시며 영혼을 소생시키는 격려",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "낙심"
   },
   {
     "category": "감정/내면",
@@ -334,7 +351,8 @@
     "description": "하나님과 타인을 향한 불평을 거두고 하나님의 선한 주권을 인정하는 태도",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "원망"
   },
   {
     "category": "감정/내면",
@@ -353,7 +371,8 @@
     "description": "해 아래의 헛된 삶을 넘어 영원한 생수이신 예수 그리스도로 영혼의 공허함을 채움",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "허무"
   },
   {
     "category": "감정/내면",
@@ -371,7 +390,8 @@
     "description": "영적, 육적 나태함을 타파하고 주를 향한 열심과 생명력 있는 순종을 회복함",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 1
+    "category_code": 1,
+    "curricula_name": "무기력"
   },
   {
     "category": "삶의 상황",
@@ -390,7 +410,8 @@
     "description": "육체의 고통과 연약함 속에서 여호와 라파의 치유를 구하며 고난의 유익을 배움",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "질병"
   },
   {
     "category": "삶의 상황",
@@ -409,7 +430,8 @@
     "description": "직장을 잃은 막막함과 두려움 속에서 하나님의 선한 계획과 궁극적 공급하심을 신뢰함",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "실직"
   },
   {
     "category": "삶의 상황",
@@ -428,7 +450,8 @@
     "description": "물질적 궁핍 속에서 탐심을 버리고 하나님만으로 만족하는 참된 부요함과 자족을 배움",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": null
   },
   {
     "category": "삶의 상황",
@@ -447,7 +470,8 @@
     "description": "가정의 깨어짐으로 인한 치명적인 상처를 싸매시는 위로와 정죄함 없는 회복의 은혜",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "이혼"
   },
   {
     "category": "삶의 상황",
@@ -466,7 +490,8 @@
     "description": "사랑하는 이를 잃은 비통함 속에서 사망을 이긴 부활의 참된 소망과 영원한 생명을 바라봄",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "사별"
   },
   {
     "category": "삶의 상황",
@@ -485,7 +510,8 @@
     "description": "우상숭배적 죄의 사슬을 끊고 진리의 말씀과 성령 안에서 누리는 참된 자유와 해방",
     "is_heavy": true,
     "is_crisis": true,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "중독"
   },
   {
     "category": "삶의 상황",
@@ -504,7 +530,8 @@
     "description": "성적 지상주의의 압박 속에서 수험생의 불안을 평강으로 바꾸는 지혜와 도우심",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "시험/입시"
   },
   {
     "category": "삶의 상황",
@@ -523,7 +550,8 @@
     "description": "태중의 생명이 하나님의 주권적 창조임을 고백하며 평안한 출산을 돕는 보호의 약속",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "임신"
   },
   {
     "category": "삶의 상황",
@@ -542,7 +570,8 @@
     "description": "생명의 주관자이신 하나님께 구하는 간절한 탄원과, 물리적 한계를 뛰어넘는 영적 열매의 위로",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "불임"
   },
   {
     "category": "삶의 상황",
@@ -561,7 +590,8 @@
     "description": "육체적, 정신적 결함이 저주가 아니라 하나님의 영광과 능력이 나타나는 역설적 통로임을 깨달음",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "장애"
   },
   {
     "category": "삶의 상황",
@@ -580,7 +610,8 @@
     "description": "익숙한 곳을 떠나 새로운 삶의 터전을 개척할 때 주어지는 하나님의 세밀한 인도하심과 동행",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "이사"
   },
   {
     "category": "삶의 상황",
@@ -599,7 +630,8 @@
     "description": "사회적 직무를 내려놓은 노년의 삶 속에서도 멈추지 않는 영적 사명과 아름다운 결실",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "은퇴"
   },
   {
     "category": "삶의 상황",
@@ -618,7 +650,8 @@
     "description": "단절감과 통제 속에서 병역의 의무 중 겪는 두려움을 극복하고 광야 훈련을 주도하시는 하나님 체험",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "군대/병역"
   },
   {
     "category": "삶의 상황",
@@ -637,7 +670,8 @@
     "description": "불확실한 미래와 치열한 경쟁 앞에서 진로의 인도하심을 구하며 현재에 성실을 다함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "고시/취업준비"
   },
   {
     "category": "삶의 상황",
@@ -656,7 +690,8 @@
     "description": "갑작스러운 물리적, 정신적 재난과 충격 속에서 완전한 피난처 되시며 상처를 싸매시는 하나님",
     "is_heavy": true,
     "is_crisis": true,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "사고/트라우마"
   },
   {
     "category": "삶의 상황",
@@ -675,7 +710,8 @@
     "description": "평생 쌓아온 모든 것을 잃은 절망 속에서 소멸하지 않는 영원한 기업과 영광을 바라봄",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "파산"
   },
   {
     "category": "삶의 상황",
@@ -694,7 +730,8 @@
     "description": "육체적 겉사람의 쇠퇴와 후패함 속에서도 날로 새로워지는 속사람의 강건함과 영적 존엄성",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "노화"
   },
   {
     "category": "삶의 상황",
@@ -713,7 +750,8 @@
     "description": "물리적 결박이나 억울한 송사 속에서도 영혼의 자유를 주시며 공의로 판단하시는 진리의 빛",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "투옥/법적문제"
   },
   {
     "category": "삶의 상황",
@@ -732,7 +770,8 @@
     "description": "인간이 통제할 수 없는 기후 재난과 혼돈 속에서 피조물을 다스리시는 창조주의 권능과 종말론적 대망",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "자연재해"
   },
   {
     "category": "삶의 상황",
@@ -751,7 +790,8 @@
     "description": "신앙으로 인한 사회적 배척과 부당한 대우를 견디며 하나님 나라의 상급을 기대하는 위로",
     "is_heavy": true,
     "is_crisis": true,
-    "category_code": 0
+    "category_code": 0,
+    "curricula_name": "차별/핍박"
   },
   {
     "category": "관계",
@@ -770,7 +810,8 @@
     "description": "자기중심성을 탈피하고 상호 존중과 희생적 사랑을 통해 결혼 언약의 거룩성을 회복함",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "부부 갈등"
   },
   {
     "category": "관계",
@@ -789,7 +830,8 @@
     "description": "자녀를 노엽게 하거나 소유물로 여기지 않고 오직 주의 교훈과 훈계로 양육하는 지혜",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "부모자녀 갈등"
   },
   {
     "category": "관계",
@@ -808,7 +850,8 @@
     "description": "이 땅에서 잘되고 장수하는 약속이 있는 첫 계명인 부모 공경의 성경적이고 절대적인 가치",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "효도/부모 공경"
   },
   {
     "category": "관계",
@@ -827,7 +870,8 @@
     "description": "새로운 가족 형성의 경계선을 존중하며, 세대 간의 다름을 사랑과 관용으로 덮는 화평의 길",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "고부 갈등"
   },
   {
     "category": "관계",
@@ -846,7 +890,8 @@
     "description": "가장 어려울 때 곁에 있어주며 영적으로 서로를 예리하게 벼려주는 진실한 언약적 우정",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "친구 관계"
   },
   {
     "category": "관계",
@@ -865,7 +910,8 @@
     "description": "경쟁과 시기, 험담이 난무하는 직장에서 할 수 있는 대로 모든 사람과 평화를 도모하는 삶",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "직장 동료 갈등"
   },
   {
     "category": "관계",
@@ -884,7 +930,8 @@
     "description": "그리스도께 받은 탕감을 기억하며 일흔 번씩 일곱 번이라도 기꺼이 형제를 용서하라는 명령",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "용서하는 삶"
   },
   {
     "category": "관계",
@@ -903,7 +950,8 @@
     "description": "가장 신뢰했던 이의 뼈아픈 배신 속에서도 복수심을 내려놓고 온전한 피난처이신 주님을 의지함",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "배신"
   },
   {
     "category": "관계",
@@ -922,7 +970,8 @@
     "description": "세속적 정욕을 피하고 거룩함과 영적 분별력을 지키며 주님 안에서 올바르게 세워가는 교제",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "연애/이성교제"
   },
   {
     "category": "관계",
@@ -941,7 +990,8 @@
     "description": "현대 사회의 파편화된 홀로됨의 고통을 위로하고, 언약 공동체의 깊은 연합과 돌봄을 강조함",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "고독/소외"
   },
   {
     "category": "관계",
@@ -960,7 +1010,8 @@
     "description": "그리스도의 몸 된 지체 간의 신학적, 성향적 다툼을 진리와 희생적 사랑 안에서 해결하는 규범",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "교회 내 갈등"
   },
   {
     "category": "관계",
@@ -979,7 +1030,8 @@
     "description": "가정, 교회, 국가에 하나님이 세우신 권위와 질서에 대한 합당한 존중, 그리고 하나님 절대 주권에 대한 우선적 순종",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "권위 순종"
   },
   {
     "category": "관계",
@@ -998,7 +1050,8 @@
     "description": "관계적 친밀함을 무기로 접근하는 이단과 거짓 교리를 단호히 분별하고 양떼를 보호하는 영적 경계",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "이단/거짓 교사 대처"
   },
   {
     "category": "관계",
@@ -1017,7 +1070,8 @@
     "description": "복음의 진리와 삶의 본을 동시에 전수하며 세대와 세대를 잇는 영적 아비와 어미의 사명",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "멘토링/제자 양육"
   },
   {
     "category": "관계",
@@ -1036,7 +1090,8 @@
     "description": "관계와 공동체를 파괴하는 혀의 은밀한 죄악을 철저히 경계하고 오직 덕을 세우는 말을 연습함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "험담/중상모략"
   },
   {
     "category": "관계",
@@ -1055,7 +1110,8 @@
     "description": "육체적, 정서적 폭력의 피해자를 감찰하시고 가해자를 향해 엄중한 공의로 갚으시는 하나님의 심판과 보호",
     "is_heavy": true,
     "is_crisis": true,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "학대/폭력 피해"
   },
   {
     "category": "관계",
@@ -1074,7 +1130,8 @@
     "description": "자신과 같이 이웃의 곤경을 돌아보며 선한 사마리아인처럼 행하는 능동적이고 적극적인 사랑의 실천",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "이웃 사랑"
   },
   {
     "category": "관계",
@@ -1093,7 +1150,8 @@
     "description": "가치관과 주인이 다른 이들과의 영적, 사업적, 혼인적 연합에서 발생할 수 있는 치명적 타협의 위험성 경계",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "불신자와의 멍에"
   },
   {
     "category": "관계",
@@ -1112,7 +1170,8 @@
     "description": "깨어진 관계를 십자가 화목제물의 은혜를 본받아 용기 있게 먼저 손을 내밀어 잇는 화목케 하는 직분",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "화해"
   },
   {
     "category": "관계",
@@ -1131,7 +1190,8 @@
     "description": "사랑이라는 명목의 과의존이나 착취를 방지하고 건강한 관계 유지를 위해 지혜롭게 설정하는 영적 거리두기",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 2
+    "category_code": 2,
+    "curricula_name": "경계선 설정"
   },
   {
     "category": "신앙 성장",
@@ -1150,7 +1210,8 @@
     "description": "응답의 확신을 가지고 하나님 아버지와 깊이 소통하는 영혼의 호흡이자 은혜의 방편",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "기도의 능력"
   },
   {
     "category": "신앙 성장",
@@ -1169,7 +1230,8 @@
     "description": "형식주의를 넘어 영과 진리로 드려지는 합당한 경배와 삶 전체로 올려드리는 영적 제사",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "예배"
   },
   {
     "category": "신앙 성장",
@@ -1188,7 +1250,8 @@
     "description": "영혼의 양식으로서 삶의 기준을 제시하고 좌우를 분별하게 하는 진리의 말씀 수용",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "말씀 묵상"
   },
   {
     "category": "신앙 성장",
@@ -1207,7 +1270,8 @@
     "description": "잃어버린 영혼을 향한 구령의 열정과 모든 민족을 제자 삼으라는 지상대명령의 완수",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "전도/선교"
   },
   {
     "category": "신앙 성장",
@@ -1226,7 +1290,8 @@
     "description": "혈과 육이 아닌 공중 권세 잡은 사탄의 궤계를 말씀과 기도로 대적하며 승리를 선포함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "영적 전쟁"
   },
   {
     "category": "신앙 성장",
@@ -1245,7 +1310,8 @@
     "description": "이기적 자아를 부인하고 날마다 자기 십자가를 짊어지며 좁은 길로 주님을 좇아가는 삶",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "제자도"
   },
   {
     "category": "신앙 성장",
@@ -1264,7 +1330,8 @@
     "description": "단순한 후회를 넘어 지정의 전 인격이 죄에서 돌이켜 하나님의 통치로 방향을 전환함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "회개"
   },
   {
     "category": "신앙 성장",
@@ -1283,7 +1350,8 @@
     "description": "환경의 호불호를 초월하여 구원의 하나님 한 분만으로 인하여 올려드리는 절대적 신앙 고백",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "감사의 삶"
   },
   {
     "category": "신앙 성장",
@@ -1302,7 +1370,8 @@
     "description": "육체의 소욕을 꺾고 결박된 흉악의 줄을 끊기 위해 하나님께 전적으로 집중하는 결단",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "금식"
   },
   {
     "category": "신앙 성장",
@@ -1321,7 +1390,8 @@
     "description": "술 취함과 같은 세상의 지배를 거부하고, 내주하시는 성령의 완전한 통치를 받으며 열매 맺는 삶",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "성령 충만"
   },
   {
     "category": "신앙 성장",
@@ -1340,7 +1410,8 @@
     "description": "제사보다 나은 것으로서, 말씀을 단순히 듣는 데 그치지 않고 행함으로 나타내는 참된 믿음의 증거",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "순종"
   },
   {
     "category": "신앙 성장",
@@ -1359,7 +1430,8 @@
     "description": "값으로 산 바 된 자신의 전체 삶을 거룩한 산 제물로 구별하여 하나님의 나라를 위해 전적으로 드림",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "헌신"
   },
   {
     "category": "신앙 성장",
@@ -1378,7 +1450,8 @@
     "description": "개인의 과시가 아니라 오직 그리스도의 몸 된 교회를 든든히 세우기 위해 주신 성령의 선물을 바르게 사용함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "은사 활용"
   },
   {
     "category": "신앙 성장",
@@ -1397,7 +1470,8 @@
     "description": "수건을 두르신 그리스도의 극진한 겸손을 본받아 타인의 유익과 필요를 채우는 봉사의 삶",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "이웃 섬김"
   },
   {
     "category": "신앙 성장",
@@ -1416,7 +1490,8 @@
     "description": "풀무불 같은 시련을 통해 불순물이 제거되고 정금 같이 단련되어 궁극적인 영광에 참여함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "고난 속의 인내"
   },
   {
     "category": "신앙 성장",
@@ -1435,7 +1510,8 @@
     "description": "구원의 감격과 첫사랑을 상실하고 영혼이 메말랐을 때, 다시금 부흥과 은혜의 단비를 갈망함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "영적 침체"
   },
   {
     "category": "신앙 성장",
@@ -1454,7 +1530,8 @@
     "description": "광명한 천사로 위장한 영들을 베뢰아 사람처럼 성경의 엄밀한 척도로 시험하고 진리 안에 굳게 섬",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "이단 분별"
   },
   {
     "category": "신앙 성장",
@@ -1473,7 +1550,8 @@
     "description": "창조와 구속의 참된 주인을 기억하며 영적 안식을 누리고 부활의 주님을 기념하는 구별된 날의 영광",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "주일 성수"
   },
   {
     "category": "신앙 성장",
@@ -1492,7 +1570,8 @@
     "description": "시간, 재물, 재능 등 내가 가진 모든 소유가 주님의 것임을 명확히 인식하는 충성된 관리자의 정체성",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "청지기 의식"
   },
   {
     "category": "신앙 성장",
@@ -1511,7 +1590,8 @@
     "description": "시끄러운 세속의 소음 속에서 성령의 조명하심을 통해 성경으로 말씀하시는 주님의 세미한 음성에 귀 기울임",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 3
+    "category_code": 3,
+    "curricula_name": "하나님 음성 듣기"
   },
   {
     "category": "성품/덕목",
@@ -1530,7 +1610,8 @@
     "description": "자기 유익을 구하지 않는 아가페적 사랑으로 모든 율법의 완성이며 그리스도의 성품의 핵심",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "사랑"
   },
   {
     "category": "성품/덕목",
@@ -1549,7 +1630,8 @@
     "description": "영적 파멸의 선봉인 교만을 버리고, 하나님 앞에서 자신을 낮추며 남을 낫게 여기는 그리스도의 마음",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "겸손"
   },
   {
     "category": "성품/덕목",
@@ -1568,7 +1650,8 @@
     "description": "고난과 응답의 지연 속에서도 조급해하지 않고 하나님의 때를 기다리며 끝까지 견디는 신앙의 힘",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "인내"
   },
   {
     "category": "성품/덕목",
@@ -1587,7 +1670,8 @@
     "description": "세속적 처세술이 아닌, 여호와를 경외함에서 비롯되는 영적 분별력과 하늘로부터 내려오는 통찰",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "지혜"
   },
   {
     "category": "성품/덕목",
@@ -1606,7 +1690,8 @@
     "description": "상황의 위협이나 사람의 평판을 향한 두려움을 넘어, 믿음으로 담대하게 진리를 선포하고 행하는 결단",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "용기"
   },
   {
     "category": "성품/덕목",
@@ -1625,7 +1710,8 @@
     "description": "방종하는 육체의 정욕을 제어하고, 자신의 의지를 성령의 거룩한 다스림에 전적으로 복종시키는 능력",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "절제"
   },
   {
     "category": "성품/덕목",
@@ -1644,7 +1730,8 @@
     "description": "게으름을 배격하고, 사람에게 보이려 하지 않고 주께 하듯 모든 일에 마음과 뜻을 다하여 수고하는 태도",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "성실"
   },
   {
     "category": "성품/덕목",
@@ -1663,7 +1750,8 @@
     "description": "거짓과 위선을 버리고, 불꽃 같은 눈으로 감찰하시는 하나님 앞에서 투명하고 진실하게 행함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "정직"
   },
   {
     "category": "성품/덕목",
@@ -1682,7 +1770,8 @@
     "description": "야생마가 길들여진 것처럼 통제된 힘과 부드러움으로 타인의 악을 품어내고 반응하는 영적 성숙함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "온유"
   },
   {
     "category": "성품/덕목",
@@ -1701,7 +1790,8 @@
     "description": "자격 없는 자에게 조건 없이 베푸시는 하나님의 넓으신 긍휼을 철저히 닮아가는 용서와 은혜의 성품",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "자비"
   },
   {
     "category": "성품/덕목",
@@ -1720,7 +1810,8 @@
     "description": "단순한 갈등의 부재가 아니라, 십자가의 피로 적극적으로 갈등을 치유하고 하나 됨을 도모하는 샬롬(Shalom)",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "평화/화평"
   },
   {
     "category": "성품/덕목",
@@ -1739,7 +1830,8 @@
     "description": "환경의 유불리에 흔들리지 않고, 주인 되신 하나님이 맡겨주신 사명에 끝까지 변함없이 헌신하는 신실함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "충성"
   },
   {
     "category": "성품/덕목",
@@ -1758,7 +1850,8 @@
     "description": "타인의 연약함과 약점을 함부로 정죄하지 않고, 복음의 넉넉함으로 품어주고 수용하는 넓은 마음",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "관용"
   },
   {
     "category": "성품/덕목",
@@ -1777,7 +1870,8 @@
     "description": "고통받는 자들과 목자 없는 양 같은 무리를 보며 창자가 끊어지는 듯한 아픔으로 공감하며 돕고자 하는 애통",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "긍휼/동정"
   },
   {
     "category": "성품/덕목",
@@ -1796,7 +1890,8 @@
     "description": "세상의 음란과 도덕적 오염으로부터 영혼과 육체를 온전히 구별하여 하나님만을 향해 마음을 지킴",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "순결/거룩"
   },
   {
     "category": "성품/덕목",
@@ -1815,7 +1910,8 @@
     "description": "일만 달란트 빚진 자로서의 정체성을 기억하며, 형제의 흠을 들추거나 복수심을 품지 않는 사면의 마음",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": null
   },
   {
     "category": "성품/덕목",
@@ -1834,7 +1930,8 @@
     "description": "상황의 긍정적인 조건과 무관하게, 구원의 주님이 주시는 영원한 생명으로 인하여 내면에서 솟아나는 기쁨",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "기쁨/희락"
   },
   {
     "category": "성품/덕목",
@@ -1853,7 +1950,8 @@
     "description": "단순한 막연한 낙관주의가 아니라, 신실하신 하나님의 언약에 근거하여 미래의 영광을 닻처럼 굳게 붙잡음",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "소망"
   },
   {
     "category": "성품/덕목",
@@ -1872,7 +1970,8 @@
     "description": "불의와 타협하지 않고, 하나님의 속성인 절대적인 공의와 율법의 기준을 즐거워하며 따르는 성품",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "의로움"
   },
   {
     "category": "성품/덕목",
@@ -1891,7 +1990,8 @@
     "description": "세상의 물질과 성공에 대한 끝없는 탐심을 십자가에 못 박고, 오직 여호와 한 분만으로 채워지는 영적 풍요로움",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 4
+    "category_code": 4,
+    "curricula_name": "만족/자족"
   },
   {
     "category": "신학/교리",
@@ -1910,7 +2010,8 @@
     "description": "인간의 행위나 공로를 철저히 배제하고, 오직 예수 그리스도의 보혈을 통해서만 주어지는 영원한 생명의 약속",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "구원"
   },
   {
     "category": "신학/교리",
@@ -1929,7 +2030,8 @@
     "description": "받을 자격이 전혀 없는 원수 된 죄인에게 거저 쏟아 부어 주시는 하나님의 전적인 주권적 선물과 호의",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "은혜"
   },
   {
     "category": "신학/교리",
@@ -1948,7 +2050,8 @@
     "description": "보이지 않는 영적 실체를 확신하게 하며, 그리스도의 의를 자신의 것으로 받아들이는 은혜의 방편이자 통로",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "믿음"
   },
   {
     "category": "신학/교리",
@@ -1967,7 +2070,8 @@
     "description": "본질은 하나이시나 성부, 성자, 성령 세 위격(Persons)으로 영원히 교제하시며 완전하게 존재하시는 하나님",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "삼위일체"
   },
   {
     "category": "신학/교리",
@@ -1986,7 +2090,8 @@
     "description": "보혜사로서 성도 안에 내주하시며, 말씀을 깨닫게 하시고 기도를 도우시며, 성화의 능력을 부어주시는 역사",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "성령의 사역"
   },
   {
     "category": "신학/교리",
@@ -2005,7 +2110,8 @@
     "description": "우주적 역사의 끝에 있을 그리스도의 영광스러운 재림과, 만물이 새롭게 갱신될 것에 대한 확실하고 벅찬 소망",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "종말론"
   },
   {
     "category": "신학/교리",
@@ -2024,7 +2130,8 @@
     "description": "그리스도와 함께 다스리는 영원한 생명의 나라와, 영원히 타오르는 불못이라는 형벌의 압도적인 실제성",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "천국과 지옥"
   },
   {
     "category": "신학/교리",
@@ -2043,7 +2150,8 @@
     "description": "피조물이 아니시며, 만물을 지으신 창조주요 아버지와 동등하신 완전한 하나님(Vere Deus)이신 예수 그리스도",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "예수의 신성"
   },
   {
     "category": "신학/교리",
@@ -2062,7 +2170,8 @@
     "description": "우리의 모든 연약함을 체휼하시기 위해, 죄는 없으시나 우리와 똑같은 육체를 입으신 참 사람(Vere Homo)이심",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "예수의 인성"
   },
   {
     "category": "신학/교리",
@@ -2081,7 +2190,8 @@
     "description": "사망의 권세를 깨뜨리신 그리스도의 역사적 부활의 승리와, 첫 열매 되신 주님을 따를 신자들의 궁극적 부활 소망",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "부활"
   },
   {
     "category": "신학/교리",
@@ -2100,7 +2210,8 @@
     "description": "죄인이 법정적으로 무죄 선언을 받으며, 그리스도의 온전하신 의가 신자에게 완전히 전가(Imputation)되는 교리",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "칭의"
   },
   {
     "category": "신학/교리",
@@ -2119,7 +2230,8 @@
     "description": "칭의 받은 신자가 성령의 도우심을 받아 점진적으로 죄를 죽이고 그리스도를 닮아가는 평생의 거룩한 과정",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "성화"
   },
   {
     "category": "신학/교리",
@@ -2138,7 +2250,8 @@
     "description": "영원 전의 작정부터 역사의 종말까지, 머리털 하나까지도 세시며 모든 만물과 섭리를 통치하시는 권능",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "하나님의 주권"
   },
   {
     "category": "신학/교리",
@@ -2157,7 +2270,8 @@
     "description": "아담의 타락(Fall)으로 인해 그 후손인 모든 인류가 영적으로 죽은 상태로 태어나며 전적으로 부패(Total Depravity)함",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "원죄론"
   },
   {
     "category": "신학/교리",
@@ -2176,7 +2290,8 @@
     "description": "하나님의 진노를 가라앉히기 위해, 점 흠 없는 어린양으로서 우리가 받아야 할 형벌을 대신 치르신 보혈의 공로",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "십자가 대속"
   },
   {
     "category": "신학/교리",
@@ -2195,7 +2310,8 @@
     "description": "건물이 아니라 그리스도를 머리로 하는 언약 공동체이자 영적 유기체이며, 진리의 기둥과 터인 에클레시아",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "교회의 본질"
   },
   {
     "category": "신학/교리",
@@ -2214,7 +2330,8 @@
     "description": "행위 언약의 실패 이후, 예수 그리스도의 피로 맺어진 은혜 언약을 통해 하나님과 백성 사이에 맺어진 변함없는 약속",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "언약 신학"
   },
   {
     "category": "신학/교리",
@@ -2233,7 +2350,8 @@
     "description": "본질상 진노의 자녀이자 마귀의 종이었던 우리가, 그리스도로 말미암아 하나님을 '아빠 아버지'라 부르는 상속자가 됨",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "영적 양자됨"
   },
   {
     "category": "신학/교리",
@@ -2252,7 +2370,8 @@
     "description": "그리스도의 심판대 앞에서 선악 간에 행한 대로 갚으시는 하나님의 공의롭고 최종적이며 피할 수 없는 결산",
     "is_heavy": true,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "최후 심판"
   },
   {
     "category": "신학/교리",
@@ -2271,7 +2390,8 @@
     "description": "거룩하신 하나님과 죄인 된 인간 사이를 이어주는 유일하고 완전한 대제사장이자 영원한 중보자이신 그리스도",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 6
+    "category_code": 6,
+    "curricula_name": "기독론적 중보"
   },
   {
     "category": "생활",
@@ -2289,7 +2409,8 @@
     "description": "사람의 눈가림만 하지 않고, 주께 하듯 마음을 다해 성실히 일함으로써 노동의 신성함과 소명을 완수함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "직장 생활"
   },
   {
     "category": "생활",
@@ -2308,7 +2429,8 @@
     "description": "일만 악의 뿌리인 돈을 사랑함을 경계하고, 하늘에 보물을 쌓아두는 하나님의 지혜로 물질을 거룩하게 관리함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": null
   },
   {
     "category": "생활",
@@ -2327,7 +2449,8 @@
     "description": "성령이 거하시는 거룩한 전(Temple)인 육체를 함부로 훼손하지 않고, 건강하고 정결하게 돌보아야 할 영적 책임",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "건강 관리"
   },
   {
     "category": "생활",
@@ -2346,7 +2469,8 @@
     "description": "명문대 진학이나 세상의 성취보다 최우선하여, 성경적 세계관과 신앙의 위대한 유산을 다음 세대에 전수함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "자녀 교육"
   },
   {
     "category": "생활",
@@ -2365,7 +2489,8 @@
     "description": "권력으로 군림하거나 지배하지 않고, 허리에 수건을 두르고 타인의 발을 씻기는 그리스도 중심의 서번트 리더십",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "리더십과 섬김"
   },
   {
     "category": "생활",
@@ -2384,7 +2509,8 @@
     "description": "구약의 선지자적 외침을 따라 약자와 고아와 과부를 보호하고, 사회 구조 속에 하나님의 공평과 정의를 실현함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "사회 정의"
   },
   {
     "category": "생활",
@@ -2403,7 +2529,8 @@
     "description": "인간의 탐욕으로 창조 세계를 착취하지 않고, 타락으로 신음하는 피조물을 선한 청지기로서 책임감 있게 돌봄",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "환경 보호/피조물 돌봄"
   },
   {
     "category": "생활",
@@ -2422,7 +2549,8 @@
     "description": "중독성과 허영이 만연한 디지털 시대에 시선과 마음을 지키고, 오직 영적 유익과 덕을 구하는 엄격한 절제",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "미디어/SNS 사용"
   },
   {
     "category": "생활",
@@ -2441,7 +2569,8 @@
     "description": "모든 인생이 안개와 같이 유한함을 깊이 깨닫고, 악한 세대 속에서 지혜롭게 우선순위를 정하여 세월을 아낌",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "시간 관리"
   },
   {
     "category": "생활",
@@ -2460,7 +2589,8 @@
     "description": "한국적 '일 중독(Workaholic)'에서 벗어나, 육체의 쉼을 통해 영혼을 재충전하고 하나님이 주시는 참된 안식을 누림",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "여가/안식"
   },
   {
     "category": "생활",
@@ -2479,7 +2609,8 @@
     "description": "세속 정부의 권위를 하나님의 질서 아래 인정하되, 특정 이념이 아닌 하나님의 진리와 공의의 기준을 들어 정치와 사회를 위해 깨어 기도함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "정치 참여"
   },
   {
     "category": "생활",
@@ -2498,7 +2629,8 @@
     "description": "가난한 자와 소외된 자들에게 재물과 시간을 나누는 것이 곧 주님께 꾸어드리는 특권임을 깨닫는 자비의 실천",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "이웃 구제"
   },
   {
     "category": "생활",
@@ -2517,7 +2649,8 @@
     "description": "수익 창출에 있어서 거짓을 배격하고, 공정한 저울과 투명성을 지키며 그리스도의 대사로서 이윤을 추구함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "비즈니스 윤리"
   },
   {
     "category": "생활",
@@ -2536,7 +2669,8 @@
     "description": "하늘의 시민권을 가진 나그네로서, 거류하는 이 땅의 법을 준수하며 부패를 방지하는 빛과 소금의 역할을 감당함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "시민 의식"
   },
   {
     "category": "생활",
@@ -2555,7 +2689,8 @@
     "description": "단순한 기호나 탐식을 넘어, 먹고 마시는 모든 행위의 동기가 철저히 하나님의 영광을 구하는 거룩한 통제가 됨",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "식생활/절제"
   },
   {
     "category": "생활",
@@ -2574,7 +2709,8 @@
     "description": "나태함을 피해 다가올 미래의 경제를 지혜롭게 대비하되, 어리석은 부자처럼 최종적 공급자이신 하나님을 망각하지 않음",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "노후 준비"
   },
   {
     "category": "생활",
@@ -2593,7 +2729,8 @@
     "description": "이데올로기와 세속 철학에 함몰되지 않고, 모든 사상과 학문을 그리스도에게 복종시키며 성경의 렌즈로 세상을 투시함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "성경적 세계관"
   },
   {
     "category": "생활",
@@ -2612,7 +2749,8 @@
     "description": "채주의 종이 되게 하는 무분별한 빚과 보증을 피하고, 갚아야 할 의무를 회피하지 않는 재정적 책임감",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "부채/채무 관리"
   },
   {
     "category": "생활",
@@ -2631,7 +2769,8 @@
     "description": "타인과의 비교 우위를 점하려는 과시욕과 탐욕적 소비를 배격하고, 하나님 안에서의 절대적 만족과 검소함을 훈련함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "소비 생활"
   },
   {
     "category": "생활",
@@ -2650,6 +2789,7 @@
     "description": "외적인 스펙이나 경제력보다 여호와를 경외함을 우선시하며, 하나님의 뜻 안에서 경건한 언약의 파트너를 기도로 구함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5
+    "category_code": 5,
+    "curricula_name": "결혼 준비"
   }
 ]
