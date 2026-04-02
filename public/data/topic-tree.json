@@ -1,0 +1,186 @@
+{
+  "cards": [
+    {
+      "id": "emotions",
+      "label": "마음이 힘들어요",
+      "children": [
+        {
+          "id": "emotions-anxiety",
+          "label": "불안하고 걱정돼요",
+          "topics": ["불안과 두려움", "스트레스", "혼란"]
+        },
+        {
+          "id": "emotions-depression",
+          "label": "우울하고 힘이 없어요",
+          "topics": ["우울", "슬픔"]
+        },
+        {
+          "id": "emotions-hurt",
+          "label": "마음에 상처가 있어요",
+          "topics": ["수치심", "죄책감", "거절감", "외로움"]
+        },
+        {
+          "id": "emotions-control",
+          "label": "감정 조절이 어려워요",
+          "topics": ["분노", "질투", "원망과 후회", "고난 속의 인내"]
+        }
+      ]
+    },
+    {
+      "id": "relationships",
+      "label": "관계가 어려워요",
+      "children": [
+        {
+          "id": "rel-family",
+          "label": "가족 안에서",
+          "topics": ["부부 갈등", "부모자녀 (부모 시점)", "부모자녀 (자녀 시점)", "고부 갈등"]
+        },
+        {
+          "id": "rel-people",
+          "label": "주변 사람과",
+          "topics": ["친구 관계", "직장 동료", "교회 안에서", "이웃 사랑"]
+        },
+        {
+          "id": "rel-forgiveness",
+          "label": "용서의 여정",
+          "topics": ["배신과 상처", "용서", "화해"]
+        },
+        {
+          "id": "rel-building",
+          "label": "관계 세우기",
+          "topics": ["연애와 결혼", "경계선 설정", "학대/폭력 피해"]
+        }
+      ]
+    },
+    {
+      "id": "situations",
+      "label": "어려운 상황이에요",
+      "children": [
+        {
+          "id": "sit-health",
+          "label": "건강 문제",
+          "topics": ["질병", "장애", "노화"]
+        },
+        {
+          "id": "sit-finance",
+          "label": "경제적 어려움",
+          "topics": ["실직과 구직", "재정 위기"]
+        },
+        {
+          "id": "sit-loss",
+          "label": "상실과 위기",
+          "topics": ["사별", "이혼", "사고/트라우마", "중독"]
+        },
+        {
+          "id": "sit-study",
+          "label": "학업과 시험",
+          "topics": ["시험과 입시"]
+        },
+        {
+          "id": "sit-change",
+          "label": "환경 변화",
+          "topics": ["군대/병역", "임신과 출산", "이사/새출발", "은퇴", "극한 상황"]
+        }
+      ]
+    },
+    {
+      "id": "faith",
+      "label": "신앙을 키우고 싶어요",
+      "children": [
+        {
+          "id": "faith-prayer",
+          "label": "기도와 예배",
+          "topics": ["기도", "예배", "감사", "금식"]
+        },
+        {
+          "id": "faith-word",
+          "label": "말씀과 성장",
+          "topics": ["말씀 묵상", "제자도", "순종", "헌신"]
+        },
+        {
+          "id": "faith-power",
+          "label": "영적 능력",
+          "topics": ["성령 충만", "은사 활용", "영적 전쟁", "하나님 음성 듣기"]
+        },
+        {
+          "id": "faith-recovery",
+          "label": "회복과 분별",
+          "topics": ["회개", "영적 침체", "이단 분별", "전도/선교", "섬김"]
+        }
+      ]
+    },
+    {
+      "id": "wisdom",
+      "label": "삶의 지혜가 필요해요",
+      "children": [
+        {
+          "id": "wis-love",
+          "label": "사랑과 관계의 성품",
+          "topics": ["사랑", "자비와 긍휼", "관용", "온유"]
+        },
+        {
+          "id": "wis-strong",
+          "label": "강인한 내면",
+          "topics": ["인내", "용기", "절제", "성실", "정직"]
+        },
+        {
+          "id": "wis-humble",
+          "label": "지혜와 겸손",
+          "topics": ["겸손", "지혜", "충성", "순결/거룩"]
+        },
+        {
+          "id": "wis-joy",
+          "label": "기쁨과 소망",
+          "topics": ["기쁨", "소망", "평화", "의로움", "만족/자족"]
+        },
+        {
+          "id": "wis-daily",
+          "label": "일상의 지혜",
+          "children": [
+            {
+              "id": "wis-daily-work",
+              "label": "일과 돈",
+              "topics": ["직장과 소명", "재정과 청지기"]
+            },
+            {
+              "id": "wis-daily-home",
+              "label": "가정과 건강",
+              "topics": ["건강 관리", "자녀 교육", "시간과 안식"]
+            },
+            {
+              "id": "wis-daily-society",
+              "label": "사회와 문화",
+              "topics": ["미디어/SNS", "사회 참여", "성경적 세계관"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theology",
+      "label": "더 깊이 알고 싶어요",
+      "children": [
+        {
+          "id": "theo-salvation",
+          "label": "구원과 은혜",
+          "topics": ["구원", "은혜", "믿음", "칭의"]
+        },
+        {
+          "id": "theo-christ",
+          "label": "예수 그리스도",
+          "topics": ["예수의 신성과 인성", "십자가 대속", "부활", "기독론적 중보"]
+        },
+        {
+          "id": "theo-spirit",
+          "label": "성령과 교회",
+          "topics": ["성령의 사역", "교회의 본질", "영적 양자됨", "언약 신학"]
+        },
+        {
+          "id": "theo-kingdom",
+          "label": "하나님 나라",
+          "topics": ["성화", "하나님의 주권", "원죄론", "삼위일체", "종말과 심판"]
+        }
+      ]
+    }
+  ]
+}

@@ -309,6 +309,8 @@ function icon(name) { return ICONS[name] || ICONS.star; }
 // ============================================================
 let topicsData = null;
 let curriculaData = null;
+let topicTree = null;
+let cardPath = []; // tracks drill-down: [{level, index}]
 let currentStep = 0; // 0-11: quiz, 12: topic select, 13: style, 14: result
 let answers = {};
 let selectedTopics = [];
@@ -321,12 +323,14 @@ let parallelReading = true;
 let curriculaExtended = [];
 
 async function init() {
-  const [topicsRes, curriculaRes, extRes, meRes] = await Promise.all([
+  const [topicsRes, curriculaRes, extRes, treeRes, meRes] = await Promise.all([
     fetch('/data/topics-db.json').then(r => r.json()),
     fetch('/data/curricula.json').then(r => r.json()),
     fetch('/data/curricula-extended.json').then(r => r.json()).catch(() => []),
+    fetch('/data/topic-tree.json').then(r => r.json()).catch(() => null),
     fetch('/api/me').then(r => r.json()),
   ]);
+  topicTree = treeRes;
   curriculaExtended = extRes;
   if (!meRes.loggedIn) { window.location.href = '/login.html'; return; }
 
@@ -353,12 +357,13 @@ let maturityChoice = null; // exploring/growing/close/centered
 
 function render() {
   const c = document.getElementById('container');
-  const totalSteps = 4; // maturity + topics + style + result
+  // Dynamic steps: maturity(0) + cards(1) + style(2) + result(3)
+  const totalSteps = 4;
   const progress = Math.min((currentStep + 1) / totalSteps * 100, 100);
   document.getElementById('progressFill').style.width = progress + '%';
 
   if (currentStep === 0) renderMaturityStep(c);
-  else if (currentStep === 1) renderTopicSelect(c);
+  else if (currentStep === 1) renderCardDrilldown(c);
   else if (currentStep === 2) renderStyleSelect(c);
   else renderResult(c);
 }
@@ -396,42 +401,164 @@ function renderMaturityStep(c) {
   `;
 }
 
-function renderTopicSelect(c) {
-  const categories = [...new Set(topicsData.map(t => t.category))];
-  const selectedCount = selectedTopics.length;
+function renderCardDrilldown(c) {
+  if (!topicTree) return;
+
+  // Determine what to show based on cardPath depth
+  let currentItems;
+  let title;
+  let subtitle;
+
+  if (cardPath.length === 0) {
+    // Level 1: Show 6 situation cards
+    currentItems = topicTree.cards;
+    title = '지금 어떤 마음인가요?';
+    subtitle = '가장 가까운 것을 선택해주세요.';
+  } else {
+    // Drill into the tree
+    let node = topicTree.cards[cardPath[0]];
+    for (let i = 1; i < cardPath.length; i++) {
+      node = node.children[cardPath[i]];
+    }
+    currentItems = node.children;
+    title = node.label;
+    subtitle = '조금 더 구체적으로 알려주세요.';
+  }
+
+  // If currentItems have topics (leaf level), show topic selection
+  const isLeaf = currentItems && currentItems[0] && currentItems[0].topics;
+  const hasNestedChildren = currentItems && currentItems[0] && currentItems[0].children;
+
+  if (isLeaf || hasNestedChildren) {
+    // Mixed: some have topics, some have children
+    // Show cards for ones with children, topic chips for ones with topics
+  }
+
+  let html;
+  if (isLeaf) {
+    // Show sub-cards that each contain topics
+    html = `
+      <div class="step-counter">주제 선택</div>
+      <div class="question-card">
+        <div class="question-icon">${icon('compass')}</div>
+        <div class="question-text">${title}</div>
+        <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">${subtitle}</p>
+        <div class="choices">
+          ${currentItems.map((item, idx) => `
+            <button class="choice-btn" onclick="showTopicsFromCard(${idx})" style="flex-direction:column;align-items:flex-start;gap:8px;">
+              <span style="font-weight:600;">${item.label}</span>
+              <span style="font-size:12px;color:var(--text-light);">${item.topics.join(' · ')}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="cardBack()">이전</button>
+        <span></span>
+      </div>
+    `;
+  } else if (currentItems && currentItems[0] && !currentItems[0].topics && !currentItems[0].children) {
+    // Shouldn't happen
+    html = '<p>Error: Invalid tree structure</p>';
+  } else {
+    // Show navigation cards (drill deeper)
+    html = `
+      <div class="step-counter">주제 선택</div>
+      <div class="question-card">
+        <div class="question-icon">${icon('compass')}</div>
+        <div class="question-text">${title}</div>
+        <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">${subtitle}</p>
+        <div class="choices">
+          ${currentItems.map((item, idx) => {
+            const hasTopics = item.topics;
+            const hasChildren = item.children;
+            const count = hasTopics ? item.topics.length : (hasChildren ? hasChildren.length + '개 분류' : '');
+            return `
+              <button class="choice-btn" onclick="cardDrill(${idx})">
+                <div class="choice-icon">${icon('book')}</div>
+                <div>
+                  <span>${item.label}</span>
+                  ${count ? `<div style="font-size:11px;color:var(--text-light);margin-top:2px;">${typeof count === 'number' ? count + '개 주제' : count}</div>` : ''}
+                </div>
+              </button>
+            `;
+          }).join('')}
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="cardBack()">이전</button>
+        <span></span>
+      </div>
+    `;
+  }
+
+  c.innerHTML = html;
+}
+
+function cardDrill(idx) {
+  cardPath.push(idx);
+
+  // Check if the next level has topics directly
+  let node = topicTree.cards[cardPath[0]];
+  for (let i = 1; i < cardPath.length; i++) {
+    node = node.children[cardPath[i]];
+  }
+
+  if (node.topics) {
+    // Leaf: show topics as selectable chips
+    showTopicChips(node.topics, node.label);
+    return;
+  }
+
+  if (node.children) {
+    // Check if all children have topics (final card level)
+    render();
+    return;
+  }
+}
+
+function showTopicsFromCard(idx) {
+  // Get the card's topics
+  let node = topicTree.cards[cardPath[0]];
+  for (let i = 1; i < cardPath.length; i++) {
+    node = node.children[cardPath[i]];
+  }
+  const item = node.children[idx];
+  showTopicChips(item.topics, item.label);
+}
+
+function showTopicChips(topics, label) {
+  const c = document.getElementById('container');
   c.innerHTML = `
-    <div class="step-counter">2 / 3</div>
+    <div class="step-counter">주제 선택</div>
     <div class="question-card">
       <div class="question-icon">${icon('compass')}</div>
-      <div class="question-text">어떤 주제로 묵상하고 싶으세요?</div>
-      <p style="font-size:14px;color:var(--text-light);margin-bottom:12px;">
-        카테고리를 눌러 펼치고, 관심 주제를 선택하세요.
-        ${selectedCount > 0 ? `<strong style="color:var(--primary);">${selectedCount}개 선택됨</strong>` : ''}
+      <div class="question-text">${label}</div>
+      <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">
+        묵상하고 싶은 주제를 선택하세요.
+        ${selectedTopics.length > 0 ? `<strong style="color:var(--primary);">${selectedTopics.length}개 선택됨</strong>` : ''}
       </p>
-      <div class="topic-grid">
-        ${categories.map((cat, ci) => {
-          const catTopics = topicsData.filter(t => t.category === cat);
-          const catSelected = catTopics.filter(t => selectedTopics.includes(t.topic)).length;
-          return `
-            <div class="topic-category-title" onclick="this.nextElementSibling.classList.toggle('collapsed')" style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
-              <span>${cat} (${catTopics.length})</span>
-              <span style="font-size:12px;color:var(--primary);">${catSelected > 0 ? catSelected + '개 선택' : '펼치기'}</span>
-            </div>
-            <div class="topic-cat-items ${ci > 0 ? 'collapsed' : ''}" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
-              ${catTopics.map(t => `
-                <div class="topic-chip ${selectedTopics.includes(t.topic) ? 'selected' : ''}"
-                     onclick="toggleTopic(this.dataset.topic)" data-topic="${t.topic}">${t.topic}</div>
-              `).join('')}
-            </div>
-          `;
-        }).join('')}
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        ${topics.map(t => `
+          <div class="topic-chip ${selectedTopics.includes(t) ? 'selected' : ''}"
+               onclick="toggleTopic(this.dataset.topic)" data-topic="${t}">${t}</div>
+        `).join('')}
       </div>
     </div>
     <div class="nav-row">
-      <button class="btn-back" onclick="prevStep()">이전</button>
+      <button class="btn-back" onclick="cardBack()">이전</button>
       <button class="btn-next ${selectedTopics.length > 0 ? 'active' : ''}" onclick="nextStep()">다음</button>
     </div>
   `;
+}
+
+function cardBack() {
+  if (cardPath.length > 0) {
+    cardPath.pop();
+    render();
+  } else {
+    prevStep();
+  }
 }
 
 function renderStyleSelect(c) {
