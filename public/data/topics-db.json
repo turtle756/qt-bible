@@ -1,8 +1,8 @@
 [
   {
-    "category": "감정/내면",
-    "topic": "불안",
+    "topic": "불안과 두려움",
     "topic_en": "Anxiety",
+    "category": "감정/내면",
     "verses": [
       "시편 23:1-6",
       "빌립보서 4:6-7",
@@ -11,19 +11,7 @@
       "이사야 41:10",
       "요한복음 14:27",
       "시편 56:3",
-      "시편 94:19"
-    ],
-    "description": "불안과 걱정에 대한 하나님의 약속과 지각에 뛰어난 평강의 위로",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "불안과 두려움 극복"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "두려움",
-    "topic_en": "Fear",
-    "verses": [
+      "시편 94:19",
       "여호수아 1:9",
       "디모데후서 1:7",
       "시편 27:1",
@@ -33,96 +21,16 @@
       "잠언 29:25",
       "이사야 43:1-2"
     ],
-    "description": "상황과 사람에 대한 두려움을 극복하는 하나님 신뢰와 온전한 사랑",
+    "description": "불안과 걱정에 대한 하나님의 약속과 지각에 뛰어난 평강의 위로",
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "두려움"
+    "curricula_name": "불안과 두려움 극복"
   },
   {
-    "category": "감정/내면",
-    "topic": "외로움",
-    "topic_en": "Loneliness",
-    "verses": [
-      "신명기 31:8",
-      "시편 27:10",
-      "마태복음 28:20",
-      "시편 68:6",
-      "이사야 49:15-16",
-      "히브리서 13:5",
-      "요한복음 14:18",
-      "시편 139:7-10"
-    ],
-    "description": "홀로 남겨졌다고 느낄 때 함께하시는 임마누엘 하나님의 영원한 동행",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "외로움에서 하나님의 동행 발견"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "슬픔",
-    "topic_en": "Sorrow",
-    "verses": [
-      "시편 34:18",
-      "마태복음 5:4",
-      "요한계시록 21:4",
-      "시편 30:11",
-      "시편 147:3",
-      "이사야 53:3-4",
-      "고린도후서 1:3-4",
-      "요한복음 11:35"
-    ],
-    "description": "상실과 애통의 시간에 주어지는 하늘의 위로와 눈물을 씻기시는 소망",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "슬픔"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "분노",
-    "topic_en": "Anger",
-    "verses": [
-      "에베소서 4:26-27",
-      "야고보서 1:19-20",
-      "잠언 15:1",
-      "잠언 29:11",
-      "골로새서 3:8",
-      "시편 37:8",
-      "전도서 7:9",
-      "마태복음 5:21-22"
-    ],
-    "description": "혈기와 분노를 다스리고 하나님의 의를 이루기 위한 성경적 지혜와 절제",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "분노 다스리기"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "우울",
-    "topic_en": "Depression",
-    "verses": [
-      "시편 42:5",
-      "열왕기상 19:4-8",
-      "시편 143:7-8",
-      "이사야 40:31",
-      "시편 40:1-3",
-      "마태복음 11:28",
-      "고린도후서 4:8-9",
-      "시편 88:1-3"
-    ],
-    "description": "영적, 육체적 깊은 침체 속에서 영혼을 소생시키는 소망과 회복의 말씀",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "우울"
-  },
-  {
-    "category": "감정/내면",
     "topic": "스트레스",
     "topic_en": "Stress",
+    "category": "감정/내면",
     "verses": [
       "마태복음 11:28-30",
       "시편 55:22",
@@ -139,166 +47,9 @@
     "curricula_name": "스트레스"
   },
   {
-    "category": "감정/내면",
-    "topic": "질투",
-    "topic_en": "Jealousy",
-    "verses": [
-      "잠언 14:30",
-      "야고보서 3:14-16",
-      "고린도전서 13:4",
-      "갈라디아서 5:26",
-      "아가 8:6",
-      "로마서 13:13",
-      "베드로전서 2:1",
-      "고린도전서 3:3"
-    ],
-    "description": "비교의식과 시기를 버리고 십자가 안에서 자족함과 형제 사랑을 배움",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "질투"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "수치심",
-    "topic_en": "Shame",
-    "verses": [
-      "로마서 10:11",
-      "이사야 54:4",
-      "로마서 8:1",
-      "시편 34:5",
-      "이사야 61:7",
-      "히브리서 12:2",
-      "스바냐 3:19",
-      "시편 25:2-3"
-    ],
-    "description": "세상의 정죄함을 넘어서는 그리스도의 보혈과 명예를 회복하시는 은혜",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "수치심"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "죄책감",
-    "topic_en": "Guilt",
-    "verses": [
-      "요한일서 1:9",
-      "시편 32:5",
-      "로마서 8:1-2",
-      "미가 7:19",
-      "시편 103:12",
-      "이사야 1:18",
-      "히브리서 10:22",
-      "이사야 43:25"
-    ],
-    "description": "참된 회개에 따르는 하나님의 완전한 사죄와 양심의 자유로움",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "죄책감"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "자존감",
-    "topic_en": "Self-Esteem",
-    "verses": [
-      "시편 139:13-14",
-      "에베소서 2:10",
-      "스바냐 3:17",
-      "베드로전서 2:9",
-      "이사야 43:4",
-      "요한일서 3:1",
-      "로마서 5:8",
-      "창세기 1:27"
-    ],
-    "description": "창조주이자 구속주이신 하나님의 눈으로 바라본 변함없는 존귀한 자아상",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "자존감 회복 (하나님 안에서의 정체성)"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "거절감",
-    "topic_en": "Feeling of Rejection",
-    "verses": [
-      "시편 27:10",
-      "이사야 53:3",
-      "요한복음 6:37",
-      "로마서 8:38-39",
-      "에베소서 1:6",
-      "시편 118:22",
-      "마태복음 21:42"
-    ],
-    "description": "사람들에게 버림받았을 때 다가오는 하나님의 절대적이고 무조건적인 수용",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "거절감"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "후회",
-    "topic_en": "Regret",
-    "verses": [
-      "빌립보서 3:13-14",
-      "고린도후서 7:10",
-      "요엘 2:25",
-      "로마서 8:28",
-      "이사야 43:18-19",
-      "누가복음 9:62",
-      "시편 51:10"
-    ],
-    "description": "과거의 얽매임에서 벗어나 상처를 선용하시는 하나님 안에서 새로운 시작 결단",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "후회"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "좌절",
-    "topic_en": "Frustration",
-    "verses": [
-      "시편 37:23-24",
-      "잠언 24:16",
-      "고린도후서 4:8-9",
-      "미가 7:8",
-      "시편 73:26",
-      "로마서 5:3-4",
-      "야고보서 1:2-4",
-      "잠언 3:5-6"
-    ],
-    "description": "연이은 실패와 무너짐 속에서도 영원한 반석이신 주님을 의지하여 다시 일어섬",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "좌절"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "의심",
-    "topic_en": "Doubt",
-    "verses": [
-      "마가복음 9:24",
-      "야고보서 1:6-8",
-      "요한복음 20:27-29",
-      "유다서 1:22",
-      "마태복음 14:31",
-      "로마서 4:20",
-      "시편 77:7-14"
-    ],
-    "description": "하나님의 성품과 약속에 대한 믿음이 흔들릴 때 확신을 더하시는 말씀",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "의심"
-  },
-  {
-    "category": "감정/내면",
     "topic": "혼란",
     "topic_en": "Confusion",
+    "category": "감정/내면",
     "verses": [
       "고린도전서 14:33",
       "잠언 3:5-6",
@@ -316,29 +67,220 @@
     "curricula_name": "혼란"
   },
   {
+    "topic": "우울",
+    "topic_en": "Depression",
     "category": "감정/내면",
-    "topic": "낙심",
-    "topic_en": "Discouragement",
     "verses": [
+      "시편 42:5",
+      "열왕기상 19:4-8",
+      "시편 143:7-8",
+      "이사야 40:31",
+      "시편 40:1-3",
+      "마태복음 11:28",
+      "고린도후서 4:8-9",
+      "시편 88:1-3",
       "갈라디아서 6:9",
       "시편 42:11",
       "역대하 15:7",
       "히브리서 12:3",
       "고린도후서 4:16",
       "이사야 40:29",
-      "시편 27:13-14"
+      "시편 27:13-14",
+      "전도서 1:2",
+      "전도서 12:13",
+      "시편 39:5-7",
+      "요한복음 4:13-14",
+      "마태복음 16:26",
+      "시편 144:4",
+      "골로새서 3:1-2",
+      "이사야 55:1-2",
+      "로마서 12:11",
+      "잠언 6:6-11",
+      "이사야 40:29-31",
+      "에베소서 5:16",
+      "골로새서 3:23",
+      "데살로니가후서 3:10-12",
+      "히브리서 6:11-12"
     ],
-    "description": "모든 것을 포기하고 싶을 때 새 힘을 공급하시며 영혼을 소생시키는 격려",
+    "description": "영적, 육체적 깊은 침체 속에서 영혼을 소생시키는 소망과 회복의 말씀",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "우울"
+  },
+  {
+    "topic": "슬픔",
+    "topic_en": "Sorrow",
+    "category": "감정/내면",
+    "verses": [
+      "시편 34:18",
+      "마태복음 5:4",
+      "요한계시록 21:4",
+      "시편 30:11",
+      "시편 147:3",
+      "이사야 53:3-4",
+      "고린도후서 1:3-4",
+      "요한복음 11:35"
+    ],
+    "description": "상실과 애통의 시간에 주어지는 하늘의 위로와 눈물을 씻기시는 소망",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "슬픔"
+  },
+  {
+    "topic": "수치심",
+    "topic_en": "Shame",
+    "category": "감정/내면",
+    "verses": [
+      "로마서 10:11",
+      "이사야 54:4",
+      "로마서 8:1",
+      "시편 34:5",
+      "이사야 61:7",
+      "히브리서 12:2",
+      "스바냐 3:19",
+      "시편 25:2-3"
+    ],
+    "description": "세상의 정죄함을 넘어서는 그리스도의 보혈과 명예를 회복하시는 은혜",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "수치심"
+  },
+  {
+    "topic": "죄책감",
+    "topic_en": "Guilt",
+    "category": "감정/내면",
+    "verses": [
+      "요한일서 1:9",
+      "시편 32:5",
+      "로마서 8:1-2",
+      "미가 7:19",
+      "시편 103:12",
+      "이사야 1:18",
+      "히브리서 10:22",
+      "이사야 43:25"
+    ],
+    "description": "참된 회개에 따르는 하나님의 완전한 사죄와 양심의 자유로움",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "죄책감"
+  },
+  {
+    "topic": "거절감",
+    "topic_en": "Feeling of Rejection",
+    "category": "감정/내면",
+    "verses": [
+      "시편 27:10",
+      "이사야 53:3",
+      "요한복음 6:37",
+      "로마서 8:38-39",
+      "에베소서 1:6",
+      "시편 118:22",
+      "마태복음 21:42"
+    ],
+    "description": "사람들에게 버림받았을 때 다가오는 하나님의 절대적이고 무조건적인 수용",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "거절감"
+  },
+  {
+    "topic": "외로움",
+    "topic_en": "Loneliness",
+    "category": "감정/내면",
+    "verses": [
+      "신명기 31:8",
+      "시편 27:10",
+      "마태복음 28:20",
+      "시편 68:6",
+      "이사야 49:15-16",
+      "히브리서 13:5",
+      "요한복음 14:18",
+      "시편 139:7-10",
+      "시편 25:16",
+      "전도서 4:10-12",
+      "로마서 12:15",
+      "히브리서 10:24-25",
+      "마태복음 25:40",
+      "야고보서 1:27",
+      "고린도전서 12:26"
+    ],
+    "description": "홀로 남겨졌다고 느낄 때 함께하시는 임마누엘 하나님의 영원한 동행",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "외로움에서 하나님의 동행 발견"
+  },
+  {
+    "topic": "분노",
+    "topic_en": "Anger",
+    "category": "감정/내면",
+    "verses": [
+      "에베소서 4:26-27",
+      "야고보서 1:19-20",
+      "잠언 15:1",
+      "잠언 29:11",
+      "골로새서 3:8",
+      "시편 37:8",
+      "전도서 7:9",
+      "마태복음 5:21-22"
+    ],
+    "description": "혈기와 분노를 다스리고 하나님의 의를 이루기 위한 성경적 지혜와 절제",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 1,
+    "curricula_name": "분노 다스리기"
+  },
+  {
+    "topic": "질투",
+    "topic_en": "Jealousy",
+    "category": "감정/내면",
+    "verses": [
+      "잠언 14:30",
+      "야고보서 3:14-16",
+      "고린도전서 13:4",
+      "갈라디아서 5:26",
+      "아가 8:6",
+      "로마서 13:13",
+      "베드로전서 2:1",
+      "고린도전서 3:3"
+    ],
+    "description": "비교의식과 시기를 버리고 십자가 안에서 자족함과 형제 사랑을 배움",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "낙심"
+    "curricula_name": "질투"
   },
   {
+    "topic": "원망과 후회",
+    "topic_en": "Regret",
     "category": "감정/내면",
-    "topic": "원망",
-    "topic_en": "Resentment",
     "verses": [
+      "빌립보서 3:13-14",
+      "고린도후서 7:10",
+      "요엘 2:25",
+      "로마서 8:28",
+      "이사야 43:18-19",
+      "누가복음 9:62",
+      "시편 51:10",
+      "시편 37:23-24",
+      "잠언 24:16",
+      "고린도후서 4:8-9",
+      "미가 7:8",
+      "시편 73:26",
+      "로마서 5:3-4",
+      "야고보서 1:2-4",
+      "잠언 3:5-6",
+      "마가복음 9:24",
+      "야고보서 1:6-8",
+      "요한복음 20:27-29",
+      "유다서 1:22",
+      "마태복음 14:31",
+      "로마서 4:20",
+      "시편 77:7-14",
       "고린도전서 10:10",
       "빌립보서 2:14",
       "민수기 14:27",
@@ -348,455 +290,36 @@
       "욥기 1:22",
       "시편 73:21-24"
     ],
-    "description": "하나님과 타인을 향한 불평을 거두고 하나님의 선한 주권을 인정하는 태도",
-    "is_heavy": false,
+    "description": "과거의 얽매임에서 벗어나 상처를 선용하시는 하나님 안에서 새로운 시작 결단",
+    "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "원망"
+    "curricula_name": "후회"
   },
   {
+    "topic": "고난 속의 인내",
+    "topic_en": "Endurance in Suffering",
     "category": "감정/내면",
-    "topic": "허무",
-    "topic_en": "Emptiness",
     "verses": [
-      "전도서 1:2",
-      "전도서 12:13",
-      "시편 39:5-7",
-      "요한복음 4:13-14",
-      "마태복음 16:26",
-      "시편 144:4",
-      "골로새서 3:1-2",
-      "이사야 55:1-2"
-    ],
-    "description": "해 아래의 헛된 삶을 넘어 영원한 생수이신 예수 그리스도로 영혼의 공허함을 채움",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "허무"
-  },
-  {
-    "category": "감정/내면",
-    "topic": "무기력",
-    "topic_en": "Lethargy",
-    "verses": [
-      "로마서 12:11",
-      "잠언 6:6-11",
-      "이사야 40:29-31",
-      "에베소서 5:16",
-      "골로새서 3:23",
-      "데살로니가후서 3:10-12",
-      "히브리서 6:11-12"
-    ],
-    "description": "영적, 육적 나태함을 타파하고 주를 향한 열심과 생명력 있는 순종을 회복함",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 1,
-    "curricula_name": "무기력"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "질병",
-    "topic_en": "Illness",
-    "verses": [
-      "야고보서 5:14-15",
-      "시편 103:3",
-      "시편 41:3",
-      "예레미야 17:14",
-      "마가복음 5:34",
-      "고린도후서 12:9",
-      "이사야 53:5",
-      "시편 119:71"
-    ],
-    "description": "육체의 고통과 연약함 속에서 여호와 라파의 치유를 구하며 고난의 유익을 배움",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "질병"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "실직",
-    "topic_en": "Unemployment",
-    "verses": [
-      "마태복음 6:31-33",
-      "시편 37:25",
-      "빌립보서 4:19",
-      "시편 34:10",
-      "예레미야 29:11",
-      "로마서 8:28",
-      "잠언 16:3",
-      "시편 146:5"
-    ],
-    "description": "직장을 잃은 막막함과 두려움 속에서 하나님의 선한 계획과 궁극적 공급하심을 신뢰함",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "실직"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "재정난",
-    "topic_en": "Financial Difficulty",
-    "verses": [
-      "마태복음 5:3",
-      "빌립보서 4:11-13",
-      "히브리서 13:5",
-      "말라기 3:10",
-      "잠언 3:9-10",
-      "시편 23:1",
-      "고린도후서 9:8",
-      "잠언 30:8-9"
-    ],
-    "description": "물질적 궁핍 속에서 탐심을 버리고 하나님만으로 만족하는 참된 부요함과 자족을 배움",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": null
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "이혼",
-    "topic_en": "Divorce",
-    "verses": [
-      "시편 147:3",
-      "말라기 2:16",
-      "마태복음 19:6",
-      "고린도전서 7:15",
-      "시편 34:18",
-      "이사야 54:4-5",
-      "로마서 8:1",
-      "호세아 2:19-20"
-    ],
-    "description": "가정의 깨어짐으로 인한 치명적인 상처를 싸매시는 위로와 정죄함 없는 회복의 은혜",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "이혼"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "사별",
-    "topic_en": "Bereavement",
-    "verses": [
-      "데살로니가전서 4:13-14",
-      "요한복음 11:25-26",
-      "시편 116:15",
-      "요한계시록 21:4",
-      "시편 23:4",
-      "고린도전서 15:54-55",
-      "로마서 14:8",
-      "시편 73:26"
-    ],
-    "description": "사랑하는 이를 잃은 비통함 속에서 사망을 이긴 부활의 참된 소망과 영원한 생명을 바라봄",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "사별"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "중독",
-    "topic_en": "Addiction",
-    "verses": [
-      "고린도전서 6:12",
-      "로마서 6:14",
-      "에베소서 5:18",
-      "갈라디아서 5:1",
-      "디도서 2:11-12",
-      "베드로전서 5:8",
-      "고린도전서 10:13",
-      "요한복음 8:32"
-    ],
-    "description": "우상숭배적 죄의 사슬을 끊고 진리의 말씀과 성령 안에서 누리는 참된 자유와 해방",
-    "is_heavy": true,
-    "is_crisis": true,
-    "category_code": 0,
-    "curricula_name": "중독"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "시험/입시",
-    "topic_en": "Exams/College Entrance",
-    "verses": [
-      "잠언 1:7",
-      "잠언 16:3",
-      "야고보서 1:5",
-      "시편 121:1-2",
-      "빌립보서 4:6-7",
-      "여호수아 1:8",
-      "이사야 41:10",
-      "마태복음 6:33"
-    ],
-    "description": "성적 지상주의의 압박 속에서 수험생의 불안을 평강으로 바꾸는 지혜와 도우심",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "시험/입시"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "임신",
-    "topic_en": "Pregnancy",
-    "verses": [
-      "시편 139:13-16",
-      "시편 127:3",
-      "예레미야 1:5",
-      "이사야 44:2",
-      "누가복음 1:41-42",
-      "사무엘상 1:27",
-      "잠언 3:24",
-      "전도서 11:5"
-    ],
-    "description": "태중의 생명이 하나님의 주권적 창조임을 고백하며 평안한 출산을 돕는 보호의 약속",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "임신"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "불임",
-    "topic_en": "Infertility",
-    "verses": [
-      "사무엘상 1:10-11",
-      "창세기 25:21",
-      "시편 113:9",
-      "누가복음 1:13",
-      "로마서 4:18-21",
-      "히브리서 11:11",
-      "시편 37:4",
-      "이사야 54:1"
-    ],
-    "description": "생명의 주관자이신 하나님께 구하는 간절한 탄원과, 물리적 한계를 뛰어넘는 영적 열매의 위로",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "불임"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "장애",
-    "topic_en": "Disability",
-    "verses": [
-      "요한복음 9:3",
-      "출애굽기 4:11",
-      "고린도후서 12:9-10",
-      "레위기 19:14",
-      "이사야 35:5-6",
-      "마가복음 2:10-12",
-      "시편 139:14",
-      "로마서 9:20-21"
-    ],
-    "description": "육체적, 정신적 결함이 저주가 아니라 하나님의 영광과 능력이 나타나는 역설적 통로임을 깨달음",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "장애"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "이사",
-    "topic_en": "Moving",
-    "verses": [
-      "창세기 12:1-2",
-      "여호수아 1:9",
-      "신명기 28:6",
-      "시편 121:8",
-      "잠언 3:5-6",
-      "히브리서 11:8",
-      "출애굽기 33:14",
-      "시편 37:23"
-    ],
-    "description": "익숙한 곳을 떠나 새로운 삶의 터전을 개척할 때 주어지는 하나님의 세밀한 인도하심과 동행",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "이사"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "은퇴",
-    "topic_en": "Retirement",
-    "verses": [
-      "이사야 46:4",
-      "시편 92:14",
-      "시편 71:18",
-      "잠언 16:31",
-      "디도서 2:2",
-      "전도서 3:1-2",
-      "여호수아 14:10-12",
-      "시편 90:12"
-    ],
-    "description": "사회적 직무를 내려놓은 노년의 삶 속에서도 멈추지 않는 영적 사명과 아름다운 결실",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "은퇴"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "군대/병역",
-    "topic_en": "Military Service",
-    "verses": [
-      "시편 91:1-2",
-      "여호수아 1:9",
-      "에베소서 6:10-11",
-      "시편 121:5-8",
-      "디모데후서 2:3-4",
-      "이사야 41:10",
-      "신명기 31:6",
-      "시편 144:1"
-    ],
-    "description": "단절감과 통제 속에서 병역의 의무 중 겪는 두려움을 극복하고 광야 훈련을 주도하시는 하나님 체험",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "군대/병역"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "고시/취업준비",
-    "topic_en": "Civil Service Exams/Job Seeking",
-    "verses": [
-      "예레미야 29:11",
-      "잠언 16:9",
-      "시편 37:5-6",
-      "전도서 9:10",
+      "야고보서 1:2-4",
       "로마서 5:3-4",
-      "골로새서 3:23",
-      "야고보서 4:13-15",
-      "잠언 19:21"
+      "로마서 8:18",
+      "히브리서 12:1-2",
+      "베드로전서 1:6-7",
+      "야고보서 5:11",
+      "계시록 2:10",
+      "히브리서 10:36"
     ],
-    "description": "불확실한 미래와 치열한 경쟁 앞에서 진로의 인도하심을 구하며 현재에 성실을 다함",
+    "description": "풀무불 같은 시련을 통해 불순물이 제거되고 정금 같이 단련되어 궁극적인 영광에 참여함",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "고시/취업준비"
+    "category_code": 1,
+    "curricula_name": "고난 속의 인내"
   },
   {
-    "category": "삶의 상황",
-    "topic": "사고/트라우마",
-    "topic_en": "Accident/Trauma",
-    "verses": [
-      "시편 46:1",
-      "시편 34:18",
-      "나훔 1:7",
-      "시편 91:3-4",
-      "이사야 43:2",
-      "로마서 8:28",
-      "고린도후서 1:3-4",
-      "시편 57:1"
-    ],
-    "description": "갑작스러운 물리적, 정신적 재난과 충격 속에서 완전한 피난처 되시며 상처를 싸매시는 하나님",
-    "is_heavy": true,
-    "is_crisis": true,
-    "category_code": 0,
-    "curricula_name": "사고/트라우마"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "파산",
-    "topic_en": "Bankruptcy",
-    "verses": [
-      "욥기 1:21",
-      "하박국 3:17-18",
-      "잠언 22:7",
-      "빌립보서 4:12",
-      "시편 37:24",
-      "마태복음 6:19-20",
-      "디모데전서 6:7-8",
-      "히브리서 13:5"
-    ],
-    "description": "평생 쌓아온 모든 것을 잃은 절망 속에서 소멸하지 않는 영원한 기업과 영광을 바라봄",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "파산"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "노화",
-    "topic_en": "Aging",
-    "verses": [
-      "고린도후서 4:16",
-      "잠언 20:29",
-      "레위기 19:32",
-      "시편 71:9",
-      "전도서 12:1",
-      "이사야 46:4",
-      "시편 90:10-12",
-      "욥기 12:12"
-    ],
-    "description": "육체적 겉사람의 쇠퇴와 후패함 속에서도 날로 새로워지는 속사람의 강건함과 영적 존엄성",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "노화"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "투옥/법적문제",
-    "topic_en": "Imprisonment/Legal Issues",
-    "verses": [
-      "시편 146:7",
-      "히브리서 13:3",
-      "사도행전 16:25-26",
-      "마태복음 25:36",
-      "로마서 8:1",
-      "시편 69:33",
-      "베드로전서 2:19-20",
-      "이사야 61:1"
-    ],
-    "description": "물리적 결박이나 억울한 송사 속에서도 영혼의 자유를 주시며 공의로 판단하시는 진리의 빛",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "투옥/법적문제"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "자연재해",
-    "topic_en": "Natural Disasters",
-    "verses": [
-      "시편 46:2-3",
-      "마가복음 4:39",
-      "나훔 1:3",
-      "욥기 38:1-11",
-      "시편 29:10",
-      "이사야 54:10",
-      "누가복음 21:25-28",
-      "로마서 8:22-23"
-    ],
-    "description": "인간이 통제할 수 없는 기후 재난과 혼돈 속에서 피조물을 다스리시는 창조주의 권능과 종말론적 대망",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 0,
-    "curricula_name": "자연재해"
-  },
-  {
-    "category": "삶의 상황",
-    "topic": "차별/핍박",
-    "topic_en": "Discrimination/Persecution",
-    "verses": [
-      "마태복음 5:10-12",
-      "베드로전서 4:12-14",
-      "로마서 12:14",
-      "요한복음 15:18-19",
-      "디모데후서 3:12",
-      "야고보서 2:1",
-      "갈라디아서 3:28",
-      "고린도전서 4:12-13"
-    ],
-    "description": "신앙으로 인한 사회적 배척과 부당한 대우를 견디며 하나님 나라의 상급을 기대하는 위로",
-    "is_heavy": true,
-    "is_crisis": true,
-    "category_code": 0,
-    "curricula_name": "차별/핍박"
-  },
-  {
-    "category": "관계",
     "topic": "부부 갈등",
     "topic_en": "Marital Conflict",
+    "category": "관계",
     "verses": [
       "에베소서 5:22-25",
       "골로새서 3:18-19",
@@ -814,9 +337,9 @@
     "curricula_name": "부부 갈등"
   },
   {
-    "category": "관계",
-    "topic": "부모자녀 갈등",
+    "topic": "부모자녀 (부모 시점)",
     "topic_en": "Parent-Child Conflict",
+    "category": "관계",
     "verses": [
       "에베소서 6:4",
       "골로새서 3:21",
@@ -834,29 +357,20 @@
     "curricula_name": "부모자녀 갈등"
   },
   {
+    "topic": "부모자녀 (자녀 시점)",
+    "topic_en": "Parent-Child (Child)",
     "category": "관계",
-    "topic": "효도/부모 공경",
-    "topic_en": "Filial Piety",
-    "verses": [
-      "출애굽기 20:12",
-      "에베소서 6:1-3",
-      "잠언 23:22",
-      "레위기 19:3",
-      "잠언 30:17",
-      "골로새서 3:20",
-      "신명기 5:16",
-      "마태복음 15:4-6"
-    ],
-    "description": "이 땅에서 잘되고 장수하는 약속이 있는 첫 계명인 부모 공경의 성경적이고 절대적인 가치",
+    "verses": [],
+    "description": "",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "효도/부모 공경"
+    "curricula_name": "부모자녀 갈등"
   },
   {
-    "category": "관계",
     "topic": "고부 갈등",
     "topic_en": "Mother/Daughter-in-Law Conflict",
+    "category": "관계",
     "verses": [
       "룻기 1:16-17",
       "에베소서 4:31-32",
@@ -874,9 +388,9 @@
     "curricula_name": "고부 갈등"
   },
   {
-    "category": "관계",
     "topic": "친구 관계",
     "topic_en": "Friendships",
+    "category": "관계",
     "verses": [
       "잠언 17:17",
       "잠언 18:24",
@@ -894,49 +408,58 @@
     "curricula_name": "친구 관계"
   },
   {
-    "category": "관계",
-    "topic": "직장 동료 갈등",
+    "topic": "직장 동료",
     "topic_en": "Colleague Conflict",
-    "verses": [
-      "로마서 12:18",
-      "빌립보서 2:3-4",
-      "골로새서 3:23",
-      "에베소서 4:29",
-      "잠언 16:28",
-      "디도서 3:2",
-      "야고보서 4:11",
-      "잠언 20:3"
-    ],
-    "description": "경쟁과 시기, 험담이 난무하는 직장에서 할 수 있는 대로 모든 사람과 평화를 도모하는 삶",
+    "category": "관계",
+    "verses": [],
+    "description": "",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
     "curricula_name": "직장 동료 갈등"
   },
   {
+    "topic": "교회 안에서",
+    "topic_en": "Church Conflicts",
     "category": "관계",
-    "topic": "용서",
-    "topic_en": "Forgiveness",
-    "verses": [
-      "마태복음 18:21-22",
-      "에베소서 4:32",
-      "골로새서 3:13",
-      "마가복음 11:25",
-      "누가복음 17:3-4",
-      "마태복음 6:14-15",
-      "창세기 50:19-20",
-      "로마서 12:20-21"
-    ],
-    "description": "그리스도께 받은 탕감을 기억하며 일흔 번씩 일곱 번이라도 기꺼이 형제를 용서하라는 명령",
+    "verses": [],
+    "description": "",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "용서하는 삶"
+    "curricula_name": "교회 내 갈등"
   },
   {
+    "topic": "이웃 사랑",
+    "topic_en": "Loving Neighbors",
     "category": "관계",
-    "topic": "배신",
+    "verses": [
+      "마가복음 12:31",
+      "누가복음 10:27-37",
+      "로마서 13:8-10",
+      "갈라디아서 5:14",
+      "야고보서 2:8",
+      "마태복음 22:39",
+      "레위기 19:18",
+      "요한일서 3:17-18",
+      "잠언 19:17",
+      "마태복음 25:40",
+      "히브리서 13:16",
+      "야고보서 1:27",
+      "잠언 21:13",
+      "신명기 15:11",
+      "누가복음 14:13-14"
+    ],
+    "description": "자신과 같이 이웃의 곤경을 돌아보며 선한 사마리아인처럼 행하는 능동적이고 적극적인 사랑의 실천",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 2,
+    "curricula_name": "이웃 사랑"
+  },
+  {
+    "topic": "배신과 상처",
     "topic_en": "Betrayal",
+    "category": "관계",
     "verses": [
       "시편 55:12-14",
       "마태복음 26:14-16",
@@ -954,209 +477,34 @@
     "curricula_name": "배신"
   },
   {
+    "topic": "용서",
+    "topic_en": "Forgiveness",
     "category": "관계",
-    "topic": "연애/이성교제",
-    "topic_en": "Dating/Romantic Relationships",
     "verses": [
-      "고린도후서 6:14",
-      "아가 2:7",
-      "고린도전서 13:4-7",
-      "디모데후서 2:22",
-      "잠언 4:23",
-      "데살로니가전서 4:3-5",
-      "로마서 13:13-14",
-      "잠언 31:30"
+      "마태복음 18:21-22",
+      "에베소서 4:32",
+      "골로새서 3:13",
+      "마가복음 11:25",
+      "누가복음 17:3-4",
+      "마태복음 6:14-15",
+      "창세기 50:19-20",
+      "로마서 12:20-21",
+      "마태복음 6:14",
+      "누가복음 6:37",
+      "잠언 19:11",
+      "로마서 12:14",
+      "마태복음 18:35"
     ],
-    "description": "세속적 정욕을 피하고 거룩함과 영적 분별력을 지키며 주님 안에서 올바르게 세워가는 교제",
+    "description": "그리스도께 받은 탕감을 기억하며 일흔 번씩 일곱 번이라도 기꺼이 형제를 용서하라는 명령",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "연애/이성교제"
+    "curricula_name": "용서하는 삶"
   },
   {
-    "category": "관계",
-    "topic": "고독/소외",
-    "topic_en": "Isolation/Alienation",
-    "verses": [
-      "시편 25:16",
-      "시편 68:6",
-      "전도서 4:10-12",
-      "로마서 12:15",
-      "히브리서 10:24-25",
-      "마태복음 25:40",
-      "야고보서 1:27",
-      "고린도전서 12:26"
-    ],
-    "description": "현대 사회의 파편화된 홀로됨의 고통을 위로하고, 언약 공동체의 깊은 연합과 돌봄을 강조함",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "고독/소외"
-  },
-  {
-    "category": "관계",
-    "topic": "교회 내 갈등",
-    "topic_en": "Church Conflict",
-    "verses": [
-      "마태복음 18:15-17",
-      "고린도전서 1:10",
-      "에베소서 4:1-3",
-      "빌립보서 2:1-2",
-      "로마서 14:1",
-      "갈라디아서 6:1",
-      "야고보서 4:1-3",
-      "로마서 15:5-6"
-    ],
-    "description": "그리스도의 몸 된 지체 간의 신학적, 성향적 다툼을 진리와 희생적 사랑 안에서 해결하는 규범",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "교회 내 갈등"
-  },
-  {
-    "category": "관계",
-    "topic": "권위 순종",
-    "topic_en": "Submission to Authority",
-    "verses": [
-      "로마서 13:1-2",
-      "베드로전서 2:13-14",
-      "히브리서 13:17",
-      "디도서 3:1",
-      "에베소서 6:5-6",
-      "잠언 24:21",
-      "사도행전 5:29",
-      "마태복음 22:21"
-    ],
-    "description": "가정, 교회, 국가에 하나님이 세우신 권위와 질서에 대한 합당한 존중, 그리고 하나님 절대 주권에 대한 우선적 순종",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "권위 순종"
-  },
-  {
-    "category": "관계",
-    "topic": "이단/거짓 교사 대처",
-    "topic_en": "Dealing with Cults/False Teachers",
-    "verses": [
-      "마태복음 7:15",
-      "베드로후서 2:1",
-      "요한일서 4:1",
-      "유다서 1:4",
-      "디모데후서 4:3-4",
-      "요한이서 1:10-11",
-      "갈라디아서 1:8",
-      "사도행전 20:29-30"
-    ],
-    "description": "관계적 친밀함을 무기로 접근하는 이단과 거짓 교리를 단호히 분별하고 양떼를 보호하는 영적 경계",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "이단/거짓 교사 대처"
-  },
-  {
-    "category": "관계",
-    "topic": "멘토링/제자 양육",
-    "topic_en": "Mentoring/Discipleship",
-    "verses": [
-      "디모데후서 2:2",
-      "마태복음 28:19-20",
-      "고린도전서 11:1",
-      "디도서 2:3-5",
-      "잠언 27:17",
-      "빌립보서 3:17",
-      "데살로니가전서 2:8",
-      "열왕기하 2:9"
-    ],
-    "description": "복음의 진리와 삶의 본을 동시에 전수하며 세대와 세대를 잇는 영적 아비와 어미의 사명",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "멘토링/제자 양육"
-  },
-  {
-    "category": "관계",
-    "topic": "험담/중상모략",
-    "topic_en": "Gossip/Slander",
-    "verses": [
-      "잠언 11:13",
-      "잠언 16:28",
-      "잠언 26:20",
-      "야고보서 3:5-6",
-      "에베소서 4:31",
-      "시편 15:3",
-      "디모데전서 5:13",
-      "야고보서 4:11"
-    ],
-    "description": "관계와 공동체를 파괴하는 혀의 은밀한 죄악을 철저히 경계하고 오직 덕을 세우는 말을 연습함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "험담/중상모략"
-  },
-  {
-    "category": "관계",
-    "topic": "학대/폭력 피해",
-    "topic_en": "Abuse/Violence",
-    "verses": [
-      "시편 11:5",
-      "시편 34:18",
-      "시편 10:14",
-      "잠언 22:22-23",
-      "로마서 12:19",
-      "골로새서 3:19",
-      "이사야 1:17",
-      "마태복음 18:6"
-    ],
-    "description": "육체적, 정서적 폭력의 피해자를 감찰하시고 가해자를 향해 엄중한 공의로 갚으시는 하나님의 심판과 보호",
-    "is_heavy": true,
-    "is_crisis": true,
-    "category_code": 2,
-    "curricula_name": "학대/폭력 피해"
-  },
-  {
-    "category": "관계",
-    "topic": "이웃 사랑",
-    "topic_en": "Loving Neighbors",
-    "verses": [
-      "마가복음 12:31",
-      "누가복음 10:27-37",
-      "로마서 13:8-10",
-      "갈라디아서 5:14",
-      "야고보서 2:8",
-      "마태복음 22:39",
-      "레위기 19:18",
-      "요한일서 3:17-18"
-    ],
-    "description": "자신과 같이 이웃의 곤경을 돌아보며 선한 사마리아인처럼 행하는 능동적이고 적극적인 사랑의 실천",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "이웃 사랑"
-  },
-  {
-    "category": "관계",
-    "topic": "불신자와의 멍에",
-    "topic_en": "Unequally Yoked",
-    "verses": [
-      "고린도후서 6:14-16",
-      "고린도전서 7:12-16",
-      "베드로전서 3:1-2",
-      "아모스 3:3",
-      "에스라 9:1-2",
-      "느헤미야 13:25-27",
-      "신명기 7:3-4",
-      "고린도전서 5:9-10"
-    ],
-    "description": "가치관과 주인이 다른 이들과의 영적, 사업적, 혼인적 연합에서 발생할 수 있는 치명적 타협의 위험성 경계",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 2,
-    "curricula_name": "불신자와의 멍에"
-  },
-  {
-    "category": "관계",
     "topic": "화해",
     "topic_en": "Reconciliation",
+    "category": "관계",
     "verses": [
       "마태복음 5:23-24",
       "로마서 12:18",
@@ -1174,9 +522,43 @@
     "curricula_name": "화해"
   },
   {
+    "topic": "연애와 결혼",
+    "topic_en": "Dating/Romantic Relationships",
     "category": "관계",
+    "verses": [
+      "고린도후서 6:14",
+      "아가 2:7",
+      "고린도전서 13:4-7",
+      "디모데후서 2:22",
+      "잠언 4:23",
+      "데살로니가전서 4:3-5",
+      "로마서 13:13-14",
+      "잠언 31:30",
+      "고린도후서 6:14-16",
+      "고린도전서 7:12-16",
+      "베드로전서 3:1-2",
+      "아모스 3:3",
+      "에스라 9:1-2",
+      "느헤미야 13:25-27",
+      "신명기 7:3-4",
+      "고린도전서 5:9-10",
+      "창세기 24:12",
+      "고린도전서 7:9",
+      "아가 8:4",
+      "데살로니가전서 4:3-4",
+      "잠언 18:22",
+      "말라기 2:15"
+    ],
+    "description": "세속적 정욕을 피하고 거룩함과 영적 분별력을 지키며 주님 안에서 올바르게 세워가는 교제",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 2,
+    "curricula_name": "연애/이성교제"
+  },
+  {
     "topic": "경계선 설정",
     "topic_en": "Setting Boundaries",
+    "category": "관계",
     "verses": [
       "잠언 25:17",
       "갈라디아서 6:5",
@@ -1194,9 +576,364 @@
     "curricula_name": "경계선 설정"
   },
   {
-    "category": "신앙 성장",
+    "topic": "학대/폭력 피해",
+    "topic_en": "Abuse/Violence",
+    "category": "관계",
+    "verses": [
+      "시편 11:5",
+      "시편 34:18",
+      "시편 10:14",
+      "잠언 22:22-23",
+      "로마서 12:19",
+      "골로새서 3:19",
+      "이사야 1:17",
+      "마태복음 18:6"
+    ],
+    "description": "육체적, 정서적 폭력의 피해자를 감찰하시고 가해자를 향해 엄중한 공의로 갚으시는 하나님의 심판과 보호",
+    "is_heavy": true,
+    "is_crisis": true,
+    "category_code": 2,
+    "curricula_name": "학대/폭력 피해"
+  },
+  {
+    "topic": "질병",
+    "topic_en": "Illness",
+    "category": "삶의 상황",
+    "verses": [
+      "야고보서 5:14-15",
+      "시편 103:3",
+      "시편 41:3",
+      "예레미야 17:14",
+      "마가복음 5:34",
+      "고린도후서 12:9",
+      "이사야 53:5",
+      "시편 119:71"
+    ],
+    "description": "육체의 고통과 연약함 속에서 여호와 라파의 치유를 구하며 고난의 유익을 배움",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "질병"
+  },
+  {
+    "topic": "장애",
+    "topic_en": "Disability",
+    "category": "삶의 상황",
+    "verses": [
+      "요한복음 9:3",
+      "출애굽기 4:11",
+      "고린도후서 12:9-10",
+      "레위기 19:14",
+      "이사야 35:5-6",
+      "마가복음 2:10-12",
+      "시편 139:14",
+      "로마서 9:20-21"
+    ],
+    "description": "육체적, 정신적 결함이 저주가 아니라 하나님의 영광과 능력이 나타나는 역설적 통로임을 깨달음",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "장애"
+  },
+  {
+    "topic": "노화",
+    "topic_en": "Aging",
+    "category": "삶의 상황",
+    "verses": [
+      "고린도후서 4:16",
+      "잠언 20:29",
+      "레위기 19:32",
+      "시편 71:9",
+      "전도서 12:1",
+      "이사야 46:4",
+      "시편 90:10-12",
+      "욥기 12:12"
+    ],
+    "description": "육체적 겉사람의 쇠퇴와 후패함 속에서도 날로 새로워지는 속사람의 강건함과 영적 존엄성",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "노화"
+  },
+  {
+    "topic": "실직과 구직",
+    "topic_en": "Unemployment",
+    "category": "삶의 상황",
+    "verses": [
+      "마태복음 6:31-33",
+      "시편 37:25",
+      "빌립보서 4:19",
+      "시편 34:10",
+      "예레미야 29:11",
+      "로마서 8:28",
+      "잠언 16:3",
+      "시편 146:5",
+      "잠언 16:9",
+      "시편 37:5-6",
+      "전도서 9:10",
+      "로마서 5:3-4",
+      "골로새서 3:23",
+      "야고보서 4:13-15",
+      "잠언 19:21"
+    ],
+    "description": "직장을 잃은 막막함과 두려움 속에서 하나님의 선한 계획과 궁극적 공급하심을 신뢰함",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "실직"
+  },
+  {
+    "topic": "재정 위기",
+    "topic_en": "Financial Difficulty",
+    "category": "삶의 상황",
+    "verses": [
+      "마태복음 5:3",
+      "빌립보서 4:11-13",
+      "히브리서 13:5",
+      "말라기 3:10",
+      "잠언 3:9-10",
+      "시편 23:1",
+      "고린도후서 9:8",
+      "잠언 30:8-9",
+      "욥기 1:21",
+      "하박국 3:17-18",
+      "잠언 22:7",
+      "빌립보서 4:12",
+      "시편 37:24",
+      "마태복음 6:19-20",
+      "디모데전서 6:7-8"
+    ],
+    "description": "물질적 궁핍 속에서 탐심을 버리고 하나님만으로 만족하는 참된 부요함과 자족을 배움",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "파산"
+  },
+  {
+    "topic": "사별",
+    "topic_en": "Bereavement",
+    "category": "삶의 상황",
+    "verses": [
+      "데살로니가전서 4:13-14",
+      "요한복음 11:25-26",
+      "시편 116:15",
+      "요한계시록 21:4",
+      "시편 23:4",
+      "고린도전서 15:54-55",
+      "로마서 14:8",
+      "시편 73:26"
+    ],
+    "description": "사랑하는 이를 잃은 비통함 속에서 사망을 이긴 부활의 참된 소망과 영원한 생명을 바라봄",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "사별"
+  },
+  {
+    "topic": "이혼",
+    "topic_en": "Divorce",
+    "category": "삶의 상황",
+    "verses": [
+      "시편 147:3",
+      "말라기 2:16",
+      "마태복음 19:6",
+      "고린도전서 7:15",
+      "시편 34:18",
+      "이사야 54:4-5",
+      "로마서 8:1",
+      "호세아 2:19-20"
+    ],
+    "description": "가정의 깨어짐으로 인한 치명적인 상처를 싸매시는 위로와 정죄함 없는 회복의 은혜",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "이혼"
+  },
+  {
+    "topic": "사고/트라우마",
+    "topic_en": "Accident/Trauma",
+    "category": "삶의 상황",
+    "verses": [
+      "시편 46:1",
+      "시편 34:18",
+      "나훔 1:7",
+      "시편 91:3-4",
+      "이사야 43:2",
+      "로마서 8:28",
+      "고린도후서 1:3-4",
+      "시편 57:1"
+    ],
+    "description": "갑작스러운 물리적, 정신적 재난과 충격 속에서 완전한 피난처 되시며 상처를 싸매시는 하나님",
+    "is_heavy": true,
+    "is_crisis": true,
+    "category_code": 0,
+    "curricula_name": "사고/트라우마"
+  },
+  {
+    "topic": "중독",
+    "topic_en": "Addiction",
+    "category": "삶의 상황",
+    "verses": [
+      "고린도전서 6:12",
+      "로마서 6:14",
+      "에베소서 5:18",
+      "갈라디아서 5:1",
+      "디도서 2:11-12",
+      "베드로전서 5:8",
+      "고린도전서 10:13",
+      "요한복음 8:32"
+    ],
+    "description": "우상숭배적 죄의 사슬을 끊고 진리의 말씀과 성령 안에서 누리는 참된 자유와 해방",
+    "is_heavy": true,
+    "is_crisis": true,
+    "category_code": 0,
+    "curricula_name": "중독"
+  },
+  {
+    "topic": "시험과 입시",
+    "topic_en": "Exams/College Entrance",
+    "category": "삶의 상황",
+    "verses": [
+      "잠언 1:7",
+      "잠언 16:3",
+      "야고보서 1:5",
+      "시편 121:1-2",
+      "빌립보서 4:6-7",
+      "여호수아 1:8",
+      "이사야 41:10",
+      "마태복음 6:33"
+    ],
+    "description": "성적 지상주의의 압박 속에서 수험생의 불안을 평강으로 바꾸는 지혜와 도우심",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "시험/입시"
+  },
+  {
+    "topic": "군대/병역",
+    "topic_en": "Military Service",
+    "category": "삶의 상황",
+    "verses": [
+      "시편 91:1-2",
+      "여호수아 1:9",
+      "에베소서 6:10-11",
+      "시편 121:5-8",
+      "디모데후서 2:3-4",
+      "이사야 41:10",
+      "신명기 31:6",
+      "시편 144:1"
+    ],
+    "description": "단절감과 통제 속에서 병역의 의무 중 겪는 두려움을 극복하고 광야 훈련을 주도하시는 하나님 체험",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "군대/병역"
+  },
+  {
+    "topic": "임신과 출산",
+    "topic_en": "Pregnancy",
+    "category": "삶의 상황",
+    "verses": [
+      "시편 139:13-16",
+      "시편 127:3",
+      "예레미야 1:5",
+      "이사야 44:2",
+      "누가복음 1:41-42",
+      "사무엘상 1:27",
+      "잠언 3:24",
+      "전도서 11:5",
+      "사무엘상 1:10-11",
+      "창세기 25:21",
+      "시편 113:9",
+      "누가복음 1:13",
+      "로마서 4:18-21",
+      "히브리서 11:11",
+      "시편 37:4",
+      "이사야 54:1"
+    ],
+    "description": "태중의 생명이 하나님의 주권적 창조임을 고백하며 평안한 출산을 돕는 보호의 약속",
+    "is_heavy": true,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "임신"
+  },
+  {
+    "topic": "이사/새출발",
+    "topic_en": "Moving and New Beginnings",
+    "category": "삶의 상황",
+    "verses": [],
+    "description": "",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "이사"
+  },
+  {
+    "topic": "은퇴",
+    "topic_en": "Retirement",
+    "category": "삶의 상황",
+    "verses": [
+      "이사야 46:4",
+      "시편 92:14",
+      "시편 71:18",
+      "잠언 16:31",
+      "디도서 2:2",
+      "전도서 3:1-2",
+      "여호수아 14:10-12",
+      "시편 90:12",
+      "잠언 6:6-8",
+      "디모데전서 5:8",
+      "전도서 11:1-2",
+      "시편 37:25",
+      "잠언 21:20",
+      "누가복음 12:18-21"
+    ],
+    "description": "사회적 직무를 내려놓은 노년의 삶 속에서도 멈추지 않는 영적 사명과 아름다운 결실",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 0,
+    "curricula_name": "은퇴"
+  },
+  {
+    "topic": "극한 상황",
+    "topic_en": "Imprisonment/Legal Issues",
+    "category": "삶의 상황",
+    "verses": [
+      "시편 146:7",
+      "히브리서 13:3",
+      "사도행전 16:25-26",
+      "마태복음 25:36",
+      "로마서 8:1",
+      "시편 69:33",
+      "베드로전서 2:19-20",
+      "이사야 61:1",
+      "시편 46:2-3",
+      "마가복음 4:39",
+      "나훔 1:3",
+      "욥기 38:1-11",
+      "시편 29:10",
+      "이사야 54:10",
+      "누가복음 21:25-28",
+      "로마서 8:22-23",
+      "마태복음 5:10-12",
+      "베드로전서 4:12-14",
+      "로마서 12:14",
+      "요한복음 15:18-19",
+      "디모데후서 3:12",
+      "야고보서 2:1",
+      "갈라디아서 3:28",
+      "고린도전서 4:12-13"
+    ],
+    "description": "물리적 결박이나 억울한 송사 속에서도 영혼의 자유를 주시며 공의로 판단하시는 진리의 빛",
+    "is_heavy": true,
+    "is_crisis": true,
+    "category_code": 0,
+    "curricula_name": "투옥/법적문제"
+  },
+  {
     "topic": "기도",
     "topic_en": "Prayer",
+    "category": "신앙 성장",
     "verses": [
       "데살로니가전서 5:17",
       "빌립보서 4:6",
@@ -1214,9 +951,9 @@
     "curricula_name": "기도의 능력"
   },
   {
-    "category": "신앙 성장",
     "topic": "예배",
     "topic_en": "Worship",
+    "category": "신앙 성장",
     "verses": [
       "요한복음 4:23-24",
       "로마서 12:1",
@@ -1234,109 +971,9 @@
     "curricula_name": "예배"
   },
   {
-    "category": "신앙 성장",
-    "topic": "말씀 묵상",
-    "topic_en": "Meditation on Word",
-    "verses": [
-      "시편 1:2",
-      "여호수아 1:8",
-      "시편 119:105",
-      "디모데후서 3:16-17",
-      "히브리서 4:12",
-      "베드로전서 2:2",
-      "골로새서 3:16",
-      "예레미야 15:16"
-    ],
-    "description": "영혼의 양식으로서 삶의 기준을 제시하고 좌우를 분별하게 하는 진리의 말씀 수용",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "말씀 묵상"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "전도/선교",
-    "topic_en": "Evangelism/Missions",
-    "verses": [
-      "마태복음 28:19-20",
-      "사도행전 1:8",
-      "로마서 10:14-15",
-      "디모데후서 4:2",
-      "베드로전서 3:15",
-      "마가복음 16:15",
-      "골로새서 1:27-28",
-      "고린도전서 9:16"
-    ],
-    "description": "잃어버린 영혼을 향한 구령의 열정과 모든 민족을 제자 삼으라는 지상대명령의 완수",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "전도/선교"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "영적 전쟁",
-    "topic_en": "Spiritual Warfare",
-    "verses": [
-      "에베소서 6:10-18",
-      "베드로전서 5:8-9",
-      "야고보서 4:7",
-      "고린도후서 10:4-5",
-      "요한일서 4:4",
-      "로마서 8:37",
-      "계시록 12:11",
-      "베드로전서 5:8"
-    ],
-    "description": "혈과 육이 아닌 공중 권세 잡은 사탄의 궤계를 말씀과 기도로 대적하며 승리를 선포함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "영적 전쟁"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "제자도",
-    "topic_en": "Discipleship",
-    "verses": [
-      "누가복음 9:23",
-      "마태복음 16:24",
-      "요한복음 8:31",
-      "마태복음 10:38",
-      "요한복음 13:35",
-      "갈라디아서 2:20",
-      "누가복음 14:27",
-      "요한복음 15:8"
-    ],
-    "description": "이기적 자아를 부인하고 날마다 자기 십자가를 짊어지며 좁은 길로 주님을 좇아가는 삶",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "제자도"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "회개",
-    "topic_en": "Repentance",
-    "verses": [
-      "요한일서 1:9",
-      "사도행전 3:19",
-      "시편 51:17",
-      "누가복음 13:3",
-      "잠언 28:13",
-      "마태복음 4:17",
-      "고린도후서 7:10",
-      "요엘 2:12-13"
-    ],
-    "description": "단순한 후회를 넘어 지정의 전 인격이 죄에서 돌이켜 하나님의 통치로 방향을 전환함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "회개"
-  },
-  {
-    "category": "신앙 성장",
     "topic": "감사",
     "topic_en": "Thanksgiving",
+    "category": "신앙 성장",
     "verses": [
       "데살로니가전서 5:18",
       "시편 136:1",
@@ -1354,9 +991,9 @@
     "curricula_name": "감사의 삶"
   },
   {
-    "category": "신앙 성장",
     "topic": "금식",
     "topic_en": "Fasting",
+    "category": "신앙 성장",
     "verses": [
       "이사야 58:6",
       "마태복음 6:16-18",
@@ -1374,29 +1011,49 @@
     "curricula_name": "금식"
   },
   {
+    "topic": "말씀 묵상",
+    "topic_en": "Meditation on Word",
     "category": "신앙 성장",
-    "topic": "성령 충만",
-    "topic_en": "Spirit-filled Life",
     "verses": [
-      "에베소서 5:18",
-      "사도행전 2:4",
-      "갈라디아서 5:16",
-      "갈라디아서 5:22-23",
-      "로마서 8:9",
-      "사도행전 4:31",
-      "요한복음 14:26",
-      "스가랴 4:6"
+      "시편 1:2",
+      "여호수아 1:8",
+      "시편 119:105",
+      "디모데후서 3:16-17",
+      "히브리서 4:12",
+      "베드로전서 2:2",
+      "골로새서 3:16",
+      "예레미야 15:16"
     ],
-    "description": "술 취함과 같은 세상의 지배를 거부하고, 내주하시는 성령의 완전한 통치를 받으며 열매 맺는 삶",
+    "description": "영혼의 양식으로서 삶의 기준을 제시하고 좌우를 분별하게 하는 진리의 말씀 수용",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "성령 충만"
+    "curricula_name": "말씀 묵상"
   },
   {
+    "topic": "제자도",
+    "topic_en": "Discipleship",
     "category": "신앙 성장",
+    "verses": [
+      "누가복음 9:23",
+      "마태복음 16:24",
+      "요한복음 8:31",
+      "마태복음 10:38",
+      "요한복음 13:35",
+      "갈라디아서 2:20",
+      "누가복음 14:27",
+      "요한복음 15:8"
+    ],
+    "description": "이기적 자아를 부인하고 날마다 자기 십자가를 짊어지며 좁은 길로 주님을 좇아가는 삶",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "제자도"
+  },
+  {
     "topic": "순종",
     "topic_en": "Obedience",
+    "category": "신앙 성장",
     "verses": [
       "사무엘상 15:22",
       "요한복음 14:21",
@@ -1414,9 +1071,9 @@
     "curricula_name": "순종"
   },
   {
-    "category": "신앙 성장",
     "topic": "헌신",
     "topic_en": "Dedication",
+    "category": "신앙 성장",
     "verses": [
       "로마서 12:1",
       "마태복음 6:33",
@@ -1434,9 +1091,29 @@
     "curricula_name": "헌신"
   },
   {
+    "topic": "성령 충만",
+    "topic_en": "Spirit-filled Life",
     "category": "신앙 성장",
+    "verses": [
+      "에베소서 5:18",
+      "사도행전 2:4",
+      "갈라디아서 5:16",
+      "갈라디아서 5:22-23",
+      "로마서 8:9",
+      "사도행전 4:31",
+      "요한복음 14:26",
+      "스가랴 4:6"
+    ],
+    "description": "술 취함과 같은 세상의 지배를 거부하고, 내주하시는 성령의 완전한 통치를 받으며 열매 맺는 삶",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "성령 충만"
+  },
+  {
     "topic": "은사 활용",
     "topic_en": "Using Spiritual Gifts",
+    "category": "신앙 성장",
     "verses": [
       "베드로전서 4:10",
       "로마서 12:6-8",
@@ -1454,129 +1131,29 @@
     "curricula_name": "은사 활용"
   },
   {
+    "topic": "영적 전쟁",
+    "topic_en": "Spiritual Warfare",
     "category": "신앙 성장",
-    "topic": "이웃 섬김",
-    "topic_en": "Serving Others",
     "verses": [
-      "마가복음 10:45",
-      "갈라디아서 5:13",
-      "빌립보서 2:3-4",
-      "요한복음 13:14",
-      "베드로전서 4:11",
-      "마태복음 25:40",
-      "로마서 15:1-2",
-      "야고보서 2:15-16"
+      "에베소서 6:10-18",
+      "베드로전서 5:8-9",
+      "야고보서 4:7",
+      "고린도후서 10:4-5",
+      "요한일서 4:4",
+      "로마서 8:37",
+      "계시록 12:11",
+      "베드로전서 5:8"
     ],
-    "description": "수건을 두르신 그리스도의 극진한 겸손을 본받아 타인의 유익과 필요를 채우는 봉사의 삶",
+    "description": "혈과 육이 아닌 공중 권세 잡은 사탄의 궤계를 말씀과 기도로 대적하며 승리를 선포함",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "이웃 섬김"
+    "curricula_name": "영적 전쟁"
   },
   {
-    "category": "신앙 성장",
-    "topic": "고난 속의 인내",
-    "topic_en": "Endurance in Suffering",
-    "verses": [
-      "야고보서 1:2-4",
-      "로마서 5:3-4",
-      "로마서 8:18",
-      "히브리서 12:1-2",
-      "베드로전서 1:6-7",
-      "야고보서 5:11",
-      "계시록 2:10",
-      "히브리서 10:36"
-    ],
-    "description": "풀무불 같은 시련을 통해 불순물이 제거되고 정금 같이 단련되어 궁극적인 영광에 참여함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "고난 속의 인내"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "영적 침체",
-    "topic_en": "Spiritual Dryness",
-    "verses": [
-      "시편 51:10-12",
-      "요한계시록 2:4-5",
-      "이사야 40:31",
-      "호세아 6:1-3",
-      "시편 85:6",
-      "아가 3:1-4",
-      "에베소서 5:14",
-      "시편 42:1-2"
-    ],
-    "description": "구원의 감격과 첫사랑을 상실하고 영혼이 메말랐을 때, 다시금 부흥과 은혜의 단비를 갈망함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "영적 침체"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "이단 분별",
-    "topic_en": "Discerning Heresies",
-    "verses": [
-      "요한일서 4:1-3",
-      "사도행전 17:11",
-      "마태복음 24:24",
-      "골로새서 2:8",
-      "디모데전서 4:1",
-      "에베소서 4:14",
-      "베드로후서 2:1-2",
-      "갈라디아서 1:8"
-    ],
-    "description": "광명한 천사로 위장한 영들을 베뢰아 사람처럼 성경의 엄밀한 척도로 시험하고 진리 안에 굳게 섬",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "이단 분별"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "주일 성수",
-    "topic_en": "Sabbath Keeping",
-    "verses": [
-      "출애굽기 20:8-11",
-      "이사야 58:13-14",
-      "마가복음 2:27-28",
-      "히브리서 10:25",
-      "사도행전 20:7",
-      "레위기 19:30",
-      "시편 122:1",
-      "골로새서 2:16-17"
-    ],
-    "description": "창조와 구속의 참된 주인을 기억하며 영적 안식을 누리고 부활의 주님을 기념하는 구별된 날의 영광",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "주일 성수"
-  },
-  {
-    "category": "신앙 성장",
-    "topic": "청지기 의식",
-    "topic_en": "Stewardship",
-    "verses": [
-      "고린도전서 4:1-2",
-      "누가복음 16:10",
-      "마태복음 25:21",
-      "베드로전서 4:10",
-      "역대상 29:14",
-      "누가복음 12:42",
-      "디도서 1:7",
-      "누가복음 19:12-13"
-    ],
-    "description": "시간, 재물, 재능 등 내가 가진 모든 소유가 주님의 것임을 명확히 인식하는 충성된 관리자의 정체성",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 3,
-    "curricula_name": "청지기 의식"
-  },
-  {
-    "category": "신앙 성장",
     "topic": "하나님 음성 듣기",
     "topic_en": "Hearing God's Voice",
+    "category": "신앙 성장",
     "verses": [
       "요한복음 10:27",
       "예레미야 29:13",
@@ -1594,9 +1171,141 @@
     "curricula_name": "하나님 음성 듣기"
   },
   {
-    "category": "성품/덕목",
+    "topic": "회개",
+    "topic_en": "Repentance",
+    "category": "신앙 성장",
+    "verses": [
+      "요한일서 1:9",
+      "사도행전 3:19",
+      "시편 51:17",
+      "누가복음 13:3",
+      "잠언 28:13",
+      "마태복음 4:17",
+      "고린도후서 7:10",
+      "요엘 2:12-13"
+    ],
+    "description": "단순한 후회를 넘어 지정의 전 인격이 죄에서 돌이켜 하나님의 통치로 방향을 전환함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "회개"
+  },
+  {
+    "topic": "영적 침체",
+    "topic_en": "Spiritual Dryness",
+    "category": "신앙 성장",
+    "verses": [
+      "시편 51:10-12",
+      "요한계시록 2:4-5",
+      "이사야 40:31",
+      "호세아 6:1-3",
+      "시편 85:6",
+      "아가 3:1-4",
+      "에베소서 5:14",
+      "시편 42:1-2"
+    ],
+    "description": "구원의 감격과 첫사랑을 상실하고 영혼이 메말랐을 때, 다시금 부흥과 은혜의 단비를 갈망함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "영적 침체"
+  },
+  {
+    "topic": "이단 분별",
+    "topic_en": "Discerning Heresies",
+    "category": "신앙 성장",
+    "verses": [
+      "요한일서 4:1-3",
+      "사도행전 17:11",
+      "마태복음 24:24",
+      "골로새서 2:8",
+      "디모데전서 4:1",
+      "에베소서 4:14",
+      "베드로후서 2:1-2",
+      "갈라디아서 1:8"
+    ],
+    "description": "광명한 천사로 위장한 영들을 베뢰아 사람처럼 성경의 엄밀한 척도로 시험하고 진리 안에 굳게 섬",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "이단 분별"
+  },
+  {
+    "topic": "전도/선교",
+    "topic_en": "Evangelism/Missions",
+    "category": "신앙 성장",
+    "verses": [
+      "마태복음 28:19-20",
+      "사도행전 1:8",
+      "로마서 10:14-15",
+      "디모데후서 4:2",
+      "베드로전서 3:15",
+      "마가복음 16:15",
+      "골로새서 1:27-28",
+      "고린도전서 9:16"
+    ],
+    "description": "잃어버린 영혼을 향한 구령의 열정과 모든 민족을 제자 삼으라는 지상대명령의 완수",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "전도/선교"
+  },
+  {
+    "topic": "섬김",
+    "topic_en": "Submission to Authority",
+    "category": "신앙 성장",
+    "verses": [
+      "로마서 13:1-2",
+      "베드로전서 2:13-14",
+      "히브리서 13:17",
+      "디도서 3:1",
+      "에베소서 6:5-6",
+      "잠언 24:21",
+      "사도행전 5:29",
+      "마태복음 22:21",
+      "디모데후서 2:2",
+      "마태복음 28:19-20",
+      "고린도전서 11:1",
+      "디도서 2:3-5",
+      "잠언 27:17",
+      "빌립보서 3:17",
+      "데살로니가전서 2:8",
+      "열왕기하 2:9",
+      "마가복음 10:45",
+      "갈라디아서 5:13",
+      "빌립보서 2:3-4",
+      "요한복음 13:14",
+      "베드로전서 4:11",
+      "마태복음 25:40",
+      "로마서 15:1-2",
+      "야고보서 2:15-16",
+      "출애굽기 20:8-11",
+      "이사야 58:13-14",
+      "마가복음 2:27-28",
+      "히브리서 10:25",
+      "사도행전 20:7",
+      "레위기 19:30",
+      "시편 122:1",
+      "골로새서 2:16-17",
+      "고린도전서 4:1-2",
+      "누가복음 16:10",
+      "마태복음 25:21",
+      "베드로전서 4:10",
+      "역대상 29:14",
+      "누가복음 12:42",
+      "디도서 1:7",
+      "누가복음 19:12-13"
+    ],
+    "description": "가정, 교회, 국가에 하나님이 세우신 권위와 질서에 대한 합당한 존중, 그리고 하나님 절대 주권에 대한 우선적 순종",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 3,
+    "curricula_name": "권위 순종"
+  },
+  {
     "topic": "사랑",
     "topic_en": "Love",
+    "category": "삶의 지혜",
     "verses": [
       "고린도전서 13:4-7",
       "요한일서 4:7-8",
@@ -1614,169 +1323,9 @@
     "curricula_name": "사랑"
   },
   {
-    "category": "성품/덕목",
-    "topic": "겸손",
-    "topic_en": "Humility",
-    "verses": [
-      "빌립보서 2:3-8",
-      "야고보서 4:6",
-      "베드로전서 5:5-6",
-      "잠언 22:4",
-      "미가 6:8",
-      "마태복음 11:29",
-      "잠언 16:18",
-      "로마서 12:3"
-    ],
-    "description": "영적 파멸의 선봉인 교만을 버리고, 하나님 앞에서 자신을 낮추며 남을 낫게 여기는 그리스도의 마음",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "겸손"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "인내",
-    "topic_en": "Patience",
-    "verses": [
-      "야고보서 1:3-4",
-      "로마서 12:12",
-      "히브리서 10:36",
-      "갈라디아서 6:9",
-      "골로새서 1:11",
-      "베드로후서 1:6",
-      "전도서 7:8",
-      "로마서 5:3-4"
-    ],
-    "description": "고난과 응답의 지연 속에서도 조급해하지 않고 하나님의 때를 기다리며 끝까지 견디는 신앙의 힘",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "인내"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "지혜",
-    "topic_en": "Wisdom",
-    "verses": [
-      "잠언 9:10",
-      "야고보서 1:5",
-      "야고보서 3:17",
-      "골로새서 2:3",
-      "잠언 3:13-18",
-      "시편 111:10",
-      "에베소서 5:15",
-      "고린도전서 1:24-25"
-    ],
-    "description": "세속적 처세술이 아닌, 여호와를 경외함에서 비롯되는 영적 분별력과 하늘로부터 내려오는 통찰",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "지혜"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "용기",
-    "topic_en": "Courage",
-    "verses": [
-      "여호수아 1:9",
-      "시편 27:1",
-      "신명기 31:6",
-      "고린도전서 16:13",
-      "사도행전 4:29",
-      "이사야 41:10",
-      "시편 31:24",
-      "히브리서 13:6"
-    ],
-    "description": "상황의 위협이나 사람의 평판을 향한 두려움을 넘어, 믿음으로 담대하게 진리를 선포하고 행하는 결단",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "용기"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "절제",
-    "topic_en": "Self-Control",
-    "verses": [
-      "갈라디아서 5:22-23",
-      "잠언 16:32",
-      "고린도전서 9:25-27",
-      "디도서 2:11-12",
-      "잠언 25:28",
-      "베드로후서 1:6",
-      "디모데후서 1:7",
-      "고린도전서 6:12"
-    ],
-    "description": "방종하는 육체의 정욕을 제어하고, 자신의 의지를 성령의 거룩한 다스림에 전적으로 복종시키는 능력",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "절제"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "성실",
-    "topic_en": "Diligence",
-    "verses": [
-      "골로새서 3:23",
-      "잠언 10:4",
-      "잠언 12:24",
-      "마태복음 25:21",
-      "갈라디아서 6:9",
-      "잠언 22:29",
-      "히브리서 6:11",
-      "잠언 6:6-8"
-    ],
-    "description": "게으름을 배격하고, 사람에게 보이려 하지 않고 주께 하듯 모든 일에 마음과 뜻을 다하여 수고하는 태도",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "성실"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "정직",
-    "topic_en": "Honesty",
-    "verses": [
-      "잠언 11:3",
-      "잠언 12:22",
-      "시편 15:2",
-      "에베소서 4:25",
-      "잠언 16:11",
-      "레위기 19:11",
-      "누가복음 8:15",
-      "잠언 20:10"
-    ],
-    "description": "거짓과 위선을 버리고, 불꽃 같은 눈으로 감찰하시는 하나님 앞에서 투명하고 진실하게 행함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "정직"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "온유",
-    "topic_en": "Gentleness",
-    "verses": [
-      "마태복음 5:5",
-      "갈라디아서 5:23",
-      "골로새서 3:12",
-      "에베소서 4:2",
-      "베드로전서 3:4",
-      "디모데전서 6:11",
-      "잠언 15:1",
-      "마태복음 11:29"
-    ],
-    "description": "야생마가 길들여진 것처럼 통제된 힘과 부드러움으로 타인의 악을 품어내고 반응하는 영적 성숙함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "온유"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "자비",
+    "topic": "자비와 긍휼",
     "topic_en": "Mercy",
+    "category": "삶의 지혜",
     "verses": [
       "마태복음 5:7",
       "누가복음 6:36",
@@ -1785,7 +1334,14 @@
       "시편 103:8",
       "에베소서 2:4-5",
       "디도서 3:5",
-      "골로새서 3:12"
+      "골로새서 3:12",
+      "마태복음 9:36",
+      "마태복음 14:14",
+      "마가복음 6:34",
+      "누가복음 10:33",
+      "베드로전서 3:8",
+      "요한일서 3:17",
+      "로마서 12:15"
     ],
     "description": "자격 없는 자에게 조건 없이 베푸시는 하나님의 넓으신 긍휼을 철저히 닮아가는 용서와 은혜의 성품",
     "is_heavy": false,
@@ -1794,49 +1350,9 @@
     "curricula_name": "자비"
   },
   {
-    "category": "성품/덕목",
-    "topic": "평화/화평",
-    "topic_en": "Peacemaking",
-    "verses": [
-      "마태복음 5:9",
-      "로마서 12:18",
-      "히브리서 12:14",
-      "야고보서 3:18",
-      "요한복음 14:27",
-      "골로새서 3:15",
-      "시편 34:14",
-      "에베소서 2:14"
-    ],
-    "description": "단순한 갈등의 부재가 아니라, 십자가의 피로 적극적으로 갈등을 치유하고 하나 됨을 도모하는 샬롬(Shalom)",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "평화/화평"
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "충성",
-    "topic_en": "Faithfulness",
-    "verses": [
-      "고린도전서 4:2",
-      "요한계시록 2:10",
-      "누가복음 16:10",
-      "갈라디아서 5:22",
-      "잠언 28:20",
-      "마태복음 24:45",
-      "디모데전서 1:12",
-      "민수기 12:7"
-    ],
-    "description": "환경의 유불리에 흔들리지 않고, 주인 되신 하나님이 맡겨주신 사명에 끝까지 변함없이 헌신하는 신실함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": "충성"
-  },
-  {
-    "category": "성품/덕목",
     "topic": "관용",
     "topic_en": "Tolerance",
+    "category": "삶의 지혜",
     "verses": [
       "빌립보서 4:5",
       "에베소서 4:2",
@@ -1854,29 +1370,197 @@
     "curricula_name": "관용"
   },
   {
-    "category": "성품/덕목",
-    "topic": "긍휼/동정",
-    "topic_en": "Compassion",
+    "topic": "온유",
+    "topic_en": "Gentleness",
+    "category": "삶의 지혜",
     "verses": [
-      "마태복음 9:36",
+      "마태복음 5:5",
+      "갈라디아서 5:23",
       "골로새서 3:12",
-      "마태복음 14:14",
-      "마가복음 6:34",
-      "누가복음 10:33",
-      "베드로전서 3:8",
-      "요한일서 3:17",
-      "로마서 12:15"
+      "에베소서 4:2",
+      "베드로전서 3:4",
+      "디모데전서 6:11",
+      "잠언 15:1",
+      "마태복음 11:29"
     ],
-    "description": "고통받는 자들과 목자 없는 양 같은 무리를 보며 창자가 끊어지는 듯한 아픔으로 공감하며 돕고자 하는 애통",
+    "description": "야생마가 길들여진 것처럼 통제된 힘과 부드러움으로 타인의 악을 품어내고 반응하는 영적 성숙함",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "긍휼/동정"
+    "curricula_name": "온유"
   },
   {
-    "category": "성품/덕목",
+    "topic": "인내",
+    "topic_en": "Patience",
+    "category": "삶의 지혜",
+    "verses": [
+      "야고보서 1:3-4",
+      "로마서 12:12",
+      "히브리서 10:36",
+      "갈라디아서 6:9",
+      "골로새서 1:11",
+      "베드로후서 1:6",
+      "전도서 7:8",
+      "로마서 5:3-4"
+    ],
+    "description": "고난과 응답의 지연 속에서도 조급해하지 않고 하나님의 때를 기다리며 끝까지 견디는 신앙의 힘",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "인내"
+  },
+  {
+    "topic": "용기",
+    "topic_en": "Courage",
+    "category": "삶의 지혜",
+    "verses": [
+      "여호수아 1:9",
+      "시편 27:1",
+      "신명기 31:6",
+      "고린도전서 16:13",
+      "사도행전 4:29",
+      "이사야 41:10",
+      "시편 31:24",
+      "히브리서 13:6"
+    ],
+    "description": "상황의 위협이나 사람의 평판을 향한 두려움을 넘어, 믿음으로 담대하게 진리를 선포하고 행하는 결단",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "용기"
+  },
+  {
+    "topic": "절제",
+    "topic_en": "Self-Control",
+    "category": "삶의 지혜",
+    "verses": [
+      "갈라디아서 5:22-23",
+      "잠언 16:32",
+      "고린도전서 9:25-27",
+      "디도서 2:11-12",
+      "잠언 25:28",
+      "베드로후서 1:6",
+      "디모데후서 1:7",
+      "고린도전서 6:12",
+      "고린도전서 10:31",
+      "로마서 14:17",
+      "잠언 23:20-21",
+      "빌립보서 3:19",
+      "고린도전서 8:8",
+      "갈라디아서 5:23",
+      "다니엘 1:8",
+      "잠언 25:16"
+    ],
+    "description": "방종하는 육체의 정욕을 제어하고, 자신의 의지를 성령의 거룩한 다스림에 전적으로 복종시키는 능력",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "절제"
+  },
+  {
+    "topic": "성실",
+    "topic_en": "Diligence",
+    "category": "삶의 지혜",
+    "verses": [
+      "골로새서 3:23",
+      "잠언 10:4",
+      "잠언 12:24",
+      "마태복음 25:21",
+      "갈라디아서 6:9",
+      "잠언 22:29",
+      "히브리서 6:11",
+      "잠언 6:6-8"
+    ],
+    "description": "게으름을 배격하고, 사람에게 보이려 하지 않고 주께 하듯 모든 일에 마음과 뜻을 다하여 수고하는 태도",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "성실"
+  },
+  {
+    "topic": "정직",
+    "topic_en": "Honesty",
+    "category": "삶의 지혜",
+    "verses": [
+      "잠언 11:3",
+      "잠언 12:22",
+      "시편 15:2",
+      "에베소서 4:25",
+      "잠언 16:11",
+      "레위기 19:11",
+      "누가복음 8:15",
+      "잠언 20:10"
+    ],
+    "description": "거짓과 위선을 버리고, 불꽃 같은 눈으로 감찰하시는 하나님 앞에서 투명하고 진실하게 행함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "정직"
+  },
+  {
+    "topic": "겸손",
+    "topic_en": "Humility",
+    "category": "삶의 지혜",
+    "verses": [
+      "빌립보서 2:3-8",
+      "야고보서 4:6",
+      "베드로전서 5:5-6",
+      "잠언 22:4",
+      "미가 6:8",
+      "마태복음 11:29",
+      "잠언 16:18",
+      "로마서 12:3"
+    ],
+    "description": "영적 파멸의 선봉인 교만을 버리고, 하나님 앞에서 자신을 낮추며 남을 낫게 여기는 그리스도의 마음",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "겸손"
+  },
+  {
+    "topic": "지혜",
+    "topic_en": "Wisdom",
+    "category": "삶의 지혜",
+    "verses": [
+      "잠언 9:10",
+      "야고보서 1:5",
+      "야고보서 3:17",
+      "골로새서 2:3",
+      "잠언 3:13-18",
+      "시편 111:10",
+      "에베소서 5:15",
+      "고린도전서 1:24-25"
+    ],
+    "description": "세속적 처세술이 아닌, 여호와를 경외함에서 비롯되는 영적 분별력과 하늘로부터 내려오는 통찰",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "지혜"
+  },
+  {
+    "topic": "충성",
+    "topic_en": "Faithfulness",
+    "category": "삶의 지혜",
+    "verses": [
+      "고린도전서 4:2",
+      "요한계시록 2:10",
+      "누가복음 16:10",
+      "갈라디아서 5:22",
+      "잠언 28:20",
+      "마태복음 24:45",
+      "디모데전서 1:12",
+      "민수기 12:7"
+    ],
+    "description": "환경의 유불리에 흔들리지 않고, 주인 되신 하나님이 맡겨주신 사명에 끝까지 변함없이 헌신하는 신실함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "충성"
+  },
+  {
     "topic": "순결/거룩",
     "topic_en": "Purity",
+    "category": "삶의 지혜",
     "verses": [
       "마태복음 5:8",
       "시편 119:9",
@@ -1894,49 +1578,20 @@
     "curricula_name": "순결/거룩"
   },
   {
-    "category": "성품/덕목",
-    "topic": "용서하는 마음",
-    "topic_en": "Forgiving Heart",
-    "verses": [
-      "에베소서 4:32",
-      "마태복음 6:14",
-      "마가복음 11:25",
-      "골로새서 3:13",
-      "누가복음 6:37",
-      "잠언 19:11",
-      "로마서 12:14",
-      "마태복음 18:35"
-    ],
-    "description": "일만 달란트 빚진 자로서의 정체성을 기억하며, 형제의 흠을 들추거나 복수심을 품지 않는 사면의 마음",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 4,
-    "curricula_name": null
-  },
-  {
-    "category": "성품/덕목",
-    "topic": "기쁨/희락",
+    "topic": "기쁨",
     "topic_en": "Joy",
-    "verses": [
-      "빌립보서 4:4",
-      "데살로니가전서 5:16",
-      "느헤미야 8:10",
-      "로마서 15:13",
-      "시편 16:11",
-      "요한복음 15:11",
-      "갈라디아서 5:22",
-      "하박국 3:18"
-    ],
-    "description": "상황의 긍정적인 조건과 무관하게, 구원의 주님이 주시는 영원한 생명으로 인하여 내면에서 솟아나는 기쁨",
+    "category": "삶의 지혜",
+    "verses": [],
+    "description": "",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
     "curricula_name": "기쁨/희락"
   },
   {
-    "category": "성품/덕목",
     "topic": "소망",
     "topic_en": "Hope",
+    "category": "삶의 지혜",
     "verses": [
       "로마서 15:13",
       "히브리서 6:19",
@@ -1954,9 +1609,20 @@
     "curricula_name": "소망"
   },
   {
-    "category": "성품/덕목",
+    "topic": "평화",
+    "topic_en": "Peacemaking",
+    "category": "삶의 지혜",
+    "verses": [],
+    "description": "",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "평화/화평"
+  },
+  {
     "topic": "의로움",
     "topic_en": "Righteousness",
+    "category": "삶의 지혜",
     "verses": [
       "마태복음 5:6",
       "마태복음 6:33",
@@ -1974,9 +1640,9 @@
     "curricula_name": "의로움"
   },
   {
-    "category": "성품/덕목",
     "topic": "만족/자족",
     "topic_en": "Contentment",
+    "category": "삶의 지혜",
     "verses": [
       "빌립보서 4:11-12",
       "디모데전서 6:6-8",
@@ -1994,9 +1660,213 @@
     "curricula_name": "만족/자족"
   },
   {
-    "category": "신학/교리",
+    "topic": "직장과 소명",
+    "topic_en": "Work Life",
+    "category": "삶의 지혜",
+    "verses": [
+      "골로새서 3:23-24",
+      "에베소서 6:5-8",
+      "잠언 14:23",
+      "전도서 9:10",
+      "고린도전서 10:31",
+      "골로새서 3:17",
+      "데살로니가후서 3:10",
+      "레위기 19:35-36",
+      "잠언 11:1",
+      "잠언 20:10",
+      "마태복음 7:12",
+      "데살로니가전서 4:6",
+      "아모스 8:4-6",
+      "잠언 16:11",
+      "에베소서 4:28"
+    ],
+    "description": "사람의 눈가림만 하지 않고, 주께 하듯 마음을 다해 성실히 일함으로써 노동의 신성함과 소명을 완수함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "직장 생활"
+  },
+  {
+    "topic": "재정과 청지기",
+    "topic_en": "Financial Management",
+    "category": "삶의 지혜",
+    "verses": [
+      "잠언 27:23-24",
+      "마태복음 6:19-21",
+      "누가복음 16:11",
+      "디모데전서 6:10",
+      "잠언 3:9",
+      "히브리서 13:5",
+      "말라기 3:10",
+      "잠언 21:20",
+      "잠언 22:7",
+      "로마서 13:8",
+      "시편 37:21",
+      "잠언 17:18",
+      "잠언 6:1-5",
+      "마태복음 6:12",
+      "열왕기하 4:1-7",
+      "잠언 11:15",
+      "누가복음 12:15",
+      "디모데전서 6:9-10",
+      "마태복음 6:19",
+      "전도서 5:10",
+      "이사야 55:2",
+      "야고보서 5:1-3",
+      "잠언 21:17"
+    ],
+    "description": "일만 악의 뿌리인 돈을 사랑함을 경계하고, 하늘에 보물을 쌓아두는 하나님의 지혜로 물질을 거룩하게 관리함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "부채/채무 관리"
+  },
+  {
+    "topic": "건강 관리",
+    "topic_en": "Health Management",
+    "category": "삶의 지혜",
+    "verses": [
+      "고린도전서 6:19-20",
+      "고린도전서 3:16-17",
+      "디모데전서 4:8",
+      "잠언 17:22",
+      "잠언 3:7-8",
+      "요한3서 1:2",
+      "로마서 12:1",
+      "잠언 4:20-22"
+    ],
+    "description": "성령이 거하시는 거룩한 전(Temple)인 육체를 함부로 훼손하지 않고, 건강하고 정결하게 돌보아야 할 영적 책임",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "건강 관리"
+  },
+  {
+    "topic": "자녀 교육",
+    "topic_en": "Child Education",
+    "category": "삶의 지혜",
+    "verses": [
+      "신명기 6:6-7",
+      "잠언 22:6",
+      "에베소서 6:4",
+      "잠언 29:17",
+      "디모데후서 3:15",
+      "잠언 13:24",
+      "시편 78:4-6",
+      "창세기 18:19"
+    ],
+    "description": "명문대 진학이나 세상의 성취보다 최우선하여, 성경적 세계관과 신앙의 위대한 유산을 다음 세대에 전수함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "자녀 교육"
+  },
+  {
+    "topic": "시간과 안식",
+    "topic_en": "Time Management",
+    "category": "삶의 지혜",
+    "verses": [
+      "에베소서 5:15-17",
+      "시편 90:12",
+      "골로새서 4:5",
+      "잠언 6:9-11",
+      "요한복음 9:4",
+      "야고보서 4:13-15",
+      "전도서 3:1",
+      "시편 39:4-5",
+      "마가복음 6:31",
+      "출애굽기 33:14",
+      "시편 23:2",
+      "마태복음 11:28",
+      "레위기 23:3",
+      "시편 127:2",
+      "창세기 2:2-3",
+      "예레미야 6:16"
+    ],
+    "description": "모든 인생이 안개와 같이 유한함을 깊이 깨닫고, 악한 세대 속에서 지혜롭게 우선순위를 정하여 세월을 아낌",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "시간 관리"
+  },
+  {
+    "topic": "미디어/SNS",
+    "topic_en": "Media/SNS Usage",
+    "category": "삶의 지혜",
+    "verses": [],
+    "description": "",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "미디어/SNS 사용"
+  },
+  {
+    "topic": "사회 참여",
+    "topic_en": "Social Justice",
+    "category": "삶의 지혜",
+    "verses": [
+      "미가 6:8",
+      "아모스 5:24",
+      "이사야 1:17",
+      "잠언 21:3",
+      "잠언 31:8-9",
+      "레위기 19:15",
+      "야고보서 2:1-4",
+      "잠언 29:7",
+      "창세기 1:28",
+      "창세기 2:15",
+      "시편 24:1",
+      "시편 104:24-25",
+      "로마서 8:19-21",
+      "레위기 25:23",
+      "요한계시록 11:18",
+      "시편 8:6-8",
+      "로마서 13:1-7",
+      "디모데전서 2:1-2",
+      "마태복음 22:21",
+      "예레미야 29:7",
+      "베드로전서 2:13-17",
+      "다니엘 2:21",
+      "잠언 14:34",
+      "디도서 3:1",
+      "빌립보서 3:20",
+      "마태복음 5:13-16",
+      "베드로전서 2:11-12",
+      "디도서 3:1-2",
+      "로마서 12:17-18",
+      "히브리서 11:13-16",
+      "마태복음 17:27"
+    ],
+    "description": "구약의 선지자적 외침을 따라 약자와 고아와 과부를 보호하고, 사회 구조 속에 하나님의 공평과 정의를 실현함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "사회 정의"
+  },
+  {
+    "topic": "성경적 세계관",
+    "topic_en": "Biblical Worldview",
+    "category": "삶의 지혜",
+    "verses": [
+      "로마서 12:2",
+      "골로새서 2:8",
+      "고린도후서 10:5",
+      "잠언 3:5-6",
+      "시편 36:9",
+      "요한복음 17:17",
+      "에베소서 5:15-16",
+      "시편 119:104"
+    ],
+    "description": "이데올로기와 세속 철학에 함몰되지 않고, 모든 사상과 학문을 그리스도에게 복종시키며 성경의 렌즈로 세상을 투시함",
+    "is_heavy": false,
+    "is_crisis": false,
+    "category_code": 4,
+    "curricula_name": "성경적 세계관"
+  },
+  {
     "topic": "구원",
     "topic_en": "Salvation",
+    "category": "신학/교리",
     "verses": [
       "요한복음 3:16",
       "에베소서 2:8-9",
@@ -2014,9 +1884,9 @@
     "curricula_name": "구원"
   },
   {
-    "category": "신학/교리",
     "topic": "은혜",
     "topic_en": "Grace",
+    "category": "신학/교리",
     "verses": [
       "에베소서 2:8",
       "로마서 3:24",
@@ -2034,9 +1904,9 @@
     "curricula_name": "은혜"
   },
   {
-    "category": "신학/교리",
     "topic": "믿음",
     "topic_en": "Faith",
+    "category": "신학/교리",
     "verses": [
       "히브리서 11:1",
       "로마서 10:17",
@@ -2054,149 +1924,9 @@
     "curricula_name": "믿음"
   },
   {
-    "category": "신학/교리",
-    "topic": "삼위일체",
-    "topic_en": "Trinity",
-    "verses": [
-      "마태복음 28:19",
-      "고린도후서 13:13",
-      "요한일서 5:7",
-      "마태복음 3:16-17",
-      "요한복음 14:26",
-      "에베소서 2:18",
-      "베드로전서 1:2",
-      "이사야 48:16"
-    ],
-    "description": "본질은 하나이시나 성부, 성자, 성령 세 위격(Persons)으로 영원히 교제하시며 완전하게 존재하시는 하나님",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "삼위일체"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "성령의 사역",
-    "topic_en": "Work of the Holy Spirit",
-    "verses": [
-      "요한복음 14:16-17",
-      "사도행전 1:8",
-      "로마서 8:26",
-      "고린도전서 12:4-11",
-      "갈라디아서 5:22-23",
-      "요한복음 16:13",
-      "에베소서 1:13-14",
-      "디도서 3:5"
-    ],
-    "description": "보혜사로서 성도 안에 내주하시며, 말씀을 깨닫게 하시고 기도를 도우시며, 성화의 능력을 부어주시는 역사",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "성령의 사역"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "종말론",
-    "topic_en": "Eschatology",
-    "verses": [
-      "데살로니가전서 4:16-17",
-      "마태복음 24:36",
-      "베드로후서 3:10",
-      "요한계시록 22:12",
-      "마태복음 25:31-32",
-      "고린도전서 15:51-52",
-      "요한계시록 1:7",
-      "요한일서 2:28"
-    ],
-    "description": "우주적 역사의 끝에 있을 그리스도의 영광스러운 재림과, 만물이 새롭게 갱신될 것에 대한 확실하고 벅찬 소망",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "종말론"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "천국과 지옥",
-    "topic_en": "Heaven and Hell",
-    "verses": [
-      "요한계시록 21:1-4",
-      "마태복음 10:28",
-      "누가복음 16:22-26",
-      "요한복음 14:2-3",
-      "마태복음 25:46",
-      "빌립보서 3:20",
-      "계시록 20:14-15",
-      "마가복음 9:43-48"
-    ],
-    "description": "그리스도와 함께 다스리는 영원한 생명의 나라와, 영원히 타오르는 불못이라는 형벌의 압도적인 실제성",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "천국과 지옥"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "예수의 신성",
-    "topic_en": "Deity of Christ",
-    "verses": [
-      "요한복음 1:1-3",
-      "골로새서 1:15-17",
-      "히브리서 1:3",
-      "요한복음 10:30",
-      "빌립보서 2:6",
-      "디도서 2:13",
-      "요한복음 8:58",
-      "로마서 9:5"
-    ],
-    "description": "피조물이 아니시며, 만물을 지으신 창조주요 아버지와 동등하신 완전한 하나님(Vere Deus)이신 예수 그리스도",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "예수의 신성"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "예수의 인성",
-    "topic_en": "Humanity of Christ",
-    "verses": [
-      "요한복음 1:14",
-      "히브리서 4:15",
-      "빌립보서 2:7-8",
-      "갈라디아서 4:4",
-      "누가복음 2:52",
-      "마태복음 4:2",
-      "요한일서 4:2",
-      "히브리서 2:14-17"
-    ],
-    "description": "우리의 모든 연약함을 체휼하시기 위해, 죄는 없으시나 우리와 똑같은 육체를 입으신 참 사람(Vere Homo)이심",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "예수의 인성"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "부활",
-    "topic_en": "Resurrection",
-    "verses": [
-      "고린도전서 15:3-4",
-      "요한복음 11:25-26",
-      "로마서 6:4-5",
-      "베드로전서 1:3",
-      "고린도전서 15:20-22",
-      "빌립보서 3:10-11",
-      "로마서 8:11",
-      "사도행전 2:24"
-    ],
-    "description": "사망의 권세를 깨뜨리신 그리스도의 역사적 부활의 승리와, 첫 열매 되신 주님을 따를 신자들의 궁극적 부활 소망",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "부활"
-  },
-  {
-    "category": "신학/교리",
     "topic": "칭의",
     "topic_en": "Justification",
+    "category": "신학/교리",
     "verses": [
       "로마서 3:23-24",
       "로마서 5:1",
@@ -2214,69 +1944,37 @@
     "curricula_name": "칭의"
   },
   {
+    "topic": "예수의 신성과 인성",
+    "topic_en": "Deity of Christ",
     "category": "신학/교리",
-    "topic": "성화",
-    "topic_en": "Sanctification",
     "verses": [
-      "데살로니가전서 4:3",
-      "베드로전서 1:15-16",
-      "로마서 6:22",
-      "고린도후서 7:1",
-      "히브리서 12:14",
-      "에베소서 4:22-24",
-      "빌립보서 2:12-13",
-      "요한복음 17:17"
+      "요한복음 1:1-3",
+      "골로새서 1:15-17",
+      "히브리서 1:3",
+      "요한복음 10:30",
+      "빌립보서 2:6",
+      "디도서 2:13",
+      "요한복음 8:58",
+      "로마서 9:5",
+      "요한복음 1:14",
+      "히브리서 4:15",
+      "빌립보서 2:7-8",
+      "갈라디아서 4:4",
+      "누가복음 2:52",
+      "마태복음 4:2",
+      "요한일서 4:2",
+      "히브리서 2:14-17"
     ],
-    "description": "칭의 받은 신자가 성령의 도우심을 받아 점진적으로 죄를 죽이고 그리스도를 닮아가는 평생의 거룩한 과정",
+    "description": "피조물이 아니시며, 만물을 지으신 창조주요 아버지와 동등하신 완전한 하나님(Vere Deus)이신 예수 그리스도",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "성화"
+    "curricula_name": "예수의 신성"
   },
   {
-    "category": "신학/교리",
-    "topic": "하나님의 주권",
-    "topic_en": "God's Sovereignty",
-    "verses": [
-      "로마서 8:28",
-      "에베소서 1:11",
-      "시편 103:19",
-      "잠언 16:9",
-      "다니엘 4:35",
-      "이사야 46:9-10",
-      "시편 115:3",
-      "역대상 29:11-12"
-    ],
-    "description": "영원 전의 작정부터 역사의 종말까지, 머리털 하나까지도 세시며 모든 만물과 섭리를 통치하시는 권능",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "하나님의 주권"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "원죄론",
-    "topic_en": "Original Sin",
-    "verses": [
-      "로마서 5:12",
-      "시편 51:5",
-      "로마서 3:10-12",
-      "에베소서 2:1-3",
-      "창세기 8:21",
-      "로마서 5:18-19",
-      "예레미야 17:9",
-      "전도서 7:20"
-    ],
-    "description": "아담의 타락(Fall)으로 인해 그 후손인 모든 인류가 영적으로 죽은 상태로 태어나며 전적으로 부패(Total Depravity)함",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "원죄론"
-  },
-  {
-    "category": "신학/교리",
     "topic": "십자가 대속",
     "topic_en": "Substitutionary Atonement",
+    "category": "신학/교리",
     "verses": [
       "이사야 53:4-6",
       "마가복음 10:45",
@@ -2294,89 +1992,29 @@
     "curricula_name": "십자가 대속"
   },
   {
+    "topic": "부활",
+    "topic_en": "Resurrection",
     "category": "신학/교리",
-    "topic": "교회의 본질",
-    "topic_en": "Nature of the Church",
     "verses": [
-      "골로새서 1:18",
-      "에베소서 1:22-23",
-      "고린도전서 12:27",
-      "마태복음 16:18",
-      "에베소서 2:19-22",
-      "베드로전서 2:9",
-      "사도행전 20:28",
-      "디모데전서 3:15"
+      "고린도전서 15:3-4",
+      "요한복음 11:25-26",
+      "로마서 6:4-5",
+      "베드로전서 1:3",
+      "고린도전서 15:20-22",
+      "빌립보서 3:10-11",
+      "로마서 8:11",
+      "사도행전 2:24"
     ],
-    "description": "건물이 아니라 그리스도를 머리로 하는 언약 공동체이자 영적 유기체이며, 진리의 기둥과 터인 에클레시아",
+    "description": "사망의 권세를 깨뜨리신 그리스도의 역사적 부활의 승리와, 첫 열매 되신 주님을 따를 신자들의 궁극적 부활 소망",
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "교회의 본질"
+    "curricula_name": "부활"
   },
   {
-    "category": "신학/교리",
-    "topic": "언약 신학",
-    "topic_en": "Covenant Theology",
-    "verses": [
-      "예레미야 31:31-33",
-      "히브리서 8:6-10",
-      "창세기 15:18",
-      "출애굽기 19:5-6",
-      "누가복음 22:20",
-      "갈라디아서 3:15-17",
-      "히브리서 9:15",
-      "사무엘하 7:12-16"
-    ],
-    "description": "행위 언약의 실패 이후, 예수 그리스도의 피로 맺어진 은혜 언약을 통해 하나님과 백성 사이에 맺어진 변함없는 약속",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "언약 신학"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "영적 양자됨",
-    "topic_en": "Adoption",
-    "verses": [
-      "로마서 8:15-17",
-      "갈라디아서 4:5-7",
-      "요한복음 1:12",
-      "에베소서 1:5",
-      "요한일서 3:1-2",
-      "로마서 8:23",
-      "고린도후서 6:18",
-      "갈라디아서 3:26"
-    ],
-    "description": "본질상 진노의 자녀이자 마귀의 종이었던 우리가, 그리스도로 말미암아 하나님을 '아빠 아버지'라 부르는 상속자가 됨",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "영적 양자됨"
-  },
-  {
-    "category": "신학/교리",
-    "topic": "최후 심판",
-    "topic_en": "Final Judgment",
-    "verses": [
-      "히브리서 9:27",
-      "고린도후서 5:10",
-      "로마서 2:5-6",
-      "요한계시록 20:11-12",
-      "마태복음 12:36",
-      "전도서 12:14",
-      "사도행전 17:31",
-      "로마서 14:10-12"
-    ],
-    "description": "그리스도의 심판대 앞에서 선악 간에 행한 대로 갚으시는 하나님의 공의롭고 최종적이며 피할 수 없는 결산",
-    "is_heavy": true,
-    "is_crisis": false,
-    "category_code": 6,
-    "curricula_name": "최후 심판"
-  },
-  {
-    "category": "신학/교리",
     "topic": "기독론적 중보",
     "topic_en": "Christological Mediation",
+    "category": "신학/교리",
     "verses": [
       "요한복음 14:6",
       "디모데전서 2:5",
@@ -2394,402 +2032,199 @@
     "curricula_name": "기독론적 중보"
   },
   {
-    "category": "생활",
-    "topic": "직장 생활",
-    "topic_en": "Work Life",
+    "topic": "성령의 사역",
+    "topic_en": "Work of the Holy Spirit",
+    "category": "신학/교리",
     "verses": [
-      "골로새서 3:23-24",
-      "에베소서 6:5-8",
-      "잠언 14:23",
-      "전도서 9:10",
-      "고린도전서 10:31",
-      "골로새서 3:17",
-      "데살로니가후서 3:10"
+      "요한복음 14:16-17",
+      "사도행전 1:8",
+      "로마서 8:26",
+      "고린도전서 12:4-11",
+      "갈라디아서 5:22-23",
+      "요한복음 16:13",
+      "에베소서 1:13-14",
+      "디도서 3:5"
     ],
-    "description": "사람의 눈가림만 하지 않고, 주께 하듯 마음을 다해 성실히 일함으로써 노동의 신성함과 소명을 완수함",
+    "description": "보혜사로서 성도 안에 내주하시며, 말씀을 깨닫게 하시고 기도를 도우시며, 성화의 능력을 부어주시는 역사",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "직장 생활"
+    "category_code": 6,
+    "curricula_name": "성령의 사역"
   },
   {
-    "category": "생활",
-    "topic": "재정 관리",
-    "topic_en": "Financial Management",
+    "topic": "교회의 본질",
+    "topic_en": "Nature of the Church",
+    "category": "신학/교리",
     "verses": [
-      "잠언 27:23-24",
-      "마태복음 6:19-21",
-      "누가복음 16:11",
-      "디모데전서 6:10",
-      "잠언 3:9",
-      "히브리서 13:5",
-      "말라기 3:10",
-      "잠언 21:20"
+      "골로새서 1:18",
+      "에베소서 1:22-23",
+      "고린도전서 12:27",
+      "마태복음 16:18",
+      "에베소서 2:19-22",
+      "베드로전서 2:9",
+      "사도행전 20:28",
+      "디모데전서 3:15"
     ],
-    "description": "일만 악의 뿌리인 돈을 사랑함을 경계하고, 하늘에 보물을 쌓아두는 하나님의 지혜로 물질을 거룩하게 관리함",
+    "description": "건물이 아니라 그리스도를 머리로 하는 언약 공동체이자 영적 유기체이며, 진리의 기둥과 터인 에클레시아",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": null
+    "category_code": 6,
+    "curricula_name": "교회의 본질"
   },
   {
-    "category": "생활",
-    "topic": "건강 관리",
-    "topic_en": "Health Management",
+    "topic": "영적 양자됨",
+    "topic_en": "Adoption",
+    "category": "신학/교리",
     "verses": [
-      "고린도전서 6:19-20",
-      "고린도전서 3:16-17",
-      "디모데전서 4:8",
-      "잠언 17:22",
-      "잠언 3:7-8",
-      "요한3서 1:2",
-      "로마서 12:1",
-      "잠언 4:20-22"
+      "로마서 8:15-17",
+      "갈라디아서 4:5-7",
+      "요한복음 1:12",
+      "에베소서 1:5",
+      "요한일서 3:1-2",
+      "로마서 8:23",
+      "고린도후서 6:18",
+      "갈라디아서 3:26"
     ],
-    "description": "성령이 거하시는 거룩한 전(Temple)인 육체를 함부로 훼손하지 않고, 건강하고 정결하게 돌보아야 할 영적 책임",
+    "description": "본질상 진노의 자녀이자 마귀의 종이었던 우리가, 그리스도로 말미암아 하나님을 '아빠 아버지'라 부르는 상속자가 됨",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "건강 관리"
+    "category_code": 6,
+    "curricula_name": "영적 양자됨"
   },
   {
-    "category": "생활",
-    "topic": "자녀 교육",
-    "topic_en": "Child Education",
+    "topic": "언약 신학",
+    "topic_en": "Covenant Theology",
+    "category": "신학/교리",
     "verses": [
-      "신명기 6:6-7",
-      "잠언 22:6",
-      "에베소서 6:4",
-      "잠언 29:17",
-      "디모데후서 3:15",
-      "잠언 13:24",
-      "시편 78:4-6",
-      "창세기 18:19"
+      "예레미야 31:31-33",
+      "히브리서 8:6-10",
+      "창세기 15:18",
+      "출애굽기 19:5-6",
+      "누가복음 22:20",
+      "갈라디아서 3:15-17",
+      "히브리서 9:15",
+      "사무엘하 7:12-16"
     ],
-    "description": "명문대 진학이나 세상의 성취보다 최우선하여, 성경적 세계관과 신앙의 위대한 유산을 다음 세대에 전수함",
+    "description": "행위 언약의 실패 이후, 예수 그리스도의 피로 맺어진 은혜 언약을 통해 하나님과 백성 사이에 맺어진 변함없는 약속",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "자녀 교육"
+    "category_code": 6,
+    "curricula_name": "언약 신학"
   },
   {
-    "category": "생활",
-    "topic": "리더십",
-    "topic_en": "Leadership",
+    "topic": "성화",
+    "topic_en": "Sanctification",
+    "category": "신학/교리",
     "verses": [
-      "마가복음 10:43-45",
-      "베드로전서 5:2-3",
-      "빌립보서 2:3",
-      "느헤미야 2:17-18",
-      "잠언 11:14",
-      "출애굽기 18:21",
-      "디모데전서 3:1-7",
-      "요한복음 13:14-15"
+      "데살로니가전서 4:3",
+      "베드로전서 1:15-16",
+      "로마서 6:22",
+      "고린도후서 7:1",
+      "히브리서 12:14",
+      "에베소서 4:22-24",
+      "빌립보서 2:12-13",
+      "요한복음 17:17"
     ],
-    "description": "권력으로 군림하거나 지배하지 않고, 허리에 수건을 두르고 타인의 발을 씻기는 그리스도 중심의 서번트 리더십",
+    "description": "칭의 받은 신자가 성령의 도우심을 받아 점진적으로 죄를 죽이고 그리스도를 닮아가는 평생의 거룩한 과정",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "리더십과 섬김"
+    "category_code": 6,
+    "curricula_name": "성화"
   },
   {
-    "category": "생활",
-    "topic": "사회 정의",
-    "topic_en": "Social Justice",
+    "topic": "하나님의 주권",
+    "topic_en": "God's Sovereignty",
+    "category": "신학/교리",
     "verses": [
-      "미가 6:8",
-      "아모스 5:24",
-      "이사야 1:17",
-      "잠언 21:3",
-      "잠언 31:8-9",
-      "레위기 19:15",
-      "야고보서 2:1-4",
-      "잠언 29:7"
+      "로마서 8:28",
+      "에베소서 1:11",
+      "시편 103:19",
+      "잠언 16:9",
+      "다니엘 4:35",
+      "이사야 46:9-10",
+      "시편 115:3",
+      "역대상 29:11-12"
     ],
-    "description": "구약의 선지자적 외침을 따라 약자와 고아와 과부를 보호하고, 사회 구조 속에 하나님의 공평과 정의를 실현함",
+    "description": "영원 전의 작정부터 역사의 종말까지, 머리털 하나까지도 세시며 모든 만물과 섭리를 통치하시는 권능",
     "is_heavy": false,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "사회 정의"
+    "category_code": 6,
+    "curricula_name": "하나님의 주권"
   },
   {
-    "category": "생활",
-    "topic": "환경 보호/피조물 돌봄",
-    "topic_en": "Environmental Stewardship",
+    "topic": "원죄론",
+    "topic_en": "Original Sin",
+    "category": "신학/교리",
     "verses": [
-      "창세기 1:28",
-      "창세기 2:15",
-      "시편 24:1",
-      "시편 104:24-25",
-      "로마서 8:19-21",
-      "레위기 25:23",
-      "요한계시록 11:18",
-      "시편 8:6-8"
+      "로마서 5:12",
+      "시편 51:5",
+      "로마서 3:10-12",
+      "에베소서 2:1-3",
+      "창세기 8:21",
+      "로마서 5:18-19",
+      "예레미야 17:9",
+      "전도서 7:20"
     ],
-    "description": "인간의 탐욕으로 창조 세계를 착취하지 않고, 타락으로 신음하는 피조물을 선한 청지기로서 책임감 있게 돌봄",
-    "is_heavy": false,
+    "description": "아담의 타락(Fall)으로 인해 그 후손인 모든 인류가 영적으로 죽은 상태로 태어나며 전적으로 부패(Total Depravity)함",
+    "is_heavy": true,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "환경 보호/피조물 돌봄"
+    "category_code": 6,
+    "curricula_name": "원죄론"
   },
   {
-    "category": "생활",
-    "topic": "미디어/SNS 사용",
-    "topic_en": "Media/SNS Usage",
+    "topic": "삼위일체",
+    "topic_en": "Trinity",
+    "category": "신학/교리",
     "verses": [
-      "시편 119:37",
-      "빌립보서 4:8",
-      "에베소서 4:29",
-      "고린도전서 10:23",
-      "고린도전서 6:12",
-      "로마서 12:2",
-      "잠언 4:23",
-      "시편 101:3"
+      "마태복음 28:19",
+      "고린도후서 13:13",
+      "요한일서 5:7",
+      "마태복음 3:16-17",
+      "요한복음 14:26",
+      "에베소서 2:18",
+      "베드로전서 1:2",
+      "이사야 48:16"
     ],
-    "description": "중독성과 허영이 만연한 디지털 시대에 시선과 마음을 지키고, 오직 영적 유익과 덕을 구하는 엄격한 절제",
-    "is_heavy": false,
+    "description": "본질은 하나이시나 성부, 성자, 성령 세 위격(Persons)으로 영원히 교제하시며 완전하게 존재하시는 하나님",
+    "is_heavy": true,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "미디어/SNS 사용"
+    "category_code": 6,
+    "curricula_name": "삼위일체"
   },
   {
-    "category": "생활",
-    "topic": "시간 관리",
-    "topic_en": "Time Management",
+    "topic": "종말과 심판",
+    "topic_en": "Eschatology",
+    "category": "신학/교리",
     "verses": [
-      "에베소서 5:15-17",
-      "시편 90:12",
-      "골로새서 4:5",
-      "잠언 6:9-11",
-      "요한복음 9:4",
-      "야고보서 4:13-15",
-      "전도서 3:1",
-      "시편 39:4-5"
-    ],
-    "description": "모든 인생이 안개와 같이 유한함을 깊이 깨닫고, 악한 세대 속에서 지혜롭게 우선순위를 정하여 세월을 아낌",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "시간 관리"
-  },
-  {
-    "category": "생활",
-    "topic": "여가/안식",
-    "topic_en": "Leisure/Sabbath",
-    "verses": [
-      "마가복음 6:31",
-      "출애굽기 33:14",
-      "시편 23:2",
-      "마태복음 11:28",
-      "레위기 23:3",
-      "시편 127:2",
-      "창세기 2:2-3",
-      "예레미야 6:16"
-    ],
-    "description": "한국적 '일 중독(Workaholic)'에서 벗어나, 육체의 쉼을 통해 영혼을 재충전하고 하나님이 주시는 참된 안식을 누림",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "여가/안식"
-  },
-  {
-    "category": "생활",
-    "topic": "정치 참여",
-    "topic_en": "Political Participation",
-    "verses": [
-      "로마서 13:1-7",
-      "디모데전서 2:1-2",
-      "마태복음 22:21",
-      "예레미야 29:7",
-      "베드로전서 2:13-17",
-      "다니엘 2:21",
-      "잠언 14:34",
-      "디도서 3:1"
-    ],
-    "description": "세속 정부의 권위를 하나님의 질서 아래 인정하되, 특정 이념이 아닌 하나님의 진리와 공의의 기준을 들어 정치와 사회를 위해 깨어 기도함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "정치 참여"
-  },
-  {
-    "category": "생활",
-    "topic": "이웃 구제",
-    "topic_en": "Charity/Relief",
-    "verses": [
-      "잠언 19:17",
-      "마태복음 25:40",
-      "히브리서 13:16",
-      "야고보서 1:27",
-      "요한일서 3:17-18",
-      "잠언 21:13",
-      "신명기 15:11",
-      "누가복음 14:13-14"
-    ],
-    "description": "가난한 자와 소외된 자들에게 재물과 시간을 나누는 것이 곧 주님께 꾸어드리는 특권임을 깨닫는 자비의 실천",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "이웃 구제"
-  },
-  {
-    "category": "생활",
-    "topic": "비즈니스 윤리",
-    "topic_en": "Business Ethics",
-    "verses": [
-      "레위기 19:35-36",
-      "잠언 11:1",
-      "잠언 20:10",
-      "마태복음 7:12",
-      "데살로니가전서 4:6",
-      "아모스 8:4-6",
-      "잠언 16:11",
-      "에베소서 4:28"
-    ],
-    "description": "수익 창출에 있어서 거짓을 배격하고, 공정한 저울과 투명성을 지키며 그리스도의 대사로서 이윤을 추구함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "비즈니스 윤리"
-  },
-  {
-    "category": "생활",
-    "topic": "시민 의식",
-    "topic_en": "Citizenship",
-    "verses": [
+      "데살로니가전서 4:16-17",
+      "마태복음 24:36",
+      "베드로후서 3:10",
+      "요한계시록 22:12",
+      "마태복음 25:31-32",
+      "고린도전서 15:51-52",
+      "요한계시록 1:7",
+      "요한일서 2:28",
+      "요한계시록 21:1-4",
+      "마태복음 10:28",
+      "누가복음 16:22-26",
+      "요한복음 14:2-3",
+      "마태복음 25:46",
       "빌립보서 3:20",
-      "마태복음 5:13-16",
-      "베드로전서 2:11-12",
-      "디도서 3:1-2",
-      "로마서 12:17-18",
-      "히브리서 11:13-16",
-      "예레미야 29:7",
-      "마태복음 17:27"
+      "계시록 20:14-15",
+      "마가복음 9:43-48",
+      "히브리서 9:27",
+      "고린도후서 5:10",
+      "로마서 2:5-6",
+      "요한계시록 20:11-12",
+      "마태복음 12:36",
+      "전도서 12:14",
+      "사도행전 17:31",
+      "로마서 14:10-12"
     ],
-    "description": "하늘의 시민권을 가진 나그네로서, 거류하는 이 땅의 법을 준수하며 부패를 방지하는 빛과 소금의 역할을 감당함",
-    "is_heavy": false,
+    "description": "우주적 역사의 끝에 있을 그리스도의 영광스러운 재림과, 만물이 새롭게 갱신될 것에 대한 확실하고 벅찬 소망",
+    "is_heavy": true,
     "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "시민 의식"
-  },
-  {
-    "category": "생활",
-    "topic": "식생활/절제",
-    "topic_en": "Diet/Temperance",
-    "verses": [
-      "고린도전서 10:31",
-      "로마서 14:17",
-      "잠언 23:20-21",
-      "빌립보서 3:19",
-      "고린도전서 8:8",
-      "갈라디아서 5:23",
-      "다니엘 1:8",
-      "잠언 25:16"
-    ],
-    "description": "단순한 기호나 탐식을 넘어, 먹고 마시는 모든 행위의 동기가 철저히 하나님의 영광을 구하는 거룩한 통제가 됨",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "식생활/절제"
-  },
-  {
-    "category": "생활",
-    "topic": "노후 준비",
-    "topic_en": "Retirement Preparation",
-    "verses": [
-      "잠언 6:6-8",
-      "디모데전서 5:8",
-      "전도서 11:1-2",
-      "시편 37:25",
-      "이사야 46:4",
-      "시편 71:18",
-      "잠언 21:20",
-      "누가복음 12:18-21"
-    ],
-    "description": "나태함을 피해 다가올 미래의 경제를 지혜롭게 대비하되, 어리석은 부자처럼 최종적 공급자이신 하나님을 망각하지 않음",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "노후 준비"
-  },
-  {
-    "category": "생활",
-    "topic": "성경적 세계관",
-    "topic_en": "Biblical Worldview",
-    "verses": [
-      "로마서 12:2",
-      "골로새서 2:8",
-      "고린도후서 10:5",
-      "잠언 3:5-6",
-      "시편 36:9",
-      "요한복음 17:17",
-      "에베소서 5:15-16",
-      "시편 119:104"
-    ],
-    "description": "이데올로기와 세속 철학에 함몰되지 않고, 모든 사상과 학문을 그리스도에게 복종시키며 성경의 렌즈로 세상을 투시함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "성경적 세계관"
-  },
-  {
-    "category": "생활",
-    "topic": "부채/채무 관리",
-    "topic_en": "Debt Management",
-    "verses": [
-      "잠언 22:7",
-      "로마서 13:8",
-      "시편 37:21",
-      "잠언 17:18",
-      "잠언 6:1-5",
-      "마태복음 6:12",
-      "열왕기하 4:1-7",
-      "잠언 11:15"
-    ],
-    "description": "채주의 종이 되게 하는 무분별한 빚과 보증을 피하고, 갚아야 할 의무를 회피하지 않는 재정적 책임감",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "부채/채무 관리"
-  },
-  {
-    "category": "생활",
-    "topic": "소비 생활",
-    "topic_en": "Consumer Habits",
-    "verses": [
-      "누가복음 12:15",
-      "디모데전서 6:9-10",
-      "마태복음 6:19",
-      "전도서 5:10",
-      "이사야 55:2",
-      "야고보서 5:1-3",
-      "히브리서 13:5",
-      "잠언 21:17"
-    ],
-    "description": "타인과의 비교 우위를 점하려는 과시욕과 탐욕적 소비를 배격하고, 하나님 안에서의 절대적 만족과 검소함을 훈련함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "소비 생활"
-  },
-  {
-    "category": "생활",
-    "topic": "결혼 준비",
-    "topic_en": "Marriage Preparation",
-    "verses": [
-      "고린도후서 6:14",
-      "창세기 24:12",
-      "잠언 31:30",
-      "고린도전서 7:9",
-      "아가 8:4",
-      "데살로니가전서 4:3-4",
-      "잠언 18:22",
-      "말라기 2:15"
-    ],
-    "description": "외적인 스펙이나 경제력보다 여호와를 경외함을 우선시하며, 하나님의 뜻 안에서 경건한 언약의 파트너를 기도로 구함",
-    "is_heavy": false,
-    "is_crisis": false,
-    "category_code": 5,
-    "curricula_name": "결혼 준비"
+    "category_code": 6,
+    "curricula_name": "종말론"
   }
 ]

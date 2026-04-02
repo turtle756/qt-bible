@@ -589,19 +589,21 @@ function renderStyleSelect(c) {
 }
 
 function findCurriculum(topicName) {
-  // Get curricula_name from topics-db metadata
+  // Get curricula_name from topics-db metadata (102 topics → curricula mapping)
   const meta = topicsData.find(t => t.topic === topicName);
   const curName = meta?.curricula_name || topicName;
 
   // Check original 10 (has 7/14/30 day plans)
   const orig = curriculaData.find(cur =>
-    cur.topic === curName || cur.topic.includes(topicName) || topicName.includes(cur.topic)
+    cur.topic === curName || cur.topic === topicName ||
+    cur.topic.includes(topicName) || topicName.includes(cur.topic)
   );
   if (orig) return { type: 'original', data: orig };
 
-  // Check extended 129 (has 30-day days array)
+  // Check extended (has 30-day days array)
   const ext = curriculaExtended.find(c =>
-    c.topic === curName || c.topic === topicName
+    c.topic === curName || c.topic === topicName ||
+    c.topic.includes(topicName) || topicName.includes(c.topic)
   );
   if (ext) return { type: 'extended', data: ext };
 
