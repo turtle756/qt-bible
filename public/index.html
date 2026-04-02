@@ -2096,14 +2096,7 @@
     // ============================================================
     function getTodayStr() { return new Date().toISOString().slice(0, 10); }
 
-    function switchSoapTab(tab) {
-      // Save current tab content
-      soapData[currentSoapTab] = document.getElementById('soapArea').value;
-      currentSoapTab = tab;
-      document.querySelectorAll('.soap-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-      document.getElementById('soapArea').value = soapData[tab] || '';
-      document.getElementById('soapHint').textContent = SOAP_HINTS[tab];
-    }
+    // (Legacy switchSoapTab removed — replaced by switchNoteTab)
 
     async function loadNotes() {
       try {
@@ -2241,9 +2234,7 @@
     // ============================================================
     // Bottom Tab Switch
     // ============================================================
-    function switchBottomTab(tab) {
-      // Legacy - no longer used
-    }
+    // (Legacy switchBottomTab removed)
 
     // ============================================================
     // Main Tab Switch

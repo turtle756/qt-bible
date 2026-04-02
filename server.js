@@ -5,7 +5,6 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const { Pool } = require('pg');
 const path = require('path');
-// const OpenAI = require('openai'); // removed — using pre-generated data
 
 const app = express();
 const PORT = process.env.PORT || 3000;
