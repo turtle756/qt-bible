@@ -240,6 +240,10 @@
   }
   .btn-test-skip:hover { opacity: 1; }
 
+  /* Topic accordion */
+  .topic-cat-items { transition: max-height 0.3s ease, opacity 0.2s; max-height: 500px; opacity: 1; overflow: hidden; }
+  .topic-cat-items.collapsed { max-height: 0; opacity: 0; margin: 0 !important; }
+
   /* Hidden */
   .hidden { display: none !important; }
 </style>
@@ -318,8 +322,7 @@ let parallelReading = true;
 let curriculaExtended = [];
 
 async function init() {
-  const [quizRes, topicsRes, curriculaRes, extRes, meRes] = await Promise.all([
-    fetch('/data/onboarding-quiz.json').then(r => r.json()),
+  const [topicsRes, curriculaRes, extRes, meRes] = await Promise.all([
     fetch('/data/topics-db.json').then(r => r.json()),
     fetch('/data/curricula.json').then(r => r.json()),
     fetch('/data/curricula-extended.json').then(r => r.json()).catch(() => []),
@@ -339,7 +342,6 @@ async function init() {
     } catch (e) { /* continue */ }
   }
 
-  quizData = quizRes;
   topicsData = topicsRes;
   curriculaData = curriculaRes;
   render();
@@ -397,20 +399,33 @@ function renderMaturityStep(c) {
 
 function renderTopicSelect(c) {
   const categories = [...new Set(topicsData.map(t => t.category))];
+  const selectedCount = selectedTopics.length;
   c.innerHTML = `
     <div class="step-counter">2 / 3</div>
     <div class="question-card">
       <div class="question-icon">${icon('compass')}</div>
       <div class="question-text">어떤 주제로 묵상하고 싶으세요?</div>
-      <p style="font-size:14px;color:var(--text-light);margin-bottom:20px;">관심 있는 주제를 여러 개 선택해주세요.</p>
+      <p style="font-size:14px;color:var(--text-light);margin-bottom:12px;">
+        카테고리를 눌러 펼치고, 관심 주제를 선택하세요.
+        ${selectedCount > 0 ? `<strong style="color:var(--primary);">${selectedCount}개 선택됨</strong>` : ''}
+      </p>
       <div class="topic-grid">
-        ${categories.map(cat => `
-          <div class="topic-category-title">${cat}</div>
-          ${topicsData.filter(t => t.category === cat).map(t => `
-            <div class="topic-chip ${selectedTopics.includes(t.topic) ? 'selected' : ''}"
-                 onclick="toggleTopic(this.dataset.topic)" data-topic="${t.topic}">${t.topic}</div>
-          `).join('')}
-        `).join('')}
+        ${categories.map((cat, ci) => {
+          const catTopics = topicsData.filter(t => t.category === cat);
+          const catSelected = catTopics.filter(t => selectedTopics.includes(t.topic)).length;
+          return `
+            <div class="topic-category-title" onclick="this.nextElementSibling.classList.toggle('collapsed')" style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+              <span>${cat} (${catTopics.length})</span>
+              <span style="font-size:12px;color:var(--primary);">${catSelected > 0 ? catSelected + '개 선택' : '펼치기'}</span>
+            </div>
+            <div class="topic-cat-items ${ci > 0 ? 'collapsed' : ''}" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+              ${catTopics.map(t => `
+                <div class="topic-chip ${selectedTopics.includes(t.topic) ? 'selected' : ''}"
+                     onclick="toggleTopic(this.dataset.topic)" data-topic="${t.topic}">${t.topic}</div>
+              `).join('')}
+            </div>
+          `;
+        }).join('')}
       </div>
     </div>
     <div class="nav-row">

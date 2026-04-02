@@ -5,7 +5,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const { Pool } = require('pg');
 const path = require('path');
-const OpenAI = require('openai');
+// const OpenAI = require('openai'); // removed — using pre-generated data
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -787,40 +787,7 @@ app.get('/api/today-qt', requireAuth, async (req, res) => {
   }
 });
 
-// ============================================================
-// AI Devotional Helper
-// ============================================================
-const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
-
-app.post('/api/ai/devotional', requireAuth, async (req, res) => {
-  if (!openai) return res.status(503).json({ error: 'AI not configured' });
-  const { bookName, chapter, mode } = req.body;
-  // mode: 'background' | 'questions' | 'explain'
-
-  const prompts = {
-    background: `성경 "${bookName} ${chapter}장"의 역사적/문화적 배경을 한국어로 간결하게 설명해주세요. 3-4문단으로, QT 묵상에 도움이 되는 핵심 맥락 위주로.`,
-    questions: `성경 "${bookName} ${chapter}장"을 읽고 SOAP 묵상을 할 때 도움이 되는 질문 5개를 한국어로 생성해주세요. 관찰(Observation), 적용(Application) 질문을 포함해주세요.`,
-    explain: `성경 "${bookName} ${chapter}장"에서 한국어 번역만으로는 이해하기 어려운 원어(히브리어/그리스어)의 뉘앙스나 번역 차이를 한국어로 설명해주세요. 3-4개 핵심 단어/표현을 골라서.`,
-  };
-
-  const systemPrompt = '당신은 성경학 전문가이자 QT 묵상 가이드입니다. 정확한 신학적 정보를 바탕으로, 개인 묵상에 도움이 되도록 따뜻하고 명확하게 답변합니다. 한국어로 답변하세요.';
-
-  try {
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: prompts[mode] || prompts.background },
-      ],
-      max_tokens: 1000,
-      temperature: 0.7,
-    });
-    res.json({ content: completion.choices[0].message.content });
-  } catch (err) {
-    console.error('AI error:', err);
-    res.status(500).json({ error: 'AI request failed' });
-  }
-});
+// (AI Devotional Helper removed — using pre-generated QT guide data instead)
 
 // ============================================================
 // ============================================================
@@ -852,6 +819,7 @@ app.get('/api/feed', requireAuth, async (req, res) => {
   try {
     const result = await pool.query(
       `SELECT sf.id, sf.type, sf.content, sf.passage, sf.created_at,
+        (sf.user_id = $1) as is_mine,
         (SELECT COUNT(*) FROM feed_reactions WHERE post_id = sf.id) as reaction_count,
         (SELECT type FROM feed_reactions WHERE post_id = sf.id AND user_id = $1) as my_reaction
        FROM shared_feed sf
