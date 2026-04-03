@@ -3029,26 +3029,18 @@
 
     async function startNextPlan(topicName) {
       try {
-        // Check original 10 curricula
-        const curRes = await fetch('/data/curricula.json');
-        const curricula = await curRes.json();
-        const matched = curricula.find(c => topicName.includes(c.topic.split('(')[0].trim().substring(0, 4)));
+        // curricula-all.json에서 한 번만 검색
+        const curRes = await fetch('/data/curricula-all.json');
+        const allCurricula = await curRes.json();
+        const matched = allCurricula.find(c =>
+          c.topic === topicName || c.topic.includes(topicName) || topicName.includes(c.topic)
+        );
 
         let planData, planName, duration;
         if (matched) {
-          planData = matched.plans['30day'] || matched.plans['14day'] || matched.plans['7day'] || [];
+          planData = matched.days || matched.plans?.['30day'] || matched.plans?.['14day'] || [];
           planName = matched.topic;
           duration = planData.length;
-        } else {
-          // Check extended 129 curricula
-          const extRes = await fetch('/data/curricula-extended.json');
-          const extended = await extRes.json();
-          const extMatch = extended.find(c => c.topic === topicName);
-          if (extMatch) {
-            planData = extMatch.days || [];
-            planName = extMatch.topic;
-            duration = planData.length;
-          }
         }
 
         if (planData && planData.length > 0) {

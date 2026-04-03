@@ -323,15 +323,14 @@ let parallelReading = true;
 let curriculaExtended = [];
 
 async function init() {
-  const [topicsRes, curriculaRes, extRes, treeRes, meRes] = await Promise.all([
+  const [topicsRes, curriculaAllRes, treeRes, meRes] = await Promise.all([
     fetch('/data/topics-db.json').then(r => r.json()),
-    fetch('/data/curricula.json').then(r => r.json()),
-    fetch('/data/curricula-extended.json').then(r => r.json()).catch(() => []),
+    fetch('/data/curricula-all.json').then(r => r.json()),
     fetch('/data/topic-tree.json').then(r => r.json()).catch(() => null),
     fetch('/api/me').then(r => r.json()),
   ]);
   topicTree = treeRes;
-  curriculaExtended = extRes;
+  curriculaExtended = curriculaAllRes;
   if (!meRes.loggedIn) { window.location.href = '/login.html'; return; }
 
   // Check if already onboarded (skip if ?test param)
@@ -346,7 +345,7 @@ async function init() {
   }
 
   topicsData = topicsRes;
-  curriculaData = curriculaRes;
+  curriculaData = curriculaAllRes;
   render();
 }
 
@@ -589,24 +588,20 @@ function renderStyleSelect(c) {
 }
 
 function findCurriculum(topicName) {
-  // Get curricula_name from topics-db metadata (102 topics → curricula mapping)
+  // curricula-all.json에서 한 번만 검색
   const meta = topicsData.find(t => t.topic === topicName);
   const curName = meta?.curricula_name || topicName;
 
-  // Check original 10 (has 7/14/30 day plans)
-  const orig = curriculaData.find(cur =>
-    cur.topic === curName || cur.topic === topicName ||
-    cur.topic.includes(topicName) || topicName.includes(cur.topic)
-  );
-  if (orig) return { type: 'original', data: orig };
-
-  // Check extended (has 30-day days array)
-  const ext = curriculaExtended.find(c =>
+  const match = curriculaData.find(c =>
     c.topic === curName || c.topic === topicName ||
     c.topic.includes(topicName) || topicName.includes(c.topic)
   );
-  if (ext) return { type: 'extended', data: ext };
 
+  if (match) {
+    // days 배열이 있으면 extended 형식, plans가 있으면 original 형식
+    if (match.days) return { type: 'extended', data: match };
+    if (match.plans) return { type: 'original', data: match };
+  }
   return null;
 }
 
