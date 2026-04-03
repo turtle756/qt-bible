@@ -2499,6 +2499,8 @@
             document.getElementById('todayQtBanner').style.display = 'block';
             document.getElementById('todayQtPassage').textContent = '요한복음 14:23-31';
             document.getElementById('todayQtFocus').textContent = '평안을 주시는 그리스도';
+          } else {
+            showEmptyState();
           }
           return;
         }
@@ -2521,7 +2523,12 @@
         document.getElementById('todayQtDay').textContent =
           `Day ${currentDay} / ${todayQtPlan.duration}`;
         document.getElementById('todayQtPassage').textContent = todayEntry.passage;
-        document.getElementById('todayQtFocus').textContent = todayEntry.focus;
+        // 인지적 개인화: 동적 텍스트 조립
+        const userName = currentUser?.name?.split(' ')[0] || '';
+        const personalFocus = userName
+          ? `${userName}님, 오늘은 ${todayEntry.focus}`
+          : todayEntry.focus;
+        document.getElementById('todayQtFocus').textContent = personalFocus;
 
         const btn = document.getElementById('todayQtBtn');
         if (todayQtProgress.includes(currentDay)) {
@@ -2948,6 +2955,38 @@
     // ============================================================
     // Plan Complete → Next Topic
     // ============================================================
+    // ============================================================
+    // Empty State — 플랜 없을 때
+    // ============================================================
+    function showEmptyState() {
+      const userName = currentUser?.name?.split(' ')[0] || '';
+      const greeting = userName ? `${userName}님, ` : '';
+      const hour = new Date().getHours();
+      const timeGreeting = hour < 12 ? '좋은 아침이에요.' : hour < 18 ? '오늘 하루는 어떠세요?' : '오늘 하루 수고하셨어요.';
+
+      const leftEl = document.querySelector('.qt-left');
+      if (leftEl) {
+        leftEl.innerHTML = `
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:40px 24px;text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:16px;">&#x1F331;</div>
+            <h2 style="font-size:1.2rem;color:var(--accent);margin-bottom:8px;">${greeting}${timeGreeting}</h2>
+            <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.7;margin-bottom:24px;">
+              아직 진행 중인 묵상 여정이 없어요.<br>
+              지금 마음 상태를 알려주시면,<br>
+              당신만을 위한 말씀을 준비해드릴게요.
+            </p>
+            <a href="/onboarding" style="display:inline-block;padding:14px 36px;background:var(--accent);color:white;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:all 0.2s;">
+              새로운 묵상 여정 시작하기
+            </a>
+            <p style="margin-top:20px;font-size:0.8rem;color:var(--text-secondary);font-style:italic;line-height:1.6;">
+              "주의 말씀은 내 발에 등이요 내 길에 빛이니이다"<br>
+              <span style="color:var(--accent);">시편 119:105</span>
+            </p>
+          </div>
+        `;
+      }
+    }
+
     async function showPlanComplete() {
       // Get user's selected topics from onboarding profile
       let nextTopic = null;
