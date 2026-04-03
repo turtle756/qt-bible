@@ -3,6 +3,8 @@
     {
       "id": "emotions",
       "label": "마음이 힘들어요",
+      "icon": "cloud-rain",
+      "sub": "불안, 우울, 상처, 분노 등",
       "children": [
         {
           "id": "emotions-anxiety",
@@ -29,6 +31,8 @@
     {
       "id": "relationships",
       "label": "관계가 어려워요",
+      "icon": "people",
+      "sub": "가족, 친구, 용서, 연애 등",
       "children": [
         {
           "id": "rel-family",
@@ -55,6 +59,8 @@
     {
       "id": "situations",
       "label": "어려운 상황이에요",
+      "icon": "mountain",
+      "sub": "건강, 경제, 상실, 시험 등",
       "children": [
         {
           "id": "sit-health",
@@ -86,6 +92,8 @@
     {
       "id": "faith",
       "label": "신앙을 키우고 싶어요",
+      "icon": "flame",
+      "sub": "기도, 예배, 말씀, 영적 성장",
       "children": [
         {
           "id": "faith-prayer",
@@ -112,6 +120,8 @@
     {
       "id": "wisdom",
       "label": "삶의 지혜가 필요해요",
+      "icon": "lamp",
+      "sub": "성품, 직장, 재정, 일상",
       "children": [
         {
           "id": "wis-love",
@@ -159,6 +169,8 @@
     {
       "id": "theology",
       "label": "더 깊이 알고 싶어요",
+      "icon": "cross",
+      "sub": "구원, 예수, 성령, 교리",
       "children": [
         {
           "id": "theo-salvation",

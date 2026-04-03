@@ -474,10 +474,10 @@ function renderCardDrilldown(c) {
             const count = hasTopics ? item.topics.length : (hasChildren ? hasChildren.length + '개 분류' : '');
             return `
               <button class="choice-btn" onclick="cardDrill(${idx})">
-                <div class="choice-icon">${icon('book')}</div>
+                <div class="choice-icon">${icon(item.icon || 'book')}</div>
                 <div>
                   <span>${item.label}</span>
-                  ${count ? `<div style="font-size:11px;color:var(--text-light);margin-top:2px;">${typeof count === 'number' ? count + '개 주제' : count}</div>` : ''}
+                  ${item.sub ? `<div style="font-size:11px;color:var(--text-light);margin-top:2px;">${item.sub}</div>` : (count ? `<div style="font-size:11px;color:var(--text-light);margin-top:2px;">${typeof count === 'number' ? count + '개 주제' : count}</div>` : '')}
                 </div>
               </button>
             `;
