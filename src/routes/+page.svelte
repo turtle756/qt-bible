@@ -1,151 +1,122 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	// Types
-	interface QtData {
-		passage: { ref: string; book_name: string; chapter: number; verse_start: number; verse_end: number };
-		title: string;
-		commentary: string;
-		keyword: string;
-		question: string;
-		prayer: string;
-		already_completed: boolean;
-	}
+	interface Verse { pk: number; verse: number; text: string; }
 
-	interface ProfileData {
-		streak: number;
-		best_streak: number;
-		total_days: number;
-		maturity: 'exploring' | 'growing' | 'close' | 'centered';
-	}
-
-	interface Card {
-		id: string;
-		question: string;
-		type: string;
-	}
-
-	interface Verse {
-		pk: number;
-		verse: number;
-		text: string;
-	}
-
-	// Bible book mapping for bolls.life
-	const bookMap: Record<string, number> = {
-		'창': 1, '출': 2, '레': 3, '민': 4, '신': 5, '수': 6, '삿': 7, '룻': 8,
-		'삼상': 9, '삼하': 10, '왕상': 11, '왕하': 12, '대상': 13, '대하': 14,
-		'스': 15, '느': 16, '에': 17, '욥': 18, '시': 19, '잠': 20, '전': 21,
-		'아': 22, '사': 23, '렘': 24, '애': 25, '겔': 26, '단': 27, '호': 28,
-		'욜': 29, '암': 30, '옵': 31, '욘': 32, '미': 33, '나': 34, '합': 35,
-		'습': 36, '학': 37, '슥': 38, '말': 39,
-		'마': 40, '막': 41, '눅': 42, '요': 43, '행': 44,
-		'롬': 45, '고전': 46, '고후': 47, '갈': 48, '엡': 49, '빌': 50,
-		'골': 51, '살전': 52, '살후': 53, '딤전': 54, '딤후': 55, '딛': 56,
-		'몬': 57, '히': 58, '약': 59, '벧전': 60, '벧후': 61,
-		'요일': 62, '요이': 63, '요삼': 64, '유': 65, '계': 66
+	// 성경 책 이름 → bolls.life bookId
+	const BOOK_MAP: Record<string, number> = {
+		'창세기':1,'출애굽기':2,'레위기':3,'민수기':4,'신명기':5,
+		'여호수아':6,'사사기':7,'룻기':8,'사무엘상':9,'사무엘하':10,
+		'열왕기상':11,'열왕기하':12,'역대상':13,'역대하':14,'에스라':15,
+		'느헤미야':16,'에스더':17,'욥기':18,'시편':19,'잠언':20,
+		'전도서':21,'아가':22,'이사야':23,'예레미야':24,'애가':25,
+		'에스겔':26,'다니엘':27,'호세아':28,'요엘':29,'아모스':30,
+		'오바댜':31,'요나':32,'미가':33,'나훔':34,'하박국':35,
+		'스바냐':36,'학개':37,'스가랴':38,'말라기':39,
+		'마태복음':40,'마가복음':41,'누가복음':42,'요한복음':43,'사도행전':44,
+		'로마서':45,'고린도전서':46,'고린도후서':47,'갈라디아서':48,'에베소서':49,
+		'빌립보서':50,'골로새서':51,'데살로니가전서':52,'데살로니가후서':53,
+		'디모데전서':54,'디모데후서':55,'디도서':56,'빌레몬서':57,'히브리서':58,
+		'야고보서':59,'베드로전서':60,'베드로후서':61,
+		'요한일서':62,'요한이서':63,'요한삼서':64,'유다서':65,'계시록':66,'요한계시록':66
 	};
 
-	let qt: QtData | null = $state(null);
-	let profile: ProfileData | null = $state(null);
-	let cards: Card[] = $state([]);
+	let qt: any = $state(null);
+	let profile: any = $state(null);
+	let cards: any[] = $state([]);
 	let verses: Verse[] = $state([]);
 	let loading = $state(true);
 	let noteText = $state('');
 	let showCelebration = $state(false);
-	let highlightedVerses = $state<Set<number>>(new Set());
+	let celebrationStreak = $state(0);
 	let cardResponses = $state<Record<string, string>>({});
 
-	function parsePassageRef(ref: string): { bookId: number; chapter: number; startVerse?: number; endVerse?: number } | null {
-		// e.g. "시 119:1-16" or "창 1:1-31" or "요 3"
-		const match = ref.match(/^(\S+)\s+(\d+)(?::(\d+)(?:-(\d+))?)?/);
-		if (!match) return null;
-		const abbr = match[1];
-		const bookId = bookMap[abbr];
+	function parseRef(ref: string) {
+		// "여호수아 1:1-9" or "시편 23:1-6"
+		const m = ref.match(/^(.+?)\s+(\d+):(\d+)-?(\d+)?$/);
+		if (!m) return null;
+		const bookId = BOOK_MAP[m[1]];
 		if (!bookId) return null;
-		return {
-			bookId,
-			chapter: parseInt(match[2]),
-			startVerse: match[3] ? parseInt(match[3]) : undefined,
-			endVerse: match[4] ? parseInt(match[4]) : undefined
-		};
+		return { bookId, chapter: +m[2], start: +m[3], end: m[4] ? +m[4] : +m[3] };
 	}
 
 	onMount(async () => {
-		// Auth check
-		const meRes = await fetch('/api/me');
-		const me = await meRes.json();
-		if (!me.loggedIn) {
-			window.location.href = '/login';
-			return;
-		}
+		const me = await fetch('/api/me').then(r => r.json());
+		if (!me.loggedIn) { window.location.href = '/login'; return; }
 
-		// Load data in parallel
 		const [qtRes, profileRes, cardsRes] = await Promise.all([
 			fetch('/api/v2/daily-qt'),
 			fetch('/api/v2/profile'),
 			fetch('/api/v2/daily-cards')
 		]);
 
+		if (!profileRes.ok) { window.location.href = '/onboarding'; return; }
+
 		qt = await qtRes.json();
 		profile = await profileRes.json();
-		cards = await cardsRes.json();
 
-		// Check onboarding
-		if (!profile?.maturity_level) {
-			window.location.href = '/onboarding';
-			return;
-		}
+		if (!profile?.maturity_level) { window.location.href = '/onboarding'; return; }
 
-		// Load Bible passage
-		if (qt?.passage_ref) {
-			const parsed = parsePassageRef(qt.passage?.ref);
-			if (parsed) {
+		try { cards = await cardsRes.json(); } catch { cards = []; }
+
+		// 본문 로드
+		const ref = qt?.passage?.ref;
+		if (ref) {
+			const p = parseRef(ref);
+			if (p) {
 				try {
-					const bibleRes = await fetch(
-						`https://bolls.life/get-chapter/KRV/${parsed.bookId}/${parsed.chapter}/`
-					);
-					let allVerses: Verse[] = await bibleRes.json();
-					if (parsed.startVerse && parsed.endVerse) {
-						allVerses = allVerses.filter(
-							(v) => v.verse >= parsed.startVerse! && v.verse <= parsed.endVerse!
-						);
-					}
-					verses = allVerses;
-				} catch {
-					verses = [];
-				}
+					const res = await fetch(`https://bolls.life/get-chapter/KRV/${p.bookId}/${p.chapter}/`);
+					const all: Verse[] = await res.json();
+					verses = all.filter(v => v.verse >= p.start && v.verse <= p.end);
+				} catch { verses = []; }
 			}
 		}
 
 		loading = false;
 	});
 
-	function toggleHighlight(verseNum: number) {
-		const next = new Set(highlightedVerses);
-		if (next.has(verseNum)) next.delete(verseNum);
-		else next.add(verseNum);
-		highlightedVerses = next;
-	}
-
 	async function saveNote() {
-		if (!noteText.trim()) return;
-		await fetch('/api/v2/qt-complete', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ note: noteText, card_responses: cardResponses })
-		});
+		if (!noteText.trim() && Object.values(cardResponses).every(v => !v?.trim())) return;
+
+		try {
+			const res = await fetch('/api/v2/qt-complete', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					passage_ref: qt?.passage?.ref || '',
+					topic_id: qt?.commentary?.source_topic || null,
+					time_spent: 0,
+					note_length: noteText.length,
+				})
+			});
+			if (res.ok) {
+				const data = await res.json();
+				celebrationStreak = data.streak_current || 1;
+			}
+		} catch {}
+
+		// 노트 저장
+		if (noteText.trim()) {
+			try {
+				const p = qt?.passage?.ref ? parseRef(qt.passage.ref) : null;
+				await fetch('/api/notes', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						bookId: p?.bookId || 1,
+						chapter: p?.chapter || 1,
+						date: new Date().toISOString().split('T')[0],
+						content: noteText,
+					})
+				});
+			} catch {}
+		}
+
 		showCelebration = true;
 	}
 
-	function getMaturityLabel(m: string) {
-		const labels: Record<string, string> = {
-			exploring: '탐색기',
-			growing: '성장기',
-			close: '친밀기',
-			centered: '중심기'
-		};
-		return labels[m] || m;
+	function maturityLabel(m: string) {
+		return { exploring: '입문', growing: '초급 · SOAP', close: '중급 · 귀납적', centered: '심화 · 렉시오 디비나' }[m] || m;
 	}
 </script>
 
@@ -154,238 +125,160 @@
 		<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
 	</div>
 {:else if qt}
-	<div class="space-y-6 pb-8">
-		<!-- Banner -->
+	<div class="space-y-6 pb-8 max-w-2xl mx-auto">
+
+		<!-- 배너 -->
 		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
 			<div class="flex items-center justify-between">
 				<div>
-					<p class="text-sm text-text-secondary">오늘의 말씀</p>
-					<h1 class="text-lg font-bold text-text mt-1">{qt.title || qt.passage?.ref}</h1>
+					<p class="text-xs text-text-secondary">오늘의 말씀</p>
+					<h1 class="text-lg font-bold text-text mt-1">{qt.passage?.ref || ''}</h1>
 				</div>
-				<div class="flex items-center gap-1.5 text-primary">
+				<div class="text-primary text-sm font-semibold">
 					{#if qt.already_completed}
-						<span class="text-xs font-medium bg-primary-bg px-3 py-1.5 rounded-full">오늘의 묵상 완료</span>
-					{:else if profile && profile.streak > 0}
-						<span class="text-lg">&#x1F525;</span>
-						<span class="text-sm font-bold">{profile.streak}일 연속</span>
+						<span class="bg-primary-bg px-3 py-1.5 rounded-full text-xs">오늘의 묵상 완료</span>
+					{:else if (profile?.streak_current || 0) > 0}
+						<span>🔥 {profile.streak_current}일 연속</span>
 					{/if}
 				</div>
 			</div>
 		</div>
 
-		<!-- Bible Passage Viewer -->
-		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
-			<h2 class="text-sm font-semibold text-text-secondary mb-3">{qt.passage?.ref}</h2>
-			<div class="space-y-1">
-				{#each verses as v}
-					<p
-						class="text-sm leading-7 cursor-pointer rounded-lg px-2 py-0.5 transition-colors {highlightedVerses.has(
-							v.verse
-						)
-							? 'bg-primary-bg'
-							: 'hover:bg-verse-hover'}"
-						onclick={() => toggleHighlight(v.verse)}
-					>
-						<span class="text-xs font-bold text-primary mr-1.5">{v.verse}</span>
-						<span class="text-text">{@html v.text}</span>
-					</p>
-				{/each}
+		<!-- 본문 -->
+		{#if verses.length > 0}
+			<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
+				<h2 class="text-xs font-semibold text-text-secondary mb-3">{qt.passage?.ref}</h2>
+				<div class="space-y-1">
+					{#each verses as v}
+						<p class="text-sm leading-7 rounded-lg px-2 py-0.5 hover:bg-verse-hover transition-colors">
+							<span class="text-xs font-bold text-primary mr-1.5">{v.verse}</span>
+							<span class="text-text">{@html v.text}</span>
+						</p>
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 
-		<!-- Meditation Guide -->
+		<!-- 묵상 가이드 -->
 		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
-			<h2 class="text-sm font-semibold text-text-secondary mb-3">
-				묵상 가이드 ({getMaturityLabel(profile?.maturity || 'exploring')})
+			<h2 class="text-sm font-semibold text-text-secondary mb-4">
+				묵상 가이드 · {maturityLabel(profile?.maturity_level || 'exploring')}
 			</h2>
 			<div class="space-y-4 text-sm text-text leading-relaxed">
-				{#if qt.commentary}
+				{#if qt.commentary?.content}
 					<div>
-						<h3 class="font-semibold text-primary mb-1">해설</h3>
-						<p>{qt.commentary}</p>
+						<h3 class="font-semibold text-primary text-xs mb-1">해설</h3>
+						<p>{qt.commentary.content}</p>
 					</div>
 				{/if}
-				{#if qt.keyword}
-					<div>
-						<h3 class="font-semibold text-primary mb-1">핵심 키워드</h3>
-						<p>{qt.keyword}</p>
+				{#if qt.keyword?.content}
+					<div class="bg-primary-bg/50 rounded-xl p-3 border-l-3 border-primary">
+						<h3 class="font-semibold text-primary text-xs mb-1">핵심 원어</h3>
+						<p>{qt.keyword.content}</p>
 					</div>
 				{/if}
-				{#if qt.question}
+				{#if qt.question?.content}
 					<div>
-						<h3 class="font-semibold text-primary mb-1">묵상 질문</h3>
-						<p>{qt.question}</p>
+						<h3 class="font-semibold text-primary text-xs mb-1">묵상 질문</h3>
+						<p>{qt.question.content}</p>
 					</div>
 				{/if}
-				{#if qt.prayer}
-					<div>
-						<h3 class="font-semibold text-primary mb-1">기도 안내</h3>
-						<p>{qt.prayer}</p>
+				{#if qt.prayer?.content}
+					<div class="bg-verse-hover rounded-xl p-3 italic">
+						<h3 class="font-semibold text-primary text-xs mb-1 not-italic">기도 안내</h3>
+						<p>{qt.prayer.content}</p>
 					</div>
 				{/if}
 			</div>
 		</div>
 
-		<!-- Question Cards -->
+		<!-- 질문 카드 -->
 		{#if cards.length > 0}
 			<div class="space-y-3">
 				<h2 class="text-sm font-semibold text-text-secondary">오늘의 질문</h2>
 				{#each cards as card}
-					<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
-						<p class="text-sm font-medium text-text mb-3">{card.question}</p>
+					<div class="bg-surface rounded-2xl border border-border p-4 shadow-sm">
+						<p class="text-sm font-medium text-text mb-3">{card.text || card.question || ''}</p>
 						<textarea
 							class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-							rows="2"
-							placeholder="나의 생각을 적어보세요..."
-							bind:value={cardResponses[card.id]}
+							rows="2" placeholder="나의 생각을 적어보세요..."
+							oninput={(e) => { cardResponses[card.id] = (e.target as HTMLTextAreaElement).value; }}
 						></textarea>
 					</div>
 				{/each}
 			</div>
 		{/if}
 
-		<!-- Meditation Note -->
+		<!-- 묵상 노트 -->
 		{#if !qt.already_completed}
 			<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
-				<h2 class="text-sm font-semibold text-text-secondary mb-3">
-					묵상 노트
-					{#if profile?.maturity === 'growing'}
-						<span class="text-xs text-text-secondary/70 font-normal ml-1">(SOAP)</span>
-					{:else if profile?.maturity === 'close'}
-						<span class="text-xs text-text-secondary/70 font-normal ml-1">(관찰-해석-적용)</span>
-					{:else if profile?.maturity === 'centered'}
-						<span class="text-xs text-text-secondary/70 font-normal ml-1">(렉시오 디비나)</span>
-					{/if}
-				</h2>
+				<h2 class="text-sm font-semibold text-text-secondary mb-3">묵상 노트</h2>
 
-				{#if profile?.maturity === 'growing'}
+				{#if profile?.maturity_level === 'growing'}
 					<div class="space-y-3">
-						<div>
-							<label class="text-xs font-medium text-text-secondary">S - Scripture (말씀)</label>
-							<textarea
-								class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-								rows="2"
-								placeholder="마음에 와 닿는 구절을 적어보세요..."
-								oninput={(e) => (noteText = `[S] ${(e.target as HTMLTextAreaElement).value}\n${noteText.replace(/^\[S\].*\n?/, '')}`)}
-							></textarea>
-						</div>
-						<div>
-							<label class="text-xs font-medium text-text-secondary">O - Observation (관찰)</label>
-							<textarea
-								class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-								rows="2"
-								placeholder="이 말씀은 무엇을 말하고 있나요?"
-							></textarea>
-						</div>
-						<div>
-							<label class="text-xs font-medium text-text-secondary">A - Application (적용)</label>
-							<textarea
-								class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-								rows="2"
-								placeholder="오늘 내 삶에 어떻게 적용할 수 있을까요?"
-							></textarea>
-						</div>
-						<div>
-							<label class="text-xs font-medium text-text-secondary">P - Prayer (기도)</label>
-							<textarea
-								class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-								rows="2"
-								placeholder="말씀을 통해 기도해보세요..."
-								oninput={(e) => {
-									// Combine all SOAP fields
-									const allTextareas = (e.target as HTMLTextAreaElement).closest('.space-y-3')?.querySelectorAll('textarea');
-									if (allTextareas) {
-										const parts = Array.from(allTextareas).map((ta, i) => {
-											const labels = ['S', 'O', 'A', 'P'];
-											return `[${labels[i]}] ${ta.value}`;
-										});
-										noteText = parts.filter((p) => p.length > 4).join('\n');
-									}
-								}}
-							></textarea>
-						</div>
+						{#each [['S · 말씀','마음에 와 닿는 구절을 적어보세요...'],['O · 관찰','이 말씀은 무엇을 말하고 있나요?'],['A · 적용','오늘 내 삶에 어떻게 적용할 수 있을까요?'],['P · 기도','말씀을 통해 기도해보세요...']] as [label, ph]}
+							<div>
+								<label class="text-xs font-medium text-text-secondary">{label}</label>
+								<textarea class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="2" placeholder={ph}
+									oninput={() => {
+										const all = document.querySelectorAll('#soapArea textarea');
+										noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');
+									}}
+								></textarea>
+							</div>
+						{/each}
 					</div>
-				{:else if profile?.maturity === 'close'}
-					<div class="space-y-3">
-						{#each ['관찰: 본문이 말하는 사실은?', '해석: 저자의 의도는?', '적용: 오늘 내 삶에?'] as placeholder, i}
-							<textarea
-								class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-								rows="3"
-								{placeholder}
-								oninput={(e) => {
-									const allTextareas = (e.target as HTMLTextAreaElement).closest('.space-y-3')?.querySelectorAll('textarea');
-									if (allTextareas) {
-										noteText = Array.from(allTextareas).map((ta) => ta.value).filter(Boolean).join('\n---\n');
-									}
+				{:else if profile?.maturity_level === 'close'}
+					<div class="space-y-3" id="soapArea">
+						{#each ['관찰: 본문이 말하는 사실은?','해석: 저자의 의도는?','적용: 오늘 내 삶에?'] as ph}
+							<textarea class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="3" placeholder={ph}
+								oninput={() => {
+									const all = document.querySelectorAll('#soapArea textarea');
+									noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');
 								}}
 							></textarea>
 						{/each}
 					</div>
-				{:else if profile?.maturity === 'centered'}
-					<div class="space-y-3">
-						{#each [
-							{ label: 'Lectio (읽기)', ph: '천천히 말씀을 읽으세요...' },
-							{ label: 'Meditatio (묵상)', ph: '마음에 와 닿는 단어나 구절에 머무르세요...' },
-							{ label: 'Oratio (기도)', ph: '말씀을 통해 하나님께 응답하세요...' },
-							{ label: 'Contemplatio (관상)', ph: '고요 속에 하나님의 임재를 느껴보세요...' }
-						] as step}
+				{:else if profile?.maturity_level === 'centered'}
+					<div class="space-y-3" id="soapArea">
+						{#each [['Lectio · 읽기','천천히 말씀을 읽으세요...'],['Meditatio · 묵상','마음에 와 닿는 단어에 머무르세요...'],['Oratio · 기도','말씀을 통해 하나님께 응답하세요...'],['Contemplatio · 관상','고요 속에 하나님의 임재를 느껴보세요...']] as [label, ph]}
 							<div>
-								<label class="text-xs font-medium text-text-secondary">{step.label}</label>
-								<textarea
-									class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-									rows="2"
-									placeholder={step.ph}
-									oninput={(e) => {
-										const allTextareas = (e.target as HTMLTextAreaElement).closest('.space-y-3')?.querySelectorAll('textarea');
-										if (allTextareas) {
-											noteText = Array.from(allTextareas).map((ta) => ta.value).filter(Boolean).join('\n---\n');
-										}
+								<label class="text-xs font-medium text-text-secondary">{label}</label>
+								<textarea class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="2" placeholder={ph}
+									oninput={() => {
+										const all = document.querySelectorAll('#soapArea textarea');
+										noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');
 									}}
 								></textarea>
 							</div>
 						{/each}
 					</div>
 				{:else}
-					<!-- exploring: free form -->
 					<textarea
 						class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-						rows="5"
-						placeholder="오늘의 말씀을 통해 느낀 점을 자유롭게 적어보세요..."
+						rows="5" placeholder="오늘의 말씀을 통해 느낀 점을 자유롭게 적어보세요..."
 						bind:value={noteText}
 					></textarea>
 				{/if}
 
-				<button
-					onclick={saveNote}
+				<button onclick={saveNote}
 					class="mt-4 w-full py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm"
-				>
-					묵상 완료
-				</button>
+				>묵상 완료</button>
 			</div>
 		{/if}
 	</div>
 
-	<!-- Celebration Popup -->
+	<!-- 축하 팝업 -->
 	{#if showCelebration}
-		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-			<div class="bg-surface rounded-2xl p-8 mx-4 max-w-sm w-full text-center shadow-lg">
+		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onclick={() => { showCelebration = false; window.location.reload(); }}>
+			<div class="bg-surface rounded-2xl p-8 mx-4 max-w-sm w-full text-center shadow-lg" onclick={(e) => e.stopPropagation()}>
 				<div class="text-5xl mb-4">&#x271D;</div>
-				<h2 class="text-xl font-bold text-text mb-2">오늘의 묵상을 완료했습니다!</h2>
-				<p class="text-sm text-text-secondary mb-1">하나님과 함께한 시간, 감사합니다.</p>
-				{#if profile}
-					<p class="text-sm font-semibold text-primary mb-6">
-						&#x1F525; {profile.streak + 1}일 연속 묵상 중
-					</p>
-				{/if}
-				<button
-					onclick={() => {
-						showCelebration = false;
-						window.location.reload();
-					}}
+				<h2 class="text-xl font-bold text-text mb-2">오늘의 묵상을 마쳤습니다</h2>
+				<p class="text-sm text-text-secondary mb-1">하나님과 함께한 시간이 쌓여갑니다.</p>
+				<p class="text-sm font-semibold text-primary mb-6">🔥 {celebrationStreak}일 연속 묵상</p>
+				<button onclick={() => { showCelebration = false; window.location.reload(); }}
 					class="w-full py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors"
-				>
-					아멘
-				</button>
+				>아멘</button>
 			</div>
 		</div>
 	{/if}
