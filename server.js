@@ -811,9 +811,15 @@ app.post('/api/onboarding', requireAuth, async (req, res) => {
 // Get onboarding profile
 app.get('/api/onboarding', requireAuth, async (req, res) => {
   try {
+    // V2 온보딩 우선 확인
+    const v2 = await pool.query(
+      'SELECT * FROM onboarding_v2 WHERE user_id = $1', [req.user.id]
+    );
+    if (v2.rows[0]) return res.json(v2.rows[0]);
+
+    // V1 폴백
     const result = await pool.query(
-      'SELECT * FROM onboarding_profiles WHERE user_id = $1',
-      [req.user.id]
+      'SELECT * FROM onboarding_profiles WHERE user_id = $1', [req.user.id]
     );
     res.json(result.rows[0] || null);
   } catch (err) {
