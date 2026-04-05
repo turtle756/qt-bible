@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DailyQT - 나만의 묵상 여정 시작하기</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #6C63FF;
+    --primary-light: #8B83FF;
+    --primary-bg: #F0EEFF;
+    --success: #4CAF50;
+    --text: #2D2D3A;
+    --text-light: #6B6B80;
+    --bg: #FAFAFE;
+    --card: #FFFFFF;
+    --border: #E8E8F0;
+    --shadow: 0 2px 12px rgba(108,99,255,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .progress-bar { position: fixed; top: 0; left: 0; right: 0; height: 4px; background: var(--border); z-index: 100; }
+  .progress-fill { height: 100%; background: var(--primary); transition: width 0.4s ease; }
+  .container { max-width: 520px; width: 100%; padding: 60px 24px 40px; min-height: 100vh; }
+  .step-counter { text-align: center; color: var(--text-light); font-size: 14px; margin-bottom: 8px; }
+  .card {
+    background: var(--card); border-radius: 20px; padding: 32px 24px;
+    box-shadow: var(--shadow); animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .card-title { font-size: 20px; font-weight: 700; line-height: 1.5; margin-bottom: 8px; }
+  .card-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 24px; }
+
+  /* Input */
+  .input-field {
+    width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 12px;
+    font-size: 16px; font-family: inherit; outline: none; transition: border-color 0.2s;
+  }
+  .input-field:focus { border-color: var(--primary); }
+
+  /* Choice buttons */
+  .choices { display: flex; flex-direction: column; gap: 10px; }
+  .choice-btn {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    border: 2px solid var(--border); border-radius: 14px; background: var(--card);
+    cursor: pointer; transition: all 0.2s; font-size: 15px; text-align: left;
+  }
+  .choice-btn:hover { border-color: var(--primary-light); background: var(--primary-bg); }
+  .choice-btn.selected { border-color: var(--primary); background: var(--primary-bg); font-weight: 600; }
+  .choice-sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+
+  /* Navigation */
+  .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+  .btn-back { background: none; border: none; color: var(--text-light); font-size: 15px; cursor: pointer; padding: 10px 16px; }
+  .btn-back:hover { color: var(--text); }
+  .btn-next {
+    padding: 14px 36px; background: var(--primary); color: white; border: none;
+    border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s; opacity: 0.4; pointer-events: none;
+  }
+  .btn-next.active { opacity: 1; pointer-events: auto; }
+  .btn-next:hover { background: var(--primary-light); }
+  .btn-skip {
+    padding: 14px 36px; background: none; color: var(--text-light); border: 2px solid var(--border);
+    border-radius: 12px; font-size: 15px; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-skip:hover { border-color: var(--primary-light); color: var(--text); }
+  .btn-full {
+    width: 100%; padding: 16px; background: var(--primary); color: white; border: none;
+    border-radius: 14px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-full:hover { background: var(--primary-light); }
+
+  /* Quiz */
+  .quiz-progress { font-size: 13px; color: var(--text-light); margin-bottom: 16px; }
+  .quiz-question { font-size: 17px; font-weight: 600; line-height: 1.6; margin-bottom: 20px; }
+  .scale-row { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
+  .scale-btn {
+    width: 52px; height: 52px; border-radius: 12px; border: 2px solid var(--border);
+    background: var(--card); font-size: 18px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+  }
+  .scale-btn:hover { border-color: var(--primary-light); background: var(--primary-bg); }
+  .scale-btn.selected { border-color: var(--primary); background: var(--primary); color: white; }
+  .scale-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-light); padding: 0 4px; }
+
+  /* Result */
+  .result-badge {
+    width: 100px; height: 100px; border-radius: 50%; background: var(--primary-bg);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 48px;
+  }
+  .result-title { text-align: center; font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+  .result-subtitle { text-align: center; font-size: 15px; color: var(--text-light); margin-bottom: 24px; }
+  .pathway-card {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: var(--primary-bg); border-radius: 14px; margin-bottom: 10px;
+  }
+  .pathway-score { font-size: 24px; font-weight: 700; color: var(--primary); min-width: 48px; text-align: center; }
+  .pathway-name { font-size: 15px; font-weight: 600; }
+  .pathway-motto { font-size: 13px; color: var(--text-light); }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="container" id="app"></div>
+
+<script>
+// ============================================================
+// State
+// ============================================================
+const state = {
+  step: 0, // 0:nickname, 1:maturity, 2:personal, 3:quiz-intro, 4:quiz, 5:result
+  nickname: '',
+  maturity: '',
+  personal: { age_group: null, marriage_status: null, has_children: null, job_status: null, attends_church: null },
+  quizAnswers: {}, // { questionId: score }
+  quizIndex: 0,
+  quizData: null,
+  temperamentResult: null,
+};
+
+const TOTAL_STEPS = 5;
+
+// ============================================================
+// Init
+// ============================================================
+async function init() {
+  const meRes = await fetch('/api/me').then(r => r.json());
+  if (!meRes.loggedIn) { window.location.href = '/login.html'; return; }
+
+  // 이미 온보딩 완료?
+  const obRes = await fetch('/api/v2/onboarding').then(r => r.json()).catch(() => ({ completed: false }));
+  if (obRes.completed && !new URLSearchParams(window.location.search).has('redo')) {
+    window.location.href = '/';
+    return;
+  }
+
+  // 기질검사 데이터 로드
+  state.quizData = await fetch('/data/temperament-quiz.json').then(r => r.json());
+  render();
+}
+
+// ============================================================
+// Render
+// ============================================================
+function render() {
+  const app = document.getElementById('app');
+  const progress = ((state.step + 1) / TOTAL_STEPS) * 100;
+  document.getElementById('progressFill').style.width = progress + '%';
+
+  switch (state.step) {
+    case 0: renderNickname(app); break;
+    case 1: renderMaturity(app); break;
+    case 2: renderPersonal(app); break;
+    case 3: renderQuizIntro(app); break;
+    case 4: renderQuiz(app); break;
+    case 5: renderResult(app); break;
+  }
+}
+
+// ============================================================
+// Step 0: 닉네임
+// ============================================================
+function renderNickname(app) {
+  app.innerHTML = `
+    <div class="step-counter">1 / ${TOTAL_STEPS}</div>
+    <div class="card">
+      <div class="card-title">반갑습니다!</div>
+      <div class="card-desc">DailyQT에서 사용할 이름을 알려주세요.</div>
+      <input class="input-field" id="nicknameInput" type="text" placeholder="닉네임" maxlength="20"
+             value="${state.nickname}" autofocus>
+      <div class="nav-row">
+        <div></div>
+        <button class="btn-next" id="btnNext" onclick="submitNickname()">다음</button>
+      </div>
+    </div>
+  `;
+  const input = document.getElementById('nicknameInput');
+  const btn = document.getElementById('btnNext');
+  input.addEventListener('input', () => {
+    state.nickname = input.value.trim();
+    btn.classList.toggle('active', state.nickname.length > 0);
+  });
+  if (state.nickname) btn.classList.add('active');
+}
+
+function submitNickname() {
+  if (!state.nickname) return;
+  state.step = 1;
+  render();
+}
+
+// ============================================================
+// Step 1: 성숙도
+// ============================================================
+function renderMaturity(app) {
+  const options = [
+    { value: 'exploring', label: '처음이에요', desc: '성경을 거의 읽어본 적 없어요' },
+    { value: 'growing', label: '가끔 읽어요', desc: '교회에 다니고 가끔 성경을 읽어요' },
+    { value: 'close', label: '꾸준히 묵상해요', desc: '매일 또는 자주 말씀을 묵상해요' },
+    { value: 'centered', label: '깊이 해왔어요', desc: '수년간 깊이 있는 묵상을 해왔어요' },
+  ];
+  app.innerHTML = `
+    <div class="step-counter">2 / ${TOTAL_STEPS}</div>
+    <div class="card">
+      <div class="card-title">${state.nickname}님,<br>성경이 얼마나 익숙하신가요?</div>
+      <div class="card-desc">맞춤 묵상을 위해 알려주세요.</div>
+      <div class="choices">
+        ${options.map(o => `
+          <div class="choice-btn ${state.maturity === o.value ? 'selected' : ''}" onclick="selectMaturity('${o.value}')">
+            <div><div>${o.label}</div><div class="choice-sub">${o.desc}</div></div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="state.step=0;render();">이전</button>
+        <button class="btn-next ${state.maturity ? 'active' : ''}" onclick="submitMaturity()">다음</button>
+      </div>
+    </div>
+  `;
+}
+
+function selectMaturity(val) {
+  state.maturity = val;
+  render();
+}
+
+function submitMaturity() {
+  if (!state.maturity) return;
+  state.step = 2;
+  render();
+}
+
+// ============================================================
+// Step 2: 개인정보 (선택)
+// ============================================================
+function renderPersonal(app) {
+  const p = state.personal;
+  app.innerHTML = `
+    <div class="step-counter">3 / ${TOTAL_STEPS}</div>
+    <div class="card">
+      <div class="card-title">조금 더 알려주시겠어요?</div>
+      <div class="card-desc">선택 사항이에요. 건너뛰셔도 괜찮습니다.<br>더 정확한 묵상 추천에 도움이 됩니다.</div>
+
+      <div style="margin-bottom:16px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:8px;">나이대</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${['10대','20대','30대','40대','50대','60대+'].map(a => `
+            <div class="choice-btn" style="padding:8px 14px;border-radius:10px;font-size:13px;flex:none;${p.age_group===a?'border-color:var(--primary);background:var(--primary-bg);font-weight:600;':''}"
+                 onclick="state.personal.age_group='${a}';render();">${a}</div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:8px;">결혼 여부</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${[['single','미혼'],['married','기혼'],['divorced','이혼/별거'],['bereaved','사별']].map(([v,l]) => `
+            <div class="choice-btn" style="padding:8px 14px;border-radius:10px;font-size:13px;flex:none;${p.marriage_status===v?'border-color:var(--primary);background:var(--primary-bg);font-weight:600;':''}"
+                 onclick="state.personal.marriage_status='${v}';render();">${l}</div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:8px;">자녀</div>
+        <div style="display:flex;gap:8px;">
+          ${[[true,'있음'],[false,'없음']].map(([v,l]) => `
+            <div class="choice-btn" style="padding:8px 14px;border-radius:10px;font-size:13px;flex:none;${p.has_children===v?'border-color:var(--primary);background:var(--primary-bg);font-weight:600;':''}"
+                 onclick="state.personal.has_children=${v};render();">${l}</div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:8px;">직업</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${[['student','학생'],['employed','직장인'],['self_employed','자영업'],['job_seeking','구직중'],['retired','은퇴'],['other','기타']].map(([v,l]) => `
+            <div class="choice-btn" style="padding:8px 14px;border-radius:10px;font-size:13px;flex:none;${p.job_status===v?'border-color:var(--primary);background:var(--primary-bg);font-weight:600;':''}"
+                 onclick="state.personal.job_status='${v}';render();">${l}</div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:8px;">교회 출석</div>
+        <div style="display:flex;gap:8px;">
+          ${[[true,'출석중'],[false,'안 하고 있음']].map(([v,l]) => `
+            <div class="choice-btn" style="padding:8px 14px;border-radius:10px;font-size:13px;flex:none;${p.attends_church===v?'border-color:var(--primary);background:var(--primary-bg);font-weight:600;':''}"
+                 onclick="state.personal.attends_church=${v};render();">${l}</div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="state.step=1;render();">이전</button>
+        <div style="display:flex;gap:8px;">
+          <button class="btn-skip" onclick="submitPersonal()">건너뛰기</button>
+          <button class="btn-next active" onclick="submitPersonal()">다음</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+async function submitPersonal() {
+  // 서버에 저장
+  try {
+    await fetch('/api/v2/onboarding', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nickname: state.nickname,
+        maturity_level: state.maturity,
+        ...state.personal
+      })
+    });
+  } catch (e) { console.error('onboarding save error:', e); }
+
+  state.step = 3;
+  render();
+}
+
+// ============================================================
+// Step 3: 기질검사 안내
+// ============================================================
+function renderQuizIntro(app) {
+  app.innerHTML = `
+    <div class="step-counter">4 / ${TOTAL_STEPS}</div>
+    <div class="card" style="text-align:center;">
+      <div class="result-badge">&#x1F9ED;</div>
+      <div class="card-title">나에게 맞는 묵상 스타일을<br>찾아볼까요?</div>
+      <div class="card-desc">
+        27개의 질문으로 약 3~5분 정도 걸려요.<br>
+        하나님을 가장 가깝게 느끼는 방식을 알아봅니다.
+      </div>
+      <button class="btn-full" onclick="startQuiz()" style="margin-bottom:12px;">검사 시작</button>
+      <button class="btn-skip" style="width:100%;" onclick="skipQuiz()">나중에 할게요</button>
+      <div class="nav-row" style="margin-top:16px;">
+        <button class="btn-back" onclick="state.step=2;render();">이전</button>
+        <div></div>
+      </div>
+    </div>
+  `;
+}
+
+function startQuiz() {
+  state.quizIndex = 0;
+  state.step = 4;
+  render();
+}
+
+async function skipQuiz() {
+  // 기본값으로 저장
+  state.temperamentResult = { skipped: true };
+  state.step = 5;
+  render();
+}
+
+// ============================================================
+// Step 4: 기질검사 27문항
+// ============================================================
+function renderQuiz(app) {
+  const q = state.quizData.questions[state.quizIndex];
+  const total = state.quizData.questions.length;
+  const answered = state.quizAnswers[q.id];
+
+  app.innerHTML = `
+    <div class="progress-bar" style="position:relative;height:3px;background:var(--border);border-radius:2px;margin-bottom:24px;">
+      <div style="height:100%;background:var(--primary);border-radius:2px;width:${((state.quizIndex+1)/total)*100}%;transition:width 0.3s;"></div>
+    </div>
+    <div class="card">
+      <div class="quiz-progress">${state.quizIndex + 1} / ${total}</div>
+      <div class="quiz-question">${q.text}</div>
+      <div class="scale-row">
+        ${[0,1,2,3,4].map(n => `
+          <button class="scale-btn ${answered === n ? 'selected' : ''}" onclick="answerQuiz(${q.id}, ${n})">${n}</button>
+        `).join('')}
+      </div>
+      <div class="scale-labels">
+        <span>전혀 아니다</span>
+        <span>매우 그렇다</span>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="${state.quizIndex > 0 ? 'state.quizIndex--;render();' : 'state.step=3;render();'}">이전</button>
+        ${state.quizIndex === total - 1
+          ? `<button class="btn-next ${answered !== undefined ? 'active' : ''}" onclick="submitQuiz()">완료</button>`
+          : `<button class="btn-next ${answered !== undefined ? 'active' : ''}" onclick="nextQuiz()">다음</button>`
+        }
+      </div>
+    </div>
+  `;
+}
+
+function answerQuiz(questionId, score) {
+  state.quizAnswers[questionId] = score;
+  render();
+}
+
+function nextQuiz() {
+  const q = state.quizData.questions[state.quizIndex];
+  if (state.quizAnswers[q.id] === undefined) return;
+  state.quizIndex++;
+  render();
+}
+
+async function submitQuiz() {
+  const answers = Object.entries(state.quizAnswers).map(([id, score]) => ({
+    question_id: parseInt(id),
+    score
+  }));
+
+  try {
+    const res = await fetch('/api/v2/onboarding/temperament', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ answers })
+    });
+    state.temperamentResult = await res.json();
+  } catch (e) {
+    console.error('temperament save error:', e);
+    state.temperamentResult = { skipped: true };
+  }
+
+  state.step = 5;
+  render();
+}
+
+// ============================================================
+// Step 5: 결과
+// ============================================================
+function renderResult(app) {
+  const skipped = state.temperamentResult?.skipped;
+  const pathways = state.temperamentResult?.top_pathways || [];
+
+  let pathwayHTML = '';
+  if (!skipped && pathways.length > 0) {
+    pathwayHTML = `
+      <div style="margin-bottom:24px;">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px;">나의 영적 기질</div>
+        ${pathways.map(p => `
+          <div class="pathway-card">
+            <div class="pathway-score">${p.score}</div>
+            <div>
+              <div class="pathway-name">${p.name}</div>
+              <div class="pathway-motto">${p.motto}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  app.innerHTML = `
+    <div class="card" style="text-align:center;">
+      <div class="result-badge">&#x2728;</div>
+      <div class="result-title">${state.nickname}님,<br>준비가 완료되었습니다!</div>
+      <div class="result-subtitle">
+        ${skipped
+          ? '묵상을 진행하면서 점점 더 맞춤화된 경험을 드릴게요.'
+          : '나의 기질에 맞는 묵상이 매일 준비됩니다.'
+        }
+      </div>
+      ${pathwayHTML}
+      <button class="btn-full" onclick="window.location.href='/'">묵상 시작하기</button>
+    </div>
+  `;
+}
+
+// ============================================================
+// Start
+// ============================================================
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "나의 영적 기질 알아보기",
+    "subtitle": "나에게 맞는 묵상 스타일을 찾아볼까요?",
+    "description": "27개의 질문으로 약 3~5분 정도 걸려요",
+    "total_questions": 27,
+    "estimated_minutes": "3~5",
+    "skip_allowed": true,
+    "skip_default_profile": {
+      "T01": 50, "T02": 50, "T03": 50, "T04": 50,
+      "T05": 50, "T06": 50, "T07": 50, "T08": 50, "T09": 50
+    },
+    "scoring": {
+      "scale": [0, 1, 2, 3, 4],
+      "labels": ["전혀 아니다", "거의 아니다", "가끔 그렇다", "자주 그렇다", "매우 그렇다"],
+      "max_per_pathway": 12,
+      "normalization": "각 기질 합산(0~12) → 0~100으로 정규화"
+    },
+    "source": "Gary Thomas 'Sacred Pathways' (Gateway Alliance Church 수정판 기반)"
+  },
+  "questions": [
+    {
+      "id": 1, "pathway": "T01",
+      "text": "산, 숲, 바다 같은 자연 속에 있을 때 하나님을 가장 가깝게 느낀다.",
+      "text_en": "I feel closest to God when I'm surrounded by what He has made - mountains, forests, oceans."
+    },
+    {
+      "id": 2, "pathway": "T02",
+      "text": "아름다운 음악이나 웅장한 예배 공간 없이는 예배에 집중하기 어렵다.",
+      "text_en": "I'd have a difficult time worshiping God in a church building that is plain and lacks a sense of awe or majesty."
+    },
+    {
+      "id": 3, "pathway": "T03",
+      "text": "전통적인 예배 순서나 교회력을 가정에서 함께 따르는 것을 좋아한다.",
+      "text_en": "Participating in a formal liturgy and following a Christian calendar as a family are activities I would enjoy."
+    },
+    {
+      "id": 4, "pathway": "T09",
+      "text": "성경을 깊이 공부하거나 좋은 신앙 서적을 읽을 때 하나님을 가깝게 느낀다.",
+      "text_en": "I feel close to God when I participate in an uninterrupted time of study - reading God's Word, listening to good teaching."
+    },
+    {
+      "id": 5, "pathway": "T04",
+      "text": "혼자서 기도하고 금식하며 말씀을 묵상하는 수련회를 즐길 것 같다.",
+      "text_en": "Taking an overnight retreat by myself where I could spend large amounts of time alone praying and fasting."
+    },
+    {
+      "id": 6, "pathway": "T08",
+      "text": "매일 30분씩 조용히 기도하며 하나님의 임재를 누리는 시간이 있으면 좋겠다.",
+      "text_en": "I would really enjoy having 30 minutes of uninterrupted time each day to sit in quiet prayer and enjoy His presence."
+    },
+    {
+      "id": 7, "pathway": "T06",
+      "text": "아픈 사람을 돌보거나, 어려운 이웃을 돕거나, 집 수리를 도와주고 싶다.",
+      "text_en": "I would love to nurse someone to health, sit with someone in need, or help repair someone's house."
+    },
+    {
+      "id": 8, "pathway": "T05",
+      "text": "혼자 기도하는 것보다 사회의 불의에 맞서 행동하는 것이 더 끌린다.",
+      "text_en": "I would rather stand in the rain to confront an evil in society than sit in a room by myself to pray."
+    },
+    {
+      "id": 9, "pathway": "T07",
+      "text": "하나님은 신나는 분이시다! 예배에서 장례식처럼 행동하는 사람들을 이해하기 어렵다.",
+      "text_en": "I believe God is exciting, and we should be excited about worshiping Him!"
+    },
+    {
+      "id": 10, "pathway": "T01",
+      "text": "교회 예배보다 작은 시냇가에서 한 시간을 보내며 하나님을 예배하고 싶다.",
+      "text_en": "I would rather worship God by spending an hour beside a small brook than by participating in a church service."
+    },
+    {
+      "id": 11, "pathway": "T02",
+      "text": "숲 산책이나 책 읽기보다 미술관이나 음악회에 자연스럽게 끌린다.",
+      "text_en": "I'm naturally drawn to museums and concerts that stimulate my senses."
+    },
+    {
+      "id": 12, "pathway": "T03",
+      "text": "'전통'과 '역사'라는 단어에 마음이 끌린다.",
+      "text_en": "The words 'tradition' and 'history' are very appealing to me."
+    },
+    {
+      "id": 13, "pathway": "T09",
+      "text": "하나님에 대해 몰랐던 것을 새로 알게 될 때 가장 가깝게 느낀다. 내가 무엇을 믿는지 정확히 아는 것이 중요하다.",
+      "text_en": "I feel closest to God when I learn something new about Him. It's very important that I know exactly what I believe."
+    },
+    {
+      "id": 14, "pathway": "T04",
+      "text": "침묵과 기도에 관한 책을 읽는 것을 즐길 것 같다.",
+      "text_en": "I would enjoy reading a book about Silence and Prayer."
+    },
+    {
+      "id": 15, "pathway": "T08",
+      "text": "내 안에서 하나님의 임재를 느끼지 못할 때가 가장 힘들다.",
+      "text_en": "The most difficult times for me are when I can't feel God's presence within me."
+    },
+    {
+      "id": 16, "pathway": "T06",
+      "text": "가난한 이, 아픈 이, 갇힌 이를 도울 때 하나님을 가장 가깝게 느낀다.",
+      "text_en": "I feel closest to God when I am helping the needy, the poor, the sick and the imprisoned."
+    },
+    {
+      "id": 17, "pathway": "T05",
+      "text": "다른 사람을 돕는 데 무관심한 크리스천을 보면 답답하다.",
+      "text_en": "I get very frustrated if I see apathetic Christians who don't become active in helping others."
+    },
+    {
+      "id": 18, "pathway": "T07",
+      "text": "가슴이 벅차올라 터질 것 같을 때 하나님을 가장 가깝게 느낀다. 하나님의 사랑을 찬양하는 것이 가장 좋은 예배이다.",
+      "text_en": "I feel closest to God when my heart is sent soaring. Celebrating God and His love is my favorite form of worship."
+    },
+    {
+      "id": 19, "pathway": "T01",
+      "text": "추운 날 정원에서 기도하거나, 따뜻한 날 초원을 걷거나, 산으로 여행을 떠날 수 있다면 매우 행복할 것이다.",
+      "text_en": "If I could escape to a garden to pray, walk through a meadow, or take a trip to the mountains, I would be very happy."
+    },
+    {
+      "id": 20, "pathway": "T02",
+      "text": "그림 그리기, 춤추기, 악기 연주, 또는 음악을 틀어놓는 것이 기도 생활에 도움이 된다고 생각한다.",
+      "text_en": "I think spending time drawing, dancing, playing music, or having music playing improves my prayer life."
+    },
+    {
+      "id": 21, "pathway": "T03",
+      "text": "어린 시절부터 익숙한 예배 형식에 참여할 때 하나님을 가장 가깝게 느낀다.",
+      "text_en": "I feel closest to God when I'm participating in a familiar form of worship that has memories dating back to my childhood."
+    },
+    {
+      "id": 22, "pathway": "T09",
+      "text": "교회가 감정과 영적 체험에 너무 치우치면 답답하다. 올바른 교리가 더 중요하다.",
+      "text_en": "I get frustrated when the church focuses too much on feelings. I think proper doctrine is more important."
+    },
+    {
+      "id": 23, "pathway": "T04",
+      "text": "혼자이고 아무 방해도 없이 하나님의 임재에 집중할 때 가장 가깝게 느낀다.",
+      "text_en": "I feel closest to God when I am alone and there is nothing to distract me from focusing on His presence."
+    },
+    {
+      "id": 24, "pathway": "T08",
+      "text": "감정이 깨어나고, 하나님이 조용히 마음을 만져주시며 가장 가까운 친구처럼 느껴질 때 가장 가깝게 느낀다.",
+      "text_en": "I feel closest to God when my emotions are awakened, when God quietly touches my heart and makes me feel like His closest friend."
+    },
+    {
+      "id": 25, "pathway": "T06",
+      "text": "실직한 친구를 상담하거나, 어려운 가정에 식사를 준비하거나, 고아원에서 봉사할 때 하나님의 능력을 느낀다.",
+      "text_en": "I sense God's power when counselling a friend who lost a job, preparing meals for a family in need, or volunteering at an orphanage."
+    },
+    {
+      "id": 26, "pathway": "T05",
+      "text": "하나님의 정의를 위해 편지를 쓰거나, 불의에 항의하거나, 시사 문제를 파악할 때 가장 가깝게 느낀다.",
+      "text_en": "I feel closest to God when standing up for His justice: writing letters, protesting injustice, or becoming informed about current issues."
+    },
+    {
+      "id": 27, "pathway": "T07",
+      "text": "춤으로 예배하는 워크숍이나 현대 음악이 있는 예배에 참석하고 싶다.",
+      "text_en": "I would enjoy attending a workshop on learning to worship through dance, or a worship service with modern music."
+    }
+  ],
+  "pathway_map": {
+    "T01": {"name": "자연주의자", "name_en": "Naturalist", "motto": "자연 속에서 하나님을 만나요", "questions": [1, 10, 19]},
+    "T02": {"name": "감각주의자", "name_en": "Sensate", "motto": "아름다움으로 하나님을 예배해요", "questions": [2, 11, 20]},
+    "T03": {"name": "전통주의자", "name_en": "Traditionalist", "motto": "의식과 전통으로 하나님을 섬겨요", "questions": [3, 12, 21]},
+    "T04": {"name": "금욕주의자", "name_en": "Ascetic", "motto": "고독과 침묵 속에서 하나님을 찾아요", "questions": [5, 14, 23]},
+    "T05": {"name": "행동주의자", "name_en": "Activist", "motto": "정의와 행동으로 하나님을 섬겨요", "questions": [8, 17, 26]},
+    "T06": {"name": "돌봄주의자", "name_en": "Caregiver", "motto": "섬김과 돌봄으로 하나님을 만나요", "questions": [7, 16, 25]},
+    "T07": {"name": "열정주의자", "name_en": "Enthusiast", "motto": "찬양과 기쁨으로 하나님을 예배해요", "questions": [9, 18, 27]},
+    "T08": {"name": "관상주의자", "name_en": "Contemplative", "motto": "내면의 기도로 하나님을 만나요", "questions": [6, 15, 24]},
+    "T09": {"name": "지성주의자", "name_en": "Intellectual", "motto": "진리 탐구로 하나님을 알아가요", "questions": [4, 13, 22]}
+  }
+}

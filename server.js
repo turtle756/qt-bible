@@ -3,6 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { Pool } = require('pg');
 const path = require('path');
 
@@ -11,6 +13,41 @@ const PORT = process.env.PORT || 3000;
 
 // Railway runs behind a reverse proxy
 app.set('trust proxy', 1);
+
+// ============================================================
+// Security
+// ============================================================
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "accounts.google.com"],
+      styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
+      fontSrc: ["'self'", "fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:", "*.googleusercontent.com"],
+      connectSrc: ["'self'", "bolls.life"],
+      frameSrc: ["accounts.google.com"],
+    },
+  },
+}));
+
+// API rate limiting
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,  // 15분
+  max: 200,                   // IP당 200 요청
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, please try again later.' },
+});
+app.use('/api/', apiLimiter);
+
+// Auth rate limiting (더 엄격)
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: { error: 'Too many auth attempts, please try again later.' },
+});
+app.use('/auth/', authLimiter);
 
 // ============================================================
 // PostgreSQL
@@ -142,6 +179,22 @@ async function initDB() {
       completed_at TIMESTAMP DEFAULT NOW()
     );
   `);
+  // V2 Onboarding profiles
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS onboarding_v2 (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE UNIQUE,
+      nickname VARCHAR(50) NOT NULL,
+      maturity_level VARCHAR(20) NOT NULL DEFAULT 'exploring',
+      age_group VARCHAR(10),
+      marriage_status VARCHAR(20),
+      has_children BOOLEAN,
+      job_status VARCHAR(20),
+      attends_church BOOLEAN,
+      temperament_completed BOOLEAN DEFAULT FALSE,
+      completed_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
   // Custom QT plans
   await pool.query(`
     CREATE TABLE IF NOT EXISTS custom_plans (
@@ -188,14 +241,99 @@ async function initDB() {
       UNIQUE(post_id, user_id)
     );
   `);
-  console.log('DB tables ready');
+  // ========== V2: 개인화 스코어링 테이블 ==========
+  // 사용자 영적 프로필 (63개 소프트 태그 JSONB)
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS user_spiritual_profile (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE UNIQUE,
+      maturity_level VARCHAR(20) NOT NULL DEFAULT 'exploring',
+      temperament JSONB NOT NULL DEFAULT '{}',
+      emotion JSONB NOT NULL DEFAULT '{}',
+      pressure JSONB NOT NULL DEFAULT '{}',
+      theme_interest JSONB NOT NULL DEFAULT '{}',
+      mood_pref JSONB NOT NULL DEFAULT '{}',
+      has_crisis BOOLEAN DEFAULT FALSE,
+      total_qt_days INTEGER DEFAULT 0,
+      streak_current INTEGER DEFAULT 0,
+      streak_best INTEGER DEFAULT 0,
+      last_qt_date DATE,
+      updated_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
+  // QT 히스토리 (매일 조립된 QT 구성 + 사용자 반응)
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS qt_history (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      qt_date DATE NOT NULL,
+      passage_ref VARCHAR(100),
+      topic_id INTEGER,
+      commentary_day INTEGER,
+      maturity_used VARCHAR(20),
+      time_spent_seconds INTEGER,
+      note_written BOOLEAN DEFAULT FALSE,
+      note_length INTEGER DEFAULT 0,
+      completed BOOLEAN DEFAULT FALSE,
+      mood_checkin JSONB,
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(user_id, qt_date)
+    );
+  `);
+  // 최근 노출 추적 (반복 방지 하드 필터)
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS recently_shown (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      block_type VARCHAR(20) NOT NULL,
+      passage_ref VARCHAR(100) NOT NULL,
+      topic_id INTEGER,
+      shown_date DATE NOT NULL
+    );
+  `);
+  await pool.query(`
+    CREATE INDEX IF NOT EXISTS idx_recently_shown_user_date
+    ON recently_shown(user_id, shown_date);
+  `);
+  // 성경 페리코페 메타 (본문 태깅)
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS bible_passages (
+      id SERIAL PRIMARY KEY,
+      passage_ref VARCHAR(100) NOT NULL UNIQUE,
+      book_name VARCHAR(20) NOT NULL,
+      book_id INTEGER NOT NULL,
+      chapter INTEGER NOT NULL,
+      verse_start INTEGER NOT NULL,
+      verse_end INTEGER,
+      testament VARCHAR(2) NOT NULL,
+      genre VARCHAR(10) NOT NULL,
+      soft_tags JSONB NOT NULL DEFAULT '{}',
+      source_topics INTEGER[]
+    );
+  `);
+  // 질문 카드 노출 히스토리
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS card_shown_history (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      card_id VARCHAR(20) NOT NULL,
+      shown_date DATE NOT NULL,
+      selected BOOLEAN DEFAULT FALSE,
+      UNIQUE(user_id, card_id, shown_date)
+    );
+  `);
+  await pool.query(`
+    CREATE INDEX IF NOT EXISTS idx_card_shown_user_date
+    ON card_shown_history(user_id, shown_date);
+  `);
+  console.log('DB tables ready (V1 + V2)');
 }
 
 // ============================================================
 // Session
 // ============================================================
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'qt-bible-secret-change-me',
+  secret: process.env.SESSION_SECRET || (() => { console.warn('WARNING: Using default session secret. Set SESSION_SECRET env var!'); return 'qt-bible-secret-change-me'; })(),
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -245,7 +383,7 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
 // ============================================================
 // Middleware
 // ============================================================
-app.use(express.json());
+app.use(express.json({ limit: '100kb' }));
 
 // Static files (login page accessible without auth)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -874,10 +1012,528 @@ app.delete('/api/feed/:postId', requireAuth, async (req, res) => {
 });
 
 // ============================================================
+// V2: 교회력 API
+app.get('/api/v2/liturgical/today', (req, res) => {
+  const today = new Date();
+  const season = liturgical.getLiturgicalSeason(today);
+  res.json({ date: today.toISOString().split('T')[0], ...season });
+});
+
+// V2: 온보딩 API
+// Step 1~3: 개인정보 저장
+app.post('/api/v2/onboarding', requireAuth, async (req, res) => {
+  const { nickname, maturity_level, age_group, marriage_status, has_children, job_status, attends_church } = req.body;
+  if (!nickname || !maturity_level) {
+    return res.status(400).json({ error: 'nickname and maturity_level are required' });
+  }
+  try {
+    // 온보딩 프로필 저장
+    await pool.query(
+      `INSERT INTO onboarding_v2 (user_id, nickname, maturity_level, age_group, marriage_status, has_children, job_status, attends_church)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+       ON CONFLICT (user_id) DO UPDATE SET
+         nickname = $2, maturity_level = $3, age_group = $4, marriage_status = $5,
+         has_children = $6, job_status = $7, attends_church = $8, completed_at = NOW()`,
+      [req.user.id, nickname, maturity_level, age_group || null, marriage_status || null,
+       has_children ?? null, job_status || null, attends_church ?? null]
+    );
+
+    // user_spiritual_profile도 동시에 생성/업데이트
+    const situationTags = {};
+    if (marriage_status === 'married') situationTags.S01 = true;
+    if (marriage_status === 'single') situationTags.S02 = true;
+    if (marriage_status === 'dating') situationTags.S03 = true;
+    if (marriage_status === 'divorced') situationTags.S04 = true;
+    if (has_children) situationTags.S05 = true;
+    if (job_status === 'employed') situationTags.S09 = true;
+    if (job_status === 'student') situationTags.S10 = true;
+    if (job_status === 'job_seeking') situationTags.S12 = true;
+    if (job_status === 'retired') situationTags.S14 = true;
+    if (job_status === 'self_employed') situationTags.S16 = true;
+
+    await pool.query(
+      `INSERT INTO user_spiritual_profile (user_id, maturity_level)
+       VALUES ($1, $2)
+       ON CONFLICT (user_id) DO UPDATE SET maturity_level = $2, updated_at = NOW()`,
+      [req.user.id, maturity_level]
+    );
+
+    res.json({ success: true, situation_tags: situationTags });
+  } catch (err) {
+    console.error('onboarding error:', err);
+    res.status(500).json({ error: 'Failed to save onboarding' });
+  }
+});
+
+// Step 4: 기질 검사 결과 저장
+app.post('/api/v2/onboarding/temperament', requireAuth, async (req, res) => {
+  const { answers } = req.body; // [{question_id: 1, score: 3}, ...]
+  if (!answers || !Array.isArray(answers)) {
+    return res.status(400).json({ error: 'answers array required' });
+  }
+  try {
+    const quizData = require('./public/data/temperament-quiz.json');
+
+    // 기질별 합산
+    const rawScores = {};
+    for (const ans of answers) {
+      const question = quizData.questions.find(q => q.id === ans.question_id);
+      if (!question) continue;
+      const pathway = question.pathway;
+      rawScores[pathway] = (rawScores[pathway] || 0) + (ans.score || 0);
+    }
+
+    // 0~12 → 0~100 정규화
+    const temperament = {};
+    for (const key of ['T01','T02','T03','T04','T05','T06','T07','T08','T09']) {
+      temperament[key] = Math.round(((rawScores[key] || 0) / 12) * 100);
+    }
+
+    const mood_pref = scoring.temperamentToMoodPref(temperament);
+
+    await pool.query(
+      `UPDATE user_spiritual_profile
+       SET temperament = $1, mood_pref = $2, updated_at = NOW()
+       WHERE user_id = $3`,
+      [JSON.stringify(temperament), JSON.stringify(mood_pref), req.user.id]
+    );
+
+    await pool.query(
+      `UPDATE onboarding_v2 SET temperament_completed = TRUE WHERE user_id = $1`,
+      [req.user.id]
+    );
+
+    // 결과 반환 (상위 2개 기질)
+    const sorted = Object.entries(temperament).sort((a,b) => b[1] - a[1]);
+    const top2 = sorted.slice(0, 2).map(([key, val]) => ({
+      tag: key,
+      ...quizData.pathway_map[key],
+      score: val
+    }));
+
+    res.json({ success: true, temperament, top_pathways: top2 });
+  } catch (err) {
+    console.error('temperament error:', err);
+    res.status(500).json({ error: 'Failed to save temperament' });
+  }
+});
+
+// 온보딩 상태 조회
+app.get('/api/v2/onboarding', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM onboarding_v2 WHERE user_id = $1', [req.user.id]
+    );
+    if (result.rows.length === 0) {
+      return res.json({ completed: false });
+    }
+    res.json({ completed: true, ...result.rows[0] });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get onboarding status' });
+  }
+});
+
+// V2: 개인화 스코어링 API
+// ============================================================
+const scoring = require('./lib/scoring');
+const liturgical = require('./lib/liturgical');
+
+// 사용자 영적 프로필 조회/생성
+app.get('/api/v2/profile', requireAuth, async (req, res) => {
+  try {
+    let result = await pool.query(
+      'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+    );
+    if (result.rows.length === 0) {
+      // 프로필 없으면 기본값으로 생성
+      result = await pool.query(
+        `INSERT INTO user_spiritual_profile (user_id) VALUES ($1) RETURNING *`,
+        [req.user.id]
+      );
+    }
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get profile' });
+  }
+});
+
+// 프로필 업데이트 (온보딩/기질검사 완료 시)
+app.post('/api/v2/profile', requireAuth, async (req, res) => {
+  const { maturity_level, temperament, pressure } = req.body;
+  try {
+    const mood_pref = temperament ? scoring.temperamentToMoodPref(temperament) : {};
+    const result = await pool.query(
+      `INSERT INTO user_spiritual_profile (user_id, maturity_level, temperament, mood_pref, pressure, updated_at)
+       VALUES ($1, $2, $3, $4, $5, NOW())
+       ON CONFLICT (user_id) DO UPDATE SET
+         maturity_level = COALESCE($2, user_spiritual_profile.maturity_level),
+         temperament = CASE WHEN $3::jsonb = '{}'::jsonb THEN user_spiritual_profile.temperament ELSE $3 END,
+         mood_pref = CASE WHEN $4::jsonb = '{}'::jsonb THEN user_spiritual_profile.mood_pref ELSE $4 END,
+         pressure = CASE WHEN $5::jsonb = '{}'::jsonb THEN user_spiritual_profile.pressure ELSE $5 END,
+         updated_at = NOW()
+       RETURNING *`,
+      [req.user.id, maturity_level || 'exploring',
+       JSON.stringify(temperament || {}), JSON.stringify(mood_pref),
+       JSON.stringify(pressure || {})]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update profile' });
+  }
+});
+
+// 감정 체크인
+app.post('/api/v2/mood-checkin', requireAuth, async (req, res) => {
+  const { tags } = req.body; // {"E01": 90, "E07": 60}
+  if (!tags || typeof tags !== 'object') {
+    return res.status(400).json({ error: 'tags object required' });
+  }
+  try {
+    const profile = await pool.query(
+      'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+    );
+    if (profile.rows.length === 0) {
+      return res.status(404).json({ error: 'Profile not found. Complete onboarding first.' });
+    }
+    const current = profile.rows[0];
+    const newEmotion = scoring.processMoodCheckin(current.emotion || {}, tags);
+    await pool.query(
+      'UPDATE user_spiritual_profile SET emotion = $1, updated_at = NOW() WHERE user_id = $2',
+      [JSON.stringify(newEmotion), req.user.id]
+    );
+    res.json({ emotion: newEmotion });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to process mood checkin' });
+  }
+});
+
+// 오늘의 QT 조립 (핵심 API) — 독립 풀 기반 모듈형 조립
+// 풀 로드 (서버 시작 시 1회, 메모리에 캐시)
+const _pools = {};
+function getPools() {
+  if (_pools.loaded) return _pools;
+  const fs = require('fs');
+  const poolDir = path.join(__dirname, 'public', 'data', 'pools');
+  _pools.commentary = JSON.parse(fs.readFileSync(path.join(poolDir, 'commentary-pool.json'), 'utf8'));
+  _pools.question = JSON.parse(fs.readFileSync(path.join(poolDir, 'question-pool.json'), 'utf8'));
+  _pools.prayer = JSON.parse(fs.readFileSync(path.join(poolDir, 'prayer-pool.json'), 'utf8'));
+  _pools.keyword = JSON.parse(fs.readFileSync(path.join(poolDir, 'keyword-pool.json'), 'utf8'));
+  // 본문 목록 (passage-seed)
+  _pools.passages = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'data', 'bible-passages-seed.json'), 'utf8'));
+  _pools.loaded = true;
+  console.log(`Pools loaded: ${_pools.commentary.length} commentary, ${_pools.question.length} questions, ${_pools.prayer.length} prayers, ${_pools.keyword.length} keywords, ${_pools.passages.length} passages`);
+  return _pools;
+}
+
+app.get('/api/v2/daily-qt', requireAuth, async (req, res) => {
+  try {
+    // 1. 프로필 로드 + 시간 감쇠
+    let profileResult = await pool.query(
+      'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+    );
+    if (profileResult.rows.length === 0) {
+      await pool.query('INSERT INTO user_spiritual_profile (user_id) VALUES ($1)', [req.user.id]);
+      profileResult = await pool.query(
+        'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+      );
+    }
+    const profile = profileResult.rows[0];
+    const maturity = profile.maturity_level || 'exploring';
+
+    const daysSince = profile.updated_at
+      ? Math.floor((Date.now() - new Date(profile.updated_at).getTime()) / 86400000) : 0;
+    if (daysSince >= 1) {
+      profile.emotion = scoring.applyDecay(profile.emotion || {}, 0.7, daysSince);
+      profile.pressure = scoring.applyDecay(profile.pressure || {}, 0.85, daysSince);
+      profile.theme_interest = scoring.applyDecay(profile.theme_interest || {}, 0.95, daysSince);
+      await pool.query(
+        `UPDATE user_spiritual_profile SET emotion = $1, pressure = $2, theme_interest = $3, updated_at = NOW() WHERE user_id = $4`,
+        [JSON.stringify(profile.emotion), JSON.stringify(profile.pressure),
+         JSON.stringify(profile.theme_interest), req.user.id]
+      );
+    }
+
+    // 2. 최근 노출 제외
+    const recentResult = await pool.query(
+      `SELECT passage_ref, block_type FROM recently_shown
+       WHERE user_id = $1 AND shown_date > CURRENT_DATE - INTERVAL '7 days'`,
+      [req.user.id]
+    );
+    const recentPassages = new Set(recentResult.rows.filter(r => r.block_type === 'passage').map(r => r.passage_ref));
+
+    // 3. 풀 로드
+    const pools = getPools();
+
+    // 4. 본문 선택 (사용자 프로필 스코어링)
+    const passageCandidates = pools.passages
+      .filter(p => !recentPassages.has(p.passage_ref))
+      .map(p => ({ ...p, score: scoring.scoreBlock(profile, p.soft_tags) }));
+
+    const selectedPassage = scoring.selectFromCandidates(passageCandidates);
+    if (!selectedPassage) {
+      return res.status(404).json({ error: 'No suitable passage found' });
+    }
+
+    // 선택된 본문의 주요 TH 태그 추출 (주제 일관성 필터)
+    const passageTH = Object.entries(selectedPassage.soft_tags || {})
+      .filter(([k, v]) => k.startsWith('TH') && v >= 30)
+      .map(([k]) => k);
+
+    // 5. 해설 선택 — 본문 passage 일치 + 성숙도 필터 + 스코어링
+    function selectSlot(poolItems, passageRef, passageTHKeys) {
+      // 1순위: 같은 passage + 성숙도 허용
+      let candidates = poolItems.filter(item =>
+        item.passage_ref === passageRef &&
+        (!item.allowed_maturity || item.allowed_maturity.includes(maturity))
+      );
+
+      // 2순위: 같은 passage (성숙도 무관)
+      if (candidates.length === 0) {
+        candidates = poolItems.filter(item => item.passage_ref === passageRef);
+      }
+
+      // 3순위: TH 태그 1개 이상 겹치는 것 + 성숙도 허용
+      if (candidates.length === 0 && passageTHKeys.length > 0) {
+        candidates = poolItems.filter(item => {
+          if (item.allowed_maturity && !item.allowed_maturity.includes(maturity)) return false;
+          const itemTH = Object.entries(item.soft_tags || {})
+            .filter(([k, v]) => k.startsWith('TH') && v >= 30)
+            .map(([k]) => k);
+          return itemTH.some(t => passageTHKeys.includes(t));
+        });
+      }
+
+      // 스코어링
+      const scored = candidates.map(item => ({
+        ...item,
+        score: scoring.scoreBlock(profile, item.soft_tags)
+      }));
+
+      return scoring.selectFromCandidates(scored);
+    }
+
+    const selectedCommentary = selectSlot(pools.commentary, selectedPassage.passage_ref, passageTH);
+    const selectedQuestion = selectSlot(pools.question, selectedPassage.passage_ref, passageTH);
+    const selectedPrayer = selectSlot(pools.prayer, selectedPassage.passage_ref, passageTH);
+
+    // 원어 해설 — 본문 일치만 (스코어링 불필요)
+    const keywords = pools.keyword.filter(k => k.passage_ref === selectedPassage.passage_ref);
+    const selectedKeyword = keywords.length > 0 ? keywords[0] : null;
+
+    // 6. 노출 기록
+    await pool.query(
+      `INSERT INTO recently_shown (user_id, block_type, passage_ref, shown_date) VALUES ($1, 'passage', $2, CURRENT_DATE)`,
+      [req.user.id, selectedPassage.passage_ref]
+    );
+
+    // 7. 조립된 QT 응답
+    res.json({
+      date: new Date().toISOString().split('T')[0],
+      maturity_level: maturity,
+      // 슬롯 1: 본문
+      passage: {
+        ref: selectedPassage.passage_ref,
+        book_name: selectedPassage.book_name,
+        testament: selectedPassage.testament,
+        genre: selectedPassage.genre,
+        chapter: selectedPassage.chapter,
+        verse_start: selectedPassage.verse_start,
+        verse_end: selectedPassage.verse_end,
+        score: selectedPassage.score
+      },
+      // 슬롯 2: 해설
+      commentary: selectedCommentary ? {
+        id: selectedCommentary.id,
+        content: selectedCommentary.content,
+        type: selectedCommentary.type,
+        source_topic: selectedCommentary.source_topic,
+        source_passage: selectedCommentary.passage_ref,
+        score: selectedCommentary.score
+      } : null,
+      // 슬롯 3: 원어 해설
+      keyword: selectedKeyword ? {
+        content: selectedKeyword.content,
+        source_topic: selectedKeyword.source_topic
+      } : null,
+      // 슬롯 4: 질문
+      question: selectedQuestion ? {
+        id: selectedQuestion.id,
+        content: selectedQuestion.content,
+        source_topic: selectedQuestion.source_topic,
+        source_passage: selectedQuestion.passage_ref,
+        score: selectedQuestion.score
+      } : null,
+      // 슬롯 5: 기도
+      prayer: selectedPrayer ? {
+        id: selectedPrayer.id,
+        content: selectedPrayer.content,
+        type: selectedPrayer.type,
+        source_topic: selectedPrayer.source_topic,
+        source_passage: selectedPrayer.passage_ref,
+        score: selectedPrayer.score
+      } : null
+    });
+  } catch (err) {
+    console.error('daily-qt error:', err);
+    res.status(500).json({ error: 'Failed to assemble daily QT' });
+  }
+});
+
+// 매일 질문 카드 4개 추출
+app.get('/api/v2/daily-cards', requireAuth, async (req, res) => {
+  try {
+    const profile = await pool.query(
+      'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+    );
+    if (profile.rows.length === 0) {
+      return res.status(404).json({ error: 'Profile not found' });
+    }
+
+    // 최근 7일 노출된 카드 ID
+    const recentResult = await pool.query(
+      `SELECT DISTINCT card_id FROM card_shown_history
+       WHERE user_id = $1 AND shown_date > CURRENT_DATE - INTERVAL '7 days'`,
+      [req.user.id]
+    );
+    const recentIds = new Set(recentResult.rows.map(r => r.card_id));
+
+    // 사용자 상황 (온보딩에서 설정된 것) — 간이 매핑
+    const onboarding = await pool.query(
+      'SELECT * FROM onboarding_profiles WHERE user_id = $1', [req.user.id]
+    );
+    const userSituation = {};
+    // TODO: 실제 상황 태그 테이블로 교체
+
+    const cardsData = require('./public/data/question-cards.json');
+    const selected = scoring.selectDailyCards(
+      profile.rows[0], cardsData.cards, recentIds, userSituation
+    );
+
+    // 노출 기록
+    for (const s of selected) {
+      await pool.query(
+        `INSERT INTO card_shown_history (user_id, card_id, shown_date)
+         VALUES ($1, $2, CURRENT_DATE) ON CONFLICT DO NOTHING`,
+        [req.user.id, s.card.id]
+      );
+    }
+
+    res.json(selected.map(s => ({
+      id: s.card.id,
+      text: s.card.text,
+      category: s.card.category,
+      fitScore: Math.round(s.fitScore),
+      hasYesNo: !!(s.card.payload_yes && s.card.payload_no)
+    })));
+  } catch (err) {
+    console.error('daily-cards error:', err);
+    res.status(500).json({ error: 'Failed to get daily cards' });
+  }
+});
+
+// 카드 선택 시 프로필 업데이트
+app.post('/api/v2/card-response', requireAuth, async (req, res) => {
+  const { card_id, response } = req.body; // response: "yes" | "no" | "select"
+  if (!card_id) return res.status(400).json({ error: 'card_id required' });
+  try {
+    const cardsData = require('./public/data/question-cards.json');
+    const card = cardsData.cards.find(c => c.id === card_id);
+    if (!card) return res.status(404).json({ error: 'Card not found' });
+
+    // Payload 결정 (yes/no 분기 또는 단일 payload)
+    let payload;
+    if (card.payload_yes && card.payload_no) {
+      payload = response === 'yes' ? card.payload_yes : card.payload_no;
+    } else {
+      payload = card.payload;
+    }
+    if (!payload) return res.status(400).json({ error: 'No payload for this card' });
+
+    const profile = await pool.query(
+      'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+    );
+    if (profile.rows.length === 0) {
+      return res.status(404).json({ error: 'Profile not found' });
+    }
+
+    // 다중 Payload 적용
+    const updated = scoring.applyCardPayload(profile.rows[0], payload);
+
+    await pool.query(
+      `UPDATE user_spiritual_profile
+       SET emotion = $1, pressure = $2, theme_interest = $3, updated_at = NOW()
+       WHERE user_id = $4`,
+      [JSON.stringify(updated.emotion), JSON.stringify(updated.pressure),
+       JSON.stringify(updated.theme_interest), req.user.id]
+    );
+
+    // 선택 기록
+    await pool.query(
+      `UPDATE card_shown_history SET selected = TRUE
+       WHERE user_id = $1 AND card_id = $2 AND shown_date = CURRENT_DATE`,
+      [req.user.id, card_id]
+    );
+
+    res.json({ success: true, updated });
+  } catch (err) {
+    console.error('card-response error:', err);
+    res.status(500).json({ error: 'Failed to process card response' });
+  }
+});
+
+// QT 완료 기록
+app.post('/api/v2/qt-complete', requireAuth, async (req, res) => {
+  const { passage_ref, topic_id, time_spent, note_length, mood_checkin } = req.body;
+  try {
+    await pool.query(
+      `INSERT INTO qt_history (user_id, qt_date, passage_ref, topic_id, maturity_used, time_spent_seconds, note_written, note_length, completed, mood_checkin)
+       VALUES ($1, CURRENT_DATE, $2, $3, $4, $5, $6, $7, TRUE, $8)
+       ON CONFLICT (user_id, qt_date) DO UPDATE SET
+         time_spent_seconds = $5, note_written = $6, note_length = $7, completed = TRUE, mood_checkin = $8`,
+      [req.user.id, passage_ref, topic_id,
+       (await pool.query('SELECT maturity_level FROM user_spiritual_profile WHERE user_id = $1', [req.user.id])).rows[0]?.maturity_level || 'exploring',
+       time_spent || 0, (note_length || 0) > 0, note_length || 0,
+       mood_checkin ? JSON.stringify(mood_checkin) : null]
+    );
+
+    // 주제 관심도 미세 축적
+    if (topic_id) {
+      const topicEntry = topicsDb?.[topic_id - 1];
+      if (topicEntry?.soft_tags) {
+        const profile = await pool.query(
+          'SELECT theme_interest FROM user_spiritual_profile WHERE user_id = $1', [req.user.id]
+        );
+        const current = profile.rows[0]?.theme_interest || {};
+        for (const [tag, val] of Object.entries(topicEntry.soft_tags)) {
+          if (tag.startsWith('TH')) {
+            current[tag] = Math.min(100, (current[tag] || 0) + Math.round(val * 0.05));
+          }
+        }
+        await pool.query(
+          'UPDATE user_spiritual_profile SET theme_interest = $1, total_qt_days = total_qt_days + 1, streak_current = streak_current + 1, last_qt_date = CURRENT_DATE, updated_at = NOW() WHERE user_id = $2',
+          [JSON.stringify(current), req.user.id]
+        );
+      }
+    }
+
+    // 스트릭 최고 기록 갱신
+    await pool.query(
+      'UPDATE user_spiritual_profile SET streak_best = GREATEST(streak_best, streak_current) WHERE user_id = $1',
+      [req.user.id]
+    );
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error('qt-complete error:', err);
+    res.status(500).json({ error: 'Failed to record completion' });
+  }
+});
+
+// ============================================================
 // Clean URL routes
 // ============================================================
 app.get('/onboarding', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'onboarding.html'));
+  res.sendFile(path.join(__dirname, 'public', 'onboarding-v2.html'));
 });
 
 // ============================================================

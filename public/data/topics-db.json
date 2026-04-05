@@ -25,7 +25,25 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "불안과 두려움 극복"
+    "curricula_name": "불안과 두려움 극복",
+    "soft_tags": {
+      "E01": 95,
+      "E02": 40,
+      "P01": 30,
+      "P03": 40,
+      "P05": 30,
+      "TH01": 80,
+      "TH04": 85,
+      "TH05": 60,
+      "TH17": 75,
+      "C01": 90,
+      "C02": 20,
+      "C03": 30,
+      "C04": 50,
+      "D01": 30,
+      "D02": 70,
+      "D03": 50
+    }
   },
   {
     "topic": "스트레스",
@@ -44,7 +62,23 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "스트레스"
+    "curricula_name": "스트레스",
+    "soft_tags": {
+      "E07": 95,
+      "E01": 50,
+      "E03": 40,
+      "P03": 70,
+      "P01": 40,
+      "TH04": 70,
+      "TH17": 90,
+      "TH01": 60,
+      "C01": 80,
+      "C02": 30,
+      "C04": 60,
+      "D01": 25,
+      "D02": 50,
+      "D03": 40
+    }
   },
   {
     "topic": "혼란",
@@ -64,7 +98,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "혼란"
+    "curricula_name": "혼란",
+    "soft_tags": {
+      "E08": 95,
+      "E01": 50,
+      "P03": 40,
+      "P07": 50,
+      "TH02": 70,
+      "TH10": 90,
+      "TH04": 60,
+      "C03": 70,
+      "C01": 50,
+      "C04": 40,
+      "D01": 40,
+      "D02": 50,
+      "D03": 50
+    }
   },
   {
     "topic": "우울",
@@ -106,7 +155,24 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "우울"
+    "curricula_name": "우울",
+    "soft_tags": {
+      "E03": 95,
+      "E02": 70,
+      "E05": 60,
+      "E10": 50,
+      "P05": 40,
+      "TH01": 85,
+      "TH04": 80,
+      "TH06": 70,
+      "TH17": 75,
+      "C01": 95,
+      "C04": 60,
+      "C02": 10,
+      "D01": 35,
+      "D02": 80,
+      "D03": 50
+    }
   },
   {
     "topic": "슬픔",
@@ -126,7 +192,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "슬픔"
+    "curricula_name": "슬픔",
+    "soft_tags": {
+      "E02": 95,
+      "E03": 50,
+      "E05": 40,
+      "P06": 70,
+      "TH01": 90,
+      "TH04": 85,
+      "TH06": 60,
+      "C01": 95,
+      "C04": 50,
+      "D01": 30,
+      "D02": 85,
+      "D03": 45
+    }
   },
   {
     "topic": "수치심",
@@ -146,7 +226,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "수치심"
+    "curricula_name": "수치심",
+    "soft_tags": {
+      "E06": 95,
+      "E09": 50,
+      "TH05": 85,
+      "TH07": 80,
+      "TH01": 75,
+      "TH10": 50,
+      "C01": 85,
+      "C02": 30,
+      "C03": 40,
+      "D01": 45,
+      "D02": 70,
+      "D03": 50
+    }
   },
   {
     "topic": "죄책감",
@@ -166,7 +260,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "죄책감"
+    "curricula_name": "죄책감",
+    "soft_tags": {
+      "E06": 95,
+      "E08": 40,
+      "TH07": 95,
+      "TH05": 85,
+      "TH01": 70,
+      "TH10": 50,
+      "C01": 80,
+      "C02": 40,
+      "C03": 40,
+      "D01": 40,
+      "D02": 65,
+      "D03": 50
+    }
   },
   {
     "topic": "거절감",
@@ -185,7 +293,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "거절감"
+    "curricula_name": "거절감",
+    "soft_tags": {
+      "E09": 95,
+      "E05": 70,
+      "E06": 40,
+      "P01": 60,
+      "TH01": 90,
+      "TH04": 80,
+      "TH13": 50,
+      "C01": 90,
+      "C04": 40,
+      "D01": 35,
+      "D02": 75,
+      "D03": 45
+    }
   },
   {
     "topic": "외로움",
@@ -212,7 +334,22 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "외로움에서 하나님의 동행 발견"
+    "curricula_name": "외로움에서 하나님의 동행 발견",
+    "soft_tags": {
+      "E05": 95,
+      "E03": 50,
+      "E09": 40,
+      "P11": 60,
+      "TH04": 90,
+      "TH01": 80,
+      "TH19": 60,
+      "TH13": 50,
+      "C01": 85,
+      "C04": 60,
+      "D01": 30,
+      "D02": 70,
+      "D03": 50
+    }
   },
   {
     "topic": "분노",
@@ -232,7 +369,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "분노 다스리기"
+    "curricula_name": "분노 다스리기",
+    "soft_tags": {
+      "E04": 95,
+      "E07": 40,
+      "P01": 60,
+      "TH08": 70,
+      "TH15": 80,
+      "TH20": 50,
+      "C02": 70,
+      "C01": 40,
+      "C03": 50,
+      "D01": 40,
+      "D02": 75,
+      "D03": 50
+    }
   },
   {
     "topic": "질투",
@@ -252,7 +403,21 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "질투"
+    "curricula_name": "질투",
+    "soft_tags": {
+      "E04": 40,
+      "E07": 30,
+      "P09": 60,
+      "TH16": 80,
+      "TH15": 70,
+      "TH01": 50,
+      "C02": 60,
+      "C01": 40,
+      "C03": 50,
+      "D01": 35,
+      "D02": 50,
+      "D03": 45
+    }
   },
   {
     "topic": "원망과 후회",
@@ -294,7 +459,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "후회"
+    "curricula_name": "후회",
+    "soft_tags": {
+      "E10": 80,
+      "E02": 50,
+      "E06": 40,
+      "TH07": 70,
+      "TH02": 65,
+      "TH06": 60,
+      "C01": 70,
+      "C02": 40,
+      "C04": 40,
+      "D01": 40,
+      "D02": 65,
+      "D03": 55
+    }
   },
   {
     "topic": "고난 속의 인내",
@@ -314,7 +493,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 1,
-    "curricula_name": "고난 속의 인내"
+    "curricula_name": "고난 속의 인내",
+    "soft_tags": {
+      "E07": 60,
+      "E02": 50,
+      "E01": 40,
+      "TH02": 85,
+      "TH15": 80,
+      "TH06": 70,
+      "TH05": 60,
+      "C02": 60,
+      "C01": 50,
+      "C03": 50,
+      "D01": 50,
+      "D02": 65,
+      "D03": 55
+    }
   },
   {
     "topic": "부부 갈등",
@@ -334,7 +528,23 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "부부 갈등"
+    "curricula_name": "부부 갈등",
+    "soft_tags": {
+      "E04": 60,
+      "E01": 50,
+      "E05": 40,
+      "P01": 95,
+      "P02": 50,
+      "TH14": 95,
+      "TH08": 80,
+      "TH15": 60,
+      "C01": 60,
+      "C02": 50,
+      "C03": 40,
+      "D01": 45,
+      "D02": 70,
+      "D03": 55
+    }
   },
   {
     "topic": "부모자녀 (부모 시점)",
@@ -354,7 +564,22 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "부모자녀 갈등"
+    "curricula_name": "부모자녀 갈등",
+    "soft_tags": {
+      "E01": 40,
+      "E07": 50,
+      "P02": 95,
+      "TH14": 90,
+      "TH01": 70,
+      "TH15": 65,
+      "TH11": 60,
+      "C01": 60,
+      "C02": 50,
+      "C03": 50,
+      "D01": 45,
+      "D02": 55,
+      "D03": 55
+    }
   },
   {
     "topic": "부모자녀 (자녀 시점)",
@@ -365,7 +590,21 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "부모자녀 갈등"
+    "curricula_name": "부모자녀 갈등",
+    "soft_tags": {
+      "E04": 40,
+      "E01": 30,
+      "P02": 85,
+      "TH14": 90,
+      "TH11": 75,
+      "TH15": 60,
+      "C01": 60,
+      "C02": 50,
+      "C03": 40,
+      "D01": 35,
+      "D02": 50,
+      "D03": 50
+    }
   },
   {
     "topic": "고부 갈등",
@@ -385,7 +624,23 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "고부 갈등"
+    "curricula_name": "고부 갈등",
+    "soft_tags": {
+      "E04": 60,
+      "E07": 50,
+      "E01": 40,
+      "P01": 90,
+      "P02": 70,
+      "TH14": 85,
+      "TH08": 80,
+      "TH15": 70,
+      "C01": 55,
+      "C02": 50,
+      "C03": 40,
+      "D01": 45,
+      "D02": 65,
+      "D03": 50
+    }
   },
   {
     "topic": "친구 관계",
@@ -405,7 +660,21 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "친구 관계"
+    "curricula_name": "친구 관계",
+    "soft_tags": {
+      "E05": 40,
+      "E04": 30,
+      "P01": 60,
+      "TH13": 80,
+      "TH08": 60,
+      "TH01": 50,
+      "C01": 60,
+      "C02": 40,
+      "C03": 30,
+      "D01": 30,
+      "D02": 40,
+      "D03": 45
+    }
   },
   {
     "topic": "직장 동료",
@@ -416,7 +685,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "직장 동료 갈등"
+    "curricula_name": "직장 동료 갈등",
+    "soft_tags": {
+      "E07": 50,
+      "E04": 40,
+      "P03": 80,
+      "P01": 60,
+      "TH13": 70,
+      "TH08": 60,
+      "TH15": 60,
+      "C02": 50,
+      "C01": 40,
+      "C03": 50,
+      "D01": 35,
+      "D02": 45,
+      "D03": 50
+    }
   },
   {
     "topic": "교회 안에서",
@@ -427,7 +711,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "교회 내 갈등"
+    "curricula_name": "교회 내 갈등",
+    "soft_tags": {
+      "E04": 40,
+      "E09": 40,
+      "E05": 30,
+      "P12": 60,
+      "TH19": 90,
+      "TH08": 70,
+      "TH13": 65,
+      "C01": 50,
+      "C02": 50,
+      "C03": 50,
+      "D01": 40,
+      "D02": 50,
+      "D03": 50
+    }
   },
   {
     "topic": "이웃 사랑",
@@ -454,7 +753,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "이웃 사랑"
+    "curricula_name": "이웃 사랑",
+    "soft_tags": {
+      "E14": 50,
+      "TH13": 95,
+      "TH20": 80,
+      "TH01": 60,
+      "TH11": 50,
+      "C02": 60,
+      "C01": 50,
+      "C03": 40,
+      "D01": 30,
+      "D02": 40,
+      "D03": 45
+    }
   },
   {
     "topic": "배신과 상처",
@@ -474,7 +786,22 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "배신"
+    "curricula_name": "배신",
+    "soft_tags": {
+      "E09": 90,
+      "E04": 70,
+      "E02": 60,
+      "P01": 80,
+      "TH08": 85,
+      "TH07": 70,
+      "TH01": 60,
+      "C01": 80,
+      "C02": 30,
+      "C04": 40,
+      "D01": 45,
+      "D02": 80,
+      "D03": 55
+    }
   },
   {
     "topic": "용서",
@@ -499,7 +826,24 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "용서하는 삶"
+    "curricula_name": "용서하는 삶",
+    "soft_tags": {
+      "E04": 50,
+      "E09": 40,
+      "E06": 30,
+      "P01": 60,
+      "TH08": 95,
+      "TH07": 80,
+      "TH05": 60,
+      "TH01": 70,
+      "C01": 60,
+      "C02": 50,
+      "C03": 40,
+      "C04": 40,
+      "D01": 45,
+      "D02": 60,
+      "D03": 55
+    }
   },
   {
     "topic": "화해",
@@ -519,7 +863,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "화해"
+    "curricula_name": "화해",
+    "soft_tags": {
+      "E04": 40,
+      "E01": 30,
+      "P01": 70,
+      "TH08": 90,
+      "TH19": 60,
+      "TH13": 60,
+      "TH01": 55,
+      "C01": 50,
+      "C02": 60,
+      "C03": 40,
+      "D01": 45,
+      "D02": 55,
+      "D03": 50
+    }
   },
   {
     "topic": "연애와 결혼",
@@ -553,7 +912,21 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "연애/이성교제"
+    "curricula_name": "연애/이성교제",
+    "soft_tags": {
+      "E14": 60,
+      "E01": 40,
+      "P01": 50,
+      "TH14": 90,
+      "TH01": 70,
+      "TH15": 50,
+      "C01": 60,
+      "C02": 40,
+      "C03": 40,
+      "D01": 35,
+      "D02": 50,
+      "D03": 50
+    }
   },
   {
     "topic": "경계선 설정",
@@ -573,7 +946,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 2,
-    "curricula_name": "경계선 설정"
+    "curricula_name": "경계선 설정",
+    "soft_tags": {
+      "E07": 40,
+      "E04": 30,
+      "E06": 30,
+      "P01": 70,
+      "TH15": 70,
+      "TH10": 65,
+      "TH20": 60,
+      "C02": 70,
+      "C03": 50,
+      "C01": 40,
+      "D01": 50,
+      "D02": 45,
+      "D03": 50
+    }
   },
   {
     "topic": "학대/폭력 피해",
@@ -593,7 +981,24 @@
     "is_heavy": true,
     "is_crisis": true,
     "category_code": 2,
-    "curricula_name": "학대/폭력 피해"
+    "curricula_name": "학대/폭력 피해",
+    "soft_tags": {
+      "E09": 90,
+      "E02": 80,
+      "E01": 80,
+      "E06": 70,
+      "P01": 90,
+      "P08": 80,
+      "TH01": 90,
+      "TH04": 85,
+      "TH20": 70,
+      "TH08": 50,
+      "C01": 95,
+      "C04": 40,
+      "D01": 50,
+      "D02": 90,
+      "D03": 55
+    }
   },
   {
     "topic": "질병",
@@ -613,7 +1018,22 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "질병"
+    "curricula_name": "질병",
+    "soft_tags": {
+      "E01": 60,
+      "E02": 50,
+      "E03": 40,
+      "P05": 95,
+      "TH04": 85,
+      "TH01": 80,
+      "TH02": 70,
+      "TH06": 60,
+      "C01": 85,
+      "C04": 50,
+      "D01": 35,
+      "D02": 75,
+      "D03": 50
+    }
   },
   {
     "topic": "장애",
@@ -633,7 +1053,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "장애"
+    "curricula_name": "장애",
+    "soft_tags": {
+      "E03": 40,
+      "E05": 40,
+      "P05": 90,
+      "TH04": 85,
+      "TH01": 80,
+      "TH02": 75,
+      "C01": 80,
+      "C02": 30,
+      "C04": 40,
+      "D01": 40,
+      "D02": 65,
+      "D03": 50
+    }
   },
   {
     "topic": "노화",
@@ -653,7 +1087,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "노화"
+    "curricula_name": "노화",
+    "soft_tags": {
+      "E10": 40,
+      "E01": 30,
+      "P05": 60,
+      "TH06": 80,
+      "TH02": 70,
+      "TH04": 65,
+      "TH10": 50,
+      "C01": 60,
+      "C04": 50,
+      "C03": 40,
+      "D01": 35,
+      "D02": 50,
+      "D03": 50
+    }
   },
   {
     "topic": "실직과 구직",
@@ -680,7 +1129,23 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "실직"
+    "curricula_name": "실직",
+    "soft_tags": {
+      "E01": 70,
+      "E03": 60,
+      "E07": 60,
+      "P03": 90,
+      "P04": 70,
+      "TH02": 80,
+      "TH07": 50,
+      "TH04": 70,
+      "TH01": 60,
+      "C01": 70,
+      "C02": 40,
+      "D01": 35,
+      "D02": 65,
+      "D03": 50
+    }
   },
   {
     "topic": "재정 위기",
@@ -707,7 +1172,22 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "파산"
+    "curricula_name": "파산",
+    "soft_tags": {
+      "E01": 70,
+      "E07": 60,
+      "P04": 95,
+      "TH02": 80,
+      "TH01": 65,
+      "TH04": 60,
+      "TH16": 50,
+      "C01": 65,
+      "C02": 40,
+      "C03": 50,
+      "D01": 40,
+      "D02": 60,
+      "D03": 50
+    }
   },
   {
     "topic": "사별",
@@ -727,7 +1207,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "사별"
+    "curricula_name": "사별",
+    "soft_tags": {
+      "E02": 95,
+      "E03": 70,
+      "E05": 60,
+      "P06": 95,
+      "TH06": 85,
+      "TH04": 85,
+      "TH01": 80,
+      "C01": 95,
+      "C04": 60,
+      "D01": 40,
+      "D02": 90,
+      "D03": 50
+    }
   },
   {
     "topic": "이혼",
@@ -747,7 +1241,24 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "이혼"
+    "curricula_name": "이혼",
+    "soft_tags": {
+      "E02": 70,
+      "E06": 60,
+      "E09": 60,
+      "E05": 50,
+      "P01": 90,
+      "P02": 50,
+      "TH01": 80,
+      "TH08": 70,
+      "TH07": 65,
+      "TH04": 60,
+      "C01": 85,
+      "C04": 40,
+      "D01": 45,
+      "D02": 80,
+      "D03": 55
+    }
   },
   {
     "topic": "사고/트라우마",
@@ -767,7 +1278,22 @@
     "is_heavy": true,
     "is_crisis": true,
     "category_code": 0,
-    "curricula_name": "사고/트라우마"
+    "curricula_name": "사고/트라우마",
+    "soft_tags": {
+      "E01": 90,
+      "E02": 80,
+      "E03": 60,
+      "P08": 95,
+      "P05": 50,
+      "TH04": 90,
+      "TH01": 85,
+      "TH02": 70,
+      "C01": 90,
+      "C04": 50,
+      "D01": 45,
+      "D02": 85,
+      "D03": 50
+    }
   },
   {
     "topic": "중독",
@@ -787,7 +1313,22 @@
     "is_heavy": true,
     "is_crisis": true,
     "category_code": 0,
-    "curricula_name": "중독"
+    "curricula_name": "중독",
+    "soft_tags": {
+      "E06": 70,
+      "E07": 60,
+      "E03": 50,
+      "P08": 95,
+      "TH07": 85,
+      "TH05": 70,
+      "TH12": 60,
+      "TH15": 60,
+      "C01": 70,
+      "C02": 60,
+      "D01": 50,
+      "D02": 70,
+      "D03": 55
+    }
   },
   {
     "topic": "시험과 입시",
@@ -807,7 +1348,21 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "시험/입시"
+    "curricula_name": "시험/입시",
+    "soft_tags": {
+      "E01": 70,
+      "E07": 80,
+      "P03": 90,
+      "P10": 60,
+      "TH02": 70,
+      "TH04": 60,
+      "TH15": 55,
+      "C01": 50,
+      "C02": 50,
+      "D01": 25,
+      "D02": 50,
+      "D03": 45
+    }
   },
   {
     "topic": "군대/병역",
@@ -827,7 +1382,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "군대/병역"
+    "curricula_name": "군대/병역",
+    "soft_tags": {
+      "E05": 50,
+      "E01": 40,
+      "E07": 40,
+      "P07": 70,
+      "TH04": 75,
+      "TH02": 60,
+      "TH15": 55,
+      "TH11": 50,
+      "C01": 55,
+      "C02": 50,
+      "D01": 25,
+      "D02": 45,
+      "D03": 45
+    }
   },
   {
     "topic": "임신과 출산",
@@ -855,7 +1425,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "임신"
+    "curricula_name": "임신",
+    "soft_tags": {
+      "E01": 50,
+      "E14": 50,
+      "P02": 70,
+      "P05": 40,
+      "TH01": 80,
+      "TH02": 70,
+      "TH14": 65,
+      "C01": 70,
+      "C04": 40,
+      "D01": 30,
+      "D02": 55,
+      "D03": 50
+    }
   },
   {
     "topic": "이사/새출발",
@@ -866,7 +1450,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "이사"
+    "curricula_name": "이사",
+    "soft_tags": {
+      "E01": 40,
+      "E13": 50,
+      "P07": 90,
+      "TH02": 70,
+      "TH04": 65,
+      "TH06": 50,
+      "C01": 50,
+      "C02": 50,
+      "D01": 25,
+      "D02": 40,
+      "D03": 45
+    }
   },
   {
     "topic": "은퇴",
@@ -892,7 +1489,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 0,
-    "curricula_name": "은퇴"
+    "curricula_name": "은퇴",
+    "soft_tags": {
+      "E10": 50,
+      "E01": 40,
+      "P07": 60,
+      "TH06": 70,
+      "TH02": 65,
+      "TH16": 60,
+      "TH17": 55,
+      "C01": 55,
+      "C04": 50,
+      "C03": 40,
+      "D01": 35,
+      "D02": 45,
+      "D03": 50
+    }
   },
   {
     "topic": "극한 상황",
@@ -928,7 +1540,22 @@
     "is_heavy": true,
     "is_crisis": true,
     "category_code": 0,
-    "curricula_name": "투옥/법적문제"
+    "curricula_name": "투옥/법적문제",
+    "soft_tags": {
+      "E01": 95,
+      "E02": 80,
+      "E03": 70,
+      "P08": 80,
+      "P05": 70,
+      "TH04": 95,
+      "TH01": 90,
+      "TH02": 85,
+      "C01": 95,
+      "C04": 40,
+      "D01": 50,
+      "D02": 95,
+      "D03": 50
+    }
   },
   {
     "topic": "기도",
@@ -948,7 +1575,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "기도의 능력"
+    "curricula_name": "기도의 능력",
+    "soft_tags": {
+      "E13": 40,
+      "E15": 50,
+      "TH09": 95,
+      "TH04": 75,
+      "TH11": 50,
+      "C04": 70,
+      "C02": 30,
+      "C03": 40,
+      "D01": 30,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "예배",
@@ -968,7 +1608,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "예배"
+    "curricula_name": "예배",
+    "soft_tags": {
+      "E15": 60,
+      "E11": 50,
+      "TH09": 90,
+      "TH18": 50,
+      "TH04": 65,
+      "C04": 50,
+      "C01": 30,
+      "C02": 30,
+      "D01": 30,
+      "D02": 45,
+      "D03": 50
+    }
   },
   {
     "topic": "감사",
@@ -988,7 +1641,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "감사의 삶"
+    "curricula_name": "감사의 삶",
+    "soft_tags": {
+      "E11": 90,
+      "E13": 50,
+      "TH16": 95,
+      "TH01": 60,
+      "TH09": 50,
+      "C01": 60,
+      "C04": 40,
+      "D01": 20,
+      "D02": 35,
+      "D03": 45
+    }
   },
   {
     "topic": "금식",
@@ -1008,7 +1673,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "금식"
+    "curricula_name": "금식",
+    "soft_tags": {
+      "E15": 40,
+      "TH09": 70,
+      "TH15": 75,
+      "TH11": 70,
+      "TH12": 40,
+      "C02": 60,
+      "C04": 60,
+      "C03": 40,
+      "D01": 55,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "말씀 묵상",
@@ -1028,7 +1706,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "말씀 묵상"
+    "curricula_name": "말씀 묵상",
+    "soft_tags": {
+      "E13": 40,
+      "E12": 40,
+      "TH10": 95,
+      "TH09": 60,
+      "TH11": 50,
+      "C03": 70,
+      "C04": 60,
+      "D01": 35,
+      "D02": 30,
+      "D03": 50
+    }
   },
   {
     "topic": "제자도",
@@ -1048,7 +1738,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "제자도"
+    "curricula_name": "제자도",
+    "soft_tags": {
+      "TH11": 95,
+      "TH23": 50,
+      "TH10": 60,
+      "TH15": 55,
+      "C02": 70,
+      "C03": 50,
+      "D01": 50,
+      "D02": 40,
+      "D03": 55
+    }
   },
   {
     "topic": "순종",
@@ -1068,7 +1769,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "순종"
+    "curricula_name": "순종",
+    "soft_tags": {
+      "TH11": 95,
+      "TH02": 60,
+      "TH15": 55,
+      "C02": 75,
+      "C01": 30,
+      "C03": 40,
+      "D01": 40,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "헌신",
@@ -1088,7 +1800,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "헌신"
+    "curricula_name": "헌신",
+    "soft_tags": {
+      "E15": 40,
+      "TH11": 90,
+      "TH18": 60,
+      "TH09": 50,
+      "C02": 70,
+      "C04": 40,
+      "D01": 45,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "성령 충만",
@@ -1108,7 +1831,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "성령 충만"
+    "curricula_name": "성령 충만",
+    "soft_tags": {
+      "E15": 60,
+      "E13": 50,
+      "TH12": 95,
+      "TH09": 60,
+      "TH04": 55,
+      "C02": 40,
+      "C04": 50,
+      "C01": 30,
+      "D01": 50,
+      "D02": 50,
+      "D03": 55
+    }
   },
   {
     "topic": "은사 활용",
@@ -1128,7 +1864,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "은사 활용"
+    "curricula_name": "은사 활용",
+    "soft_tags": {
+      "E13": 40,
+      "TH12": 80,
+      "TH19": 65,
+      "TH13": 55,
+      "TH18": 50,
+      "C03": 60,
+      "C02": 50,
+      "D01": 45,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "영적 전쟁",
@@ -1148,7 +1896,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "영적 전쟁"
+    "curricula_name": "영적 전쟁",
+    "soft_tags": {
+      "E01": 40,
+      "E08": 40,
+      "TH12": 90,
+      "TH02": 60,
+      "TH09": 55,
+      "C02": 80,
+      "C03": 40,
+      "D01": 55,
+      "D02": 60,
+      "D03": 55
+    }
   },
   {
     "topic": "하나님 음성 듣기",
@@ -1168,7 +1928,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "하나님 음성 듣기"
+    "curricula_name": "하나님 음성 듣기",
+    "soft_tags": {
+      "E08": 40,
+      "E13": 40,
+      "TH10": 80,
+      "TH04": 75,
+      "TH12": 50,
+      "C04": 80,
+      "C03": 40,
+      "D01": 50,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "회개",
@@ -1188,7 +1960,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "회개"
+    "curricula_name": "회개",
+    "soft_tags": {
+      "E06": 60,
+      "TH07": 95,
+      "TH05": 70,
+      "TH03": 60,
+      "TH01": 55,
+      "C02": 60,
+      "C01": 40,
+      "C04": 40,
+      "D01": 40,
+      "D02": 55,
+      "D03": 50
+    }
   },
   {
     "topic": "영적 침체",
@@ -1208,7 +1993,23 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "영적 침체"
+    "curricula_name": "영적 침체",
+    "soft_tags": {
+      "E03": 60,
+      "E10": 60,
+      "E08": 40,
+      "P12": 70,
+      "TH04": 80,
+      "TH12": 60,
+      "TH06": 55,
+      "TH09": 50,
+      "C01": 60,
+      "C04": 50,
+      "C02": 40,
+      "D01": 40,
+      "D02": 55,
+      "D03": 50
+    }
   },
   {
     "topic": "이단 분별",
@@ -1228,7 +2029,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "이단 분별"
+    "curricula_name": "이단 분별",
+    "soft_tags": {
+      "E08": 40,
+      "TH10": 90,
+      "TH03": 60,
+      "TH19": 50,
+      "C03": 90,
+      "C02": 50,
+      "D01": 70,
+      "D02": 30,
+      "D03": 55
+    }
   },
   {
     "topic": "전도/선교",
@@ -1248,7 +2060,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "전도/선교"
+    "curricula_name": "전도/선교",
+    "soft_tags": {
+      "E13": 40,
+      "E14": 40,
+      "TH18": 95,
+      "TH05": 60,
+      "TH13": 55,
+      "C02": 70,
+      "C01": 30,
+      "D01": 35,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "섬김",
@@ -1300,7 +2124,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 3,
-    "curricula_name": "권위 순종"
+    "curricula_name": "권위 순종",
+    "soft_tags": {
+      "E14": 50,
+      "TH13": 90,
+      "TH11": 60,
+      "TH15": 55,
+      "TH01": 50,
+      "C02": 50,
+      "C01": 50,
+      "D01": 30,
+      "D02": 35,
+      "D03": 45
+    }
   },
   {
     "topic": "사랑",
@@ -1320,7 +2156,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "사랑"
+    "curricula_name": "사랑",
+    "soft_tags": {
+      "E14": 90,
+      "E11": 50,
+      "TH01": 90,
+      "TH13": 70,
+      "TH08": 50,
+      "C01": 70,
+      "C02": 30,
+      "C04": 40,
+      "D01": 30,
+      "D02": 45,
+      "D03": 50
+    }
   },
   {
     "topic": "자비와 긍휼",
@@ -1347,7 +2196,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "자비"
+    "curricula_name": "자비",
+    "soft_tags": {
+      "E14": 60,
+      "TH13": 90,
+      "TH01": 75,
+      "TH20": 60,
+      "C01": 70,
+      "C02": 40,
+      "D01": 35,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "관용",
@@ -1367,7 +2227,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "관용"
+    "curricula_name": "관용",
+    "soft_tags": {
+      "TH08": 60,
+      "TH13": 70,
+      "TH15": 60,
+      "C01": 50,
+      "C02": 40,
+      "C03": 40,
+      "D01": 35,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "온유",
@@ -1387,7 +2258,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "온유"
+    "curricula_name": "온유",
+    "soft_tags": {
+      "TH15": 80,
+      "TH13": 60,
+      "TH01": 50,
+      "C01": 60,
+      "C04": 50,
+      "D01": 30,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "인내",
@@ -1407,7 +2288,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "인내"
+    "curricula_name": "인내",
+    "soft_tags": {
+      "E07": 30,
+      "TH15": 90,
+      "TH02": 60,
+      "TH06": 50,
+      "C02": 50,
+      "C01": 40,
+      "C04": 40,
+      "D01": 35,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "용기",
@@ -1427,7 +2320,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "용기"
+    "curricula_name": "용기",
+    "soft_tags": {
+      "E01": 30,
+      "TH02": 60,
+      "TH04": 55,
+      "TH15": 50,
+      "TH11": 50,
+      "C02": 80,
+      "C01": 30,
+      "D01": 35,
+      "D02": 50,
+      "D03": 50
+    }
   },
   {
     "topic": "절제",
@@ -1455,7 +2360,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "절제"
+    "curricula_name": "절제",
+    "soft_tags": {
+      "TH15": 90,
+      "TH11": 55,
+      "TH12": 40,
+      "C02": 65,
+      "C03": 50,
+      "D01": 40,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "성실",
@@ -1475,7 +2390,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "성실"
+    "curricula_name": "성실",
+    "soft_tags": {
+      "TH15": 70,
+      "TH11": 70,
+      "TH16": 40,
+      "C02": 60,
+      "C03": 40,
+      "D01": 30,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "정직",
@@ -1495,7 +2420,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "정직"
+    "curricula_name": "정직",
+    "soft_tags": {
+      "TH15": 70,
+      "TH03": 55,
+      "TH10": 50,
+      "C02": 60,
+      "C03": 50,
+      "D01": 35,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "겸손",
@@ -1515,7 +2450,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "겸손"
+    "curricula_name": "겸손",
+    "soft_tags": {
+      "TH15": 95,
+      "TH05": 50,
+      "TH11": 50,
+      "C02": 50,
+      "C04": 50,
+      "C01": 30,
+      "D01": 40,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "지혜",
@@ -1535,7 +2481,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "지혜"
+    "curricula_name": "지혜",
+    "soft_tags": {
+      "TH10": 90,
+      "TH02": 55,
+      "TH15": 50,
+      "C03": 85,
+      "C02": 40,
+      "D01": 50,
+      "D02": 30,
+      "D03": 55
+    }
   },
   {
     "topic": "충성",
@@ -1555,7 +2511,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "충성"
+    "curricula_name": "충성",
+    "soft_tags": {
+      "TH11": 80,
+      "TH02": 55,
+      "TH15": 60,
+      "C02": 60,
+      "C03": 40,
+      "D01": 35,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "순결/거룩",
@@ -1575,7 +2541,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "순결/거룩"
+    "curricula_name": "순결/거룩",
+    "soft_tags": {
+      "TH15": 70,
+      "TH07": 50,
+      "TH12": 50,
+      "TH03": 45,
+      "C02": 60,
+      "C04": 40,
+      "C03": 40,
+      "D01": 50,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "기쁨",
@@ -1586,7 +2564,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "기쁨/희락"
+    "curricula_name": "기쁨/희락",
+    "soft_tags": {
+      "E11": 90,
+      "E13": 60,
+      "TH16": 95,
+      "TH09": 50,
+      "TH01": 50,
+      "C01": 60,
+      "C02": 20,
+      "D01": 20,
+      "D02": 40,
+      "D03": 45
+    }
   },
   {
     "topic": "소망",
@@ -1606,7 +2596,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "소망"
+    "curricula_name": "소망",
+    "soft_tags": {
+      "E13": 90,
+      "E11": 50,
+      "TH06": 90,
+      "TH02": 60,
+      "TH01": 55,
+      "C01": 60,
+      "C04": 40,
+      "D01": 30,
+      "D02": 45,
+      "D03": 50
+    }
   },
   {
     "topic": "평화",
@@ -1617,7 +2619,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "평화/화평"
+    "curricula_name": "평화/화평",
+    "soft_tags": {
+      "E12": 80,
+      "E13": 40,
+      "TH17": 95,
+      "TH04": 60,
+      "TH08": 50,
+      "C04": 70,
+      "C01": 60,
+      "D01": 30,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "의로움",
@@ -1637,7 +2651,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "의로움"
+    "curricula_name": "의로움",
+    "soft_tags": {
+      "TH03": 80,
+      "TH05": 60,
+      "TH10": 55,
+      "TH20": 50,
+      "C03": 70,
+      "C02": 50,
+      "D01": 55,
+      "D02": 35,
+      "D03": 55
+    }
   },
   {
     "topic": "만족/자족",
@@ -1657,7 +2682,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "만족/자족"
+    "curricula_name": "만족/자족",
+    "soft_tags": {
+      "E11": 60,
+      "TH16": 90,
+      "TH02": 55,
+      "TH15": 50,
+      "C01": 55,
+      "C04": 50,
+      "D01": 30,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "직장과 소명",
@@ -1684,7 +2720,22 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "직장 생활"
+    "curricula_name": "직장 생활",
+    "soft_tags": {
+      "E07": 40,
+      "E13": 30,
+      "P03": 70,
+      "P10": 40,
+      "TH02": 60,
+      "TH11": 60,
+      "TH20": 50,
+      "C02": 50,
+      "C03": 50,
+      "C01": 30,
+      "D01": 35,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "재정과 청지기",
@@ -1719,7 +2770,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "부채/채무 관리"
+    "curricula_name": "부채/채무 관리",
+    "soft_tags": {
+      "E01": 30,
+      "P04": 60,
+      "TH02": 60,
+      "TH16": 55,
+      "TH11": 55,
+      "TH20": 50,
+      "C03": 60,
+      "C02": 50,
+      "D01": 40,
+      "D02": 30,
+      "D03": 50
+    }
   },
   {
     "topic": "건강 관리",
@@ -1739,7 +2803,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "건강 관리"
+    "curricula_name": "건강 관리",
+    "soft_tags": {
+      "P05": 60,
+      "TH02": 50,
+      "TH04": 50,
+      "TH15": 50,
+      "C02": 40,
+      "C01": 40,
+      "C03": 40,
+      "D01": 25,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "자녀 교육",
@@ -1759,7 +2835,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "자녀 교육"
+    "curricula_name": "자녀 교육",
+    "soft_tags": {
+      "P02": 80,
+      "TH14": 85,
+      "TH10": 55,
+      "TH01": 55,
+      "TH11": 50,
+      "C01": 50,
+      "C02": 50,
+      "C03": 40,
+      "D01": 40,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "시간과 안식",
@@ -1787,7 +2876,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "시간 관리"
+    "curricula_name": "시간 관리",
+    "soft_tags": {
+      "E07": 40,
+      "TH17": 85,
+      "TH15": 55,
+      "TH11": 50,
+      "C04": 60,
+      "C01": 40,
+      "D01": 30,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "미디어/SNS",
@@ -1798,7 +2898,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "미디어/SNS 사용"
+    "curricula_name": "미디어/SNS 사용",
+    "soft_tags": {
+      "P09": 90,
+      "TH15": 65,
+      "TH10": 60,
+      "TH20": 50,
+      "C02": 60,
+      "C03": 50,
+      "D01": 30,
+      "D02": 30,
+      "D03": 45
+    }
   },
   {
     "topic": "사회 참여",
@@ -1841,7 +2952,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "사회 정의"
+    "curricula_name": "사회 정의",
+    "soft_tags": {
+      "TH20": 90,
+      "TH13": 65,
+      "TH03": 55,
+      "TH18": 40,
+      "C02": 60,
+      "C03": 60,
+      "D01": 45,
+      "D02": 35,
+      "D03": 55
+    }
   },
   {
     "topic": "성경적 세계관",
@@ -1861,7 +2983,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 4,
-    "curricula_name": "성경적 세계관"
+    "curricula_name": "성경적 세계관",
+    "soft_tags": {
+      "TH10": 85,
+      "TH20": 75,
+      "TH02": 60,
+      "TH03": 50,
+      "C03": 85,
+      "C02": 40,
+      "D01": 60,
+      "D02": 25,
+      "D03": 55
+    }
   },
   {
     "topic": "구원",
@@ -1881,7 +3014,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "구원"
+    "curricula_name": "구원",
+    "soft_tags": {
+      "TH05": 90,
+      "TH07": 60,
+      "TH01": 70,
+      "TH06": 55,
+      "C03": 70,
+      "C01": 40,
+      "C02": 30,
+      "D01": 50,
+      "D02": 45,
+      "D03": 55
+    }
   },
   {
     "topic": "은혜",
@@ -1901,7 +3046,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "은혜"
+    "curricula_name": "은혜",
+    "soft_tags": {
+      "E11": 50,
+      "TH05": 85,
+      "TH01": 80,
+      "TH07": 55,
+      "C01": 60,
+      "C03": 50,
+      "D01": 40,
+      "D02": 40,
+      "D03": 50
+    }
   },
   {
     "topic": "믿음",
@@ -1921,7 +3077,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "믿음"
+    "curricula_name": "믿음",
+    "soft_tags": {
+      "E13": 50,
+      "TH11": 70,
+      "TH02": 65,
+      "TH10": 55,
+      "TH05": 50,
+      "C02": 50,
+      "C03": 50,
+      "C01": 30,
+      "D01": 40,
+      "D02": 35,
+      "D03": 50
+    }
   },
   {
     "topic": "칭의",
@@ -1941,7 +3110,18 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "칭의"
+    "curricula_name": "칭의",
+    "soft_tags": {
+      "TH05": 90,
+      "TH03": 70,
+      "TH07": 60,
+      "TH01": 55,
+      "C03": 85,
+      "C01": 30,
+      "D01": 70,
+      "D02": 35,
+      "D03": 55
+    }
   },
   {
     "topic": "예수의 신성과 인성",
@@ -1969,7 +3149,16 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "예수의 신성"
+    "curricula_name": "예수의 신성",
+    "soft_tags": {
+      "TH05": 60,
+      "TH04": 50,
+      "TH01": 50,
+      "C03": 90,
+      "D01": 75,
+      "D02": 30,
+      "D03": 55
+    }
   },
   {
     "topic": "십자가 대속",
@@ -1989,7 +3178,21 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "십자가 대속"
+    "curricula_name": "십자가 대속",
+    "soft_tags": {
+      "E15": 60,
+      "E06": 30,
+      "TH05": 95,
+      "TH01": 80,
+      "TH03": 65,
+      "TH07": 60,
+      "C01": 50,
+      "C03": 60,
+      "C04": 40,
+      "D01": 55,
+      "D02": 65,
+      "D03": 55
+    }
   },
   {
     "topic": "부활",
@@ -2009,7 +3212,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "부활"
+    "curricula_name": "부활",
+    "soft_tags": {
+      "E13": 60,
+      "E15": 50,
+      "TH06": 95,
+      "TH05": 60,
+      "TH02": 50,
+      "C03": 50,
+      "C01": 40,
+      "C02": 40,
+      "D01": 50,
+      "D02": 45,
+      "D03": 55
+    }
   },
   {
     "topic": "기독론적 중보",
@@ -2029,7 +3245,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "기독론적 중보"
+    "curricula_name": "기독론적 중보",
+    "soft_tags": {
+      "TH05": 75,
+      "TH09": 60,
+      "TH04": 55,
+      "C03": 85,
+      "C04": 30,
+      "D01": 75,
+      "D02": 30,
+      "D03": 55
+    }
   },
   {
     "topic": "성령의 사역",
@@ -2049,7 +3275,20 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "성령의 사역"
+    "curricula_name": "성령의 사역",
+    "soft_tags": {
+      "E15": 50,
+      "E13": 40,
+      "TH12": 95,
+      "TH04": 60,
+      "TH09": 50,
+      "C03": 60,
+      "C04": 40,
+      "C02": 30,
+      "D01": 55,
+      "D02": 40,
+      "D03": 55
+    }
   },
   {
     "topic": "교회의 본질",
@@ -2069,7 +3308,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "교회의 본질"
+    "curricula_name": "교회의 본질",
+    "soft_tags": {
+      "TH19": 95,
+      "TH13": 60,
+      "TH18": 50,
+      "C03": 70,
+      "C02": 40,
+      "D01": 55,
+      "D02": 30,
+      "D03": 55
+    }
   },
   {
     "topic": "영적 양자됨",
@@ -2089,7 +3338,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "영적 양자됨"
+    "curricula_name": "영적 양자됨",
+    "soft_tags": {
+      "E13": 50,
+      "E14": 40,
+      "TH01": 85,
+      "TH05": 70,
+      "TH04": 55,
+      "C01": 60,
+      "C03": 50,
+      "D01": 55,
+      "D02": 40,
+      "D03": 55
+    }
   },
   {
     "topic": "언약 신학",
@@ -2109,7 +3370,17 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "언약 신학"
+    "curricula_name": "언약 신학",
+    "soft_tags": {
+      "TH02": 80,
+      "TH05": 60,
+      "TH01": 55,
+      "TH10": 50,
+      "C03": 90,
+      "D01": 75,
+      "D02": 30,
+      "D03": 55
+    }
   },
   {
     "topic": "성화",
@@ -2129,7 +3400,19 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "성화"
+    "curricula_name": "성화",
+    "soft_tags": {
+      "TH07": 60,
+      "TH15": 65,
+      "TH12": 55,
+      "TH11": 55,
+      "C02": 50,
+      "C03": 60,
+      "C04": 30,
+      "D01": 55,
+      "D02": 35,
+      "D03": 55
+    }
   },
   {
     "topic": "하나님의 주권",
@@ -2149,7 +3432,18 @@
     "is_heavy": false,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "하나님의 주권"
+    "curricula_name": "하나님의 주권",
+    "soft_tags": {
+      "TH02": 95,
+      "TH01": 60,
+      "TH03": 55,
+      "C03": 70,
+      "C04": 40,
+      "C02": 30,
+      "D01": 55,
+      "D02": 40,
+      "D03": 55
+    }
   },
   {
     "topic": "원죄론",
@@ -2169,7 +3463,17 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "원죄론"
+    "curricula_name": "원죄론",
+    "soft_tags": {
+      "E06": 30,
+      "TH03": 80,
+      "TH05": 70,
+      "TH07": 55,
+      "C03": 90,
+      "D01": 75,
+      "D02": 35,
+      "D03": 55
+    }
   },
   {
     "topic": "삼위일체",
@@ -2189,7 +3493,16 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "삼위일체"
+    "curricula_name": "삼위일체",
+    "soft_tags": {
+      "TH04": 50,
+      "TH12": 50,
+      "TH01": 45,
+      "C03": 95,
+      "D01": 80,
+      "D02": 25,
+      "D03": 55
+    }
   },
   {
     "topic": "종말과 심판",
@@ -2225,6 +3538,18 @@
     "is_heavy": true,
     "is_crisis": false,
     "category_code": 6,
-    "curricula_name": "종말론"
+    "curricula_name": "종말론",
+    "soft_tags": {
+      "E01": 30,
+      "E15": 40,
+      "TH03": 80,
+      "TH06": 75,
+      "TH02": 60,
+      "C03": 70,
+      "C02": 40,
+      "D01": 65,
+      "D02": 50,
+      "D03": 55
+    }
   }
 ]

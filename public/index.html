@@ -2465,6 +2465,8 @@
     // ============================================================
     let todayQtPlan = null;
     let todayQtProgress = [];
+    let todayQtV2 = null;  // V2 daily-qt 응답 저장
+    let qtStartTime = null; // QT 시작 시간 (소요시간 측정용)
     let qtGuideData = null;
     let currentGuideDay = null;
     let currentGuideTab = 'exploring';
@@ -2474,94 +2476,175 @@
 
     async function loadTodayQt() {
       try {
-        const res = await fetch('/api/today-qt');
-        const data = await res.json();
-
-        // Set maturity-based guide tab + note form
-        if (data.profile && data.profile.maturity_level) {
-          userMaturityLevel = data.profile.maturity_level;
-          currentGuideTab = userMaturityLevel;
-          document.querySelectorAll('.qt-guide-tab').forEach(t => {
-            t.classList.toggle('active', t.dataset.level === currentGuideTab);
-          });
-          showNoteForm(userMaturityLevel);
-          const labels = { exploring: '입문 · 질문식', growing: '초급 · SOAP', close: '중급 · 귀납적', centered: '심화 · 렉시오 디비나' };
-          document.getElementById('guideLevelLabel').textContent = labels[userMaturityLevel] || '묵상 가이드';
+        // V2 API: 모듈형 QT 조립
+        const res = await fetch('/api/v2/daily-qt');
+        if (!res.ok) {
+          // V2 프로필 없으면 온보딩으로
+          if (res.status === 404) { showEmptyState(); return; }
+          throw new Error('daily-qt failed');
         }
+        const qt = await res.json();
+        todayQtV2 = qt;
+        qtStartTime = Date.now();
 
-        if (!data.activePlan) {
-          // Test mode: show Day 1 guide anyway
-          if (new URLSearchParams(window.location.search).has('test')) {
-            loadQtGuide(1);
-            loadQtScripture('요한복음 14:23-31');
-            showNoteForm('exploring');
-            // Show test banner
-            document.getElementById('todayQtBanner').style.display = 'block';
-            document.getElementById('todayQtPassage').textContent = '요한복음 14:23-31';
-            document.getElementById('todayQtFocus').textContent = '평안을 주시는 그리스도';
-          } else {
-            showEmptyState();
-          }
-          return;
-        }
+        // 성숙도 설정
+        userMaturityLevel = qt.maturity_level || 'exploring';
+        currentGuideTab = userMaturityLevel;
+        document.querySelectorAll('.qt-guide-tab').forEach(t => {
+          t.classList.toggle('active', t.dataset.level === currentGuideTab);
+        });
+        showNoteForm(userMaturityLevel);
+        const labels = { exploring: '입문 · 질문식', growing: '초급 · SOAP', close: '중급 · 귀납적', centered: '심화 · 렉시오 디비나' };
+        document.getElementById('guideLevelLabel').textContent = labels[userMaturityLevel] || '묵상 가이���';
 
-        todayQtPlan = data.activePlan;
-        const planData = typeof todayQtPlan.plan_data === 'string'
-          ? JSON.parse(todayQtPlan.plan_data) : todayQtPlan.plan_data;
-
-        // Get progress
-        const progRes = await fetch(`/api/custom-plans/${todayQtPlan.id}/progress`);
-        todayQtProgress = await progRes.json();
-
-        const currentDay = todayQtPlan.current_day || 1;
-        const todayEntry = planData.find(d => d.day === currentDay) || planData[0];
-        if (!todayEntry) return;
-
-        // Show banner
+        // 배너 표시
         const banner = document.getElementById('todayQtBanner');
         banner.style.display = 'block';
-        document.getElementById('todayQtDay').textContent =
-          `Day ${currentDay} / ${todayQtPlan.duration}`;
-        document.getElementById('todayQtPassage').textContent = todayEntry.passage;
-        // 인지적 개인화: 동적 텍스트 조립
+        document.getElementById('todayQtDay').textContent = qt.date;
+        document.getElementById('todayQtPassage').textContent = qt.passage?.ref || '';
         const userName = currentUser?.name?.split(' ')[0] || '';
-        const personalFocus = userName
-          ? `${userName}님, 오늘은 ${todayEntry.focus}`
-          : todayEntry.focus;
-        document.getElementById('todayQtFocus').textContent = personalFocus;
+        document.getElementById('todayQtFocus').textContent = userName
+          ? `${userName}님, 오늘의 묵상이 준비되었습니다`
+          : '오늘의 묵상이 준비되었습니다';
 
-        const btn = document.getElementById('todayQtBtn');
-        if (todayQtProgress.includes(currentDay)) {
-          btn.textContent = '완료됨';
-          btn.classList.add('done');
+        // 본문 로드 (bolls.life)
+        if (qt.passage?.ref) {
+          loadQtScripture(qt.passage.ref);
         }
 
-        // Check for skipped days (B: resume from where left off)
-        const lastCompleted = todayQtProgress.length > 0 ? Math.max(...todayQtProgress) : 0;
-        const expectedDay = lastCompleted + 1;
-        if (expectedDay < currentDay && !todayQtProgress.includes(expectedDay)) {
-          // Show skipped day prompt
-          const skippedEntry = planData.find(d => d.day === expectedDay) || todayEntry;
-          showSkippedPrompt(expectedDay, skippedEntry, todayEntry, currentDay);
-        }
+        // V2 슬롯 렌더링
+        renderV2Slots(qt);
 
-        // Load scripture mini viewer
-        loadQtScripture(todayEntry.passage);
+      } catch (e) {
+        console.error('loadTodayQt error:', e);
+        // V2 실패 시 V1 폴백 시도
+        try {
+          const fallback = await fetch('/api/today-qt');
+          if (fallback.ok) {
+            const data = await fallback.json();
+            if (data.activePlan) {
+              // V1 로직으로 폴백 (기존 플랜 기반)
+              todayQtPlan = data.activePlan;
+              const planData = typeof todayQtPlan.plan_data === 'string'
+                ? JSON.parse(todayQtPlan.plan_data) : todayQtPlan.plan_data;
+              const currentDay = todayQtPlan.current_day || 1;
+              const todayEntry = planData.find(d => d.day === currentDay) || planData[0];
+              if (todayEntry) {
+                loadQtScripture(todayEntry.passage);
+                loadQtGuide(currentDay);
+              }
+              return;
+            }
+          }
+          showEmptyState();
+        } catch (e2) { showEmptyState(); }
+      }
+    }
 
-        // Load QT guide data
-        loadQtGuide(currentDay);
+    // V2 모듈형 슬롯 렌더링
+    function renderV2Slots(qt) {
+      const guidePanel = document.getElementById('qtGuidePanel');
+      if (!guidePanel) return;
+      guidePanel.style.display = 'block';
 
-        // Render weekly QT list
-        renderWeeklyQtList(planData, todayQtProgress, currentDay);
+      let html = '';
 
-        // Update calendar plan info
-        const completedDays = parseInt(todayQtPlan.completed_days || 0);
-        const calPlanInfo = document.getElementById('calendarPlanInfo');
-        calPlanInfo.style.display = 'block';
-        document.getElementById('calPlanTitle').textContent = todayQtPlan.plan_name || todayQtPlan.topic;
-        document.getElementById('calPlanProgress').textContent = `${completedDays} / ${todayQtPlan.duration}일`;
-        document.getElementById('calPlanBar').style.width = Math.round(completedDays / todayQtPlan.duration * 100) + '%';
-      } catch (e) { console.error('loadTodayQt error:', e); }
+      // 해설 슬롯
+      if (qt.commentary?.content) {
+        html += `<div class="qt-guide-section">
+          <h4 style="color:var(--primary);font-size:15px;margin-bottom:8px;">오늘의 묵상 포인트</h4>
+          <p style="font-size:14px;line-height:1.8;color:var(--text);">${qt.commentary.content.replace(/\n/g, '<br>')}</p>
+          ${qt.commentary.source_topic ? `<div style="font-size:11px;color:var(--text-light);margin-top:4px;">— ${qt.commentary.source_topic}</div>` : ''}
+        </div>`;
+      }
+
+      // 원어 슬롯
+      if (qt.keyword?.content) {
+        html += `<div class="qt-guide-section" style="background:var(--primary-bg);border-radius:12px;padding:14px;margin:12px 0;">
+          <h4 style="font-size:13px;color:var(--primary);margin-bottom:6px;">원어 해��</h4>
+          <p style="font-size:13px;line-height:1.7;">${qt.keyword.content}</p>
+        </div>`;
+      }
+
+      // 질문 슬롯
+      if (qt.question?.content) {
+        html += `<div class="qt-guide-section">
+          <h4 style="color:var(--primary);font-size:15px;margin-bottom:8px;">묵상 질문</h4>
+          <p style="font-size:14px;line-height:1.8;font-style:italic;">${qt.question.content.replace(/\n/g, '<br>')}</p>
+        </div>`;
+      }
+
+      // 기도 슬롯
+      if (qt.prayer?.content) {
+        html += `<div class="qt-guide-section">
+          <h4 style="color:var(--primary);font-size:15px;margin-bottom:8px;">기도 가이드</h4>
+          <p style="font-size:14px;line-height:1.8;">${qt.prayer.content.replace(/\n/g, '<br>')}</p>
+        </div>`;
+      }
+
+      // 질문 카드 영역 (daily-cards)
+      html += `<div id="dailyCardsArea" style="margin-top:20px;"></div>`;
+
+      const guideBody = document.getElementById('qtGuideBody');
+      if (guideBody) guideBody.innerHTML = html;
+
+      // 질문 카드 로드
+      loadDailyCards();
+    }
+
+    // 질문 카드 4개 로드
+    async function loadDailyCards() {
+      try {
+        const res = await fetch('/api/v2/daily-cards');
+        if (!res.ok) return;
+        const cards = await res.json();
+
+        const area = document.getElementById('dailyCardsArea');
+        if (!area || cards.length === 0) return;
+
+        area.innerHTML = `
+          <h4 style="color:var(--primary);font-size:15px;margin-bottom:12px;">오늘의 마음 체��</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            ${cards.map(c => `
+              <button onclick="respondCard('${c.id}', ${c.hasYesNo})"
+                      style="text-align:left;padding:12px 16px;border:2px solid var(--border);border-radius:12px;
+                             background:var(--card);font-size:14px;line-height:1.5;cursor:pointer;transition:all 0.2s;font-family:inherit;"
+                      onmouseover="this.style.borderColor='var(--primary-light)';this.style.background='var(--primary-bg)'"
+                      onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--card)'"
+                      id="card-${c.id}">
+                ${c.text}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      } catch (e) { console.error('loadDailyCards error:', e); }
+    }
+
+    // 카드 선택 처리
+    async function respondCard(cardId, hasYesNo) {
+      const btn = document.getElementById('card-' + cardId);
+      if (!btn) return;
+
+      if (hasYesNo) {
+        // Yes/No 분기 카드 — 간단히 Yes로 처리 (향후 UI 개선)
+        btn.style.borderColor = 'var(--primary)';
+        btn.style.background = 'var(--primary-bg)';
+        btn.style.fontWeight = '600';
+        btn.onclick = null;
+      } else {
+        btn.style.borderColor = 'var(--primary)';
+        btn.style.background = 'var(--primary-bg)';
+        btn.style.fontWeight = '600';
+        btn.onclick = null;
+      }
+
+      try {
+        await fetch('/api/v2/card-response', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ card_id: cardId, response: 'select' })
+        });
+      } catch (e) { console.error('card response error:', e); }
     }
 
     async function loadQtScripture(passage) {
@@ -3088,6 +3171,48 @@
     }
 
     async function completeTodayQt() {
+      // V2: 모듈형 QT 완료 기록
+      if (todayQtV2) {
+        const timeSpent = qtStartTime ? Math.round((Date.now() - qtStartTime) / 1000) : 0;
+        // 노트 길이 측정 (현재 탭의 노트)
+        const noteText = noteData[userMaturityLevel] || '';
+        const noteLen = noteText.trim().length;
+
+        try {
+          await fetch('/api/v2/qt-complete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              passage_ref: todayQtV2.passage?.ref || '',
+              topic_id: todayQtV2.topic?.id || null,
+              time_spent: timeSpent,
+              note_length: noteLen,
+            }),
+          });
+        } catch (e) {
+          console.error('qt-complete error:', e);
+        }
+
+        const btn = document.getElementById('todayQtBtn');
+        btn.textContent = '완료됨 ✓';
+        btn.classList.add('done');
+        btn.disabled = true;
+
+        // 캘린더에도 기록
+        const today = new Date().toISOString().split('T')[0];
+        try {
+          await fetch('/api/qt-log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ date: today, bookId: state.bookId, chapter: state.chapter }),
+          });
+        } catch (e) {}
+
+        renderCalendar();
+        return;
+      }
+
+      // V1 폴백
       if (!todayQtPlan) return;
       const currentDay = todayQtPlan.current_day || 1;
       if (todayQtProgress.includes(currentDay)) return;
@@ -3098,7 +3223,6 @@
         body: JSON.stringify({ dayNum: currentDay }),
       });
 
-      // Also log to QT calendar
       const today = new Date().toISOString().split('T')[0];
       await fetch('/api/qt-log', {
         method: 'POST',
@@ -3111,15 +3235,12 @@
       btn.classList.add('done');
       todayQtProgress.push(currentDay);
 
-      // Check if plan is fully completed
       if (currentDay >= todayQtPlan.duration) {
-        // Mark plan as completed
         try {
           await fetch(`/api/custom-plans/${todayQtPlan.id}/complete`, { method: 'POST' });
         } catch(e) {}
         showPlanComplete();
       } else {
-        // Reload to show next day
         setTimeout(() => loadTodayQt(), 500);
       }
 

@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "description": "감정 체크인 카드 목록. 사용자가 터치하면 해당 태그가 소프트 프로필에 반영됨.",
+    "usage": "터치 시 POST /api/v2/mood-checkin 호출. 복수 선택 가능."
+  },
+  "negative": [
+    { "label": "불안해요", "emoji_alt": "anxious", "tags": { "E01": 90 }, "color": "#E57373" },
+    { "label": "슬퍼요", "emoji_alt": "sad", "tags": { "E02": 90 }, "color": "#7986CB" },
+    { "label": "우울해요", "emoji_alt": "depressed", "tags": { "E03": 90 }, "color": "#78909C" },
+    { "label": "화가 나요", "emoji_alt": "angry", "tags": { "E04": 90 }, "color": "#EF5350" },
+    { "label": "외로워요", "emoji_alt": "lonely", "tags": { "E05": 90 }, "color": "#9575CD" },
+    { "label": "죄책감이 들어요", "emoji_alt": "guilty", "tags": { "E06": 90 }, "color": "#A1887F" },
+    { "label": "지쳐요", "emoji_alt": "burnout", "tags": { "E07": 90 }, "color": "#FF8A65" },
+    { "label": "혼란스러워요", "emoji_alt": "confused", "tags": { "E08": 90 }, "color": "#FFD54F" },
+    { "label": "상처받았어요", "emoji_alt": "rejected", "tags": { "E09": 90 }, "color": "#CE93D8" },
+    { "label": "허무해요", "emoji_alt": "empty", "tags": { "E10": 90 }, "color": "#B0BEC5" }
+  ],
+  "positive": [
+    { "label": "감사해요", "emoji_alt": "thankful", "tags": { "E11": 90 }, "color": "#81C784" },
+    { "label": "평안해요", "emoji_alt": "peaceful", "tags": { "E12": 90 }, "color": "#4FC3F7" },
+    { "label": "기대돼요", "emoji_alt": "hopeful", "tags": { "E13": 90 }, "color": "#FFB74D" },
+    { "label": "사랑받고 있어요", "emoji_alt": "loved", "tags": { "E14": 90 }, "color": "#F06292" },
+    { "label": "감동받았어요", "emoji_alt": "moved", "tags": { "E15": 90 }, "color": "#AED581" }
+  ],
+  "neutral": [
+    { "label": "괜찮아요", "emoji_alt": "okay", "tags": {}, "color": "#E0E0E0" }
+  ]
+}
