@@ -1326,9 +1326,17 @@ app.get('/api/v2/daily-qt', requireAuth, async (req, res) => {
       [req.user.id, selectedPassage.passage_ref]
     );
 
-    // 7. 조립된 QT 응답
+    // 7. 오늘 이미 완료했는지 확인
+    const todayHistory = await pool.query(
+      'SELECT completed FROM qt_history WHERE user_id = $1 AND qt_date = CURRENT_DATE',
+      [req.user.id]
+    );
+    const alreadyCompleted = todayHistory.rows[0]?.completed || false;
+
+    // 8. 조립된 QT 응답
     res.json({
       date: new Date().toISOString().split('T')[0],
+      already_completed: alreadyCompleted,
       maturity_level: maturity,
       // 슬롯 1: 본문
       passage: {
@@ -1522,7 +1530,18 @@ app.post('/api/v2/qt-complete', requireAuth, async (req, res) => {
       [req.user.id]
     );
 
-    res.json({ success: true });
+    // 스트릭 정보 반환
+    const profile = await pool.query(
+      'SELECT streak_current, streak_best, total_qt_days FROM user_spiritual_profile WHERE user_id = $1',
+      [req.user.id]
+    );
+    const p = profile.rows[0] || {};
+    res.json({
+      success: true,
+      streak_current: p.streak_current || 1,
+      streak_best: p.streak_best || 1,
+      total_qt_days: p.total_qt_days || 1,
+    });
   } catch (err) {
     console.error('qt-complete error:', err);
     res.status(500).json({ error: 'Failed to record completion' });

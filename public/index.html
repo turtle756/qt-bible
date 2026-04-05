@@ -186,6 +186,8 @@
         max-width: 600px;
       }
       .qt-right { position: static; }
+      .qt-guide-content { max-height: none; }
+      #qtScriptureBody { max-height: none !important; }
     }
 
     .main { max-width: 1600px; margin: 0 auto; padding: 12px; }
@@ -219,21 +221,178 @@
     }
     .today-qt-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
     .today-qt-info p { font-size: 0.8rem; opacity: 0.85; }
-    .today-qt-btn {
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.3);
+    .today-qt-status {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .today-qt-status.completed {
+      color: #a5d6a7;
+      font-weight: 600;
+    }
+    .today-qt-hidden { display: none; }
+
+    /* QT Completion Popup */
+    .qt-completion-popup {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    .qt-completion-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      max-width: 320px; width: 85%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .qt-completion-icon {
+      font-size: 2.4rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+    .qt-completion-msg {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .qt-completion-milestone {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding: 6px 14px;
+      background: var(--accent-light);
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .qt-completion-streak {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      margin-bottom: 4px;
+    }
+    .streak-flame { font-size: 1.4rem; }
+    .streak-count {
+      font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+    }
+    .qt-completion-total {
+      font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 20px;
+    }
+    .qt-completion-close {
+      background: var(--accent);
       color: white;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-size: 0.8rem;
+      border: none;
+      padding: 10px 36px;
+      border-radius: 10px;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: opacity 0.15s;
     }
-    .today-qt-btn:hover { background: rgba(255,255,255,0.3); }
-    .today-qt-btn.done { background: rgba(76,175,80,0.5); border-color: rgba(76,175,80,0.6); }
-    .today-qt-hidden { display: none; }
+    .qt-completion-close:hover { opacity: 0.9; }
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Profile Page */
+    .profile-header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 20px;
+    }
+    .profile-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 3px solid var(--accent-light);
+    }
+    .profile-name {
+      font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;
+    }
+    .profile-joined {
+      font-size: 0.78rem; color: var(--text-secondary); margin: 4px 0 0;
+    }
+    .profile-streak-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .profile-streak-row {
+      display: flex; justify-content: space-around; text-align: center;
+    }
+    .profile-stat-num {
+      display: block; font-size: 1.5rem; font-weight: 700; color: var(--accent);
+    }
+    .profile-stat-label {
+      display: block; font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;
+    }
+    .profile-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+    .profile-section-title {
+      font-size: 0.9rem; font-weight: 700; color: var(--accent);
+      margin: 0 0 12px;
+    }
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 10px;
+    }
+    .badge-item {
+      text-align: center;
+      padding: 12px 6px;
+      border-radius: 10px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+    }
+    .badge-item.earned {
+      background: var(--accent-light);
+      border-color: var(--accent);
+    }
+    .badge-icon { font-size: 1.6rem; display: block; margin-bottom: 4px; }
+    .badge-item:not(.earned) .badge-icon { filter: grayscale(1); opacity: 0.4; }
+    .badge-label { font-size: 0.68rem; color: var(--text-secondary); line-height: 1.3; }
+
+    /* Recent Dots (compact calendar) */
+    .recent-dots {
+      display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .recent-dot {
+      width: 28px; height: 28px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--text-secondary);
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+    }
+    .recent-dot.has-qt {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      border-color: var(--accent);
+    }
+    .recent-dot.today {
+      border: 2px solid var(--accent);
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .recent-dot.today.has-qt {
+      color: white;
+    }
 
     /* Feed */
     .feed-write-btn {
@@ -421,6 +580,7 @@
       .columns { display: block !important; }
       .column { display: none !important; }
       .column.mobile-active { display: block !important; }
+      .column-body { max-height: none; -webkit-overflow-scrolling: touch; }
     }
 
     /* Column */
@@ -864,7 +1024,7 @@
           <div class="user-menu" id="userMenu">
             <div class="user-menu-header" id="userMenuName"></div>
             <div class="user-menu-divider"></div>
-            <button class="user-menu-item" onclick="openSettings()">설정</button>
+            <button class="user-menu-item" onclick="switchMainTab('profile')">프로필</button>
             <button class="user-menu-item" onclick="location.href='/auth/logout'">로그아웃</button>
             <div class="user-menu-divider"></div>
             <button class="user-menu-item danger" onclick="showDeleteConfirm()">계정 삭제</button>
@@ -879,6 +1039,7 @@
     <button class="main-tab active" data-tab="qt" onclick="switchMainTab('qt')">QT</button>
     <button class="main-tab" data-tab="bible" onclick="switchMainTab('bible')">성경</button>
     <button class="main-tab" data-tab="share" onclick="switchMainTab('share')">나눔</button>
+    <button class="main-tab" data-tab="profile" onclick="switchMainTab('profile')">프로필</button>
   </nav>
 
   <!-- Book Selector Modal -->
@@ -1001,7 +1162,7 @@
                 <p id="todayQtFocus">온보딩을 완료하면 맞춤 QT가 시작됩니다.</p>
               </div>
             </div>
-            <button class="today-qt-btn" id="todayQtBtn" onclick="completeTodayQt()">읽기 완료</button>
+            <span class="today-qt-status" id="todayQtStatus"></span>
           </div>
         </div>
 
@@ -1083,28 +1244,11 @@
           </div>
         </div>
 
-        <!-- 5. Calendar -->
+        <!-- 5. 묵상 기록 (컴팩트) -->
         <div class="calendar-card">
-          <h3>QT 캘린더</h3>
-          <div class="calendar-nav">
-            <button onclick="changeCalMonth(-1)">&#9664;</button>
-            <span id="calMonthLabel"></span>
-            <button onclick="changeCalMonth(1)">&#9654;</button>
-          </div>
-          <div class="calendar-grid" id="calendarGrid"></div>
+          <h3>최근 묵상</h3>
+          <div class="recent-dots" id="recentDots"></div>
           <div class="calendar-streak" id="streakInfo"></div>
-          <!-- Weekly QT List -->
-          <div id="weeklyQtList" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;"></div>
-
-          <div id="calendarPlanInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span id="calPlanTitle" style="font-weight:600;font-size:0.82rem;color:var(--accent);"></span>
-              <span id="calPlanProgress" style="font-size:0.75rem;color:var(--text-secondary);"></span>
-            </div>
-            <div style="background:var(--bg-primary);border-radius:8px;height:6px;overflow:hidden;">
-              <div id="calPlanBar" style="height:100%;background:var(--accent);border-radius:8px;transition:width 0.3s;"></div>
-            </div>
-          </div>
         </div>
 
       </div><!-- end qt-right -->
@@ -1155,6 +1299,72 @@
 
     </section>
   </div><!-- end tabShare -->
+
+  <!-- ===== TAB: 프로필 ===== -->
+  <div class="tab-content" id="tabProfile">
+    <div style="max-width:500px;margin:0 auto;padding:16px;">
+
+      <!-- 프로필 헤더 -->
+      <div class="profile-header">
+        <img class="profile-avatar" id="profileAvatar" src="" alt="" referrerpolicy="no-referrer">
+        <div class="profile-info">
+          <h2 class="profile-name" id="profileName"></h2>
+          <p class="profile-joined" id="profileJoined"></p>
+        </div>
+      </div>
+
+      <!-- 스트릭 카드 -->
+      <div class="profile-streak-card">
+        <div class="profile-streak-row">
+          <div class="profile-stat">
+            <span class="profile-stat-num" id="profileStreak">0</span>
+            <span class="profile-stat-label">연속 묵상</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-num" id="profileBest">0</span>
+            <span class="profile-stat-label">최고 기록</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-num" id="profileTotal">0</span>
+            <span class="profile-stat-label">총 묵상일</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 업적/뱃지 -->
+      <div class="profile-section">
+        <h3 class="profile-section-title">업적</h3>
+        <div class="badge-grid" id="badgeGrid"></div>
+      </div>
+
+      <!-- 묵상 단계 설정 -->
+      <div class="profile-section">
+        <h3 class="profile-section-title">묵상 단계</h3>
+        <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:10px;">성숙도에 따라 가이드와 노트 양식이 달라집니다.</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <button class="settings-level-btn" data-level="exploring" onclick="changeLevel('exploring')">
+            <strong>입문</strong> — 따뜻한 질문과 자유로운 묵상
+          </button>
+          <button class="settings-level-btn" data-level="growing" onclick="changeLevel('growing')">
+            <strong>초급</strong> — SOAP 구조로 체계적인 묵상
+          </button>
+          <button class="settings-level-btn" data-level="close" onclick="changeLevel('close')">
+            <strong>중급</strong> — 귀납적 관찰·해석·적용
+          </button>
+          <button class="settings-level-btn" data-level="centered" onclick="changeLevel('centered')">
+            <strong>심화</strong> — 렉시오 디비나 관상 묵상
+          </button>
+        </div>
+      </div>
+
+      <!-- 계정 관리 -->
+      <div class="profile-section" style="margin-top:24px;">
+        <button class="nav-btn" style="width:100%;padding:10px;" onclick="location.href='/auth/logout'">로그아웃</button>
+        <button style="width:100%;padding:10px;margin-top:8px;background:none;border:1px solid #e57373;color:#e57373;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;" onclick="showDeleteConfirm()">계정 삭제</button>
+      </div>
+
+    </div>
+  </div><!-- end tabProfile -->
 
   <div class="shortcuts-hint">
     <kbd>←</kbd> <kbd>→</kbd> 이전/다음 장 &nbsp; <kbd>B</kbd> 성경 선택
@@ -2179,6 +2389,11 @@
           }),
         });
         statusEl.textContent = '저장됨';
+        // 노트 저장 시 자동으로 QT 완료 처리
+        if (todayQtV2 && !todayQtV2._completed) {
+          todayQtV2._completed = true;
+          completeTodayQt();
+        }
       } catch (e) {
         statusEl.textContent = '저장 실패';
       }
@@ -2189,46 +2404,45 @@
     // Calendar
     // ============================================================
     async function renderCalendar() {
-      const label = document.getElementById('calMonthLabel');
-      label.textContent = `${calYear}년 ${calMonth}월`;
+      // 최근 14일 컴팩트 뷰
+      const today = new Date();
+      const dates = [];
+      for (let i = 13; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        dates.push(d);
+      }
 
-      let qtDates = [];
+      // 최근 14일 범위의 qt-log 가져오기
+      let qtDateSet = new Set();
       try {
-        const res = await fetch(`/api/qt-log?year=${calYear}&month=${calMonth}`);
-        qtDates = (await res.json()).map(r => new Date(r.log_date).getDate());
+        const startDate = dates[0].toISOString().split('T')[0];
+        // 현재 월 + 이전 월 모두 가져오기
+        const res1 = await fetch(`/api/qt-log?year=${dates[0].getFullYear()}&month=${dates[0].getMonth()+1}`);
+        const res2 = await fetch(`/api/qt-log?year=${today.getFullYear()}&month=${today.getMonth()+1}`);
+        const logs1 = await res1.json();
+        const logs2 = await res2.json();
+        [...logs1, ...logs2].forEach(r => {
+          qtDateSet.add(new Date(r.log_date).toISOString().split('T')[0]);
+        });
       } catch (e) {}
 
-      const grid = document.getElementById('calendarGrid');
-      const days = ['일','월','화','수','목','금','토'];
-      let html = days.map(d => `<div class="calendar-day-header">${d}</div>`).join('');
-
-      const firstDay = new Date(calYear, calMonth - 1, 1).getDay();
-      const daysInMonth = new Date(calYear, calMonth, 0).getDate();
-      const today = new Date();
-      const isThisMonth = today.getFullYear() === calYear && today.getMonth() + 1 === calMonth;
-
-      for (let i = 0; i < firstDay; i++) html += '<div class="calendar-day empty"></div>';
-      for (let d = 1; d <= daysInMonth; d++) {
-        const hasQt = qtDates.includes(d);
-        const isToday = isThisMonth && d === today.getDate();
-        let cls = 'calendar-day';
+      const container = document.getElementById('recentDots');
+      const todayStr = today.toISOString().split('T')[0];
+      container.innerHTML = dates.map(d => {
+        const ds = d.toISOString().split('T')[0];
+        const hasQt = qtDateSet.has(ds);
+        const isToday = ds === todayStr;
+        let cls = 'recent-dot';
         if (hasQt) cls += ' has-qt';
         if (isToday) cls += ' today';
-        html += `<div class="${cls}">${d}</div>`;
-      }
-      grid.innerHTML = html;
+        return `<div class="${cls}">${d.getDate()}</div>`;
+      }).join('');
 
-      // Streak
-      const streak = qtDates.length;
+      // 스트릭 표시
+      const completedCount = dates.filter(d => qtDateSet.has(d.toISOString().split('T')[0])).length;
       document.getElementById('streakInfo').textContent =
-        streak > 0 ? `이번 달 ${streak}일 QT 완료` : '이번 달 아직 QT 기록이 없어요';
-    }
-
-    function changeCalMonth(delta) {
-      calMonth += delta;
-      if (calMonth > 12) { calMonth = 1; calYear++; }
-      if (calMonth < 1) { calMonth = 12; calYear--; }
-      renderCalendar();
+        completedCount > 0 ? `최근 14일 중 ${completedCount}일 묵상` : '아직 묵상 기록이 없어요';
     }
 
     // ============================================================
@@ -2244,8 +2458,72 @@
       document.getElementById('tabBible').classList.toggle('active', tab === 'bible');
       document.getElementById('tabQt').classList.toggle('active', tab === 'qt');
       document.getElementById('tabShare').classList.toggle('active', tab === 'share');
+      document.getElementById('tabProfile').classList.toggle('active', tab === 'profile');
       document.getElementById('bibleSelectors').style.display = tab === 'bible' ? 'flex' : 'none';
       if (tab === 'share') loadFeed();
+      if (tab === 'profile') loadProfile();
+      // 유저 메뉴 닫기
+      const menu = document.getElementById('userMenu');
+      if (menu) menu.style.display = 'none';
+    }
+
+    // 프로필 데이터 로드
+    async function loadProfile() {
+      // 아바타 + 이름
+      const avatar = document.getElementById('profileAvatar');
+      const name = document.getElementById('profileName');
+      if (currentUser) {
+        avatar.src = currentUser.avatar || '';
+        name.textContent = currentUser.name || '사용자';
+        const joined = currentUser.created_at ? new Date(currentUser.created_at) : new Date();
+        document.getElementById('profileJoined').textContent =
+          `${joined.getFullYear()}년 ${joined.getMonth()+1}월 가입`;
+      }
+
+      // 스트릭/통계
+      try {
+        const res = await fetch('/api/v2/profile');
+        if (res.ok) {
+          const p = await res.json();
+          document.getElementById('profileStreak').textContent = p.streak_current || 0;
+          document.getElementById('profileBest').textContent = p.streak_best || 0;
+          document.getElementById('profileTotal').textContent = p.total_qt_days || 0;
+
+          // 묵상 단계 활성화 표시
+          document.querySelectorAll('#tabProfile .settings-level-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.level === (p.maturity_level || 'exploring'));
+          });
+        }
+      } catch (e) {}
+
+      // 뱃지 렌더
+      renderBadges();
+    }
+
+    // 업적 뱃지
+    function renderBadges() {
+      const streak = parseInt(document.getElementById('profileStreak')?.textContent) || 0;
+      const total = parseInt(document.getElementById('profileTotal')?.textContent) || 0;
+      const best = parseInt(document.getElementById('profileBest')?.textContent) || 0;
+
+      const badges = [
+        { icon: '\u{1F331}', label: '첫 묵상', earned: total >= 1 },
+        { icon: '\u{1F525}', label: '7일 연속', earned: best >= 7 },
+        { icon: '\u{2B50}', label: '30일 연속', earned: best >= 30 },
+        { icon: '\u{1F451}', label: '100일 연속', earned: best >= 100 },
+        { icon: '\u{1F4D6}', label: '10일 묵상', earned: total >= 10 },
+        { icon: '\u{1F4DA}', label: '50일 묵상', earned: total >= 50 },
+        { icon: '\u{1F3C6}', label: '100일 묵상', earned: total >= 100 },
+        { icon: '\u{1F48E}', label: '365일 묵상', earned: total >= 365 },
+      ];
+
+      const grid = document.getElementById('badgeGrid');
+      grid.innerHTML = badges.map(b => `
+        <div class="badge-item ${b.earned ? 'earned' : ''}">
+          <span class="badge-icon">${b.icon}</span>
+          <span class="badge-label">${b.label}</span>
+        </div>
+      `).join('');
     }
 
     // ============================================================
@@ -2497,15 +2775,35 @@
         const labels = { exploring: '입문 · 질문식', growing: '초급 · SOAP', close: '중급 · 귀납적', centered: '심화 · 렉시오 디비나' };
         document.getElementById('guideLevelLabel').textContent = labels[userMaturityLevel] || '묵상 가이���';
 
+        // 스트릭 정보 가져오기
+        let streakInfo = { streak_current: 0, total_qt_days: 0 };
+        try {
+          const profileRes = await fetch('/api/v2/profile');
+          if (profileRes.ok) streakInfo = await profileRes.json();
+        } catch (e) {}
+
         // 배너 표시
         const banner = document.getElementById('todayQtBanner');
         banner.style.display = 'block';
-        document.getElementById('todayQtDay').textContent = qt.date;
+        const streak = streakInfo.streak_current || 0;
+        document.getElementById('todayQtDay').textContent = streak > 0
+          ? `\u{1F525} ${streak}일 연속`
+          : qt.date;
         document.getElementById('todayQtPassage').textContent = qt.passage?.ref || '';
         const userName = currentUser?.name?.split(' ')[0] || '';
         document.getElementById('todayQtFocus').textContent = userName
           ? `${userName}님, 오늘의 묵상이 준비되었습니다`
           : '오늘의 묵상이 준비되었습니다';
+
+        // 이미 오늘 완료한 경우
+        if (qt.already_completed) {
+          todayQtV2._completed = true;
+          const statusEl = document.getElementById('todayQtStatus');
+          if (statusEl) {
+            statusEl.textContent = '오늘의 묵상 완료';
+            statusEl.classList.add('completed');
+          }
+        }
 
         // 본문 로드 (bolls.life)
         if (qt.passage?.ref) {
@@ -3174,12 +3472,12 @@
       // V2: 모듈형 QT 완료 기록
       if (todayQtV2) {
         const timeSpent = qtStartTime ? Math.round((Date.now() - qtStartTime) / 1000) : 0;
-        // 노트 길이 측정 (현재 탭의 노트)
-        const noteText = noteData[userMaturityLevel] || '';
+        const noteText = noteData[userMaturityLevel] || noteData.default || '';
         const noteLen = noteText.trim().length;
 
+        let streakData = null;
         try {
-          await fetch('/api/v2/qt-complete', {
+          const res = await fetch('/api/v2/qt-complete', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -3189,16 +3487,19 @@
               note_length: noteLen,
             }),
           });
+          if (res.ok) streakData = await res.json();
         } catch (e) {
           console.error('qt-complete error:', e);
         }
 
-        const btn = document.getElementById('todayQtBtn');
-        btn.textContent = '완료됨 ✓';
-        btn.classList.add('done');
-        btn.disabled = true;
+        // 배너 상태 업데이트
+        const statusEl = document.getElementById('todayQtStatus');
+        if (statusEl) {
+          statusEl.textContent = '오늘의 묵상 완료';
+          statusEl.classList.add('completed');
+        }
 
-        // 캘린더에도 기록
+        // 캘린더 기록
         const today = new Date().toISOString().split('T')[0];
         try {
           await fetch('/api/qt-log', {
@@ -3209,6 +3510,9 @@
         } catch (e) {}
 
         renderCalendar();
+
+        // 축하 팝업
+        showQtCompletionPopup(streakData);
         return;
       }
 
@@ -3230,11 +3534,7 @@
         body: JSON.stringify({ date: today, bookId: state.bookId, chapter: state.chapter }),
       });
 
-      const btn = document.getElementById('todayQtBtn');
-      btn.textContent = '완료됨';
-      btn.classList.add('done');
       todayQtProgress.push(currentDay);
-
       if (currentDay >= todayQtPlan.duration) {
         try {
           await fetch(`/api/custom-plans/${todayQtPlan.id}/complete`, { method: 'POST' });
@@ -3243,8 +3543,52 @@
       } else {
         setTimeout(() => loadTodayQt(), 500);
       }
-
       renderCalendar();
+    }
+
+    // QT 완료 축하 팝업
+    function showQtCompletionPopup(streakData) {
+      const streak = streakData?.streak_current || 1;
+      const total = streakData?.total_qt_days || 1;
+      const best = streakData?.streak_best || streak;
+
+      // 마일스톤 메시지
+      let milestone = '';
+      if (streak === 7) milestone = '일주일 연속 묵상!';
+      else if (streak === 30) milestone = '한 달 연속 묵상!';
+      else if (streak === 100) milestone = '100일 연속 묵상!';
+      else if (streak === 365) milestone = '1년 연속 묵상!';
+      else if (streak === best && streak > 1) milestone = '최고 기록 경신!';
+
+      const encouragements = [
+        '오늘도 말씀 안에 거하셨습니다.',
+        '하나님과 함께한 시간이 쌓여갑니다.',
+        '말씀이 마음의 양식이 되었기를.',
+        '조용한 시간 속에 은혜가 흘렀습니다.',
+        '오늘의 묵상이 하루를 비추길 기도합니다.',
+      ];
+      const msg = encouragements[Math.floor(Math.random() * encouragements.length)];
+
+      const popup = document.createElement('div');
+      popup.className = 'qt-completion-popup';
+      popup.innerHTML = `
+        <div class="qt-completion-card">
+          <div class="qt-completion-icon">&#10013;</div>
+          <p class="qt-completion-msg">${msg}</p>
+          ${milestone ? `<p class="qt-completion-milestone">${milestone}</p>` : ''}
+          <div class="qt-completion-streak">
+            <span class="streak-flame">&#128293;</span>
+            <span class="streak-count">${streak}일 연속</span>
+          </div>
+          <p class="qt-completion-total">총 ${total}일 묵상</p>
+          <button class="qt-completion-close" onclick="this.closest('.qt-completion-popup').remove()">아멘</button>
+        </div>
+      `;
+      document.body.appendChild(popup);
+      // 배경 클릭으로 닫기
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) popup.remove();
+      });
     }
   </script>
 </body>
