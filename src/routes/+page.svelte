@@ -3,7 +3,6 @@
 
 	interface Verse { pk: number; verse: number; text: string; }
 
-	// 성경 책 이름 → bolls.life bookId
 	const BOOK_MAP: Record<string, number> = {
 		'창세기':1,'출애굽기':2,'레위기':3,'민수기':4,'신명기':5,
 		'여호수아':6,'사사기':7,'룻기':8,'사무엘상':9,'사무엘하':10,
@@ -23,16 +22,27 @@
 
 	let qt: any = $state(null);
 	let profile: any = $state(null);
-	let cards: any[] = $state([]);
 	let verses: Verse[] = $state([]);
 	let loading = $state(true);
 	let noteText = $state('');
 	let showCelebration = $state(false);
 	let celebrationStreak = $state(0);
-	let cardResponses = $state<Record<string, string>>({});
+
+	// 질문 카드 모달
+	let allCards: any[] = $state([]);
+	let showCardModal = $state(false);
+	let selectedCard: any = $state(null);
+	let cardPage = $state(0); // 0 = 첫 4개, 1 = 다음 4개
+
+	$effect(() => {
+		// cardPage가 바뀌면 visibleCards 자동 계산
+	});
+
+	function visibleCards() {
+		return allCards.slice(cardPage * 4, cardPage * 4 + 4);
+	}
 
 	function parseRef(ref: string) {
-		// "여호수아 1:1-9" or "시편 23:1-6"
 		const m = ref.match(/^(.+?)\s+(\d+):(\d+)-?(\d+)?$/);
 		if (!m) return null;
 		const bookId = BOOK_MAP[m[1]];
@@ -57,7 +67,7 @@
 
 		if (!profile?.maturity_level) { window.location.href = '/onboarding'; return; }
 
-		try { cards = await cardsRes.json(); } catch { cards = []; }
+		try { allCards = await cardsRes.json(); } catch { allCards = []; }
 
 		// 본문 로드
 		const ref = qt?.passage?.ref;
@@ -73,10 +83,45 @@
 		}
 
 		loading = false;
+
+		// 하루 한 번만 카드 모달 표시
+		if (!qt.already_completed && allCards.length > 0) {
+			const today = new Date().toISOString().split('T')[0];
+			const lastShown = localStorage.getItem('cardModalDate');
+			if (lastShown !== today) {
+				showCardModal = true;
+			}
+		}
 	});
 
+	function selectCard(card: any) {
+		selectedCard = card;
+		// API에 선택 기록
+		fetch('/api/v2/card-response', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ card_id: card.id })
+		}).catch(() => {});
+		// 모달 닫기 + 오늘 날짜 기록
+		showCardModal = false;
+		localStorage.setItem('cardModalDate', new Date().toISOString().split('T')[0]);
+	}
+
+	function showOtherCards() {
+		if ((cardPage + 1) * 4 < allCards.length) {
+			cardPage++;
+		} else {
+			cardPage = 0; // 처음으로 돌아감
+		}
+	}
+
+	function dismissCards() {
+		showCardModal = false;
+		localStorage.setItem('cardModalDate', new Date().toISOString().split('T')[0]);
+	}
+
 	async function saveNote() {
-		if (!noteText.trim() && Object.values(cardResponses).every(v => !v?.trim())) return;
+		if (!noteText.trim()) return;
 
 		try {
 			const res = await fetch('/api/v2/qt-complete', {
@@ -96,21 +141,19 @@
 		} catch {}
 
 		// 노트 저장
-		if (noteText.trim()) {
-			try {
-				const p = qt?.passage?.ref ? parseRef(qt.passage.ref) : null;
-				await fetch('/api/notes', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({
-						bookId: p?.bookId || 1,
-						chapter: p?.chapter || 1,
-						date: new Date().toISOString().split('T')[0],
-						content: noteText,
-					})
-				});
-			} catch {}
-		}
+		try {
+			const p = qt?.passage?.ref ? parseRef(qt.passage.ref) : null;
+			await fetch('/api/notes', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					bookId: p?.bookId || 1,
+					chapter: p?.chapter || 1,
+					date: new Date().toISOString().split('T')[0],
+					content: noteText,
+				})
+			});
+		} catch {}
 
 		showCelebration = true;
 	}
@@ -119,6 +162,42 @@
 		return { exploring: '입문', growing: '초급 · SOAP', close: '중급 · 귀납적', centered: '심화 · 렉시오 디비나' }[m] || m;
 	}
 </script>
+
+<!-- 질문 카드 모달 -->
+{#if showCardModal}
+	<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" role="dialog">
+		<div class="bg-surface rounded-2xl max-w-md w-full p-6 shadow-xl space-y-3 max-h-[85vh] overflow-y-auto">
+			<h2 class="text-lg font-bold text-text text-center mb-1">오늘의 질문</h2>
+			<p class="text-xs text-text-secondary text-center mb-4">마음에 드는 질문을 하나 골라주세요</p>
+
+			{#each visibleCards() as card}
+				<button
+					onclick={() => selectCard(card)}
+					class="w-full text-left p-4 rounded-2xl border border-border bg-bg hover:border-primary hover:bg-primary-bg/50 transition-all"
+				>
+					<p class="text-sm text-text leading-relaxed">{card.text || card.question || ''}</p>
+				</button>
+			{/each}
+
+			<!-- 다른 질문 보기 -->
+			{#if allCards.length > 4}
+				<button
+					onclick={showOtherCards}
+					class="w-full p-4 rounded-2xl border border-dashed border-border text-text-secondary text-sm hover:border-primary hover:text-primary transition-all text-center"
+				>
+					다른 질문 보기
+				</button>
+			{/if}
+
+			<button
+				onclick={dismissCards}
+				class="w-full pt-2 text-xs text-text-secondary hover:text-text transition-colors text-center"
+			>
+				건너뛰기
+			</button>
+		</div>
+	</div>
+{/if}
 
 {#if loading}
 	<div class="flex items-center justify-center py-20">
@@ -143,6 +222,14 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- 선택한 질문 표시 -->
+		{#if selectedCard}
+			<div class="bg-primary-bg/50 rounded-2xl border border-primary/20 p-4 shadow-sm">
+				<p class="text-xs font-semibold text-primary mb-1">오늘의 질문</p>
+				<p class="text-sm text-text leading-relaxed">{selectedCard.text || selectedCard.question || ''}</p>
+			</div>
+		{/if}
 
 		<!-- 본문 -->
 		{#if verses.length > 0}
@@ -192,30 +279,13 @@
 			</div>
 		</div>
 
-		<!-- 질문 카드 -->
-		{#if cards.length > 0}
-			<div class="space-y-3">
-				<h2 class="text-sm font-semibold text-text-secondary">오늘의 질문</h2>
-				{#each cards as card}
-					<div class="bg-surface rounded-2xl border border-border p-4 shadow-sm">
-						<p class="text-sm font-medium text-text mb-3">{card.text || card.question || ''}</p>
-						<textarea
-							class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-							rows="2" placeholder="나의 생각을 적어보세요..."
-							oninput={(e) => { cardResponses[card.id] = (e.target as HTMLTextAreaElement).value; }}
-						></textarea>
-					</div>
-				{/each}
-			</div>
-		{/if}
-
 		<!-- 묵상 노트 -->
 		{#if !qt.already_completed}
 			<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
 				<h2 class="text-sm font-semibold text-text-secondary mb-3">묵상 노트</h2>
 
 				{#if profile?.maturity_level === 'growing'}
-					<div class="space-y-3">
+					<div class="space-y-3" id="soapArea">
 						{#each [['S · 말씀','마음에 와 닿는 구절을 적어보세요...'],['O · 관찰','이 말씀은 무엇을 말하고 있나요?'],['A · 적용','오늘 내 삶에 어떻게 적용할 수 있을까요?'],['P · 기도','말씀을 통해 기도해보세요...']] as [label, ph]}
 							<div>
 								<label class="text-xs font-medium text-text-secondary">{label}</label>
@@ -270,8 +340,8 @@
 
 	<!-- 축하 팝업 -->
 	{#if showCelebration}
-		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onclick={() => { showCelebration = false; window.location.reload(); }}>
-			<div class="bg-surface rounded-2xl p-8 mx-4 max-w-sm w-full text-center shadow-lg" onclick={(e) => e.stopPropagation()}>
+		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" role="dialog">
+			<div class="bg-surface rounded-2xl p-8 mx-4 max-w-sm w-full text-center shadow-lg">
 				<div class="text-5xl mb-4">&#x271D;</div>
 				<h2 class="text-xl font-bold text-text mb-2">오늘의 묵상을 마쳤습니다</h2>
 				<p class="text-sm text-text-secondary mb-1">하나님과 함께한 시간이 쌓여갑니다.</p>
