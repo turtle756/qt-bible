@@ -8,9 +8,9 @@
 	}
 
 	interface Profile {
-		streak: number;
-		best_streak: number;
-		total_days: number;
+		streak_current: number;
+		streak_best: number;
+		total_qt_days: number;
 		maturity_level: string;
 		created_at: string;
 	}
@@ -51,14 +51,14 @@
 
 	function getBadges(p: Profile): Badge[] {
 		return [
-			{ id: 'first', label: '첫 묵상', desc: '첫 묵상을 완료했습니다', icon: '&#x2728;', earned: p.total_days >= 1 },
-			{ id: 'streak7', label: '7일 연속', desc: '7일 연속 묵상', icon: '&#x1F525;', earned: p.best_streak >= 7 },
-			{ id: 'streak30', label: '30일 연속', desc: '30일 연속 묵상', icon: '&#x1F31F;', earned: p.best_streak >= 30 },
-			{ id: 'streak100', label: '100일 연속', desc: '100일 연속 묵상', icon: '&#x1F451;', earned: p.best_streak >= 100 },
-			{ id: 'total10', label: '10일 묵상', desc: '총 10일 묵상 달성', icon: '&#x1F4D6;', earned: p.total_days >= 10 },
-			{ id: 'total50', label: '50일 묵상', desc: '총 50일 묵상 달성', icon: '&#x1F4DA;', earned: p.total_days >= 50 },
-			{ id: 'total100', label: '100일 묵상', desc: '총 100일 묵상 달성', icon: '&#x1F3C6;', earned: p.total_days >= 100 },
-			{ id: 'total365', label: '365일 묵상', desc: '총 365일 묵상 달성', icon: '&#x1F48E;', earned: p.total_days >= 365 }
+			{ id: 'first', label: '첫 묵상', desc: '첫 묵상을 완료했습니다', icon: '&#x2728;', earned: p.total_qt_days >= 1 },
+			{ id: 'streak7', label: '7일 연속', desc: '7일 연속 묵상', icon: '&#x1F525;', earned: p.streak_best >= 7 },
+			{ id: 'streak30', label: '30일 연속', desc: '30일 연속 묵상', icon: '&#x1F31F;', earned: p.streak_best >= 30 },
+			{ id: 'streak100', label: '100일 연속', desc: '100일 연속 묵상', icon: '&#x1F451;', earned: p.streak_best >= 100 },
+			{ id: 'total10', label: '10일 묵상', desc: '총 10일 묵상 달성', icon: '&#x1F4D6;', earned: p.total_qt_days >= 10 },
+			{ id: 'total50', label: '50일 묵상', desc: '총 50일 묵상 달성', icon: '&#x1F4DA;', earned: p.total_qt_days >= 50 },
+			{ id: 'total100', label: '100일 묵상', desc: '총 100일 묵상 달성', icon: '&#x1F3C6;', earned: p.total_qt_days >= 100 },
+			{ id: 'total365', label: '365일 묵상', desc: '총 365일 묵상 달성', icon: '&#x1F48E;', earned: p.total_qt_days >= 365 }
 		];
 	}
 
@@ -74,7 +74,7 @@
 		}
 		user = me.user;
 		profile = await profileRes.json();
-		newMaturity = profile?.maturity_level_level || '';
+		newMaturity = profile?.maturity_level || '';
 
 		// Load QT log for calendar
 		await loadCalendar();
@@ -180,9 +180,9 @@
 		<!-- Stats -->
 		<div class="grid grid-cols-3 gap-3">
 			{#each [
-				{ label: '연속 묵상', value: `${profile.streak}일` },
-				{ label: '최고 기록', value: `${profile.best_streak}일` },
-				{ label: '총 묵상일', value: `${profile.total_days}일` }
+				{ label: '연속 묵상', value: `${profile.streak_current}일` },
+				{ label: '최고 기록', value: `${profile.streak_best}일` },
+				{ label: '총 묵상일', value: `${profile.total_qt_days}일` }
 			] as stat}
 				<div class="bg-surface rounded-2xl border border-border p-4 shadow-sm text-center">
 					<p class="text-xl font-bold text-primary">{stat.value}</p>
