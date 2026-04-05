@@ -2242,7 +2242,11 @@
       renderVerses('engColumn', engData, 'english');
       renderVerses('origColumn', origData, 'original');
 
-      history.replaceState(null, '', `?book=${state.bookId}&ch=${state.chapter}`);
+      // 성경 탭이 활성화된 경우에만 URL 파라미터 설정
+      const activeTab = document.querySelector('.main-tab.active')?.dataset?.tab;
+      if (activeTab === 'bible') {
+        history.replaceState(null, '', `?book=${state.bookId}&ch=${state.chapter}`);
+      }
       setupScrollSync();
       loadNotes();
 
@@ -2460,6 +2464,7 @@
       document.getElementById('tabShare').classList.toggle('active', tab === 'share');
       document.getElementById('tabProfile').classList.toggle('active', tab === 'profile');
       document.getElementById('bibleSelectors').style.display = tab === 'bible' ? 'flex' : 'none';
+      if (tab !== 'bible') history.replaceState(null, '', window.location.pathname);
       if (tab === 'share') loadFeed();
       if (tab === 'profile') loadProfile();
       // 유저 메뉴 닫기
@@ -2703,10 +2708,14 @@
       calYear = today.getFullYear();
       calMonth = today.getMonth() + 1;
 
-      // URL params
+      // URL params — 성경 탭 딥링크용
       const params = new URLSearchParams(window.location.search);
-      if (params.get('book')) state.bookId = parseInt(params.get('book'));
-      if (params.get('ch')) state.chapter = parseInt(params.get('ch'));
+      if (params.get('book')) state.bookId = parseInt(params.get('book')) || 1;
+      if (params.get('ch')) state.chapter = parseInt(params.get('ch')) || 1;
+      // QT 탭이 기본이므로 불필요한 쿼리 파라미터 정리
+      if (params.has('book') || params.has('ch')) {
+        history.replaceState(null, '', window.location.pathname);
+      }
 
       // Auth check (redirects to login if not authenticated)
       const loggedIn = await checkAuth();
