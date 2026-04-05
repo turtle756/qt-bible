@@ -180,11 +180,10 @@ function renderNickname(app) {
       <div class="card-title">반갑습니다!</div>
       <div class="card-desc">DailyQT에서 사용할 이름을 알려주세요.</div>
       <input class="input-field" id="nicknameInput" type="text" placeholder="닉네임" maxlength="20"
-             value="${state.nickname}" autofocus
-             oninput="state.nickname=this.value.trim(); document.getElementById('btnNext').classList.toggle('active', state.nickname.length>0);">
+             value="${state.nickname}" autofocus>
       <div class="nav-row">
         <div></div>
-        <button class="btn-next ${state.nickname ? 'active' : ''}" id="btnNext" onclick="submitNickname()">다음</button>
+        <button class="btn-next active" id="btnNext" onclick="submitNickname()">다음</button>
       </div>
     </div>
   `;
@@ -193,7 +192,7 @@ function renderNickname(app) {
 function submitNickname() {
   const input = document.getElementById('nicknameInput');
   if (input) state.nickname = input.value.trim();
-  if (!state.nickname) return;
+  if (!state.nickname) { input?.focus(); return; }
   state.step = 1;
   render();
 }
