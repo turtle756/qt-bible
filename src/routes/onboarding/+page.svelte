@@ -4,91 +4,82 @@
 	let step = $state(1);
 	let nickname = $state('');
 	let maturity = $state('');
-	let gender = $state('');
-	let ageGroup = $state('');
-	let hasChildren = $state('');
-	let temperamentStarted = $state(false);
-	let temperamentResult = $state('');
 	let saving = $state(false);
 
-	// Temperament test
-	const temperamentQuestions = [
-		{ q: '새로운 사람을 만나면?', a: '먼저 다가간다', b: '상대가 먼저 오길 기다린다' },
-		{ q: '결정을 내릴 때?', a: '빠르게 판단한다', b: '충분히 고민한다' },
-		{ q: '팀 프로젝트에서?', a: '리더 역할을 맡는다', b: '맡은 일을 충실히 한다' },
-		{ q: '스트레스를 받으면?', a: '활동적으로 풀려 한다', b: '혼자 조용히 정리한다' },
-		{ q: '대화할 때?', a: '말하면서 생각을 정리한다', b: '생각을 정리한 후 말한다' },
-		{ q: '계획 세울 때?', a: '큰 그림을 먼저 그린다', b: '세부 사항부터 챙긴다' },
-		{ q: '갈등 상황에서?', a: '직접 해결하려 한다', b: '시간이 해결해 주길 바란다' },
-		{ q: '감정 표현은?', a: '솔직하게 드러낸다', b: '속으로 삭인다' }
-	];
-	let answers = $state<Record<number, 'a' | 'b'>>({});
+	// Personal info
+	let ageGroup = $state('');
+	let marriageStatus = $state('');
+	let hasChildren = $state<boolean | null>(null);
+	let jobStatus = $state('');
+	let attendsChurch = $state<boolean | null>(null);
 
-	const maturityOptions = [
-		{
-			value: 'exploring',
-			label: '탐색기',
-			desc: '성경이 아직 낯설고, 묵상이 처음이에요'
-		},
-		{
-			value: 'growing',
-			label: '성장기',
-			desc: '매일 묵상하고 싶지만 방법이 어려워요'
-		},
-		{
-			value: 'close',
-			label: '친밀기',
-			desc: '하나님과의 관계가 깊어지고 있어요'
-		},
-		{
-			value: 'centered',
-			label: '중심기',
-			desc: '말씀이 삶의 중심이에요'
-		}
-	];
-
-	const ageOptions = ['10대', '20대', '30대', '40대', '50대', '60대 이상'];
+	// Temperament quiz
+	let quizData = $state<any>(null);
+	let quizIndex = $state(0);
+	let quizAnswers = $state<Record<number, number>>({});
+	let quizResult = $state<any>(null);
 
 	onMount(async () => {
-		const res = await fetch('/api/me');
-		const me = await res.json();
-		if (!me.loggedIn) {
-			window.location.href = '/login';
-		}
+		const me = await fetch('/api/me').then(r => r.json());
+		if (!me.loggedIn) { window.location.href = '/login'; return; }
+
+		const ob = await fetch('/api/v2/onboarding').then(r => r.json()).catch(() => null);
+		if (ob?.completed) { window.location.href = '/'; return; }
+
+		quizData = await fetch('/data/temperament-quiz.json').then(r => r.json()).catch(() => null);
 	});
 
-	function computeTemperament(): string {
-		let aCount = 0;
-		for (const key in answers) {
-			if (answers[key] === 'a') aCount++;
-		}
-		if (aCount >= 6) return 'choleric';
-		if (aCount >= 4) return 'sanguine';
-		if (aCount >= 2) return 'phlegmatic';
-		return 'melancholy';
+	const maturityOptions = [
+		{ value: 'exploring', label: '처음이에요', desc: '성경을 거의 읽어본 적 없어요' },
+		{ value: 'growing', label: '가끔 읽어요', desc: '교회에 다니고 가끔 성경을 읽어요' },
+		{ value: 'close', label: '꾸준히 묵상해요', desc: '매일 또는 자주 말씀을 묵상해요' },
+		{ value: 'centered', label: '깊이 해왔어요', desc: '수년간 깊이 있는 묵상을 해왔어요' },
+	];
+
+	async function submitPersonal() {
+		saving = true;
+		try {
+			await fetch('/api/v2/onboarding', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					nickname,
+					maturity_level: maturity,
+					age_group: ageGroup || null,
+					marriage_status: marriageStatus || null,
+					has_children: hasChildren,
+					job_status: jobStatus || null,
+					attends_church: attendsChurch,
+				})
+			});
+		} catch (e) { console.error(e); }
+		saving = false;
+		step = 4;
 	}
 
-	const temperamentLabels: Record<string, { label: string; desc: string }> = {
-		choleric: { label: '담즙질 (지도자형)', desc: '목표지향적이고 결단력 있는 리더 기질' },
-		sanguine: { label: '다혈질 (사교형)', desc: '밝고 열정적이며 사람들과 어울리기 좋아하는 기질' },
-		phlegmatic: { label: '점액질 (평화형)', desc: '차분하고 안정적이며 조화를 추구하는 기질' },
-		melancholy: { label: '우울질 (분석형)', desc: '깊이 생각하고 섬세하며 완벽을 추구하는 기질' }
-	};
+	async function submitQuiz() {
+		const answers = Object.entries(quizAnswers).map(([id, score]) => ({
+			question_id: parseInt(id), score
+		}));
+		try {
+			const res = await fetch('/api/v2/onboarding/temperament', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ answers })
+			});
+			quizResult = await res.json();
+		} catch (e) {
+			quizResult = { skipped: true };
+		}
+		step = 6;
+	}
 
-	async function finishOnboarding() {
-		saving = true;
-		await fetch('/api/v2/onboarding', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				nickname,
-				maturity,
-				gender,
-				age_group: ageGroup,
-				has_children: hasChildren === 'yes',
-				temperament: temperamentResult || undefined
-			})
-		});
+	async function skipQuiz() {
+		quizResult = { skipped: true };
+		step = 6;
+	}
+
+	function finishOnboarding() {
 		window.location.href = '/';
 	}
 </script>
@@ -97,46 +88,35 @@
 	<div class="w-full max-w-md">
 		<!-- Progress -->
 		<div class="flex items-center gap-2 mb-8">
-			{#each [1, 2, 3, 4, 5] as s}
-				<div
-					class="h-1.5 flex-1 rounded-full transition-colors {s <= step
-						? 'bg-primary'
-						: 'bg-border'}"
-				></div>
+			{#each [1,2,3,4,5] as s}
+				<div class="h-1.5 flex-1 rounded-full transition-colors {s <= Math.min(step, 5) ? 'bg-primary' : 'bg-border'}"></div>
 			{/each}
 		</div>
 
-		<!-- Step 1: Nickname -->
+		<!-- Step 1: 닉네임 -->
 		<div class={step === 1 ? '' : 'hidden'}>
 			<h1 class="text-2xl font-bold text-text mb-2">반갑습니다!</h1>
 			<p class="text-sm text-text-secondary mb-6">DailyQT에서 사용할 이름을 알려주세요.</p>
 			<input
-				type="text"
-				bind:value={nickname}
-				placeholder="닉네임"
+				type="text" bind:value={nickname} placeholder="닉네임" maxlength="20"
 				class="w-full px-4 py-3 rounded-2xl border border-border bg-surface text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"
-				maxlength="20"
 			/>
 			<button
 				onclick={() => { if (nickname.trim()) step = 2; }}
 				disabled={!nickname.trim()}
-				class="mt-6 w-full py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed"
-			>
-				다음
-			</button>
+				class="mt-6 w-full py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed"
+			>다음</button>
 		</div>
 
-		<!-- Step 2: Maturity -->
+		<!-- Step 2: 성숙도 -->
 		<div class={step === 2 ? '' : 'hidden'}>
-			<h1 class="text-2xl font-bold text-text mb-2">묵상 단계</h1>
-			<p class="text-sm text-text-secondary mb-6">현재 신앙 여정에서 어디쯤 계신가요?</p>
+			<h1 class="text-2xl font-bold text-text mb-2">{nickname}님,</h1>
+			<p class="text-sm text-text-secondary mb-6">성경이 얼마나 익숙하신가요?</p>
 			<div class="space-y-3">
 				{#each maturityOptions as opt}
 					<button
 						onclick={() => { maturity = opt.value; }}
-						class="w-full text-left p-4 rounded-2xl border transition-all {maturity === opt.value
-							? 'border-primary bg-primary-bg'
-							: 'border-border bg-surface hover:border-primary/30'}"
+						class="w-full text-left p-4 rounded-2xl border transition-all {maturity === opt.value ? 'border-primary bg-primary-bg' : 'border-border bg-surface hover:border-primary/30'}"
 					>
 						<p class="font-semibold text-text text-sm">{opt.label}</p>
 						<p class="text-xs text-text-secondary mt-0.5">{opt.desc}</p>
@@ -144,193 +124,179 @@
 				{/each}
 			</div>
 			<div class="flex gap-3 mt-6">
-				<button
-					onclick={() => (step = 1)}
-					class="flex-1 py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors"
-				>
-					이전
-				</button>
-				<button
-					onclick={() => { if (maturity) step = 3; }}
-					disabled={!maturity}
-					class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm disabled:opacity-40"
-				>
-					다음
-				</button>
+				<button onclick={() => step = 1} class="flex-1 py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors">이전</button>
+				<button onclick={() => { if (maturity) step = 3; }} disabled={!maturity} class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm disabled:opacity-40">다음</button>
 			</div>
 		</div>
 
-		<!-- Step 3: Personal Info -->
+		<!-- Step 3: 개인정보 (선택) -->
 		<div class={step === 3 ? '' : 'hidden'}>
-			<h1 class="text-2xl font-bold text-text mb-2">조금 더 알려주세요</h1>
-			<p class="text-sm text-text-secondary mb-6">맞춤 콘텐츠를 위한 정보입니다. (선택)</p>
+			<h1 class="text-2xl font-bold text-text mb-2">조금 더 알려주시겠어요?</h1>
+			<p class="text-sm text-text-secondary mb-6">선택 사항이에요. 건너뛰셔도 괜찮습니다.</p>
 
 			<div class="space-y-5">
+				<!-- 나이대 -->
 				<div>
-					<label class="text-sm font-medium text-text mb-2 block">성별</label>
-					<div class="flex gap-3">
-						{#each ['남성', '여성'] as g}
-							<button
-								onclick={() => (gender = g)}
-								class="flex-1 py-2.5 rounded-2xl border text-sm font-medium transition-all {gender === g
-									? 'border-primary bg-primary-bg text-primary'
-									: 'border-border text-text-secondary hover:border-primary/30'}"
-							>
-								{g}
-							</button>
-						{/each}
-					</div>
-				</div>
-
-				<div>
-					<label class="text-sm font-medium text-text mb-2 block">연령대</label>
+					<label class="text-sm font-medium text-text mb-2 block">나이대</label>
 					<div class="grid grid-cols-3 gap-2">
-						{#each ageOptions as age}
-							<button
-								onclick={() => (ageGroup = age)}
-								class="py-2.5 rounded-2xl border text-sm font-medium transition-all {ageGroup === age
-									? 'border-primary bg-primary-bg text-primary'
-									: 'border-border text-text-secondary hover:border-primary/30'}"
-							>
-								{age}
-							</button>
+						{#each ['10대','20대','30대','40대','50대','60대+'] as age}
+							<button onclick={() => ageGroup = age}
+								class="py-2.5 rounded-2xl border text-sm font-medium transition-all {ageGroup === age ? 'border-primary bg-primary-bg text-primary' : 'border-border text-text-secondary hover:border-primary/30'}"
+							>{age}</button>
 						{/each}
 					</div>
 				</div>
 
+				<!-- 결혼 여부 -->
+				<div>
+					<label class="text-sm font-medium text-text mb-2 block">결혼 여부</label>
+					<div class="grid grid-cols-2 gap-2">
+						{#each [['single','미혼'],['married','기혼'],['divorced','이혼/별거'],['bereaved','사별']] as [val, label]}
+							<button onclick={() => marriageStatus = val}
+								class="py-2.5 rounded-2xl border text-sm font-medium transition-all {marriageStatus === val ? 'border-primary bg-primary-bg text-primary' : 'border-border text-text-secondary hover:border-primary/30'}"
+							>{label}</button>
+						{/each}
+					</div>
+				</div>
+
+				<!-- 자녀 -->
 				<div>
 					<label class="text-sm font-medium text-text mb-2 block">자녀</label>
 					<div class="flex gap-3">
-						{#each [
-							{ value: 'no', label: '없음' },
-							{ value: 'yes', label: '있음' }
-						] as opt}
-							<button
-								onclick={() => (hasChildren = opt.value)}
-								class="flex-1 py-2.5 rounded-2xl border text-sm font-medium transition-all {hasChildren === opt.value
-									? 'border-primary bg-primary-bg text-primary'
-									: 'border-border text-text-secondary hover:border-primary/30'}"
-							>
-								{opt.label}
-							</button>
+						{#each [[false,'없음'],[true,'있음']] as [val, label]}
+							<button onclick={() => hasChildren = val}
+								class="flex-1 py-2.5 rounded-2xl border text-sm font-medium transition-all {hasChildren === val ? 'border-primary bg-primary-bg text-primary' : 'border-border text-text-secondary hover:border-primary/30'}"
+							>{label}</button>
+						{/each}
+					</div>
+				</div>
+
+				<!-- 직업 -->
+				<div>
+					<label class="text-sm font-medium text-text mb-2 block">직업</label>
+					<div class="grid grid-cols-3 gap-2">
+						{#each [['student','학생'],['employed','직장인'],['self_employed','자영업'],['job_seeking','구직중'],['retired','은퇴'],['other','기타']] as [val, label]}
+							<button onclick={() => jobStatus = val}
+								class="py-2.5 rounded-2xl border text-sm font-medium transition-all {jobStatus === val ? 'border-primary bg-primary-bg text-primary' : 'border-border text-text-secondary hover:border-primary/30'}"
+							>{label}</button>
+						{/each}
+					</div>
+				</div>
+
+				<!-- 교회 출석 -->
+				<div>
+					<label class="text-sm font-medium text-text mb-2 block">교회 출석</label>
+					<div class="flex gap-3">
+						{#each [[true,'출석중'],[false,'안 하고 있음']] as [val, label]}
+							<button onclick={() => attendsChurch = val}
+								class="flex-1 py-2.5 rounded-2xl border text-sm font-medium transition-all {attendsChurch === val ? 'border-primary bg-primary-bg text-primary' : 'border-border text-text-secondary hover:border-primary/30'}"
+							>{label}</button>
 						{/each}
 					</div>
 				</div>
 			</div>
 
 			<div class="flex gap-3 mt-6">
-				<button
-					onclick={() => (step = 2)}
-					class="flex-1 py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors"
-				>
-					이전
-				</button>
-				<button
-					onclick={() => (step = 4)}
-					class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm"
-				>
-					다음
+				<button onclick={() => step = 2} class="flex-1 py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors">이전</button>
+				<button onclick={() => submitPersonal()} class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm" disabled={saving}>
+					{saving ? '저장 중...' : '다음'}
 				</button>
 			</div>
+			<button onclick={() => submitPersonal()} class="mt-2 w-full py-2 text-text-secondary text-sm hover:text-text transition-colors">건너뛰기</button>
 		</div>
 
-		<!-- Step 4: Temperament intro -->
+		<!-- Step 4: 기질검사 안내 -->
 		<div class={step === 4 ? '' : 'hidden'}>
-			<h1 class="text-2xl font-bold text-text mb-2">기질 검사</h1>
-			<p class="text-sm text-text-secondary mb-6">
-				간단한 질문을 통해 기질을 파악하고, 맞춤 묵상 가이드를 제공합니다.
-			</p>
-			<div class="bg-primary-bg rounded-2xl p-5 mb-6">
-				<p class="text-sm text-text">
-					8개의 간단한 질문에 답해주세요. 정답은 없으며, 평소 자신의 모습에 가까운 것을 고르시면 됩니다.
-				</p>
+			<div class="text-center">
+				<div class="text-5xl mb-4">&#x1F9ED;</div>
+				<h1 class="text-2xl font-bold text-text mb-2">나에게 맞는 묵상 스타일을<br>찾아볼까요?</h1>
+				<p class="text-sm text-text-secondary mb-6">27개의 질문으로 약 3~5분 정도 걸려요.</p>
 			</div>
-			<div class="flex gap-3">
-				<button
-					onclick={() => (step = 3)}
-					class="flex-1 py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors"
-				>
-					이전
-				</button>
-				<button
-					onclick={() => {
-						temperamentStarted = true;
-						step = 5;
-					}}
-					class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm"
-				>
-					시작하기
-				</button>
+			<button onclick={() => { quizIndex = 0; step = 5; }}
+				class="w-full py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm"
+			>시작하기</button>
+			<button onclick={() => skipQuiz()}
+				class="mt-3 w-full py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors"
+			>건너뛰기</button>
+			<div class="mt-4">
+				<button onclick={() => step = 3} class="text-sm text-text-secondary hover:text-text transition-colors">← 이전</button>
 			</div>
-			<button
-				onclick={() => finishOnboarding()}
-				class="mt-3 w-full py-3 text-text-secondary text-sm hover:text-text transition-colors"
-			>
-				건너뛰기
-			</button>
 		</div>
 
-		<!-- Step 5: Temperament test / result -->
+		<!-- Step 5: 기질검사 27문항 -->
 		<div class={step === 5 ? '' : 'hidden'}>
-			{#if !temperamentResult}
-				<h1 class="text-2xl font-bold text-text mb-2">기질 검사</h1>
+			{#if quizData?.questions}
+				{@const q = quizData.questions[quizIndex]}
+				{@const total = quizData.questions.length}
+				{@const answered = quizAnswers[q?.id]}
+
+				<!-- Progress bar -->
+				<div class="h-1 bg-border rounded-full mb-6">
+					<div class="h-full bg-primary rounded-full transition-all" style="width:{((quizIndex+1)/total)*100}%"></div>
+				</div>
+
+				<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
+					<p class="text-xs text-text-secondary mb-3">{quizIndex + 1} / {total}</p>
+					<p class="text-base font-semibold text-text leading-relaxed mb-5">{q?.text}</p>
+
+					<div class="flex gap-2 justify-center mb-2">
+						{#each [0,1,2,3,4] as n}
+							<button
+								onclick={() => { quizAnswers = { ...quizAnswers, [q.id]: n }; }}
+								class="w-12 h-12 rounded-xl border text-base font-semibold transition-all {answered === n ? 'border-primary bg-primary text-white' : 'border-border text-text-secondary hover:border-primary/30'}"
+							>{n}</button>
+						{/each}
+					</div>
+					<div class="flex justify-between text-xs text-text-secondary px-1">
+						<span>전혀 아니다</span><span>매우 그렇다</span>
+					</div>
+				</div>
+
+				<div class="flex gap-3 mt-6">
+					<button onclick={() => { if (quizIndex > 0) quizIndex--; else step = 4; }}
+						class="flex-1 py-3 border border-border text-text-secondary font-medium rounded-2xl hover:bg-bg transition-colors"
+					>이전</button>
+					{#if quizIndex === total - 1}
+						<button onclick={() => submitQuiz()} disabled={answered === undefined}
+							class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm disabled:opacity-40"
+						>완료</button>
+					{:else}
+						<button onclick={() => { if (answered !== undefined) quizIndex++; }} disabled={answered === undefined}
+							class="flex-1 py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm disabled:opacity-40"
+						>다음</button>
+					{/if}
+				</div>
+			{/if}
+		</div>
+
+		<!-- Step 6: 결과 -->
+		<div class={step === 6 ? '' : 'hidden'}>
+			<div class="text-center">
+				<div class="text-5xl mb-4">&#x2728;</div>
+				<h1 class="text-2xl font-bold text-text mb-2">{nickname}님,<br>준비 완료!</h1>
 				<p class="text-sm text-text-secondary mb-6">
-					{Object.keys(answers).length}/8 완료
+					{quizResult?.skipped ? '묵상하면서 점점 더 맞춤화될 거예요.' : '기질에 맞는 묵상이 매일 준비됩니다.'}
 				</p>
-				<div class="space-y-4">
-					{#each temperamentQuestions as tq, i}
-						<div class="bg-surface rounded-2xl border border-border p-4 shadow-sm">
-							<p class="text-sm font-medium text-text mb-3">{i + 1}. {tq.q}</p>
-							<div class="flex gap-2">
-								<button
-									onclick={() => (answers = { ...answers, [i]: 'a' })}
-									class="flex-1 py-2 rounded-xl border text-xs font-medium transition-all {answers[i] === 'a'
-										? 'border-primary bg-primary-bg text-primary'
-										: 'border-border text-text-secondary hover:border-primary/30'}"
-								>
-									{tq.a}
-								</button>
-								<button
-									onclick={() => (answers = { ...answers, [i]: 'b' })}
-									class="flex-1 py-2 rounded-xl border text-xs font-medium transition-all {answers[i] === 'b'
-										? 'border-primary bg-primary-bg text-primary'
-										: 'border-border text-text-secondary hover:border-primary/30'}"
-								>
-									{tq.b}
-								</button>
+			</div>
+
+			{#if quizResult && !quizResult.skipped && quizResult.top_pathways?.length}
+				<div class="mb-6">
+					<p class="text-sm font-semibold text-text mb-3">나의 영적 기질</p>
+					{#each quizResult.top_pathways as p}
+						<div class="flex items-center gap-3 p-4 bg-primary-bg rounded-2xl mb-2">
+							<span class="text-xl font-bold text-primary min-w-[44px] text-center">{p.score}</span>
+							<div>
+								<p class="text-sm font-semibold text-text">{p.name}</p>
+								<p class="text-xs text-text-secondary">{p.motto}</p>
 							</div>
 						</div>
 					{/each}
 				</div>
-				<button
-					onclick={() => {
-						if (Object.keys(answers).length === 8) {
-							temperamentResult = computeTemperament();
-						}
-					}}
-					disabled={Object.keys(answers).length < 8}
-					class="mt-6 w-full py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm disabled:opacity-40"
-				>
-					결과 보기
-				</button>
-			{:else}
-				<h1 class="text-2xl font-bold text-text mb-2">당신의 기질</h1>
-				<div class="bg-primary-bg rounded-2xl p-6 mt-4 text-center">
-					<p class="text-lg font-bold text-primary mb-2">
-						{temperamentLabels[temperamentResult]?.label}
-					</p>
-					<p class="text-sm text-text-secondary">
-						{temperamentLabels[temperamentResult]?.desc}
-					</p>
-				</div>
-				<button
-					onclick={finishOnboarding}
-					disabled={saving}
-					class="mt-6 w-full py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm disabled:opacity-60"
-				>
-					{saving ? '저장 중...' : '시작하기'}
-				</button>
 			{/if}
+
+			<button onclick={() => finishOnboarding()}
+				class="w-full py-3 bg-primary text-white font-semibold rounded-2xl transition-colors shadow-sm"
+			>묵상 시작하기</button>
 		</div>
 	</div>
 </div>

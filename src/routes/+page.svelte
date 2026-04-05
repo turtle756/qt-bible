@@ -3,7 +3,7 @@
 
 	// Types
 	interface QtData {
-		passage_ref: string;
+		passage: { ref: string; book_name: string; chapter: number; verse_start: number; verse_end: number };
 		title: string;
 		commentary: string;
 		keyword: string;
@@ -92,14 +92,14 @@
 		cards = await cardsRes.json();
 
 		// Check onboarding
-		if (!profile?.maturity) {
+		if (!profile?.maturity_level) {
 			window.location.href = '/onboarding';
 			return;
 		}
 
 		// Load Bible passage
 		if (qt?.passage_ref) {
-			const parsed = parsePassageRef(qt.passage_ref);
+			const parsed = parsePassageRef(qt.passage?.ref);
 			if (parsed) {
 				try {
 					const bibleRes = await fetch(
@@ -160,7 +160,7 @@
 			<div class="flex items-center justify-between">
 				<div>
 					<p class="text-sm text-text-secondary">오늘의 말씀</p>
-					<h1 class="text-lg font-bold text-text mt-1">{qt.title || qt.passage_ref}</h1>
+					<h1 class="text-lg font-bold text-text mt-1">{qt.title || qt.passage?.ref}</h1>
 				</div>
 				<div class="flex items-center gap-1.5 text-primary">
 					{#if qt.already_completed}
@@ -175,7 +175,7 @@
 
 		<!-- Bible Passage Viewer -->
 		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
-			<h2 class="text-sm font-semibold text-text-secondary mb-3">{qt.passage_ref}</h2>
+			<h2 class="text-sm font-semibold text-text-secondary mb-3">{qt.passage?.ref}</h2>
 			<div class="space-y-1">
 				{#each verses as v}
 					<p
