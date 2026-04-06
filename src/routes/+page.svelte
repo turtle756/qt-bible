@@ -83,14 +83,7 @@
 				try {
 					const res = await fetch(`https://bolls.life/get-chapter/KRV/${p.bookId}/${p.chapter}/`);
 					const all: Verse[] = await res.json();
-					if (p.start === p.end) {
-						// 단일 절이면 전후 3절 포함해서 문맥 제공
-						const contextStart = Math.max(1, p.start - 3);
-						const contextEnd = Math.min(all.length, p.end + 3);
-						verses = all.filter(v => v.verse >= contextStart && v.verse <= contextEnd);
-					} else {
-						verses = all.filter(v => v.verse >= p.start && v.verse <= p.end);
-					}
+					verses = all.filter(v => v.verse >= p.start && v.verse <= p.end);
 				} catch { verses = []; }
 			}
 		}
