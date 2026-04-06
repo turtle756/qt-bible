@@ -12,7 +12,7 @@
 			{#each [
 				{ icon: '&#x1F4D6;', text: '맞춤형 성경 본문과 묵상 가이드' },
 				{ icon: '&#x270D;', text: '해설, 질문, 기도 안내' },
-				{ icon: '&#x1F4CA;', text: '묵상 기록과 스트릭 관리' },
+				{ icon: '&#x2728;', text: 'AI가 생성한 콘텐츠입니다. 참고용으로 활용하세요.' },
 			] as item}
 				<div class="flex items-center gap-3 px-4 py-3 bg-surface rounded-xl border border-border">
 					<span class="text-lg">{@html item.icon}</span>

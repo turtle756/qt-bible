@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
 	import { page } from '$app/state';
 
@@ -73,7 +72,7 @@
 	<meta name="twitter:title" content={pageTitle} />
 	<meta name="twitter:description" content={pageDesc} />
 
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/png" href="/logo.png" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
