@@ -14,3 +14,17 @@
   --font-sans: 'Noto Sans KR', system-ui, sans-serif;
   --font-serif: 'Noto Serif KR', Georgia, serif;
 }
+
+/* 다크모드 */
+.dark {
+  --color-primary: #d4a942;
+  --color-primary-light: #e0be5e;
+  --color-primary-bg: #2a2418;
+  --color-accent: #d4a942;
+  --color-surface: #1c1a16;
+  --color-bg: #13120f;
+  --color-border: #3a3530;
+  --color-text: #e8e0d4;
+  --color-text-secondary: #9a8e7e;
+  --color-verse-hover: #25221c;
+}
