@@ -2,9 +2,7 @@
 	<div class="w-full max-w-sm mx-auto">
 		<!-- 로고 및 소개 -->
 		<div class="text-center mb-12">
-			<div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-primary-bg flex items-center justify-center">
-				<span class="text-3xl text-primary font-serif font-bold">Q</span>
-			</div>
+			<img src="/logo.png" alt="DailyQT" class="w-20 h-20 mx-auto mb-5" />
 			<h1 class="text-2xl font-bold text-text tracking-tight">DailyQT</h1>
 			<p class="mt-2 text-text-secondary text-sm leading-relaxed">매일 말씀과 함께하는<br/>나만의 묵상 시간</p>
 		</div>

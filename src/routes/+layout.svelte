@@ -86,7 +86,10 @@
 	<!-- Header -->
 	<header class="sticky top-0 z-50 bg-surface border-b border-border px-4 py-3">
 		<div class="max-w-4xl mx-auto flex items-center justify-between">
-			<a href="/" class="text-xl font-bold text-primary tracking-tight">DailyQT</a>
+			<a href="/" class="flex items-center gap-2">
+					<img src="/logo.png" alt="DailyQT" class="w-8 h-8" />
+					<span class="text-xl font-bold text-primary tracking-tight">DailyQT</span>
+				</a>
 
 			<!-- Desktop tabs -->
 			<nav class="hidden md:flex items-center gap-1">
