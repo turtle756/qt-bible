@@ -73,7 +73,7 @@
 		// sessionStorage에서 오늘의 캐시 복원 (탭 이동 보호)
 		const cacheKey = `qt_cache_${today}`;
 		const cached = sessionStorage.getItem(cacheKey);
-		if (cached) {
+		if (cached && localStorage.getItem('onboardingDone') === 'true') {
 			try {
 				const c = JSON.parse(cached);
 				qt = c.qt; profile = c.profile; verses = c.verses;
@@ -95,6 +95,12 @@
 
 		const me = await fetch('/api/me').then(r => r.json());
 		if (!me.loggedIn) { window.location.href = '/login'; return; }
+
+		// 온보딩 완료 여부 체크
+		const obRes = await fetch('/api/v2/onboarding');
+		const ob = await obRes.json().catch(() => ({ completed: false }));
+		if (!ob.completed) { window.location.href = '/onboarding'; return; }
+		localStorage.setItem('onboardingDone', 'true');
 
 		// 대주제 오버라이드 확인
 		const savedThemeId = localStorage.getItem('themeOverride');
