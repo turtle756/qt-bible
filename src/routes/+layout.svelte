@@ -65,10 +65,13 @@
 	<meta property="og:title" content={pageTitle} />
 	<meta property="og:description" content={pageDesc} />
 	<meta property="og:url" content="https://dailyqt.xyz{page.url.pathname}" />
-	<meta property="og:image" content="https://dailyqt.xyz/og-image.png" />
+	<meta property="og:image" content="https://dailyqt.xyz/og-image.png?v=2" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://dailyqt.xyz/og-image.png?v=2" />
 	<meta name="twitter:title" content={pageTitle} />
 	<meta name="twitter:description" content={pageDesc} />
 
