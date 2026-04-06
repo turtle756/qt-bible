@@ -242,7 +242,7 @@
 	function openNote(verseNum: number) {
 		noteVerse = verseNum;
 		noteText = '';
-		shareToFeed = false;
+		shareToFeed = true;
 		showNotePanel = true;
 		showColorPicker = null;
 	}
@@ -477,7 +477,7 @@
 							<button
 								onclick={() => openNote(showColorPicker!)}
 								class="ml-auto px-2.5 py-1 rounded-lg text-xs font-medium text-primary bg-primary-bg/50 hover:bg-primary-bg transition-colors"
-							>메모</button>
+							>묵상 나누기</button>
 						</div>
 					{/if}
 				{/each}
@@ -509,7 +509,7 @@
 							<button
 								onclick={() => openNote(showColorPicker!)}
 								class="ml-auto px-2.5 py-1 rounded-lg text-xs font-medium text-primary bg-primary-bg/50 hover:bg-primary-bg transition-colors"
-							>메모</button>
+							>묵상 나누기</button>
 						</div>
 					{/if}
 				{/each}
