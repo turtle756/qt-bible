@@ -28,24 +28,55 @@ export const POST: RequestHandler = async (event) => {
        mood_checkin ? JSON.stringify(mood_checkin) : null]
     );
 
+    // 스트릭 계산: 어제 했으면 이어가기, 아니면 1로 리셋
+    const lastQtResult = await pool.query(
+      'SELECT last_qt_date FROM user_spiritual_profile WHERE user_id = $1', [userId]
+    );
+    const lastDate = lastQtResult.rows[0]?.last_qt_date;
+    const today = new Date().toISOString().split('T')[0];
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    const lastStr = lastDate ? new Date(lastDate).toISOString().split('T')[0] : null;
+
+    let streakUpdate = '';
+    if (lastStr === today) {
+      // 오늘 이미 했으면 스트릭 변경 없음
+      streakUpdate = '';
+    } else if (lastStr === yesterday) {
+      // 어제 했으면 이어가기
+      streakUpdate = 'streak_current = streak_current + 1,';
+    } else {
+      // 어제 안 했으면 1로 리셋
+      streakUpdate = 'streak_current = 1,';
+    }
+
     // Topic interest accumulation
+    const profileRow = await pool.query(
+      'SELECT theme_interest FROM user_spiritual_profile WHERE user_id = $1', [userId]
+    );
+    const current = profileRow.rows[0]?.theme_interest || {};
     if (topic_id) {
       const topicEntry = topicsDb?.[topic_id - 1];
       if (topicEntry?.soft_tags) {
-        const profile = await pool.query(
-          'SELECT theme_interest FROM user_spiritual_profile WHERE user_id = $1', [userId]
-        );
-        const current = profile.rows[0]?.theme_interest || {};
         for (const [tag, val] of Object.entries(topicEntry.soft_tags)) {
           if (tag.startsWith('TH')) {
             current[tag] = Math.min(100, (current[tag] || 0) + Math.round((val as number) * 0.05));
           }
         }
-        await pool.query(
-          'UPDATE user_spiritual_profile SET theme_interest = $1, total_qt_days = total_qt_days + 1, streak_current = streak_current + 1, last_qt_date = CURRENT_DATE, updated_at = NOW() WHERE user_id = $2',
-          [JSON.stringify(current), userId]
-        );
       }
+    }
+
+    // 스트릭 + 통계 업데이트 (topic_id 유무와 무관하게 항상 실행)
+    if (lastStr !== today) {
+      await pool.query(
+        `UPDATE user_spiritual_profile SET
+          theme_interest = $1,
+          ${streakUpdate}
+          total_qt_days = total_qt_days + 1,
+          last_qt_date = CURRENT_DATE,
+          updated_at = NOW()
+        WHERE user_id = $2`,
+        [JSON.stringify(current), userId]
+      );
     }
 
     // Update best streak
