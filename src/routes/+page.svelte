@@ -42,6 +42,12 @@
 		return allCards.slice(cardPage * 4, cardPage * 4 + 4);
 	}
 
+	function getGreeting() {
+		const hour = new Date().getHours();
+		if (hour < 10) return '어제 하루는 어떠셨나요?';
+		return '오늘 하루는 어떠셨나요?';
+	}
+
 	function parseRef(ref: string) {
 		const m = ref.match(/^(.+?)\s+(\d+):(\d+)-?(\d+)?$/);
 		if (!m) return null;
@@ -115,11 +121,6 @@
 		}
 	}
 
-	function dismissCards() {
-		showCardModal = false;
-		localStorage.setItem('cardModalDate', new Date().toISOString().split('T')[0]);
-	}
-
 	async function saveNote() {
 		if (!noteText.trim()) return;
 
@@ -167,8 +168,8 @@
 {#if showCardModal}
 	<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" role="dialog">
 		<div class="bg-surface rounded-2xl max-w-md w-full p-6 shadow-xl space-y-3 max-h-[85vh] overflow-y-auto">
-			<h2 class="text-lg font-bold text-text text-center mb-1">오늘의 질문</h2>
-			<p class="text-xs text-text-secondary text-center mb-4">마음에 드는 질문을 하나 골라주세요</p>
+			<h2 class="text-lg font-bold text-text text-center mb-1">{getGreeting()}</h2>
+			<p class="text-xs text-text-secondary text-center mb-4">마음에 와닿는 질문을 하나 골라주세요</p>
 
 			{#each visibleCards() as card}
 				<button
@@ -179,21 +180,12 @@
 				</button>
 			{/each}
 
-			<!-- 다른 질문 보기 -->
-			{#if allCards.length > 4}
-				<button
-					onclick={showOtherCards}
-					class="w-full p-4 rounded-2xl border border-dashed border-border text-text-secondary text-sm hover:border-primary hover:text-primary transition-all text-center"
-				>
-					다른 질문 보기
-				</button>
-			{/if}
-
+			<!-- 다른 질문 받기 -->
 			<button
-				onclick={dismissCards}
-				class="w-full pt-2 text-xs text-text-secondary hover:text-text transition-colors text-center"
+				onclick={showOtherCards}
+				class="w-full p-4 rounded-2xl border border-dashed border-border text-text-secondary text-sm hover:border-primary hover:text-primary transition-all text-center"
 			>
-				건너뛰기
+				다른 질문 받기
 			</button>
 		</div>
 	</div>
