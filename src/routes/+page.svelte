@@ -182,10 +182,9 @@
 	}
 
 	async function saveNote() {
-		// 묵상 질문 노트와 본문 노트 합치기
 		const allNotes = [questionNote, noteText].filter(Boolean).join('\n---\n');
-		if (!allNotes.trim()) return;
 
+		// 묵상 완료 처리 (노트 유무와 무관)
 		try {
 			const res = await fetch('/api/v2/qt-complete', {
 				method: 'POST',
@@ -203,19 +202,26 @@
 			}
 		} catch {}
 
-		try {
-			const p = qt?.passage?.ref ? parseRef(qt.passage.ref) : null;
-			await fetch('/api/notes', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					bookId: p?.bookId || 1,
-					chapter: p?.chapter || 1,
-					date: new Date().toISOString().split('T')[0],
-					content: allNotes,
-				})
-			});
-		} catch {}
+		// 노트가 있으면 저장
+		if (allNotes.trim()) {
+			try {
+				const p = qt?.passage?.ref ? parseRef(qt.passage.ref) : null;
+				await fetch('/api/notes', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						bookId: p?.bookId || 1,
+						chapter: p?.chapter || 1,
+						date: new Date().toISOString().split('T')[0],
+						content: allNotes,
+					})
+				});
+			} catch {}
+		}
+
+		// sessionStorage 캐시 무효화 (완료 상태 반영)
+		const today = new Date().toISOString().split('T')[0];
+		sessionStorage.removeItem(`qt_cache_${today}`);
 
 		showCelebration = true;
 	}
