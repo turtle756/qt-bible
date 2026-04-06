@@ -68,8 +68,27 @@
 	}
 
 	onMount(async () => {
-		// 이미 로드된 데이터가 있으면 재사용 (탭 이동 시 보호)
-		if (dataLoaded && qt) { loading = false; return; }
+		const today = new Date().toISOString().split('T')[0];
+
+		// sessionStorage에서 오늘의 캐시 복원 (탭 이동 보호)
+		const cacheKey = `qt_cache_${today}`;
+		const cached = sessionStorage.getItem(cacheKey);
+		if (cached) {
+			try {
+				const c = JSON.parse(cached);
+				qt = c.qt; profile = c.profile; verses = c.verses;
+				allCards = c.allCards || []; allThemes = c.allThemes || [];
+				// 선택한 카드 복원
+				const savedCard = localStorage.getItem('selectedCardToday');
+				const savedDate = localStorage.getItem('cardModalDate');
+				if (savedCard && savedDate === today) {
+					try { selectedCard = JSON.parse(savedCard); } catch {}
+				}
+				dataLoaded = true;
+				loading = false;
+				return;
+			} catch {}
+		}
 
 		const me = await fetch('/api/me').then(r => r.json());
 		if (!me.loggedIn) { window.location.href = '/login'; return; }
@@ -108,10 +127,14 @@
 			}
 		}
 
+		// sessionStorage에 오늘의 데이터 캐시
+		try {
+			sessionStorage.setItem(cacheKey, JSON.stringify({ qt, profile, verses, allCards, allThemes }));
+		} catch {}
+
 		// 선택한 카드 복원 (localStorage)
 		const savedCard = localStorage.getItem('selectedCardToday');
 		const savedDate = localStorage.getItem('cardModalDate');
-		const today = new Date().toISOString().split('T')[0];
 		if (savedCard && savedDate === today) {
 			try { selectedCard = JSON.parse(savedCard); } catch {}
 		}
