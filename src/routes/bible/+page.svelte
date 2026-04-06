@@ -124,6 +124,13 @@
 	let showColorPicker = $state<number | null>(null);
 	const colors = ['bg-yellow-200', 'bg-green-200', 'bg-blue-200', 'bg-pink-200', 'bg-orange-200'];
 
+	// 메모/나눔
+	let showNotePanel = $state(false);
+	let noteVerse = $state<number | null>(null);
+	let noteText = $state('');
+	let shareToFeed = $state(false);
+	let savingNote = $state(false);
+
 	function getApiCode(code: string): string {
 		if (code === 'ORIG') return selectedBook.isOT ? 'WLC' : 'TISCH';
 		return code;
@@ -230,6 +237,55 @@
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ bookId: selectedBook.id, chapter: selectedChapter, verse: verseNum, color })
 		}).catch(() => {});
+	}
+
+	function openNote(verseNum: number) {
+		noteVerse = verseNum;
+		noteText = '';
+		shareToFeed = false;
+		showNotePanel = true;
+		showColorPicker = null;
+	}
+
+	async function saveNote() {
+		if (!noteText.trim() || !noteVerse) return;
+		savingNote = true;
+		const passageStr = `${selectedBook.nameKr} ${selectedChapter}:${noteVerse}`;
+
+		// notes 테이블에 저장
+		try {
+			await fetch('/api/notes', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					bookId: selectedBook.id,
+					chapter: selectedChapter,
+					verse: noteVerse,
+					date: new Date().toISOString().split('T')[0],
+					content: noteText.trim()
+				})
+			});
+		} catch {}
+
+		// 나눔 공유
+		if (shareToFeed) {
+			try {
+				await fetch('/api/feed', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						type: 'devotion',
+						content: noteText.trim(),
+						passage: passageStr
+					})
+				});
+			} catch {}
+		}
+
+		savingNote = false;
+		showNotePanel = false;
+		noteText = '';
+		noteVerse = null;
 	}
 
 	function getCompareLabel(): string {
@@ -418,6 +474,10 @@
 									aria-label="하이라이트 색상" class="w-6 h-6 rounded-full border border-border {color}"
 								></button>
 							{/each}
+							<button
+								onclick={() => openNote(showColorPicker!)}
+								class="ml-auto px-2.5 py-1 rounded-lg text-xs font-medium text-primary bg-primary-bg/50 hover:bg-primary-bg transition-colors"
+							>메모</button>
 						</div>
 					{/if}
 				{/each}
@@ -446,6 +506,10 @@
 									aria-label="하이라이트 색상" class="w-6 h-6 rounded-full border border-border {color}"
 								></button>
 							{/each}
+							<button
+								onclick={() => openNote(showColorPicker!)}
+								class="ml-auto px-2.5 py-1 rounded-lg text-xs font-medium text-primary bg-primary-bg/50 hover:bg-primary-bg transition-colors"
+							>메모</button>
 						</div>
 					{/if}
 				{/each}
@@ -453,6 +517,51 @@
 		</div>
 	{/if}
 </div>
+
+<!-- 메모/나눔 패널 -->
+{#if showNotePanel && noteVerse}
+	{@const verseData = versesKr.find(v => v.verse === noteVerse)}
+	<div class="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/40">
+		<div class="bg-surface rounded-t-2xl md:rounded-2xl w-full max-w-lg p-5">
+			<div class="flex items-center justify-between mb-3">
+				<h2 class="font-bold text-text text-sm">{selectedBook.nameKr} {selectedChapter}:{noteVerse}</h2>
+				<button
+					onclick={() => (showNotePanel = false)}
+					aria-label="닫기"
+					class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-bg text-text-secondary"
+				>
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+
+			{#if verseData}
+				<p class="text-sm text-text-secondary leading-relaxed font-serif mb-4 bg-bg rounded-xl p-3">{@html verseData.text}</p>
+			{/if}
+
+			<textarea
+				bind:value={noteText}
+				class="w-full rounded-2xl border border-border bg-bg p-4 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+				rows="4"
+				placeholder="이 말씀을 통해 느낀 점을 적어보세요..."
+			></textarea>
+
+			<label class="flex items-center gap-2 mt-3 cursor-pointer">
+				<input type="checkbox" bind:checked={shareToFeed} class="w-4 h-4 rounded border-border text-primary focus:ring-primary/30" />
+				<span class="text-xs text-text-secondary">나눔에 공유하기</span>
+			</label>
+
+			<button
+				onclick={saveNote}
+				disabled={!noteText.trim() || savingNote}
+				class="mt-4 w-full py-3 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-light transition-colors shadow-sm disabled:opacity-40"
+			>
+				{savingNote ? '저장 중...' : '저장'}
+			</button>
+		</div>
+	</div>
+{/if}
 
 <!-- Book/Chapter Selection Modal -->
 {#if showBookModal}
