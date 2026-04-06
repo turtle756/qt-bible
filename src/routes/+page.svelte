@@ -203,7 +203,12 @@
 			<div class="flex items-center justify-between">
 				<div>
 					<p class="text-xs text-text-secondary">오늘의 말씀</p>
-					<h1 class="text-lg font-bold text-text mt-1">{qt.passage?.ref || ''}</h1>
+					{#if qt.passage?.title}
+						<h1 class="text-lg font-bold text-text mt-1">{qt.passage.title}</h1>
+						<p class="text-xs text-text-secondary mt-0.5">{qt.passage.ref}</p>
+					{:else}
+						<h1 class="text-lg font-bold text-text mt-1">{qt.passage?.ref || ''}</h1>
+					{/if}
 				</div>
 				<div class="text-primary text-sm font-semibold">
 					{#if qt.already_completed}

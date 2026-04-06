@@ -177,6 +177,7 @@ export const GET: RequestHandler = async (event) => {
       maturity_level: maturity,
       passage: {
         ref: selectedPassage.passage_ref,
+        title: selectedPassage.pericope_title || '',
         book_name: selectedPassage.book_name,
         testament: selectedPassage.testament,
         genre: selectedPassage.genre,
