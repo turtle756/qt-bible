@@ -23,11 +23,17 @@
 		needsClean?: boolean;
 	}
 
+	interface InterlinearVerse {
+		verse: number;
+		words: { eng: string; strongs: string; lemma: string; pron: string; def: string }[];
+	}
+
 	// KRV는 항상 표시, 비교용 번역본은 최대 1개만 선택 가능
 	const COMPARE_TRANSLATIONS: Translation[] = [
 		{ code: 'NIV', label: 'NIV', shortLabel: 'NIV', type: 'en' },
 		{ code: 'ESV', label: 'ESV', shortLabel: 'ESV', type: 'en' },
 		{ code: 'ORIG', label: '원어', shortLabel: '원어', type: 'orig' },
+		{ code: 'INTERLINEAR', label: '인터리니어', shortLabel: '인터리니어', type: 'orig' },
 	];
 
 	const books: BibleBook[] = [
@@ -111,6 +117,7 @@
 
 	// 비교 번역: null이면 꺼짐, 코드가 있으면 해당 번역 표시 (최대 1개)
 	let compareCode: string | null = $state(null);
+	let interlinearData: InterlinearVerse[] = $state([]);
 
 	// Highlights
 	let highlightedVerses = $state<Map<number, string>>(new Map());
@@ -149,7 +156,16 @@
 	}
 
 	async function loadCompare() {
-		if (!compareCode) { versesCompare = []; return; }
+		if (!compareCode) { versesCompare = []; interlinearData = []; return; }
+		if (compareCode === 'INTERLINEAR') {
+			versesCompare = [];
+			try {
+				const res = await fetch(`/api/v2/interlinear?book=${selectedBook.id}&chapter=${selectedChapter}`);
+				interlinearData = await res.json();
+			} catch { interlinearData = []; }
+			return;
+		}
+		interlinearData = [];
 		try {
 			const apiCode = getApiCode(compareCode);
 			const res = await fetch(`https://bolls.life/get-chapter/${apiCode}/${selectedBook.id}/${selectedChapter}/`);
@@ -290,6 +306,35 @@
 	{#if loading}
 		<div class="flex items-center justify-center py-20">
 			<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+		</div>
+	{:else if compareCode === 'INTERLINEAR'}
+		<!-- 인터리니어 모드 -->
+		<div class="space-y-4">
+			{#each versesKr as v}
+				{@const ilVerse = interlinearData.find((iv: InterlinearVerse) => iv.verse === v.verse)}
+				<div class="bg-surface rounded-2xl border border-border p-4 shadow-sm">
+					<div class="font-serif">
+						<p class="text-sm leading-7 text-text mb-3">
+							<span class="text-xs font-bold text-primary mr-1 font-sans">{v.verse}</span>
+							<span>{@html v.text}</span>
+						</p>
+					</div>
+					{#if ilVerse && ilVerse.words.length > 0}
+						<div class="flex flex-wrap gap-1.5">
+							{#each ilVerse.words as w}
+								{#if w.lemma}
+									<div class="inline-flex flex-col items-center px-2 py-1.5 rounded-lg bg-primary-bg/40 border border-border/50 min-w-[3rem]">
+										<span class="text-base leading-tight" dir="auto">{w.lemma}</span>
+										<span class="text-[10px] text-text-secondary">{w.pron}</span>
+										<span class="text-[10px] text-primary font-medium mt-0.5">{w.eng}</span>
+										<span class="text-[9px] text-text-secondary/70 max-w-[6rem] truncate">{w.def}</span>
+									</div>
+								{/if}
+							{/each}
+						</div>
+					{/if}
+				</div>
+			{/each}
 		</div>
 	{:else if compareCode}
 		<!-- 비교 모드: Desktop 나란히, Mobile 절별 대조 -->
