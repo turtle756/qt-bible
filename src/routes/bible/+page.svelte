@@ -15,6 +15,23 @@
 		isOT: boolean;
 	}
 
+	interface Translation {
+		code: string;
+		label: string;
+		shortLabel: string;
+		type: 'kr' | 'en' | 'orig';
+		needsClean?: boolean;
+	}
+
+	const TRANSLATIONS: Translation[] = [
+		{ code: 'KRV', label: '개역한글', shortLabel: '개역', type: 'kr' },
+		{ code: 'NIV', label: 'NIV', shortLabel: 'NIV', type: 'en' },
+		{ code: 'ESV', label: 'ESV', shortLabel: 'ESV', type: 'en' },
+		{ code: 'NLT', label: 'NLT', shortLabel: 'NLT', type: 'en' },
+		{ code: 'KJV', label: 'KJV', shortLabel: 'KJV', type: 'en', needsClean: true },
+		{ code: 'ORIG', label: '원어', shortLabel: '원어', type: 'orig' },
+	];
+
 	const books: BibleBook[] = [
 		{ id: 1, nameKr: '창세기', nameEn: 'Genesis', chapters: 50, isOT: true },
 		{ id: 2, nameKr: '출애굽기', nameEn: 'Exodus', chapters: 40, isOT: true },
@@ -88,47 +105,81 @@
 	let selectedChapter = $state(1);
 	let showBookModal = $state(false);
 	let modalStep: 'book' | 'chapter' = $state('book');
-
-	let versesKr: Verse[] = $state([]);
-	let versesEn: Verse[] = $state([]);
-	let versesOrig: Verse[] = $state([]);
 	let loading = $state(false);
 
-	// Mobile tab
-	let activeTab: 'kr' | 'en' | 'orig' = $state('kr');
+	// 번역본별 절 데이터
+	let versesMap = $state<Record<string, Verse[]>>({});
+
+	// 활성 번역본 (기본: 개역한글 + NIV)
+	let activeCodes: string[] = $state(['KRV', 'NIV']);
 
 	// Highlights
 	let highlightedVerses = $state<Map<number, string>>(new Map());
 	let showColorPicker = $state<number | null>(null);
 	const colors = ['bg-yellow-200', 'bg-green-200', 'bg-blue-200', 'bg-pink-200', 'bg-orange-200'];
 
+	function cleanStrongsNumbers(text: string): string {
+		return text.replace(/\d{2,5}/g, '').replace(/\s{2,}/g, ' ').trim();
+	}
+
+	function getApiCode(code: string): string {
+		if (code === 'ORIG') return selectedBook.isOT ? 'OHHB' : 'NTGK';
+		return code;
+	}
+
 	async function loadChapter() {
 		loading = true;
-		const origCode = selectedBook.isOT ? 'OHHB' : 'NTGK';
+		const newMap: Record<string, Verse[]> = {};
 
 		try {
-			const [krRes, enRes, origRes] = await Promise.all([
-				fetch(`https://bolls.life/get-chapter/KRV/${selectedBook.id}/${selectedChapter}/`),
-				fetch(`https://bolls.life/get-chapter/KJV/${selectedBook.id}/${selectedChapter}/`),
-				fetch(`https://bolls.life/get-chapter/${origCode}/${selectedBook.id}/${selectedChapter}/`)
-			]);
-			versesKr = await krRes.json();
-			// KJV Strong's 번호 제거 (예: -7225-, 430 등 본문 내 숫자 태그)
-			const rawEn = await enRes.json();
-			versesEn = rawEn.map((v: any) => ({
-				...v,
-				text: v.text.replace(/\d{2,5}/g, '').replace(/\s{2,}/g, ' ').trim()
-			}));
-			versesOrig = await origRes.json();
+			const fetches = activeCodes.map(async (code) => {
+				const apiCode = getApiCode(code);
+				const res = await fetch(`https://bolls.life/get-chapter/${apiCode}/${selectedBook.id}/${selectedChapter}/`);
+				let verses: Verse[] = await res.json();
+				const trans = TRANSLATIONS.find(t => t.code === code);
+				if (trans?.needsClean) {
+					verses = verses.map(v => ({ ...v, text: cleanStrongsNumbers(v.text) }));
+				}
+				newMap[code] = verses;
+			});
+			await Promise.all(fetches);
 		} catch {
-			versesKr = [];
-			versesEn = [];
-			versesOrig = [];
+			// 실패한 번역본은 빈 배열
 		}
+
+		versesMap = newMap;
 		loading = false;
 	}
 
+	function toggleTranslation(code: string) {
+		if (activeCodes.includes(code)) {
+			if (activeCodes.length <= 1) return; // 최소 1개
+			activeCodes = activeCodes.filter(c => c !== code);
+		} else {
+			activeCodes = [...activeCodes, code];
+		}
+		// 새로 추가된 번역본만 로드
+		if (!versesMap[code] && activeCodes.includes(code)) {
+			const apiCode = getApiCode(code);
+			fetch(`https://bolls.life/get-chapter/${apiCode}/${selectedBook.id}/${selectedChapter}/`)
+				.then(r => r.json())
+				.then((verses: Verse[]) => {
+					const trans = TRANSLATIONS.find(t => t.code === code);
+					if (trans?.needsClean) {
+						verses = verses.map(v => ({ ...v, text: cleanStrongsNumbers(v.text) }));
+					}
+					versesMap = { ...versesMap, [code]: verses };
+				})
+				.catch(() => {});
+		}
+		localStorage.setItem('bibleTranslations', JSON.stringify(activeCodes));
+	}
+
 	onMount(() => {
+		const saved = localStorage.getItem('bibleTranslations');
+		if (saved) {
+			try { activeCodes = JSON.parse(saved); } catch {}
+		}
 		loadChapter();
 	});
 
@@ -161,6 +212,19 @@
 		highlightedVerses = next;
 		showColorPicker = null;
 	}
+
+	function getMaxVerses(): number {
+		let max = 0;
+		for (const code of activeCodes) {
+			const v = versesMap[code];
+			if (v && v.length > max) max = v.length;
+		}
+		return max;
+	}
+
+	function getActiveTranslations(): Translation[] {
+		return activeCodes.map(c => TRANSLATIONS.find(t => t.code === c)!).filter(Boolean);
+	}
 </script>
 
 <div class="space-y-4">
@@ -189,6 +253,7 @@
 					}
 				}}
 				disabled={selectedChapter <= 1}
+				aria-label="이전 장"
 				class="w-9 h-9 flex items-center justify-center rounded-xl border border-border text-text-secondary hover:bg-bg disabled:opacity-30 transition-colors"
 			>
 				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,6 +268,7 @@
 					}
 				}}
 				disabled={selectedChapter >= selectedBook.chapters}
+				aria-label="다음 장"
 				class="w-9 h-9 flex items-center justify-center rounded-xl border border-border text-text-secondary hover:bg-bg disabled:opacity-30 transition-colors"
 			>
 				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,20 +278,16 @@
 		</div>
 	</div>
 
-	<!-- Mobile: Language tabs -->
-	<div class="md:hidden flex rounded-2xl border border-border overflow-hidden">
-		{#each [
-			{ key: 'kr', label: '한국어' },
-			{ key: 'en', label: 'English' },
-			{ key: 'orig', label: '원어' }
-		] as tab}
+	<!-- 번역본 선택 -->
+	<div class="flex flex-wrap gap-2">
+		{#each TRANSLATIONS as trans}
 			<button
-				onclick={() => (activeTab = tab.key as 'kr' | 'en' | 'orig')}
-				class="flex-1 py-2.5 text-sm font-medium transition-colors {activeTab === tab.key
-					? 'bg-primary text-white'
-					: 'bg-surface text-text-secondary hover:bg-bg'}"
+				onclick={() => toggleTranslation(trans.code)}
+				class="px-3 py-1.5 rounded-full text-xs font-medium border transition-all {activeCodes.includes(trans.code)
+					? 'border-primary bg-primary-bg text-primary'
+					: 'border-border text-text-secondary hover:border-primary/30'}"
 			>
-				{tab.label}
+				{trans.shortLabel}
 			</button>
 		{/each}
 	</div>
@@ -235,34 +297,32 @@
 			<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
 		</div>
 	{:else}
-		<!-- Desktop: 3 columns -->
-		<div class="hidden md:grid md:grid-cols-3 gap-4">
-			{#each [
-				{ label: '한국어 (개역한글)', verses: versesKr },
-				{ label: 'English (KJV)', verses: versesEn },
-				{ label: '원어', verses: versesOrig }
-			] as col}
+		<!-- Desktop: 나란히 컬럼 -->
+		{@const activeTranslations = getActiveTranslations()}
+		{@const colCount = activeTranslations.length}
+		<div class="hidden md:grid gap-4" style="grid-template-columns: repeat({colCount}, minmax(0, 1fr));">
+			{#each activeTranslations as trans}
+				{@const verses = versesMap[trans.code] || []}
 				<div class="bg-surface rounded-2xl border border-border p-4 shadow-sm">
-					<h3 class="text-xs font-semibold text-text-secondary mb-3">{col.label}</h3>
-					<div class="space-y-1">
-						{#each col.verses as v}
-							<p
-								class="text-sm leading-7 rounded-lg px-2 py-0.5 cursor-pointer transition-colors {highlightedVerses.has(
-									v.verse
-								)
+					<h3 class="text-xs font-semibold text-text-secondary mb-3">{trans.label}</h3>
+					<div class="space-y-1 font-serif">
+						{#each verses as v}
+							<button
+								type="button"
+								class="w-full text-left text-sm leading-7 rounded-lg px-2 py-0.5 cursor-pointer transition-colors {highlightedVerses.has(v.verse)
 									? highlightedVerses.get(v.verse)
 									: 'hover:bg-verse-hover'}"
 								onclick={() => toggleHighlight(v.verse)}
 							>
-								<span class="text-xs font-bold text-primary mr-1">{v.verse}</span>
+								<span class="text-xs font-bold text-primary mr-1 font-sans">{v.verse}</span>
 								<span>{@html v.text}</span>
-							</p>
+							</button>
 							{#if showColorPicker === v.verse}
 								<div class="flex items-center gap-2 px-2 py-1.5">
 									{#each colors as color}
 										<button
 											onclick={() => applyColor(v.verse, color)}
-											class="w-6 h-6 rounded-full border border-border {color}"
+											aria-label="하이라이트 색상" class="w-6 h-6 rounded-full border border-border {color}"
 										></button>
 									{/each}
 								</div>
@@ -273,38 +333,43 @@
 			{/each}
 		</div>
 
-		<!-- Mobile: single column based on active tab -->
+		<!-- Mobile: 절별 대조 -->
 		<div class="md:hidden bg-surface rounded-2xl border border-border p-4 shadow-sm">
-			{#if activeTab === 'kr' || activeTab === 'en' || activeTab === 'orig'}
-			{@const activeVerses = activeTab === 'kr' ? versesKr : activeTab === 'en' ? versesEn : versesOrig}
-			<div class="space-y-1 relative">
-				{#each activeVerses as v}
-					<div class="relative">
-						<p
-							class="text-sm leading-7 rounded-lg px-2 py-0.5 cursor-pointer transition-colors {highlightedVerses.has(
-								v.verse
-							)
-								? highlightedVerses.get(v.verse)
-								: 'hover:bg-verse-hover'}"
-							onclick={() => toggleHighlight(v.verse)}
-						>
-							<span class="text-xs font-bold text-primary mr-1">{v.verse}</span>
-							<span>{@html v.text}</span>
-						</p>
-						{#if showColorPicker === v.verse}
-							<div class="flex items-center gap-2 px-2 py-1.5">
-								{#each colors as color}
-									<button
-										onclick={() => applyColor(v.verse, color)}
-										class="w-6 h-6 rounded-full border border-border {color}"
-									></button>
-								{/each}
-							</div>
-						{/if}
+			<div class="space-y-4 font-serif">
+				{#each Array.from({ length: getMaxVerses() }, (_, i) => i + 1) as verseNum}
+					<div
+						role="button"
+						tabindex="0"
+						class="rounded-xl px-2 py-2 cursor-pointer transition-colors {highlightedVerses.has(verseNum)
+							? highlightedVerses.get(verseNum)
+							: 'hover:bg-verse-hover'}"
+						onclick={() => toggleHighlight(verseNum)}
+						onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleHighlight(verseNum); }}
+					>
+						<span class="text-xs font-bold text-primary font-sans">{verseNum}</span>
+						{#each activeTranslations as trans}
+							{@const verses = versesMap[trans.code] || []}
+							{@const v = verses.find(x => x.verse === verseNum)}
+							{#if v}
+								<p class="text-sm leading-7 {trans.type === 'orig' ? 'text-text-secondary' : 'text-text'}">
+									<span class="text-[10px] font-semibold text-text-secondary/60 font-sans mr-1">{trans.shortLabel}</span>
+									<span>{@html v.text}</span>
+								</p>
+							{/if}
+						{/each}
 					</div>
+					{#if showColorPicker === verseNum}
+						<div class="flex items-center gap-2 px-2 py-1.5">
+							{#each colors as color}
+								<button
+									onclick={() => applyColor(verseNum, color)}
+									aria-label="하이라이트 색상" class="w-6 h-6 rounded-full border border-border {color}"
+								></button>
+							{/each}
+						</div>
+					{/if}
 				{/each}
 			</div>
-			{/if}
 		</div>
 	{/if}
 </div>
@@ -324,6 +389,7 @@
 						showBookModal = false;
 						modalStep = 'book';
 					}}
+					aria-label="닫기"
 					class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-bg text-text-secondary"
 				>
 					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

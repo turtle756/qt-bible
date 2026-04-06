@@ -36,6 +36,10 @@
 	let selectedCard: any = $state(null);
 	let cardPage = $state(0);
 
+	// 대주제 선택 모달
+	let allThemes: { id: number; theme: string }[] = $state([]);
+	let showThemeModal = $state(false);
+
 	function visibleCards() {
 		return allCards.slice(cardPage * 4, cardPage * 4 + 4);
 	}
@@ -70,10 +74,15 @@
 		const me = await fetch('/api/me').then(r => r.json());
 		if (!me.loggedIn) { window.location.href = '/login'; return; }
 
-		const [qtRes, profileRes, cardsRes] = await Promise.all([
-			fetch('/api/v2/daily-qt'),
+		// 대주제 오버라이드 확인
+		const savedThemeId = localStorage.getItem('themeOverride');
+		const themeParam = savedThemeId ? `?monthOverride=${savedThemeId}` : '';
+
+		const [qtRes, profileRes, cardsRes, themesRes] = await Promise.all([
+			fetch(`/api/v2/daily-qt${themeParam}`),
 			fetch('/api/v2/profile'),
-			fetch('/api/v2/daily-cards')
+			fetch('/api/v2/daily-cards'),
+			fetch('/api/v2/themes')
 		]);
 
 		if (!profileRes.ok) { window.location.href = '/onboarding'; return; }
@@ -84,6 +93,7 @@
 		if (!profile?.maturity_level) { window.location.href = '/onboarding'; return; }
 
 		try { allCards = await cardsRes.json(); } catch { allCards = []; }
+		try { allThemes = await themesRes.json(); } catch { allThemes = []; }
 
 		// 본문 로드
 		const ref = qt?.passage?.ref;
@@ -128,6 +138,16 @@
 		const today = new Date().toISOString().split('T')[0];
 		localStorage.setItem('cardModalDate', today);
 		localStorage.setItem('selectedCardToday', JSON.stringify(card));
+	}
+
+	function selectTheme(themeId: number | null) {
+		if (themeId === null) {
+			localStorage.removeItem('themeOverride');
+		} else {
+			localStorage.setItem('themeOverride', String(themeId));
+		}
+		showThemeModal = false;
+		window.location.reload();
 	}
 
 	function showOtherCards() {
@@ -178,6 +198,42 @@
 	}
 </script>
 
+<!-- 대주제 선택 모달 -->
+{#if showThemeModal}
+	<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" role="dialog">
+		<div class="bg-surface rounded-2xl max-w-md w-full p-6 shadow-xl space-y-2 max-h-[85vh] overflow-y-auto">
+			<h2 class="text-lg font-bold text-text text-center mb-1">묵상 주제 바꾸기</h2>
+			<p class="text-xs text-text-secondary text-center mb-4">마음에 맞는 주제를 선택하세요</p>
+
+			{#each allThemes as t}
+				<button
+					onclick={() => selectTheme(t.id)}
+					class="w-full text-left p-4 rounded-2xl border transition-all {qt.theme?.monthId === t.id
+						? 'border-primary bg-primary-bg text-primary font-semibold'
+						: 'border-border bg-bg hover:border-primary hover:bg-primary-bg/50 text-text'}"
+				>
+					<span class="text-sm">{t.theme}</span>
+					{#if qt.theme?.monthId === t.id}
+						<span class="text-xs ml-2 text-primary/70">현재</span>
+					{/if}
+				</button>
+			{/each}
+
+			{#if localStorage.getItem('themeOverride')}
+				<button
+					onclick={() => selectTheme(null)}
+					class="w-full p-3 rounded-2xl border border-dashed border-border text-text-secondary text-sm hover:border-primary hover:text-primary transition-all text-center"
+				>기본 주제로 돌아가기</button>
+			{/if}
+
+			<button
+				onclick={() => (showThemeModal = false)}
+				class="w-full p-3 text-text-secondary text-sm text-center"
+			>닫기</button>
+		</div>
+	</div>
+{/if}
+
 <!-- 질문 카드 모달 -->
 {#if showCardModal}
 	<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" role="dialog">
@@ -217,6 +273,10 @@
 				<div class="flex items-center gap-2 mb-3">
 					<span class="text-xs font-medium text-primary bg-primary-bg px-2.5 py-1 rounded-full">{qt.theme.month}</span>
 					<span class="text-xs text-text-secondary">· {qt.theme.week}</span>
+					<button
+						onclick={() => (showThemeModal = true)}
+						class="ml-auto text-xs text-text-secondary hover:text-primary transition-colors"
+					>다른 주제로</button>
 				</div>
 			{/if}
 			<div class="flex items-center justify-between">
@@ -256,10 +316,10 @@
 		{#if verses.length > 0}
 			<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
 				<h2 class="text-xs font-semibold text-text-secondary mb-3">{qt.passage?.ref}</h2>
-				<div class="space-y-1">
+				<div class="space-y-1 font-serif">
 					{#each verses as v}
 						<p class="text-sm leading-7 rounded-lg px-2 py-0.5 hover:bg-verse-hover transition-colors">
-							<span class="text-xs font-bold text-primary mr-1.5">{v.verse}</span>
+							<span class="text-xs font-bold text-primary mr-1.5 font-sans">{v.verse}</span>
 							<span class="text-text">{@html v.text}</span>
 						</p>
 					{/each}

@@ -27,15 +27,23 @@ function getPools() {
 }
 
 // 오늘의 월간/주간 주제 계산
-function getWeeklyTopics(): { monthTheme: string; weekLabel: string; topicIds: number[]; thTags: Record<string, number> } {
+function getWeeklyTopics(monthOverride?: number): { monthId: number; monthTheme: string; weekLabel: string; topicIds: number[]; thTags: Record<string, number> } {
   const now = new Date();
-  // 사용자 가입일 기준이 아닌 절대 달력 기준
-  const monthIndex = now.getMonth() % _schedule.months.length; // 0-11 → 0-11 (12개월 순환)
+  const defaultMonthIndex = now.getMonth() % _schedule.months.length;
+  const monthIndex = (monthOverride != null && monthOverride >= 1 && monthOverride <= _schedule.months.length)
+    ? monthOverride - 1
+    : defaultMonthIndex;
   const month = _schedule.months[monthIndex];
 
-  // 주차: 해당 월의 몇 번째 주인지 (0-3)
+  // 주차: days 필드 기반 누적 계산
   const dayOfMonth = now.getDate();
-  const weekIndex = Math.min(Math.floor((dayOfMonth - 1) / 7), month.weeks.length - 1);
+  let cumDays = 0;
+  let weekIndex = 0;
+  for (let i = 0; i < month.weeks.length; i++) {
+    cumDays += month.weeks[i].days || 7;
+    if (dayOfMonth <= cumDays) { weekIndex = i; break; }
+    weekIndex = i;
+  }
   const week = month.weeks[weekIndex];
 
   // 주간 토픽들의 TH 태그 수집
@@ -51,7 +59,7 @@ function getWeeklyTopics(): { monthTheme: string; weekLabel: string; topicIds: n
     }
   }
 
-  return { monthTheme: month.theme, weekLabel: week.label, topicIds: week.topic_ids, thTags };
+  return { monthId: month.id, monthTheme: month.theme, weekLabel: week.label, topicIds: week.topic_ids, thTags };
 }
 
 export const GET: RequestHandler = async (event) => {
@@ -108,7 +116,9 @@ export const GET: RequestHandler = async (event) => {
     const pools = getPools();
 
     // 4. 주간 주제 로드
-    const weeklyInfo = getWeeklyTopics();
+    const monthOverrideParam = event.url.searchParams.get('monthOverride');
+    const monthOverride = monthOverrideParam ? parseInt(monthOverrideParam) : undefined;
+    const weeklyInfo = getWeeklyTopics(monthOverride);
 
     // 5. Passage selection — 오늘 캐시가 있으면 재사용
     let selectedPassage: any = null;
@@ -192,12 +202,8 @@ export const GET: RequestHandler = async (event) => {
     const selectedQuestion = selectSlot(pools.question, selectedPassage.passage_ref, passageTH);
     const selectedPrayer = selectSlot(pools.prayer, selectedPassage.passage_ref, passageTH);
 
-    // 원어 — 정확 일치 또는 범위 겹침
-    let keywords = pools.keyword.filter((k: any) => k.passage_ref === selectedPassage.passage_ref);
-    if (keywords.length === 0) {
-      keywords = pools.keyword.filter((k: any) => refsOverlap(k.passage_ref, selectedPassage.passage_ref));
-    }
-    const selectedKeyword = keywords.length > 0 ? keywords[0] : null;
+    // 원어 — selectSlot으로 4단계 매칭 (TH 태그 폴백 포함)
+    const selectedKeyword = selectSlot(pools.keyword, selectedPassage.passage_ref, passageTH);
 
     // 6. Record exposure (오늘 처음이면만)
     if (!cachedPassageRef) {
@@ -220,6 +226,7 @@ export const GET: RequestHandler = async (event) => {
       already_completed: alreadyCompleted,
       maturity_level: maturity,
       theme: {
+        monthId: weeklyInfo.monthId,
         month: weeklyInfo.monthTheme,
         week: weeklyInfo.weekLabel,
       },
