@@ -8,6 +8,18 @@
 	let user: { name: string; avatar: string } | null = $state(null);
 	let darkMode = $state(false);
 
+	const pageMeta: Record<string, { title: string; desc: string }> = {
+		'/': { title: 'DailyQT — 매일 성경 묵상', desc: '매일 맞춤형 성경 본문과 해설, 묵상 가이드로 하나님과 더 가까워지세요.' },
+		'/bible': { title: '성경 읽기 — DailyQT', desc: '개역한글 성경을 NIV, ESV, 원어와 비교하며 읽고, 인터리니어로 원어를 학습하세요.' },
+		'/share': { title: '나눔 — DailyQT', desc: '묵상 나눔과 기도제목을 나누고, 함께 기도하는 공동체.' },
+		'/profile': { title: '프로필 — DailyQT', desc: '묵상 기록, 연속 묵상 스트릭, 업적을 확인하세요.' },
+		'/login': { title: '로그인 — DailyQT', desc: '구글 계정으로 간편하게 로그인하세요.' },
+	};
+	const defaultMeta = { title: 'DailyQT — 매일 성경 묵상', desc: '매일 맞춤형 성경 묵상 가이드' };
+
+	let pageTitle = $derived(pageMeta[page.url.pathname]?.title || defaultMeta.title);
+	let pageDesc = $derived(pageMeta[page.url.pathname]?.desc || defaultMeta.desc);
+
 	$effect(() => {
 		if (typeof window !== 'undefined') {
 			const saved = localStorage.getItem('darkMode');
@@ -43,6 +55,23 @@
 </script>
 
 <svelte:head>
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDesc} />
+	<link rel="canonical" href="https://dailyqt.xyz{page.url.pathname}" />
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="DailyQT" />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDesc} />
+	<meta property="og:url" content="https://dailyqt.xyz{page.url.pathname}" />
+	<meta property="og:image" content="https://dailyqt.xyz/og-image.png" />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={pageTitle} />
+	<meta name="twitter:description" content={pageDesc} />
+
 	<link rel="icon" href={favicon} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
@@ -168,6 +197,11 @@
 			{/each}
 		</div>
 	</nav>
+
+	<!-- Footer -->
+	<footer class="hidden md:block text-center py-4 text-xs text-text-secondary border-t border-border">
+		<a href="/privacy" class="hover:text-primary transition-colors">개인정보처리방침</a>
+	</footer>
 
 	<!-- Bottom padding for mobile nav -->
 	<div class="md:hidden h-16"></div>

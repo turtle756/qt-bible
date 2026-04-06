@@ -1,3 +1,7 @@
-# allow crawling everything by default
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+Disallow: /onboarding
+Disallow: /auth/
+
+Sitemap: https://dailyqt.xyz/sitemap.xml
