@@ -200,21 +200,26 @@
 
 		<!-- 배너 -->
 		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
+			{#if qt.theme}
+				<div class="flex items-center gap-2 mb-3">
+					<span class="text-xs font-medium text-primary bg-primary-bg px-2.5 py-1 rounded-full">{qt.theme.month}</span>
+					<span class="text-xs text-text-secondary">· {qt.theme.week}</span>
+				</div>
+			{/if}
 			<div class="flex items-center justify-between">
 				<div>
-					<p class="text-xs text-text-secondary">오늘의 말씀</p>
 					{#if qt.passage?.title}
-						<h1 class="text-lg font-bold text-text mt-1">{qt.passage.title}</h1>
+						<h1 class="text-lg font-bold text-text">{qt.passage.title}</h1>
 						<p class="text-xs text-text-secondary mt-0.5">{qt.passage.ref}</p>
 					{:else}
-						<h1 class="text-lg font-bold text-text mt-1">{qt.passage?.ref || ''}</h1>
+						<h1 class="text-lg font-bold text-text">{qt.passage?.ref || ''}</h1>
 					{/if}
 				</div>
 				<div class="text-primary text-sm font-semibold">
 					{#if qt.already_completed}
-						<span class="bg-primary-bg px-3 py-1.5 rounded-full text-xs">오늘의 묵상 완료</span>
+						<span class="bg-primary-bg px-3 py-1.5 rounded-full text-xs">묵상 완료</span>
 					{:else if (profile?.streak_current || 0) > 0}
-						<span>🔥 {profile.streak_current}일 연속</span>
+						<span>🔥 {profile.streak_current}일</span>
 					{/if}
 				</div>
 			</div>

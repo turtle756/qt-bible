@@ -6,6 +6,9 @@ import { join } from 'path';
 
 // Pool loading (cached in module scope)
 let _pools: any = null;
+let _schedule: any = null;
+let _topicsDb: any = null;
+
 function getPools() {
   if (_pools) return _pools;
   const dataDir = join(process.cwd(), 'static', 'data');
@@ -17,8 +20,38 @@ function getPools() {
     keyword: JSON.parse(readFileSync(join(poolDir, 'keyword-pool.json'), 'utf8')),
     passages: JSON.parse(readFileSync(join(dataDir, 'bible-passages-seed.json'), 'utf8'))
   };
-  console.log(`Pools loaded: ${_pools.commentary.length} commentary, ${_pools.question.length} questions, ${_pools.prayer.length} prayers, ${_pools.keyword.length} keywords, ${_pools.passages.length} passages`);
+  _schedule = JSON.parse(readFileSync(join(dataDir, 'topic-schedule.json'), 'utf8'));
+  _topicsDb = JSON.parse(readFileSync(join(dataDir, 'topics-db.json'), 'utf8'));
+  console.log(`Pools loaded: ${_pools.passages.length} passages, schedule: ${_schedule.months.length} months`);
   return _pools;
+}
+
+// 오늘의 월간/주간 주제 계산
+function getWeeklyTopics(): { monthTheme: string; weekLabel: string; topicIds: number[]; thTags: Record<string, number> } {
+  const now = new Date();
+  // 사용자 가입일 기준이 아닌 절대 달력 기준
+  const monthIndex = now.getMonth() % _schedule.months.length; // 0-11 → 0-11 (12개월 순환)
+  const month = _schedule.months[monthIndex];
+
+  // 주차: 해당 월의 몇 번째 주인지 (0-3)
+  const dayOfMonth = now.getDate();
+  const weekIndex = Math.min(Math.floor((dayOfMonth - 1) / 7), month.weeks.length - 1);
+  const week = month.weeks[weekIndex];
+
+  // 주간 토픽들의 TH 태그 수집
+  const thTags: Record<string, number> = {};
+  for (const tid of week.topic_ids) {
+    const topic = _topicsDb[tid - 1];
+    if (topic?.soft_tags) {
+      for (const [k, v] of Object.entries(topic.soft_tags)) {
+        if (k.startsWith('TH')) {
+          thTags[k] = Math.max(thTags[k] || 0, v as number);
+        }
+      }
+    }
+  }
+
+  return { monthTheme: month.theme, weekLabel: week.label, topicIds: week.topic_ids, thTags };
 }
 
 export const GET: RequestHandler = async (event) => {
@@ -74,7 +107,10 @@ export const GET: RequestHandler = async (event) => {
     // 3. Load pools
     const pools = getPools();
 
-    // 4. Passage selection — 오늘 캐시가 있으면 재사용
+    // 4. 주간 주제 로드
+    const weeklyInfo = getWeeklyTopics();
+
+    // 5. Passage selection — 오늘 캐시가 있으면 재사용
     let selectedPassage: any = null;
 
     if (cachedPassageRef) {
@@ -82,9 +118,17 @@ export const GET: RequestHandler = async (event) => {
     }
 
     if (!selectedPassage) {
+      // 주간 주제 TH 태그를 사용자 프로필에 임시 부스트
+      const boostedProfile = { ...profile };
+      const boostedInterest = { ...(profile.theme_interest || {}) };
+      for (const [k, v] of Object.entries(weeklyInfo.thTags)) {
+        boostedInterest[k] = Math.min(100, (boostedInterest[k] || 0) + (v as number) * 0.5);
+      }
+      boostedProfile.theme_interest = boostedInterest;
+
       const passageCandidates = pools.passages
         .filter((p: any) => !recentPassages.has(p.passage_ref))
-        .map((p: any) => ({ ...p, score: scoring.scoreBlock(profile, p.soft_tags) }));
+        .map((p: any) => ({ ...p, score: scoring.scoreBlock(boostedProfile, p.soft_tags) }));
       selectedPassage = scoring.selectFromCandidates(passageCandidates);
     }
 
@@ -175,6 +219,10 @@ export const GET: RequestHandler = async (event) => {
       date: new Date().toISOString().split('T')[0],
       already_completed: alreadyCompleted,
       maturity_level: maturity,
+      theme: {
+        month: weeklyInfo.monthTheme,
+        week: weeklyInfo.weekLabel,
+      },
       passage: {
         ref: selectedPassage.passage_ref,
         title: selectedPassage.pericope_title || '',
