@@ -9,13 +9,14 @@
 	let darkMode = $state(false);
 
 	const pageMeta: Record<string, { title: string; desc: string }> = {
-		'/': { title: 'DailyQT — 매일 성경 묵상', desc: '매일 맞춤형 성경 본문과 해설, 묵상 가이드로 하나님과 더 가까워지세요.' },
-		'/bible': { title: '성경 읽기 — DailyQT', desc: '개역한글 성경을 NIV, ESV, 원어와 비교하며 읽고, 인터리니어로 원어를 학습하세요.' },
-		'/share': { title: '나눔 — DailyQT', desc: '묵상 나눔과 기도제목을 나누고, 함께 기도하는 공동체.' },
-		'/profile': { title: '프로필 — DailyQT', desc: '묵상 기록, 연속 묵상 스트릭, 업적을 확인하세요.' },
-		'/login': { title: '로그인 — DailyQT', desc: '구글 계정으로 간편하게 로그인하세요.' },
+		'/': { title: 'DailyQT — 매일 성경 묵상 가이드 | 맞춤형 큐티 · 해설 · 기도', desc: '매일 맞춤형 성경 본문과 해설, 묵상 질문, 기도 안내를 제공합니다. 개인 영적 프로필 기반으로 당신에게 꼭 맞는 큐티를 경험하세요. 스트릭과 캘린더로 묵상 습관을 만들어갑니다.' },
+		'/bible': { title: '성경 읽기 — DailyQT | 개역한글 · NIV · ESV · 인터리니어 원어 비교', desc: '개역한글 성경을 NIV, ESV 영어 번역본 및 히브리어·그리스어 원어와 비교하며 읽으세요. 인터리니어 모드로 원어 단어별 뜻과 발음을 확인하고, 절별 하이라이트와 묵상 나눔 기능을 사용하세요.' },
+		'/share': { title: '나눔 — DailyQT | 묵상 나눔 · 기도제목 · 함께 기도하는 공동체', desc: '성경 묵상을 나누고 기도제목을 올려보세요. 다른 사람의 묵상과 기도제목에 함께 기도할 수 있는 익명 커뮤니티입니다. 매일 말씀을 통해 서로를 세워가는 공동체.' },
+		'/profile': { title: '프로필 — DailyQT | 묵상 기록 · 스트릭 · 캘린더 · 업적', desc: '나의 묵상 기록과 연속 묵상 스트릭, 최고 기록, 총 묵상일을 확인하세요. 캘린더에서 과거 묵상을 다시 읽고, 업적 배지를 모아보세요.' },
+		'/login': { title: '로그인 — DailyQT | 구글 계정으로 간편하게 시작하는 매일 성경 묵상', desc: '구글 계정 하나로 DailyQT에 로그인하세요. 매일 맞춤형 성경 묵상, 해설, 기도 안내, 묵상 나눔 기능을 무료로 이용할 수 있습니다.' },
+		'/privacy': { title: '개인정보처리방침 — DailyQT | 개인정보 수집·이용·보관·파기 안내', desc: 'DailyQT 서비스의 개인정보처리방침입니다. 수집하는 개인정보 항목, 이용 목적, 보관 기간, 제3자 제공 여부, 쿠키 사용 정책을 안내합니다.' },
 	};
-	const defaultMeta = { title: 'DailyQT — 매일 성경 묵상', desc: '매일 맞춤형 성경 묵상 가이드' };
+	const defaultMeta = { title: 'DailyQT — 매일 성경 묵상 가이드 | 맞춤형 큐티', desc: '매일 맞춤형 성경 묵상 가이드. 개인 영적 프로필 기반 큐티, 해설, 기도, 원어 학습을 제공합니다.' };
 
 	let pageTitle = $derived(pageMeta[page.url.pathname]?.title || defaultMeta.title);
 	let pageDesc = $derived(pageMeta[page.url.pathname]?.desc || defaultMeta.desc);

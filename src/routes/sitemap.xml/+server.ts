@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async () => {
-  const pages = ['/', '/bible', '/share', '/login'];
+  const pages = ['/', '/bible', '/share', '/login', '/privacy'];
   const today = new Date().toISOString().split('T')[0];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

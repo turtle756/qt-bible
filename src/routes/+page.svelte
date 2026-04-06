@@ -296,6 +296,7 @@
 
 {#if loading}
 	<div class="flex items-center justify-center py-20">
+		<h1 class="sr-only">DailyQT — 매일 성경 묵상</h1>
 		<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
 	</div>
 {:else if qt}

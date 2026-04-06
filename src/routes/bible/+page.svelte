@@ -294,6 +294,7 @@
 </script>
 
 <div class="space-y-4">
+	<h1 class="sr-only">성경 읽기 — DailyQT</h1>
 	<!-- Book/Chapter selector -->
 	<div class="flex items-center gap-3">
 		<button

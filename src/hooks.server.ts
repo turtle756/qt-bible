@@ -26,6 +26,16 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	const response = await resolve(event);
 
+	// 캐시 헤더
+	const path = event.url.pathname;
+	if (path.startsWith('/_app/immutable/')) {
+		response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+	} else if (path.match(/\.(js|css|svg|png|jpg|webp|woff2?)$/)) {
+		response.headers.set('Cache-Control', 'public, max-age=86400');
+	} else if (!path.startsWith('/api/')) {
+		response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
+	}
+
 	// 보안 헤더
 	response.headers.set('X-Frame-Options', 'SAMEORIGIN');
 	response.headers.set('X-Content-Type-Options', 'nosniff');
