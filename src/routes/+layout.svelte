@@ -1,16 +1,15 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
+	import { page } from '$app/state';
 
 	let { children } = $props();
 
 	let user: { name: string; avatar: string } | null = $state(null);
 	let darkMode = $state(false);
-	let currentPath = $state('/');
 
 	$effect(() => {
 		if (typeof window !== 'undefined') {
-			currentPath = window.location.pathname;
 			const saved = localStorage.getItem('darkMode');
 			if (saved === 'true') {
 				darkMode = true;
@@ -37,8 +36,9 @@
 	] as const;
 
 	function isActive(href: string) {
-		if (href === '/') return currentPath === '/';
-		return currentPath.startsWith(href);
+		const p = page.url.pathname;
+		if (href === '/') return p === '/';
+		return p.startsWith(href);
 	}
 </script>
 

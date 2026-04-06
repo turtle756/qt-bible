@@ -83,7 +83,14 @@
 				try {
 					const res = await fetch(`https://bolls.life/get-chapter/KRV/${p.bookId}/${p.chapter}/`);
 					const all: Verse[] = await res.json();
-					verses = all.filter(v => v.verse >= p.start && v.verse <= p.end);
+					if (p.start === p.end) {
+						// 단일 절이면 전후 3절 포함해서 문맥 제공
+						const contextStart = Math.max(1, p.start - 3);
+						const contextEnd = Math.min(all.length, p.end + 3);
+						verses = all.filter(v => v.verse >= contextStart && v.verse <= contextEnd);
+					} else {
+						verses = all.filter(v => v.verse >= p.start && v.verse <= p.end);
+					}
 				} catch { verses = []; }
 			}
 		}
@@ -218,7 +225,6 @@
 		<!-- 선택한 질문 표시 -->
 		{#if selectedCard}
 			<div class="bg-primary-bg/50 rounded-2xl border border-primary/20 p-4 shadow-sm">
-				<p class="text-xs font-semibold text-primary mb-1">오늘의 질문</p>
 				<p class="text-sm text-text leading-relaxed">{selectedCard.text || selectedCard.question || ''}</p>
 			</div>
 		{/if}

@@ -97,6 +97,14 @@
 		}
 	}
 
+	async function deletePost(id: string) {
+		if (!confirm('이 글을 삭제하시겠습니까?')) return;
+		try {
+			await fetch(`/api/feed/${id}`, { method: 'DELETE' });
+			items = items.filter(item => item.id !== id);
+		} catch {}
+	}
+
 	function timeAgo(dateStr: string): string {
 		const diff = Date.now() - new Date(dateStr).getTime();
 		const mins = Math.floor(diff / 60000);
@@ -146,6 +154,7 @@
 							</span>
 							{#if item.is_mine}
 								<span class="text-xs text-text-secondary/50">내 글</span>
+								<button onclick={() => deletePost(item.id)} class="text-xs text-red-400 hover:text-red-500 transition-colors">삭제</button>
 							{/if}
 						</div>
 						<span class="text-xs text-text-secondary">{timeAgo(item.created_at)}</span>
