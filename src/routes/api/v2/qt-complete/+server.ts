@@ -10,7 +10,12 @@ const topicsDb = JSON.parse(
 export const POST: RequestHandler = async (event) => {
   if (!event.locals.user) return new Response('Unauthorized', { status: 401 });
   const userId = event.locals.user.id;
-  const { passage_ref, topic_id, time_spent, note_length, mood_checkin } = await event.request.json();
+  const body = await event.request.json();
+  const passage_ref = body.passage_ref;
+  const topic_id = typeof body.topic_id === 'number' ? body.topic_id : null;
+  const time_spent = body.time_spent;
+  const note_length = body.note_length;
+  const mood_checkin = body.mood_checkin;
 
   try {
     const maturityResult = await pool.query(
@@ -96,8 +101,8 @@ export const POST: RequestHandler = async (event) => {
       streak_best: p.streak_best || 1,
       total_qt_days: p.total_qt_days || 1
     });
-  } catch (err) {
-    console.error('qt-complete error:', err);
-    return Response.json({ error: 'Failed to record completion' }, { status: 500 });
+  } catch (err: any) {
+    console.error('qt-complete error:', err?.message || err, err?.stack);
+    return Response.json({ error: 'Failed to record completion', detail: err?.message }, { status: 500 });
   }
 };

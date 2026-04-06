@@ -199,8 +199,10 @@
 			if (res.ok) {
 				const data = await res.json();
 				celebrationStreak = data.streak_current || 1;
+			} else {
+				console.error('qt-complete failed:', res.status, await res.text());
 			}
-		} catch {}
+		} catch (e) { console.error('qt-complete error:', e); }
 
 		// 노트가 있으면 저장
 		if (allNotes.trim()) {
