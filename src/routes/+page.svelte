@@ -25,18 +25,16 @@
 	let verses: Verse[] = $state([]);
 	let loading = $state(true);
 	let noteText = $state('');
+	let questionNote = $state('');
 	let showCelebration = $state(false);
 	let celebrationStreak = $state(0);
+	let dataLoaded = $state(false);
 
 	// 질문 카드 모달
 	let allCards: any[] = $state([]);
 	let showCardModal = $state(false);
 	let selectedCard: any = $state(null);
-	let cardPage = $state(0); // 0 = 첫 4개, 1 = 다음 4개
-
-	$effect(() => {
-		// cardPage가 바뀌면 visibleCards 자동 계산
-	});
+	let cardPage = $state(0);
 
 	function visibleCards() {
 		return allCards.slice(cardPage * 4, cardPage * 4 + 4);
@@ -56,7 +54,19 @@
 		return { bookId, chapter: +m[2], start: +m[3], end: m[4] ? +m[4] : +m[3] };
 	}
 
+	function maturityLabel(m: string) {
+		return {
+			exploring: '자유롭게 묵상하기',
+			growing: '체계적으로 묵상하기',
+			close: '깊이 있게 묵상하기',
+			centered: '하나님 앞에 고요히 머물기'
+		}[m] || '묵상 가이드';
+	}
+
 	onMount(async () => {
+		// 이미 로드된 데이터가 있으면 재사용 (탭 이동 시 보호)
+		if (dataLoaded && qt) { loading = false; return; }
+
 		const me = await fetch('/api/me').then(r => r.json());
 		if (!me.loggedIn) { window.location.href = '/login'; return; }
 
@@ -88,13 +98,20 @@
 			}
 		}
 
+		// 선택한 카드 복원 (localStorage)
+		const savedCard = localStorage.getItem('selectedCardToday');
+		const savedDate = localStorage.getItem('cardModalDate');
+		const today = new Date().toISOString().split('T')[0];
+		if (savedCard && savedDate === today) {
+			try { selectedCard = JSON.parse(savedCard); } catch {}
+		}
+
+		dataLoaded = true;
 		loading = false;
 
-		// 하루 한 번만 카드 모달 표시
-		if (!qt.already_completed && allCards.length > 0) {
-			const today = new Date().toISOString().split('T')[0];
-			const lastShown = localStorage.getItem('cardModalDate');
-			if (lastShown !== today) {
+		// 하루 한 번만 카드 모달 표시 — 이미 선택했으면 안 띄움
+		if (!qt.already_completed && allCards.length > 0 && !selectedCard) {
+			if (savedDate !== today) {
 				showCardModal = true;
 			}
 		}
@@ -102,27 +119,29 @@
 
 	function selectCard(card: any) {
 		selectedCard = card;
-		// API에 선택 기록
 		fetch('/api/v2/card-response', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ card_id: card.id })
 		}).catch(() => {});
-		// 모달 닫기 + 오늘 날짜 기록
 		showCardModal = false;
-		localStorage.setItem('cardModalDate', new Date().toISOString().split('T')[0]);
+		const today = new Date().toISOString().split('T')[0];
+		localStorage.setItem('cardModalDate', today);
+		localStorage.setItem('selectedCardToday', JSON.stringify(card));
 	}
 
 	function showOtherCards() {
 		if ((cardPage + 1) * 4 < allCards.length) {
 			cardPage++;
 		} else {
-			cardPage = 0; // 처음으로 돌아감
+			cardPage = 0;
 		}
 	}
 
 	async function saveNote() {
-		if (!noteText.trim()) return;
+		// 묵상 질문 노트와 본문 노트 합치기
+		const allNotes = [questionNote, noteText].filter(Boolean).join('\n---\n');
+		if (!allNotes.trim()) return;
 
 		try {
 			const res = await fetch('/api/v2/qt-complete', {
@@ -132,7 +151,7 @@
 					passage_ref: qt?.passage?.ref || '',
 					topic_id: qt?.commentary?.source_topic || null,
 					time_spent: 0,
-					note_length: noteText.length,
+					note_length: allNotes.length,
 				})
 			});
 			if (res.ok) {
@@ -141,7 +160,6 @@
 			}
 		} catch {}
 
-		// 노트 저장
 		try {
 			const p = qt?.passage?.ref ? parseRef(qt.passage.ref) : null;
 			await fetch('/api/notes', {
@@ -151,16 +169,12 @@
 					bookId: p?.bookId || 1,
 					chapter: p?.chapter || 1,
 					date: new Date().toISOString().split('T')[0],
-					content: noteText,
+					content: allNotes,
 				})
 			});
 		} catch {}
 
 		showCelebration = true;
-	}
-
-	function maturityLabel(m: string) {
-		return { exploring: '입문', growing: '초급 · SOAP', close: '중급 · 귀납적', centered: '심화 · 렉시오 디비나' }[m] || m;
 	}
 </script>
 
@@ -180,7 +194,6 @@
 				</button>
 			{/each}
 
-			<!-- 다른 질문 받기 -->
 			<button
 				onclick={showOtherCards}
 				class="w-full p-4 rounded-2xl border border-dashed border-border text-text-secondary text-sm hover:border-primary hover:text-primary transition-all text-center"
@@ -225,10 +238,17 @@
 			</div>
 		</div>
 
-		<!-- 선택한 질문 표시 -->
+		<!-- 선택한 질문 + 노트란 -->
 		{#if selectedCard}
 			<div class="bg-primary-bg/50 rounded-2xl border border-primary/20 p-4 shadow-sm">
 				<p class="text-sm text-text leading-relaxed">{selectedCard.text || selectedCard.question || ''}</p>
+				{#if !qt.already_completed}
+					<textarea
+						class="mt-3 w-full rounded-xl border border-primary/20 bg-surface p-3 text-sm text-text placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+						rows="2" placeholder="이 질문에 대한 나의 생각..."
+						bind:value={questionNote}
+					></textarea>
+				{/if}
 			</div>
 		{/if}
 
@@ -250,12 +270,12 @@
 		<!-- 묵상 가이드 -->
 		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm">
 			<h2 class="text-sm font-semibold text-text-secondary mb-4">
-				묵상 가이드 · {maturityLabel(profile?.maturity_level || 'exploring')}
+				{maturityLabel(profile?.maturity_level || 'exploring')}
 			</h2>
 			<div class="space-y-4 text-sm text-text leading-relaxed">
 				{#if qt.commentary?.content}
 					<div>
-						<h3 class="font-semibold text-primary text-xs mb-1">해설</h3>
+						<h3 class="font-semibold text-primary text-xs mb-1">오늘의 해설</h3>
 						<p>{qt.commentary.content}</p>
 					</div>
 				{/if}
@@ -267,14 +287,15 @@
 				{/if}
 				{#if qt.question?.content}
 					<div>
-						<h3 class="font-semibold text-primary text-xs mb-1">묵상 질문</h3>
+						<h3 class="font-semibold text-primary text-xs mb-1">함께 생각해 보기</h3>
 						<p>{qt.question.content}</p>
 					</div>
 				{/if}
 				{#if qt.prayer?.content}
-					<div class="bg-verse-hover rounded-xl p-3 italic">
-						<h3 class="font-semibold text-primary text-xs mb-1 not-italic">기도 안내</h3>
+					<div class="bg-verse-hover rounded-xl p-3">
+						<h3 class="font-semibold text-primary text-xs mb-1">기도 안내</h3>
 						<p>{qt.prayer.content}</p>
+						<p class="text-xs text-text-secondary mt-2">ACTS 기도법: 찬양(Adoration) → 고백(Confession) → 감사(Thanksgiving) → 간구(Supplication) 순서로 기도합니다.</p>
 					</div>
 				{/if}
 			</div>
@@ -287,10 +308,10 @@
 
 				{#if profile?.maturity_level === 'growing'}
 					<div class="space-y-3" id="soapArea">
-						{#each [['S · 말씀','마음에 와 닿는 구절을 적어보세요...'],['O · 관찰','이 말씀은 무엇을 말하고 있나요?'],['A · 적용','오늘 내 삶에 어떻게 적용할 수 있을까요?'],['P · 기도','말씀을 통해 기도해보세요...']] as [label, ph]}
+						{#each [['말씀 (Scripture)','마음에 와 닿는 구절을 적어보세요...'],['관찰 (Observation)','이 말씀은 무엇을 말하고 있나요?'],['적용 (Application)','오늘 내 삶에 어떻게 적용할 수 있을까요?'],['기도 (Prayer)','말씀을 통해 기도해보세요...']] as [label, ph]}
 							<div>
-								<label class="text-xs font-medium text-text-secondary">{label}</label>
-								<textarea class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="2" placeholder={ph}
+								<p class="text-xs font-medium text-text-secondary mb-1">{label}</p>
+								<textarea class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="2" placeholder={ph}
 									oninput={() => {
 										const all = document.querySelectorAll('#soapArea textarea');
 										noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');
@@ -301,21 +322,24 @@
 					</div>
 				{:else if profile?.maturity_level === 'close'}
 					<div class="space-y-3" id="soapArea">
-						{#each ['관찰: 본문이 말하는 사실은?','해석: 저자의 의도는?','적용: 오늘 내 삶에?'] as ph}
-							<textarea class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="3" placeholder={ph}
-								oninput={() => {
-									const all = document.querySelectorAll('#soapArea textarea');
-									noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');
-								}}
-							></textarea>
+						{#each [['관찰','본문이 말하고 있는 사실을 적어보세요...'],['해석','이 말씀의 의미는 무엇일까요?'],['적용','오늘 나의 삶에 어떻게 적용할 수 있을까요?']] as [label, ph]}
+							<div>
+								<p class="text-xs font-medium text-text-secondary mb-1">{label}</p>
+								<textarea class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="3" placeholder={ph}
+									oninput={() => {
+										const all = document.querySelectorAll('#soapArea textarea');
+										noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');
+									}}
+								></textarea>
+							</div>
 						{/each}
 					</div>
 				{:else if profile?.maturity_level === 'centered'}
 					<div class="space-y-3" id="soapArea">
-						{#each [['Lectio · 읽기','천천히 말씀을 읽으세요...'],['Meditatio · 묵상','마음에 와 닿는 단어에 머무르세요...'],['Oratio · 기도','말씀을 통해 하나님께 응답하세요...'],['Contemplatio · 관상','고요 속에 하나님의 임재를 느껴보세요...']] as [label, ph]}
+						{#each [['읽기 (Lectio)','천천히 말씀을 읽으세요...'],['묵상 (Meditatio)','마음에 와 닿는 단어에 머무르세요...'],['기도 (Oratio)','말씀을 통해 하나님께 응답하세요...'],['관상 (Contemplatio)','고요 속에 하나님의 임재를 느껴보세요...']] as [label, ph]}
 							<div>
-								<label class="text-xs font-medium text-text-secondary">{label}</label>
-								<textarea class="mt-1 w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="2" placeholder={ph}
+								<p class="text-xs font-medium text-text-secondary mb-1">{label}</p>
+								<textarea class="w-full rounded-xl border border-border bg-bg p-3 text-sm text-text placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" rows="2" placeholder={ph}
 									oninput={() => {
 										const all = document.querySelectorAll('#soapArea textarea');
 										noteText = Array.from(all).map(t => (t as HTMLTextAreaElement).value).filter(Boolean).join('\n---\n');

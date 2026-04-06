@@ -113,7 +113,12 @@
 				fetch(`https://bolls.life/get-chapter/${origCode}/${selectedBook.id}/${selectedChapter}/`)
 			]);
 			versesKr = await krRes.json();
-			versesEn = await enRes.json();
+			// KJV Strong's 번호 제거 (예: -7225-, 430 등 본문 내 숫자 태그)
+			const rawEn = await enRes.json();
+			versesEn = rawEn.map((v: any) => ({
+				...v,
+				text: v.text.replace(/\d{2,5}/g, '').replace(/\s{2,}/g, ' ').trim()
+			}));
 			versesOrig = await origRes.json();
 		} catch {
 			versesKr = [];
