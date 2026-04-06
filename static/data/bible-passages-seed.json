@@ -1157,12 +1157,12 @@
     ]
   },
   {
-    "passage_ref": "역대상 4:9-10",
+    "passage_ref": "역대상 4:6-12",
     "book_name": "역대상",
     "book_id": 13,
     "chapter": 4,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -1281,12 +1281,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 30:8-9",
+    "passage_ref": "잠언 30:5-11",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 30,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -1366,12 +1366,12 @@
     ]
   },
   {
-    "passage_ref": "예레미야 9:23-24",
+    "passage_ref": "예레미야 9:20-26",
     "book_name": "예레미야",
     "book_id": 24,
     "chapter": 9,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -1392,12 +1392,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 6:17-19",
+    "passage_ref": "디모데전서 6:15-21",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 6,
-    "verse_start": 17,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -1959,12 +1959,12 @@
     ]
   },
   {
-    "passage_ref": "예레미야 17:9-10",
+    "passage_ref": "예레미야 17:6-12",
     "book_name": "예레미야",
     "book_id": 24,
     "chapter": 17,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -2028,12 +2028,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 15:20-22",
+    "passage_ref": "고린도전서 15:18-24",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 15,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -2130,12 +2130,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 64:6-7",
+    "passage_ref": "이사야 64:3-9",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 64,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -2176,12 +2176,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 8:20-22",
+    "passage_ref": "창세기 8:18-24",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 8,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -2459,12 +2459,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 2:13-15",
+    "passage_ref": "골로새서 2:11-17",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 2,
-    "verse_start": 13,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -2482,12 +2482,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 53:4-6",
+    "passage_ref": "이사야 53:2-8",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 53,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -2615,12 +2615,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:26-27",
+    "passage_ref": "요한복음 15:23-29",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -2659,12 +2659,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 12:4-6",
+    "passage_ref": "고린도전서 12:2-8",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 12,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -2681,12 +2681,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 1:1-3",
+    "passage_ref": "창세기 1:1-5",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 1,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -2837,12 +2837,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:26-27",
+    "passage_ref": "로마서 8:23-29",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -2898,12 +2898,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 1:1-2",
+    "passage_ref": "베드로전서 1:1-4",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 1,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -2944,12 +2944,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 5:3-4",
+    "passage_ref": "사도행전 5:1-6",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 5,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -2966,12 +2966,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 4:4-6",
+    "passage_ref": "에베소서 4:2-8",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 4,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3012,12 +3012,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 3:4-6",
+    "passage_ref": "디도서 3:2-8",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 3,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3056,12 +3056,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 5:6-8",
+    "passage_ref": "요한일서 5:4-10",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 5,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3078,12 +3078,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 1:15-17",
+    "passage_ref": "골로새서 1:13-19",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 1,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3127,12 +3127,12 @@
     ]
   },
   {
-    "passage_ref": "계시록 1:4-5",
+    "passage_ref": "계시록 1:1-7",
     "book_name": "계시록",
     "book_id": 66,
     "chapter": 1,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -3149,12 +3149,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 11:25-27",
+    "passage_ref": "마태복음 11:23-29",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 11,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -3373,12 +3373,12 @@
     ]
   },
   {
-    "passage_ref": "다니엘 12:1-3",
+    "passage_ref": "다니엘 12:1-5",
     "book_name": "다니엘",
     "book_id": 27,
     "chapter": 12,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -3427,12 +3427,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 14:10-12",
+    "passage_ref": "로마서 14:8-14",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 14,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3552,12 +3552,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 9:27-28",
+    "passage_ref": "히브리서 9:24-30",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 9,
-    "verse_start": 27,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3602,12 +3602,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 5:7-9",
+    "passage_ref": "야고보서 5:5-11",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 5,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -3652,12 +3652,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 17:30-31",
+    "passage_ref": "사도행전 17:27-33",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 17,
-    "verse_start": 30,
-    "verse_end": 31,
+    "verse_start": 27,
+    "verse_end": 33,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -3777,12 +3777,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 7:21-23",
+    "passage_ref": "마태복음 7:19-25",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 7,
-    "verse_start": 21,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -3802,12 +3802,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 12:13-14",
+    "passage_ref": "전도서 12:10-16",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 12,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "지혜",
     "soft_tags": {
@@ -3983,12 +3983,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 1:6-8",
+    "passage_ref": "디모데후서 1:4-10",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 1,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -4014,12 +4014,12 @@
     ]
   },
   {
-    "passage_ref": "시편 27:1-3",
+    "passage_ref": "시편 27:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 27,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4045,12 +4045,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 4:16-18",
+    "passage_ref": "요한일서 4:14-20",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 4,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -4076,12 +4076,12 @@
     ]
   },
   {
-    "passage_ref": "시편 46:1-3",
+    "passage_ref": "시편 46:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 46,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4114,12 +4114,12 @@
     ]
   },
   {
-    "passage_ref": "시편 118:5-7",
+    "passage_ref": "시편 118:3-9",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 118,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4145,12 +4145,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 29:25-27",
+    "passage_ref": "잠언 29:23-29",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 29,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4176,12 +4176,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 43:1-3",
+    "passage_ref": "이사야 43:1-5",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 43,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -4300,12 +4300,12 @@
     ]
   },
   {
-    "passage_ref": "시편 56:3-4",
+    "passage_ref": "시편 56:1-6",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 56,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4335,12 +4335,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 4:6-7",
+    "passage_ref": "빌립보서 4:3-9",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 4,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -4385,12 +4385,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 14:27-28",
+    "passage_ref": "요한복음 14:24-30",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 14,
-    "verse_start": 27,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -4447,12 +4447,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 31:6-8",
+    "passage_ref": "신명기 31:4-10",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 31,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -4478,12 +4478,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:38-39",
+    "passage_ref": "로마서 8:35-41",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 38,
-    "verse_end": 39,
+    "verse_start": 35,
+    "verse_end": 41,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -4532,12 +4532,12 @@
     ]
   },
   {
-    "passage_ref": "스바냐 3:16-17",
+    "passage_ref": "스바냐 3:13-19",
     "book_name": "스바냐",
     "book_id": 36,
     "chapter": 3,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -4625,12 +4625,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 3:13-15",
+    "passage_ref": "베드로전서 3:11-17",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 3,
-    "verse_start": 13,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -4687,12 +4687,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 3:24-26",
+    "passage_ref": "잠언 3:22-28",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 3,
-    "verse_start": 24,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4749,12 +4749,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 13:5-6",
+    "passage_ref": "히브리서 13:2-8",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 13,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -4794,12 +4794,12 @@
     ]
   },
   {
-    "passage_ref": "시편 27:4-6",
+    "passage_ref": "시편 27:2-8",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 27,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -4825,12 +4825,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 51:12-13",
+    "passage_ref": "이사야 51:9-15",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 51,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -4918,12 +4918,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 5:6-8",
+    "passage_ref": "베드로전서 5:4-10",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 5,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -5069,12 +5069,12 @@
     ]
   },
   {
-    "passage_ref": "시편 40:1-3",
+    "passage_ref": "시편 40:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 40,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -5099,12 +5099,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 11:28-30",
+    "passage_ref": "마태복음 11:26-32",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 11,
-    "verse_start": 28,
-    "verse_end": 30,
+    "verse_start": 26,
+    "verse_end": 32,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -5230,12 +5230,12 @@
     ]
   },
   {
-    "passage_ref": "시편 34:17-19",
+    "passage_ref": "시편 34:15-21",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 34,
-    "verse_start": 17,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -5295,12 +5295,12 @@
     ]
   },
   {
-    "passage_ref": "예레미야 29:11-13",
+    "passage_ref": "예레미야 29:9-15",
     "book_name": "예레미야",
     "book_id": 24,
     "chapter": 29,
-    "verse_start": 11,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -5325,12 +5325,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:37-39",
+    "passage_ref": "로마서 8:35-41",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 37,
-    "verse_end": 39,
+    "verse_start": 35,
+    "verse_end": 41,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -5417,12 +5417,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 5:7-9",
+    "passage_ref": "베드로전서 5:5-11",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 5,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -5504,12 +5504,12 @@
     ]
   },
   {
-    "passage_ref": "시편 43:3-5",
+    "passage_ref": "시편 43:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 43,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -5534,12 +5534,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 14:1-3",
+    "passage_ref": "요한복음 14:1-5",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 14,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -5716,12 +5716,12 @@
     ]
   },
   {
-    "passage_ref": "시편 27:13-14",
+    "passage_ref": "시편 27:10-16",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 27,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -5752,12 +5752,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:25-27",
+    "passage_ref": "마태복음 6:23-29",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -5971,12 +5971,12 @@
     ]
   },
   {
-    "passage_ref": "시편 30:10-12",
+    "passage_ref": "시편 30:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 30,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -5998,12 +5998,12 @@
     ]
   },
   {
-    "passage_ref": "시편 147:1-3",
+    "passage_ref": "시편 147:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 147,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6025,12 +6025,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 53:3-5",
+    "passage_ref": "이사야 53:1-7",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 53,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -6057,12 +6057,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 1:3-5",
+    "passage_ref": "고린도후서 1:1-7",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 1,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -6165,12 +6165,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 61:1-3",
+    "passage_ref": "이사야 61:1-5",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 61,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -6199,12 +6199,12 @@
     ]
   },
   {
-    "passage_ref": "예레미야 31:13-14",
+    "passage_ref": "예레미야 31:10-16",
     "book_name": "예레미야",
     "book_id": 24,
     "chapter": 31,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -6226,12 +6226,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 12:15-16",
+    "passage_ref": "로마서 12:12-18",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 12,
-    "verse_start": 15,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -6261,12 +6261,12 @@
     ]
   },
   {
-    "passage_ref": "시편 126:5-6",
+    "passage_ref": "시편 126:2-8",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 126,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6290,12 +6290,12 @@
     ]
   },
   {
-    "passage_ref": "욥기 1:20-22",
+    "passage_ref": "욥기 1:18-24",
     "book_name": "욥기",
     "book_id": 18,
     "chapter": 1,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6350,12 +6350,12 @@
     ]
   },
   {
-    "passage_ref": "시편 119:50-52",
+    "passage_ref": "시편 119:48-54",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 119,
-    "verse_start": 50,
-    "verse_end": 52,
+    "verse_start": 48,
+    "verse_end": 54,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6377,12 +6377,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 41:10-11",
+    "passage_ref": "이사야 41:7-13",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 41,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -6404,12 +6404,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 16:20-22",
+    "passage_ref": "요한복음 16:18-24",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 16,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -6431,12 +6431,12 @@
     ]
   },
   {
-    "passage_ref": "시편 31:9-10",
+    "passage_ref": "시편 31:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 31,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6458,12 +6458,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:26-28",
+    "passage_ref": "로마서 8:24-30",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 26,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -6516,12 +6516,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 40:1-2",
+    "passage_ref": "이사야 40:1-4",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 40,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -6543,12 +6543,12 @@
     ]
   },
   {
-    "passage_ref": "시편 23:3-4",
+    "passage_ref": "시편 23:1-6",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 23,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6607,12 +6607,12 @@
     ]
   },
   {
-    "passage_ref": "출애굽기 14:13-14",
+    "passage_ref": "출애굽기 14:10-16",
     "book_name": "출애굽기",
     "book_id": 2,
     "chapter": 14,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -6636,12 +6636,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 4:11-13",
+    "passage_ref": "빌립보서 4:9-15",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 4,
-    "verse_start": 11,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -6677,12 +6677,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 26:3-4",
+    "passage_ref": "이사야 26:1-6",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 26,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -6710,12 +6710,12 @@
     ]
   },
   {
-    "passage_ref": "시편 62:1-2",
+    "passage_ref": "시편 62:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 62,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6747,12 +6747,12 @@
     ]
   },
   {
-    "passage_ref": "마가복음 6:30-31",
+    "passage_ref": "마가복음 6:27-33",
     "book_name": "마가복음",
     "book_id": 41,
     "chapter": 6,
-    "verse_start": 30,
-    "verse_end": 31,
+    "verse_start": 27,
+    "verse_end": 33,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -6776,12 +6776,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 5:6-7",
+    "passage_ref": "베드로전서 5:3-9",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 5,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -6815,12 +6815,12 @@
     ]
   },
   {
-    "passage_ref": "시편 4:7-8",
+    "passage_ref": "시편 4:4-10",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 4,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6844,12 +6844,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 3:5-6",
+    "passage_ref": "잠언 3:2-8",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 3,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -6985,12 +6985,12 @@
     ]
   },
   {
-    "passage_ref": "시편 23:1-3",
+    "passage_ref": "시편 23:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 23,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7021,12 +7021,12 @@
     ]
   },
   {
-    "passage_ref": "역대하 20:15-17",
+    "passage_ref": "역대하 20:13-19",
     "book_name": "역대하",
     "book_id": 14,
     "chapter": 20,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -7098,12 +7098,12 @@
     ]
   },
   {
-    "passage_ref": "시편 46:8-10",
+    "passage_ref": "시편 46:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 46,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7196,12 +7196,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 1:2-4",
+    "passage_ref": "야고보서 1:1-6",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 1,
-    "verse_start": 2,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -7263,12 +7263,12 @@
     ]
   },
   {
-    "passage_ref": "시편 94:18-19",
+    "passage_ref": "시편 94:15-21",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 94,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7379,12 +7379,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:22-23",
+    "passage_ref": "갈라디아서 5:19-25",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -7421,12 +7421,12 @@
     ]
   },
   {
-    "passage_ref": "시편 18:1-3",
+    "passage_ref": "시편 18:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 18,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7487,12 +7487,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 5:1-3",
+    "passage_ref": "로마서 5:1-5",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 5,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -7516,12 +7516,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 4:9-11",
+    "passage_ref": "히브리서 4:7-13",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 4,
-    "verse_start": 9,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -7605,12 +7605,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:1-2",
+    "passage_ref": "로마서 8:1-4",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -7649,12 +7649,12 @@
     ]
   },
   {
-    "passage_ref": "시편 34:4-5",
+    "passage_ref": "시편 34:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 34,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7703,12 +7703,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 12:1-2",
+    "passage_ref": "히브리서 12:1-4",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 12,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -7739,12 +7739,12 @@
     ]
   },
   {
-    "passage_ref": "스바냐 3:19-20",
+    "passage_ref": "스바냐 3:16-22",
     "book_name": "스바냐",
     "book_id": 36,
     "chapter": 3,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -7766,12 +7766,12 @@
     ]
   },
   {
-    "passage_ref": "시편 25:2-3",
+    "passage_ref": "시편 25:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 25,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7793,12 +7793,12 @@
     ]
   },
   {
-    "passage_ref": "시편 25:20-21",
+    "passage_ref": "시편 25:17-23",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 25,
-    "verse_start": 20,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -7820,12 +7820,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 8:10-11",
+    "passage_ref": "요한복음 8:7-13",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 8,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -7855,12 +7855,12 @@
     ]
   },
   {
-    "passage_ref": "마가복음 5:33-34",
+    "passage_ref": "마가복음 5:30-36",
     "book_name": "마가복음",
     "book_id": 41,
     "chapter": 5,
-    "verse_start": 33,
-    "verse_end": 34,
+    "verse_start": 30,
+    "verse_end": 36,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -8090,12 +8090,12 @@
     ]
   },
   {
-    "passage_ref": "시편 31:1-2",
+    "passage_ref": "시편 31:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 31,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -8144,12 +8144,12 @@
     ]
   },
   {
-    "passage_ref": "시편 71:1-3",
+    "passage_ref": "시편 71:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 71,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -8171,12 +8171,12 @@
     ]
   },
   {
-    "passage_ref": "요엘 2:26-27",
+    "passage_ref": "요엘 2:23-29",
     "book_name": "요엘",
     "book_id": 29,
     "chapter": 2,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -8316,12 +8316,12 @@
     ]
   },
   {
-    "passage_ref": "시편 69:19-20",
+    "passage_ref": "시편 69:16-22",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 69,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -8373,12 +8373,12 @@
     ]
   },
   {
-    "passage_ref": "에스라 9:5-6",
+    "passage_ref": "에스라 9:2-8",
     "book_name": "에스라",
     "book_id": 15,
     "chapter": 9,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -8427,12 +8427,12 @@
     ]
   },
   {
-    "passage_ref": "시편 32:3-5",
+    "passage_ref": "시편 32:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 32,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -8454,12 +8454,12 @@
     ]
   },
   {
-    "passage_ref": "미가 7:18-19",
+    "passage_ref": "미가 7:15-21",
     "book_name": "미가",
     "book_id": 33,
     "chapter": 7,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -8487,12 +8487,12 @@
     ]
   },
   {
-    "passage_ref": "시편 103:10-12",
+    "passage_ref": "시편 103:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 103,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -8549,12 +8549,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 10:21-22",
+    "passage_ref": "히브리서 10:18-24",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 10,
-    "verse_start": 21,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -8748,12 +8748,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 1:13-14",
+    "passage_ref": "골로새서 1:10-16",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 1,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -8781,12 +8781,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 3:23-24",
+    "passage_ref": "로마서 3:20-26",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 3,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -8835,12 +8835,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 53:5-6",
+    "passage_ref": "이사야 53:2-8",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 53,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -8862,12 +8862,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 3:5-7",
+    "passage_ref": "디도서 3:3-9",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 3,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -8922,12 +8922,12 @@
     ]
   },
   {
-    "passage_ref": "시편 130:3-4",
+    "passage_ref": "시편 130:1-6",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 130,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -8976,12 +8976,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 4:7-8",
+    "passage_ref": "로마서 4:4-10",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 4,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -9003,12 +9003,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 2:1-2",
+    "passage_ref": "요한일서 2:1-4",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -9034,12 +9034,12 @@
     ]
   },
   {
-    "passage_ref": "스가랴 3:3-5",
+    "passage_ref": "스가랴 3:1-7",
     "book_name": "스가랴",
     "book_id": 38,
     "chapter": 3,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -9115,12 +9115,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 5:1-2",
+    "passage_ref": "로마서 5:1-4",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 5,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -9169,12 +9169,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 2:8-9",
+    "passage_ref": "에베소서 2:5-11",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 2,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -9252,12 +9252,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 4:10-12",
+    "passage_ref": "전도서 4:8-14",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 4,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -9314,12 +9314,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 10:24-25",
+    "passage_ref": "히브리서 10:21-27",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 10,
-    "verse_start": 24,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -9435,12 +9435,12 @@
     ]
   },
   {
-    "passage_ref": "시편 142:4-5",
+    "passage_ref": "시편 142:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 142,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -9556,12 +9556,12 @@
     ]
   },
   {
-    "passage_ref": "시편 139:1-3",
+    "passage_ref": "시편 139:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 139,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -9620,12 +9620,12 @@
     ]
   },
   {
-    "passage_ref": "사사기 11:1-3",
+    "passage_ref": "사사기 11:1-5",
     "book_name": "사사기",
     "book_id": 7,
     "chapter": 11,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -9704,12 +9704,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 43:1-2",
+    "passage_ref": "이사야 43:1-4",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 43,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -10171,12 +10171,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 5:14-16",
+    "passage_ref": "야고보서 5:12-18",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 5,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -10199,12 +10199,12 @@
     ]
   },
   {
-    "passage_ref": "시편 103:2-3",
+    "passage_ref": "시편 103:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 103,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -10233,12 +10233,12 @@
     ]
   },
   {
-    "passage_ref": "시편 41:1-3",
+    "passage_ref": "시편 41:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 41,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -10317,12 +10317,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 12:7-9",
+    "passage_ref": "고린도후서 12:5-11",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 12,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -10345,12 +10345,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 53:4-5",
+    "passage_ref": "이사야 53:1-7",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 53,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -10470,12 +10470,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 4:20-22",
+    "passage_ref": "잠언 4:18-24",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 4,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -10540,12 +10540,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 8:16-17",
+    "passage_ref": "마태복음 8:13-19",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 8,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -10652,12 +10652,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 9:1-3",
+    "passage_ref": "요한복음 9:1-5",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 9,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -10680,12 +10680,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 21:3-4",
+    "passage_ref": "요한계시록 21:1-6",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 21,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -10711,12 +10711,12 @@
     ]
   },
   {
-    "passage_ref": "시편 30:2-3",
+    "passage_ref": "시편 30:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 30,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -10771,12 +10771,12 @@
     ]
   },
   {
-    "passage_ref": "시편 6:2-3",
+    "passage_ref": "시편 6:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 6,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -10855,12 +10855,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 4:23-24",
+    "passage_ref": "마태복음 4:20-26",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 4,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -10883,12 +10883,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 5:14-15",
+    "passage_ref": "요한일서 5:11-17",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 5,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -10950,12 +10950,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 38:16-17",
+    "passage_ref": "이사야 38:13-19",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 38,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -11010,12 +11010,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 4:16-18",
+    "passage_ref": "고린도후서 4:14-20",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 4,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -11038,12 +11038,12 @@
     ]
   },
   {
-    "passage_ref": "데살로니가전서 4:13-14",
+    "passage_ref": "데살로니가전서 4:10-16",
     "book_name": "데살로니가전서",
     "book_id": 52,
     "chapter": 4,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -11065,12 +11065,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 11:25-26",
+    "passage_ref": "요한복음 11:22-28",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 11,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -11126,12 +11126,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 15:54-55",
+    "passage_ref": "고린도전서 15:51-57",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 15,
-    "verse_start": 54,
-    "verse_end": 55,
+    "verse_start": 51,
+    "verse_end": 57,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -11213,12 +11213,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 1:3-4",
+    "passage_ref": "고린도후서 1:1-6",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 1,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -11285,12 +11285,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 11:33-35",
+    "passage_ref": "요한복음 11:31-37",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 11,
-    "verse_start": 33,
-    "verse_end": 35,
+    "verse_start": 31,
+    "verse_end": 37,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -11339,12 +11339,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 1:21-23",
+    "passage_ref": "빌립보서 1:19-25",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 1,
-    "verse_start": 21,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -11402,12 +11402,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 57:1-2",
+    "passage_ref": "이사야 57:1-4",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 57,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -11604,12 +11604,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 7:15-17",
+    "passage_ref": "요한계시록 7:13-19",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 7,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -12034,12 +12034,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 1:18-19",
+    "passage_ref": "베드로전서 1:15-21",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 1,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -12414,12 +12414,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 2:9-10",
+    "passage_ref": "베드로전서 2:6-12",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 2,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -12441,12 +12441,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 1:5-6",
+    "passage_ref": "요한계시록 1:2-8",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 1,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -12589,12 +12589,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 2:11-12",
+    "passage_ref": "디도서 2:8-14",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 2,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -12718,12 +12718,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 7:24-25",
+    "passage_ref": "로마서 7:21-27",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 7,
-    "verse_start": 24,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -12860,12 +12860,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 10:4-5",
+    "passage_ref": "고린도후서 10:1-7",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 10,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -13058,12 +13058,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 2:15-16",
+    "passage_ref": "요한일서 2:12-18",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 2,
-    "verse_start": 15,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -13086,12 +13086,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 4:22-24",
+    "passage_ref": "에베소서 4:20-26",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 4,
-    "verse_start": 22,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -13453,12 +13453,12 @@
     ]
   },
   {
-    "passage_ref": "시편 121:1-2",
+    "passage_ref": "시편 121:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 121,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -13830,12 +13830,12 @@
     ]
   },
   {
-    "passage_ref": "시편 23:1-2",
+    "passage_ref": "시편 23:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 23,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -13904,12 +13904,12 @@
     ]
   },
   {
-    "passage_ref": "시편 1:1-3",
+    "passage_ref": "시편 1:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 1,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -13994,12 +13994,12 @@
     ]
   },
   {
-    "passage_ref": "데살로니가전서 5:16-18",
+    "passage_ref": "데살로니가전서 5:14-20",
     "book_name": "데살로니가전서",
     "book_id": 52,
     "chapter": 5,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -14039,12 +14039,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 4:23-24",
+    "passage_ref": "요한복음 4:20-26",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 4,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -14240,12 +14240,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 6:1-3",
+    "passage_ref": "이사야 6:1-5",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 6,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -14773,12 +14773,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 4:10-11",
+    "passage_ref": "요한계시록 4:7-13",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 4,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -14799,12 +14799,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 5:11-12",
+    "passage_ref": "요한계시록 5:8-14",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 5,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -14876,12 +14876,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 5:8-9",
+    "passage_ref": "베드로전서 5:5-11",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 5,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -15092,12 +15092,12 @@
     ]
   },
   {
-    "passage_ref": "시편 91:1-2",
+    "passage_ref": "시편 91:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 91,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -15557,12 +15557,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 2:14-15",
+    "passage_ref": "히브리서 2:11-17",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 2,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -15728,12 +15728,12 @@
     ]
   },
   {
-    "passage_ref": "요엘 2:12-13",
+    "passage_ref": "요엘 2:9-15",
     "book_name": "요엘",
     "book_id": 29,
     "chapter": 2,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -15821,12 +15821,12 @@
     ]
   },
   {
-    "passage_ref": "시편 51:1-2",
+    "passage_ref": "시편 51:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 51,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -15931,12 +15931,12 @@
     ]
   },
   {
-    "passage_ref": "에스겔 18:30-32",
+    "passage_ref": "에스겔 18:28-34",
     "book_name": "에스겔",
     "book_id": 26,
     "chapter": 18,
-    "verse_start": 30,
-    "verse_end": 32,
+    "verse_start": 28,
+    "verse_end": 34,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -16348,12 +16348,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 4:7-8",
+    "passage_ref": "요한일서 4:4-10",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 4,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -16496,12 +16496,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 22:37-39",
+    "passage_ref": "마태복음 22:35-41",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 22,
-    "verse_start": 37,
-    "verse_end": 39,
+    "verse_start": 35,
+    "verse_end": 41,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -16600,12 +16600,12 @@
     ]
   },
   {
-    "passage_ref": "아가 8:6-7",
+    "passage_ref": "아가 8:3-9",
     "book_name": "아가",
     "book_id": 22,
     "chapter": 8,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -16694,12 +16694,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:12-13",
+    "passage_ref": "요한복음 15:9-15",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -16720,12 +16720,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 12:9-10",
+    "passage_ref": "로마서 12:6-12",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 12,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -16746,12 +16746,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 13:8-10",
+    "passage_ref": "로마서 13:6-12",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 13,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -16773,12 +16773,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 13:1-3",
+    "passage_ref": "고린도전서 13:1-5",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 13,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -16883,12 +16883,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 3:17-19",
+    "passage_ref": "에베소서 3:15-21",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 3,
-    "verse_start": 17,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -17139,12 +17139,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 5:5-6",
+    "passage_ref": "베드로전서 5:2-8",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 5,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -17546,12 +17546,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 20:26-27",
+    "passage_ref": "마태복음 20:23-29",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 20,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -17642,12 +17642,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 13:14-15",
+    "passage_ref": "요한복음 13:11-17",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 13,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -17703,12 +17703,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 1:28-29",
+    "passage_ref": "고린도전서 1:25-31",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 1,
-    "verse_start": 28,
-    "verse_end": 29,
+    "verse_start": 25,
+    "verse_end": 31,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -17944,12 +17944,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 5:3-4",
+    "passage_ref": "로마서 5:1-6",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 5,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -18365,12 +18365,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 5:7-8",
+    "passage_ref": "야고보서 5:4-10",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 5,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -18530,12 +18530,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 1:24-25",
+    "passage_ref": "고린도전서 1:21-27",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 1,
-    "verse_start": 24,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -18660,12 +18660,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 4:5-7",
+    "passage_ref": "잠언 4:3-9",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 4,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -18867,12 +18867,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 2:6-7",
+    "passage_ref": "고린도전서 2:3-9",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 2,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -18890,12 +18890,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 3:18-19",
+    "passage_ref": "고린도전서 3:15-21",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 3,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19042,12 +19042,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 3:18-19",
+    "passage_ref": "골로새서 3:15-21",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 3,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19100,12 +19100,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 7:3-5",
+    "passage_ref": "고린도전서 7:1-7",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 7,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19424,12 +19424,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 4:26-27",
+    "passage_ref": "에베소서 4:23-29",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 4,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19587,12 +19587,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 3:13-14",
+    "passage_ref": "골로새서 3:10-16",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 3,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19624,12 +19624,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 4:31-32",
+    "passage_ref": "에베소서 4:28-34",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 4,
-    "verse_start": 31,
-    "verse_end": 32,
+    "verse_start": 28,
+    "verse_end": 34,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19837,12 +19837,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 15:5-6",
+    "passage_ref": "로마서 15:2-8",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 15,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -19900,12 +19900,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 1:19-20",
+    "passage_ref": "야고보서 1:16-22",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 1,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -20082,12 +20082,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 4:1-2",
+    "passage_ref": "야고보서 4:1-4",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 4,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -20163,12 +20163,12 @@
     ]
   },
   {
-    "passage_ref": "시편 37:8-9",
+    "passage_ref": "시편 37:5-11",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 37,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -20328,12 +20328,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 3:1-3",
+    "passage_ref": "야고보서 3:1-5",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 3,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -20355,12 +20355,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:19-20",
+    "passage_ref": "갈라디아서 5:16-22",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -20539,12 +20539,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 3:1-3",
+    "passage_ref": "전도서 3:1-5",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 3,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -20566,12 +20566,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 4:11-12",
+    "passage_ref": "야고보서 4:8-14",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 4,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -20593,12 +20593,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 3:23-24",
+    "passage_ref": "골로새서 3:20-26",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 3,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -20893,12 +20893,12 @@
     ]
   },
   {
-    "passage_ref": "출애굽기 31:3-5",
+    "passage_ref": "출애굽기 31:1-7",
     "book_name": "출애굽기",
     "book_id": 2,
     "chapter": 31,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -20982,12 +20982,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 24:14-15",
+    "passage_ref": "신명기 24:11-17",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 24,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -21342,12 +21342,12 @@
     ]
   },
   {
-    "passage_ref": "데살로니가전서 4:11-12",
+    "passage_ref": "데살로니가전서 4:8-14",
     "book_name": "데살로니가전서",
     "book_id": 52,
     "chapter": 4,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -21430,12 +21430,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 54:4-5",
+    "passage_ref": "이사야 54:1-7",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 54,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -21460,12 +21460,12 @@
     ]
   },
   {
-    "passage_ref": "호세아 2:19-20",
+    "passage_ref": "호세아 2:16-22",
     "book_name": "호세아",
     "book_id": 28,
     "chapter": 2,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -21550,12 +21550,12 @@
     ]
   },
   {
-    "passage_ref": "룻기 1:16-17",
+    "passage_ref": "룻기 1:13-19",
     "book_name": "룻기",
     "book_id": 8,
     "chapter": 1,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -21591,12 +21591,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 12:17-19",
+    "passage_ref": "로마서 12:15-21",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 12,
-    "verse_start": 17,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -21656,12 +21656,12 @@
     ]
   },
   {
-    "passage_ref": "시편 73:25-26",
+    "passage_ref": "시편 73:22-28",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 73,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -21721,12 +21721,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 21:4-5",
+    "passage_ref": "요한계시록 21:1-7",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 21,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -21751,12 +21751,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 3:8-9",
+    "passage_ref": "베드로전서 3:5-11",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 3,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -21783,12 +21783,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 3:17-18",
+    "passage_ref": "야고보서 3:14-20",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 3,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -21873,12 +21873,12 @@
     ]
   },
   {
-    "passage_ref": "룻기 2:11-12",
+    "passage_ref": "룻기 2:8-14",
     "book_name": "룻기",
     "book_id": 8,
     "chapter": 2,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -22162,12 +22162,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 13:4-5",
+    "passage_ref": "고린도전서 13:1-7",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 13,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -22264,12 +22264,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 18:21-22",
+    "passage_ref": "마태복음 18:18-24",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 18,
-    "verse_start": 21,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -22434,12 +22434,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 5:23-24",
+    "passage_ref": "마태복음 5:20-26",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 5,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -22466,12 +22466,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 5:18-19",
+    "passage_ref": "고린도후서 5:15-21",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 5,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -22582,12 +22582,12 @@
     ]
   },
   {
-    "passage_ref": "빌레몬서 1:15-17",
+    "passage_ref": "빌레몬서 1:13-19",
     "book_name": "빌레몬서",
     "book_id": 57,
     "chapter": 1,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -22610,12 +22610,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 45:14-15",
+    "passage_ref": "창세기 45:11-17",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 45,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -22638,12 +22638,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 50:15-17",
+    "passage_ref": "창세기 50:13-19",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 50,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -22768,12 +22768,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:14-15",
+    "passage_ref": "마태복음 6:11-17",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -22843,12 +22843,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 17:3-4",
+    "passage_ref": "누가복음 17:1-6",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 17,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -22933,12 +22933,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 2:14-16",
+    "passage_ref": "에베소서 2:12-18",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 2,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -22997,12 +22997,12 @@
     ]
   },
   {
-    "passage_ref": "빌레몬서 1:10-11",
+    "passage_ref": "빌레몬서 1:7-13",
     "book_name": "빌레몬서",
     "book_id": 57,
     "chapter": 1,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -23155,12 +23155,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 30:20-21",
+    "passage_ref": "이사야 30:17-23",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 30,
-    "verse_start": 20,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -23214,12 +23214,12 @@
     ]
   },
   {
-    "passage_ref": "시편 25:4-5",
+    "passage_ref": "시편 25:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 25,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -23483,12 +23483,12 @@
     ]
   },
   {
-    "passage_ref": "시편 73:23-24",
+    "passage_ref": "시편 73:20-26",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 73,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -23550,12 +23550,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 4:18-19",
+    "passage_ref": "잠언 4:15-21",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 4,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -23668,12 +23668,12 @@
     ]
   },
   {
-    "passage_ref": "시편 37:5-6",
+    "passage_ref": "시편 37:2-8",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 37,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -23696,12 +23696,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 2:6-8",
+    "passage_ref": "잠언 2:4-10",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 2,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -23779,12 +23779,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 1:5-6",
+    "passage_ref": "에베소서 1:2-8",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 1,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -23806,12 +23806,12 @@
     ]
   },
   {
-    "passage_ref": "시편 118:22-23",
+    "passage_ref": "시편 118:19-25",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 118,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -23860,12 +23860,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 29:31-33",
+    "passage_ref": "창세기 29:29-35",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 29,
-    "verse_start": 31,
-    "verse_end": 33,
+    "verse_start": 29,
+    "verse_end": 35,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -23948,12 +23948,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 41:9-10",
+    "passage_ref": "이사야 41:6-12",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 41,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -23975,12 +23975,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 2:4-5",
+    "passage_ref": "베드로전서 2:1-7",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 2,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24002,12 +24002,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 49:15-16",
+    "passage_ref": "이사야 49:12-18",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 49,
-    "verse_start": 15,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -24029,12 +24029,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:15-16",
+    "passage_ref": "요한복음 15:12-18",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
-    "verse_start": 15,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -24110,12 +24110,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 4:6-7",
+    "passage_ref": "갈라디아서 4:3-9",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 4,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24137,12 +24137,12 @@
     ]
   },
   {
-    "passage_ref": "시편 147:2-3",
+    "passage_ref": "시편 147:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 147,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -24191,12 +24191,12 @@
     ]
   },
   {
-    "passage_ref": "시편 68:5-6",
+    "passage_ref": "시편 68:2-8",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 68,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -24218,12 +24218,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 10:29-31",
+    "passage_ref": "마태복음 10:27-33",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 10,
-    "verse_start": 29,
-    "verse_end": 31,
+    "verse_start": 27,
+    "verse_end": 33,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -24299,12 +24299,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 10:27-28",
+    "passage_ref": "요한복음 10:24-30",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 10,
-    "verse_start": 27,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -24357,12 +24357,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 3:14-16",
+    "passage_ref": "야고보서 3:12-18",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 3,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24391,12 +24391,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:25-26",
+    "passage_ref": "갈라디아서 5:22-28",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24445,12 +24445,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 13:13-14",
+    "passage_ref": "로마서 13:10-16",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 13,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24477,12 +24477,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 2:1-2",
+    "passage_ref": "베드로전서 2:1-4",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24504,12 +24504,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 3:1-3",
+    "passage_ref": "고린도전서 3:1-5",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 3,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24531,12 +24531,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 4:6-8",
+    "passage_ref": "창세기 4:4-10",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 4,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -24558,12 +24558,12 @@
     ]
   },
   {
-    "passage_ref": "시편 37:1-3",
+    "passage_ref": "시편 37:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 37,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -24585,12 +24585,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 2:3-4",
+    "passage_ref": "빌립보서 2:1-6",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 2,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24649,12 +24649,12 @@
     ]
   },
   {
-    "passage_ref": "욥기 5:2-3",
+    "passage_ref": "욥기 5:1-5",
     "book_name": "욥기",
     "book_id": 18,
     "chapter": 5,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -24676,12 +24676,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:19-21",
+    "passage_ref": "갈라디아서 5:17-23",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 19,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24703,12 +24703,12 @@
     ]
   },
   {
-    "passage_ref": "사무엘상 18:7-9",
+    "passage_ref": "사무엘상 18:5-11",
     "book_name": "사무엘상",
     "book_id": 9,
     "chapter": 18,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -24757,12 +24757,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 4:1-3",
+    "passage_ref": "야고보서 4:1-5",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 4,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24791,12 +24791,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 21:20-22",
+    "passage_ref": "요한복음 21:18-24",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 21,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -24818,12 +24818,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 3:3-5",
+    "passage_ref": "디도서 3:1-7",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 3,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24845,12 +24845,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 23:17-18",
+    "passage_ref": "잠언 23:14-20",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 23,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -24899,12 +24899,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 12:25-27",
+    "passage_ref": "고린도전서 12:23-29",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 12,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -24926,12 +24926,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 24:1-2",
+    "passage_ref": "잠언 24:1-4",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 24,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -24953,12 +24953,12 @@
     ]
   },
   {
-    "passage_ref": "시편 49:16-17",
+    "passage_ref": "시편 49:13-19",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 49,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -25007,12 +25007,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 6:4-5",
+    "passage_ref": "갈라디아서 6:1-7",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 6,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -25061,12 +25061,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 2:14-15",
+    "passage_ref": "빌립보서 2:11-17",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 2,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -25088,12 +25088,12 @@
     ]
   },
   {
-    "passage_ref": "민수기 14:27-29",
+    "passage_ref": "민수기 14:25-31",
     "book_name": "민수기",
     "book_id": 4,
     "chapter": 14,
-    "verse_start": 27,
-    "verse_end": 29,
+    "verse_start": 25,
+    "verse_end": 31,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -25205,12 +25205,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 12:14-15",
+    "passage_ref": "히브리서 12:11-17",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 12,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -25238,12 +25238,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 5:44-45",
+    "passage_ref": "마태복음 5:41-47",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 5,
-    "verse_start": 44,
-    "verse_end": 45,
+    "verse_start": 41,
+    "verse_end": 47,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -25354,65 +25354,11 @@
     ]
   },
   {
-    "passage_ref": "시편 37:7-8",
+    "passage_ref": "시편 37:4-10",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 37,
-    "verse_start": 7,
-    "verse_end": 8,
-    "testament": "OT",
-    "genre": "시가",
-    "soft_tags": {
-      "E10": 80,
-      "E02": 50,
-      "E06": 40,
-      "TH07": 70,
-      "TH02": 65,
-      "TH06": 60,
-      "C01": 70,
-      "C02": 40,
-      "C04": 40,
-      "D01": 40,
-      "D02": 65,
-      "D03": 55
-    },
-    "source_topics": [
-      37
-    ]
-  },
-  {
-    "passage_ref": "창세기 50:19-21",
-    "book_name": "창세기",
-    "book_id": 1,
-    "chapter": 50,
-    "verse_start": 19,
-    "verse_end": 21,
-    "testament": "OT",
-    "genre": "율법",
-    "soft_tags": {
-      "E10": 80,
-      "E02": 50,
-      "E06": 40,
-      "TH07": 70,
-      "TH02": 65,
-      "TH06": 60,
-      "C01": 70,
-      "C02": 40,
-      "C04": 40,
-      "D01": 40,
-      "D02": 65,
-      "D03": 55
-    },
-    "source_topics": [
-      37
-    ]
-  },
-  {
-    "passage_ref": "시편 103:8-10",
-    "book_name": "시편",
-    "book_id": 19,
-    "chapter": 103,
-    "verse_start": 8,
+    "verse_start": 4,
     "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
@@ -25435,12 +25381,39 @@
     ]
   },
   {
-    "passage_ref": "시편 106:24-25",
+    "passage_ref": "창세기 50:17-23",
+    "book_name": "창세기",
+    "book_id": 1,
+    "chapter": 50,
+    "verse_start": 17,
+    "verse_end": 23,
+    "testament": "OT",
+    "genre": "율법",
+    "soft_tags": {
+      "E10": 80,
+      "E02": 50,
+      "E06": 40,
+      "TH07": 70,
+      "TH02": 65,
+      "TH06": 60,
+      "C01": 70,
+      "C02": 40,
+      "C04": 40,
+      "D01": 40,
+      "D02": 65,
+      "D03": 55
+    },
+    "source_topics": [
+      37
+    ]
+  },
+  {
+    "passage_ref": "시편 103:6-12",
     "book_name": "시편",
     "book_id": 19,
-    "chapter": 106,
-    "verse_start": 24,
-    "verse_end": 25,
+    "chapter": 103,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -25462,12 +25435,39 @@
     ]
   },
   {
-    "passage_ref": "이사야 55:8-9",
+    "passage_ref": "시편 106:21-27",
+    "book_name": "시편",
+    "book_id": 19,
+    "chapter": 106,
+    "verse_start": 21,
+    "verse_end": 27,
+    "testament": "OT",
+    "genre": "시가",
+    "soft_tags": {
+      "E10": 80,
+      "E02": 50,
+      "E06": 40,
+      "TH07": 70,
+      "TH02": 65,
+      "TH06": 60,
+      "C01": 70,
+      "C02": 40,
+      "C04": 40,
+      "D01": 40,
+      "D02": 65,
+      "D03": 55
+    },
+    "source_topics": [
+      37
+    ]
+  },
+  {
+    "passage_ref": "이사야 55:5-11",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 55,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -25489,12 +25489,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 4:20-21",
+    "passage_ref": "요한일서 4:17-23",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 4,
-    "verse_start": 20,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -25516,12 +25516,12 @@
     ]
   },
   {
-    "passage_ref": "시편 55:12-14",
+    "passage_ref": "시편 55:10-16",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 55,
-    "verse_start": 12,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -25544,12 +25544,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 26:14-16",
+    "passage_ref": "마태복음 26:12-18",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 26,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -25721,12 +25721,12 @@
     ]
   },
   {
-    "passage_ref": "예레미야 17:5-7",
+    "passage_ref": "예레미야 17:3-9",
     "book_name": "예레미야",
     "book_id": 24,
     "chapter": 17,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -25749,12 +25749,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 50:19-20",
+    "passage_ref": "창세기 50:16-22",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 50,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -25777,12 +25777,12 @@
     ]
   },
   {
-    "passage_ref": "미가 7:5-7",
+    "passage_ref": "미가 7:3-9",
     "book_name": "미가",
     "book_id": 33,
     "chapter": 7,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -25833,12 +25833,12 @@
     ]
   },
   {
-    "passage_ref": "마가복음 14:43-45",
+    "passage_ref": "마가복음 14:41-47",
     "book_name": "마가복음",
     "book_id": 41,
     "chapter": 14,
-    "verse_start": 43,
-    "verse_end": 45,
+    "verse_start": 41,
+    "verse_end": 47,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -25861,12 +25861,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 22:47-48",
+    "passage_ref": "누가복음 22:44-50",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 22,
-    "verse_start": 47,
-    "verse_end": 48,
+    "verse_start": 44,
+    "verse_end": 50,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -25945,12 +25945,12 @@
     ]
   },
   {
-    "passage_ref": "시편 109:4-5",
+    "passage_ref": "시편 109:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 109,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -26001,12 +26001,12 @@
     ]
   },
   {
-    "passage_ref": "시편 31:11-13",
+    "passage_ref": "시편 31:9-15",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 31,
-    "verse_start": 11,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -26057,12 +26057,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 26:48-50",
+    "passage_ref": "마태복음 26:46-52",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 26,
-    "verse_start": 48,
-    "verse_end": 50,
+    "verse_start": 46,
+    "verse_end": 52,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -26085,12 +26085,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 27:3-5",
+    "passage_ref": "마태복음 27:1-7",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 27,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -26113,12 +26113,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 37:26-28",
+    "passage_ref": "창세기 37:24-30",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 37,
-    "verse_start": 26,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -26253,12 +26253,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 18:2-3",
+    "passage_ref": "요한복음 18:1-5",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 18,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -26395,12 +26395,12 @@
     ]
   },
   {
-    "passage_ref": "데살로니가전서 4:3-5",
+    "passage_ref": "데살로니가전서 4:1-7",
     "book_name": "데살로니가전서",
     "book_id": 52,
     "chapter": 4,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26449,12 +26449,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 5:31-33",
+    "passage_ref": "에베소서 5:29-35",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 5,
-    "verse_start": 31,
-    "verse_end": 33,
+    "verse_start": 29,
+    "verse_end": 35,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26512,12 +26512,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 6:18-20",
+    "passage_ref": "고린도전서 6:16-22",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 6,
-    "verse_start": 18,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26544,12 +26544,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 19:4-6",
+    "passage_ref": "마태복음 19:2-8",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 19,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -26598,12 +26598,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 7:1-2",
+    "passage_ref": "고린도전서 7:1-4",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 7,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26625,12 +26625,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 7:8-9",
+    "passage_ref": "고린도전서 7:5-11",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 7,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26652,12 +26652,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 12:1-2",
+    "passage_ref": "로마서 12:1-4",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 12,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26823,12 +26823,12 @@
     ]
   },
   {
-    "passage_ref": "시편 30:11-12",
+    "passage_ref": "시편 30:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 30,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -26931,12 +26931,12 @@
     ]
   },
   {
-    "passage_ref": "데살로니가전서 4:16-17",
+    "passage_ref": "데살로니가전서 4:13-19",
     "book_name": "데살로니가전서",
     "book_id": 52,
     "chapter": 4,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -26958,12 +26958,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 15:19-20",
+    "passage_ref": "고린도전서 15:16-22",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 15,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -27163,12 +27163,12 @@
     ]
   },
   {
-    "passage_ref": "욥기 19:25-26",
+    "passage_ref": "욥기 19:22-28",
     "book_name": "욥기",
     "book_id": 18,
     "chapter": 19,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -27271,12 +27271,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 14:2-3",
+    "passage_ref": "요한복음 14:1-5",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 14,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -27530,12 +27530,12 @@
     ]
   },
   {
-    "passage_ref": "출애굽기 18:17-18",
+    "passage_ref": "출애굽기 18:14-20",
     "book_name": "출애굽기",
     "book_id": 2,
     "chapter": 18,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -27866,12 +27866,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 12:13-14",
+    "passage_ref": "누가복음 12:10-16",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 12,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -28166,12 +28166,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 22:22-23",
+    "passage_ref": "잠언 22:19-25",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 22,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -28298,12 +28298,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 16:6-7",
+    "passage_ref": "창세기 16:3-9",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 16,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -28358,12 +28358,12 @@
     ]
   },
   {
-    "passage_ref": "출애굽기 22:21-22",
+    "passage_ref": "출애굽기 22:18-24",
     "book_name": "출애굽기",
     "book_id": 2,
     "chapter": 22,
-    "verse_start": 21,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -28490,12 +28490,12 @@
     ]
   },
   {
-    "passage_ref": "시편 55:9-11",
+    "passage_ref": "시편 55:7-13",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 55,
-    "verse_start": 9,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -28912,12 +28912,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 5:28-29",
+    "passage_ref": "에베소서 5:25-31",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 5,
-    "verse_start": 28,
-    "verse_end": 29,
+    "verse_start": 25,
+    "verse_end": 31,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -28996,12 +28996,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 12:9-10",
+    "passage_ref": "고린도후서 12:6-12",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 12,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -29054,12 +29054,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 35:5-6",
+    "passage_ref": "이사야 35:2-8",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 35,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -29081,12 +29081,12 @@
     ]
   },
   {
-    "passage_ref": "마가복음 2:10-12",
+    "passage_ref": "마가복음 2:8-14",
     "book_name": "마가복음",
     "book_id": 41,
     "chapter": 2,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -29135,12 +29135,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 9:20-21",
+    "passage_ref": "로마서 9:17-23",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 9,
-    "verse_start": 20,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -29739,12 +29739,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 7:38-39",
+    "passage_ref": "요한복음 7:35-41",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 7,
-    "verse_start": 38,
-    "verse_end": 39,
+    "verse_start": 35,
+    "verse_end": 41,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -29822,12 +29822,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 8:15-17",
+    "passage_ref": "사도행전 8:13-19",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 8,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -29848,12 +29848,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 10:44-45",
+    "passage_ref": "사도행전 10:41-47",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 10,
-    "verse_start": 44,
-    "verse_end": 45,
+    "verse_start": 41,
+    "verse_end": 47,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -29926,12 +29926,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 2:10-12",
+    "passage_ref": "고린도전서 2:8-14",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 2,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -30056,12 +30056,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:16-18",
+    "passage_ref": "마태복음 6:14-20",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -30134,12 +30134,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 13:2-3",
+    "passage_ref": "사도행전 13:1-5",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 13,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -30784,12 +30784,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 6:19-20",
+    "passage_ref": "고린도전서 6:16-22",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 6,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -30873,12 +30873,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 3:7-8",
+    "passage_ref": "빌립보서 3:4-10",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 3,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -30950,12 +30950,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 14:26-27",
+    "passage_ref": "누가복음 14:23-29",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 14,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -31003,12 +31003,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 10:37-39",
+    "passage_ref": "마태복음 10:35-41",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 10,
-    "verse_start": 37,
-    "verse_end": 39,
+    "verse_start": 35,
+    "verse_end": 41,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -31152,12 +31152,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 1:20-21",
+    "passage_ref": "빌립보서 1:17-23",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 1,
-    "verse_start": 20,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -31476,12 +31476,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 4:21-22",
+    "passage_ref": "마태복음 4:18-24",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 4,
-    "verse_start": 21,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -31500,12 +31500,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 10:24-25",
+    "passage_ref": "마태복음 10:21-27",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 10,
-    "verse_start": 24,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -31548,12 +31548,12 @@
     ]
   },
   {
-    "passage_ref": "마가복음 8:34-35",
+    "passage_ref": "마가복음 8:31-37",
     "book_name": "마가복음",
     "book_id": 41,
     "chapter": 8,
-    "verse_start": 34,
-    "verse_end": 35,
+    "verse_start": 31,
+    "verse_end": 37,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -31647,12 +31647,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:4-5",
+    "passage_ref": "요한복음 15:1-7",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -31793,12 +31793,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 2:6-7",
+    "passage_ref": "골로새서 2:3-9",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 2,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -31951,12 +31951,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 5:8-9",
+    "passage_ref": "히브리서 5:5-11",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 5,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -31975,12 +31975,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 28:1-2",
+    "passage_ref": "신명기 28:1-4",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 28,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -32095,12 +32095,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 11:26-28",
+    "passage_ref": "신명기 11:24-30",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 11,
-    "verse_start": 26,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -32479,12 +32479,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 28:19-20",
+    "passage_ref": "마태복음 28:16-22",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 28,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -32504,12 +32504,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 10:14-15",
+    "passage_ref": "로마서 10:11-17",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 10,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -32608,12 +32608,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 1:27-28",
+    "passage_ref": "골로새서 1:24-30",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 1,
-    "verse_start": 27,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -32733,12 +32733,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 5:14-16",
+    "passage_ref": "마태복음 5:12-18",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 5,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -32758,12 +32758,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 9:37-38",
+    "passage_ref": "마태복음 9:34-40",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 9,
-    "verse_start": 37,
-    "verse_end": 38,
+    "verse_start": 34,
+    "verse_end": 40,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -32858,12 +32858,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 24:46-48",
+    "passage_ref": "누가복음 24:44-50",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 24,
-    "verse_start": 46,
-    "verse_end": 48,
+    "verse_start": 44,
+    "verse_end": 50,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -33013,12 +33013,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 10:9-10",
+    "passage_ref": "로마서 10:6-12",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 10,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -33063,12 +33063,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 9:22-23",
+    "passage_ref": "고린도전서 9:19-25",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 9,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -33113,12 +33113,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 2:3-4",
+    "passage_ref": "디모데전서 2:1-6",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 2,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -33258,12 +33258,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 6:6-7",
+    "passage_ref": "신명기 6:3-9",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 6,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -33858,12 +33858,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 23:13-14",
+    "passage_ref": "잠언 23:10-16",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 23,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34073,12 +34073,12 @@
     ]
   },
   {
-    "passage_ref": "마가복음 10:29-30",
+    "passage_ref": "마가복음 10:26-32",
     "book_name": "마가복음",
     "book_id": 41,
     "chapter": 10,
-    "verse_start": 29,
-    "verse_end": 30,
+    "verse_start": 26,
+    "verse_end": 32,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -34101,12 +34101,12 @@
     ]
   },
   {
-    "passage_ref": "애가 3:22-24",
+    "passage_ref": "애가 3:20-26",
     "book_name": "애가",
     "book_id": 25,
     "chapter": 3,
-    "verse_start": 22,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "OT",
     "genre": "",
     "soft_tags": {
@@ -34157,12 +34157,12 @@
     ]
   },
   {
-    "passage_ref": "시편 25:14-15",
+    "passage_ref": "시편 25:11-17",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 25,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34185,12 +34185,12 @@
     ]
   },
   {
-    "passage_ref": "시편 25:16-18",
+    "passage_ref": "시편 25:14-20",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 25,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34297,39 +34297,11 @@
     ]
   },
   {
-    "passage_ref": "시편 139:7-8",
+    "passage_ref": "시편 139:4-10",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 139,
-    "verse_start": 7,
-    "verse_end": 8,
-    "testament": "OT",
-    "genre": "시가",
-    "soft_tags": {
-      "E05": 95,
-      "E03": 50,
-      "E09": 40,
-      "P11": 60,
-      "TH04": 90,
-      "TH01": 80,
-      "TH19": 60,
-      "TH13": 50,
-      "C01": 85,
-      "C04": 60,
-      "D01": 30,
-      "D02": 70,
-      "D03": 50
-    },
-    "source_topics": [
-      5
-    ]
-  },
-  {
-    "passage_ref": "시편 139:9-10",
-    "book_name": "시편",
-    "book_id": 19,
-    "chapter": 139,
-    "verse_start": 9,
+    "verse_start": 4,
     "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
@@ -34353,11 +34325,11 @@
     ]
   },
   {
-    "passage_ref": "시편 139:11-12",
+    "passage_ref": "시편 139:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 139,
-    "verse_start": 11,
+    "verse_start": 6,
     "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
@@ -34381,11 +34353,11 @@
     ]
   },
   {
-    "passage_ref": "시편 139:13-14",
+    "passage_ref": "시편 139:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 139,
-    "verse_start": 13,
+    "verse_start": 8,
     "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
@@ -34409,11 +34381,11 @@
     ]
   },
   {
-    "passage_ref": "시편 139:15-16",
+    "passage_ref": "시편 139:10-16",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 139,
-    "verse_start": 15,
+    "verse_start": 10,
     "verse_end": 16,
     "testament": "OT",
     "genre": "시가",
@@ -34437,12 +34409,12 @@
     ]
   },
   {
-    "passage_ref": "시편 27:9-10",
+    "passage_ref": "시편 139:12-18",
     "book_name": "시편",
     "book_id": 19,
-    "chapter": 27,
-    "verse_start": 9,
-    "verse_end": 10,
+    "chapter": 139,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34465,12 +34437,40 @@
     ]
   },
   {
-    "passage_ref": "시편 102:18-20",
+    "passage_ref": "시편 27:6-12",
+    "book_name": "시편",
+    "book_id": 19,
+    "chapter": 27,
+    "verse_start": 6,
+    "verse_end": 12,
+    "testament": "OT",
+    "genre": "시가",
+    "soft_tags": {
+      "E05": 95,
+      "E03": 50,
+      "E09": 40,
+      "P11": 60,
+      "TH04": 90,
+      "TH01": 80,
+      "TH19": 60,
+      "TH13": 50,
+      "C01": 85,
+      "C04": 60,
+      "D01": 30,
+      "D02": 70,
+      "D03": 50
+    },
+    "source_topics": [
+      5
+    ]
+  },
+  {
+    "passage_ref": "시편 102:16-22",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 102,
-    "verse_start": 18,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34527,12 +34527,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 12:26-27",
+    "passage_ref": "고린도전서 12:23-29",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 12,
-    "verse_start": 26,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -34555,12 +34555,12 @@
     ]
   },
   {
-    "passage_ref": "시편 63:3-5",
+    "passage_ref": "시편 63:1-7",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 63,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34669,12 +34669,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 4:9-10",
+    "passage_ref": "전도서 4:6-12",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 4,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -34696,12 +34696,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:13-15",
+    "passage_ref": "요한복음 15:11-17",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
-    "verse_start": 13,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -34750,12 +34750,12 @@
     ]
   },
   {
-    "passage_ref": "사무엘상 18:1-3",
+    "passage_ref": "사무엘상 18:1-5",
     "book_name": "사무엘상",
     "book_id": 9,
     "chapter": 18,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -34885,12 +34885,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 22:24-25",
+    "passage_ref": "잠언 22:21-27",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 22,
-    "verse_start": 24,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -35277,12 +35277,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 3:12-13",
+    "passage_ref": "골로새서 3:9-15",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 3,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -35305,12 +35305,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 7:3-5",
+    "passage_ref": "마태복음 7:1-7",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 7,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -35333,12 +35333,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:14-15",
+    "passage_ref": "갈라디아서 5:11-17",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -35601,12 +35601,12 @@
     ]
   },
   {
-    "passage_ref": "시편 90:10-12",
+    "passage_ref": "시편 90:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 90,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -35769,12 +35769,12 @@
     ]
   },
   {
-    "passage_ref": "시편 92:13-14",
+    "passage_ref": "시편 92:10-16",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 92,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -35898,12 +35898,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 2:2-3",
+    "passage_ref": "디도서 2:1-5",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 2,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -35926,12 +35926,12 @@
     ]
   },
   {
-    "passage_ref": "여호수아 14:10-12",
+    "passage_ref": "여호수아 14:8-14",
     "book_name": "여호수아",
     "book_id": 6,
     "chapter": 14,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -35958,12 +35958,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 2:25-26",
+    "passage_ref": "누가복음 2:22-28",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 2,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -35986,12 +35986,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 2:37-38",
+    "passage_ref": "누가복음 2:34-40",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 2,
-    "verse_start": 37,
-    "verse_end": 38,
+    "verse_start": 34,
+    "verse_end": 40,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -36046,12 +36046,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 4:7-8",
+    "passage_ref": "디모데후서 4:4-10",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 4,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -36138,12 +36138,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 3:1-2",
+    "passage_ref": "전도서 3:1-4",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 3,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -36202,12 +36202,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 15:53-54",
+    "passage_ref": "고린도전서 15:50-56",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 15,
-    "verse_start": 53,
-    "verse_end": 54,
+    "verse_start": 50,
+    "verse_end": 56,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -36230,12 +36230,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:31-33",
+    "passage_ref": "마태복음 6:29-35",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 31,
-    "verse_end": 33,
+    "verse_start": 29,
+    "verse_end": 35,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -36259,12 +36259,12 @@
     ]
   },
   {
-    "passage_ref": "시편 37:23-25",
+    "passage_ref": "시편 37:21-27",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 37,
-    "verse_start": 23,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -36288,12 +36288,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 4:18-19",
+    "passage_ref": "빌립보서 4:15-21",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 4,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -36322,12 +36322,12 @@
     ]
   },
   {
-    "passage_ref": "시편 34:9-10",
+    "passage_ref": "시편 34:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 34,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -36351,12 +36351,12 @@
     ]
   },
   {
-    "passage_ref": "시편 146:5-6",
+    "passage_ref": "시편 146:2-8",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 146,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -36380,12 +36380,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:25-26",
+    "passage_ref": "마태복음 6:22-28",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -36409,40 +36409,11 @@
     ]
   },
   {
-    "passage_ref": "시편 121:1-3",
+    "passage_ref": "시편 121:1-5",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 121,
     "verse_start": 1,
-    "verse_end": 3,
-    "testament": "OT",
-    "genre": "시가",
-    "soft_tags": {
-      "E01": 70,
-      "E03": 60,
-      "E07": 60,
-      "P03": 90,
-      "P04": 70,
-      "TH02": 80,
-      "TH07": 50,
-      "TH04": 70,
-      "TH01": 60,
-      "C01": 70,
-      "C02": 40,
-      "D01": 35,
-      "D02": 65,
-      "D03": 50
-    },
-    "source_topics": [
-      54
-    ]
-  },
-  {
-    "passage_ref": "시편 37:4-5",
-    "book_name": "시편",
-    "book_id": 19,
-    "chapter": 37,
-    "verse_start": 4,
     "verse_end": 5,
     "testament": "OT",
     "genre": "시가",
@@ -36467,12 +36438,41 @@
     ]
   },
   {
-    "passage_ref": "마태복음 7:7-8",
+    "passage_ref": "시편 37:1-7",
+    "book_name": "시편",
+    "book_id": 19,
+    "chapter": 37,
+    "verse_start": 1,
+    "verse_end": 7,
+    "testament": "OT",
+    "genre": "시가",
+    "soft_tags": {
+      "E01": 70,
+      "E03": 60,
+      "E07": 60,
+      "P03": 90,
+      "P04": 70,
+      "TH02": 80,
+      "TH07": 50,
+      "TH04": 70,
+      "TH01": 60,
+      "C01": 70,
+      "C02": 40,
+      "D01": 35,
+      "D02": 65,
+      "D03": 50
+    },
+    "source_topics": [
+      54
+    ]
+  },
+  {
+    "passage_ref": "마태복음 7:4-10",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 7,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -36503,12 +36503,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 43:18-19",
+    "passage_ref": "이사야 43:15-21",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 43,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -36532,12 +36532,12 @@
     ]
   },
   {
-    "passage_ref": "시편 9:9-10",
+    "passage_ref": "시편 9:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 9,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -36590,12 +36590,12 @@
     ]
   },
   {
-    "passage_ref": "열왕기상 17:14-16",
+    "passage_ref": "열왕기상 17:12-18",
     "book_name": "열왕기상",
     "book_id": 11,
     "chapter": 17,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -36619,12 +36619,12 @@
     ]
   },
   {
-    "passage_ref": "데살로니가후서 3:10-12",
+    "passage_ref": "데살로니가후서 3:8-14",
     "book_name": "데살로니가후서",
     "book_id": 53,
     "chapter": 3,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -36648,12 +36648,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 55:1-2",
+    "passage_ref": "이사야 55:1-4",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 55,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -36709,12 +36709,12 @@
     ]
   },
   {
-    "passage_ref": "하박국 3:17-18",
+    "passage_ref": "하박국 3:14-20",
     "book_name": "하박국",
     "book_id": 35,
     "chapter": 3,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -36821,12 +36821,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:19-20",
+    "passage_ref": "마태복음 6:16-22",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -36849,12 +36849,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 6:7-8",
+    "passage_ref": "디모데전서 6:4-10",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 6,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -36968,12 +36968,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 23:4-5",
+    "passage_ref": "잠언 23:1-7",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 23,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -37136,12 +37136,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 3:9-10",
+    "passage_ref": "잠언 3:6-12",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 3,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -37360,12 +37360,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 18:15-17",
+    "passage_ref": "마태복음 18:13-19",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 18,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -37416,12 +37416,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 4:1-3",
+    "passage_ref": "에베소서 4:1-5",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 4,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -37446,12 +37446,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 2:1-2",
+    "passage_ref": "빌립보서 2:1-4",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -37558,12 +37558,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 3:3-4",
+    "passage_ref": "고린도전서 3:1-6",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 3,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -37586,12 +37586,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 11:17-18",
+    "passage_ref": "고린도전서 11:14-20",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 11,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -37670,12 +37670,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 4:2-3",
+    "passage_ref": "빌립보서 4:1-5",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 4,
-    "verse_start": 2,
-    "verse_end": 3,
+    "verse_start": 1,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -37835,12 +37835,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 3:16-17",
+    "passage_ref": "디모데후서 3:13-19",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 3,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -38003,12 +38003,12 @@
     ]
   },
   {
-    "passage_ref": "시편 19:7-8",
+    "passage_ref": "시편 19:4-10",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 19,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -38103,12 +38103,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 3:1-2",
+    "passage_ref": "잠언 3:1-4",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 3,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -38278,12 +38278,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 8:31-32",
+    "passage_ref": "요한복음 8:28-34",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 8,
-    "verse_start": 31,
-    "verse_end": 32,
+    "verse_start": 28,
+    "verse_end": 34,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -38407,12 +38407,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 12:6-8",
+    "passage_ref": "로마서 12:4-10",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 12,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -38462,12 +38462,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 4:11-12",
+    "passage_ref": "에베소서 4:8-14",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 4,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -38537,12 +38537,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 25:14-15",
+    "passage_ref": "마태복음 25:11-17",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 25,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -38647,12 +38647,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 12:1-3",
+    "passage_ref": "고린도전서 12:1-5",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 12,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -38672,12 +38672,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 12:8-10",
+    "passage_ref": "고린도전서 12:6-12",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 12,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -38697,12 +38697,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 12:27-28",
+    "passage_ref": "고린도전서 12:24-30",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 12,
-    "verse_start": 27,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -39083,12 +39083,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:13-15",
+    "passage_ref": "갈라디아서 5:11-17",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 13,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -39133,12 +39133,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 4:10-11",
+    "passage_ref": "베드로전서 4:7-13",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 4,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -39158,12 +39158,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 23:11-12",
+    "passage_ref": "마태복음 23:8-14",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 23,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -39449,12 +39449,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 4:5-7",
+    "passage_ref": "고린도후서 4:3-9",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 4,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -39574,12 +39574,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 6:10-12",
+    "passage_ref": "히브리서 6:8-14",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 6,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -39628,12 +39628,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 20:33-35",
+    "passage_ref": "사도행전 20:31-37",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 20,
-    "verse_start": 33,
-    "verse_end": 35,
+    "verse_start": 31,
+    "verse_end": 37,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -39768,12 +39768,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 43:25-26",
+    "passage_ref": "이사야 43:22-28",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 43,
-    "verse_start": 25,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -39888,12 +39888,12 @@
     ]
   },
   {
-    "passage_ref": "민수기 14:19-21",
+    "passage_ref": "민수기 14:17-23",
     "book_name": "민수기",
     "book_id": 4,
     "chapter": 14,
-    "verse_start": 19,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -40139,12 +40139,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 5:1-2",
+    "passage_ref": "에베소서 5:1-4",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 5,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -40474,12 +40474,12 @@
     ]
   },
   {
-    "passage_ref": "미가 6:6-8",
+    "passage_ref": "미가 6:4-10",
     "book_name": "미가",
     "book_id": 33,
     "chapter": 6,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -40643,12 +40643,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 49:14-16",
+    "passage_ref": "이사야 49:12-18",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 49,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -40669,12 +40669,12 @@
     ]
   },
   {
-    "passage_ref": "예레미야 31:3-4",
+    "passage_ref": "예레미야 31:1-6",
     "book_name": "예레미야",
     "book_id": 24,
     "chapter": 31,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -40749,12 +40749,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 4:1-3",
+    "passage_ref": "요한일서 4:1-5",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 4,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -40893,12 +40893,12 @@
     ]
   },
   {
-    "passage_ref": "베드로후서 2:1-2",
+    "passage_ref": "베드로후서 2:1-4",
     "book_name": "베드로후서",
     "book_id": 61,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -40941,12 +40941,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 13:1-3",
+    "passage_ref": "신명기 13:1-5",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 13,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -41037,12 +41037,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 7:15-16",
+    "passage_ref": "마태복음 7:12-18",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 7,
-    "verse_start": 15,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -41085,12 +41085,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 24:4-5",
+    "passage_ref": "마태복음 24:1-7",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 24,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -41133,12 +41133,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 16:17-18",
+    "passage_ref": "로마서 16:14-20",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 16,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41157,12 +41157,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 11:13-15",
+    "passage_ref": "고린도후서 11:11-17",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 11,
-    "verse_start": 13,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41181,12 +41181,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 1:6-7",
+    "passage_ref": "갈라디아서 1:3-9",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 1,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41253,12 +41253,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 2:18-19",
+    "passage_ref": "골로새서 2:15-21",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 2,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41277,12 +41277,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 1:3-4",
+    "passage_ref": "디모데전서 1:1-6",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 1,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41301,12 +41301,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 6:3-5",
+    "passage_ref": "디모데전서 6:1-7",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 6,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41325,12 +41325,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 4:3-4",
+    "passage_ref": "디모데후서 4:1-6",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 4,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41349,12 +41349,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 1:10-11",
+    "passage_ref": "디도서 1:7-13",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 1,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41397,12 +41397,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 2:18-19",
+    "passage_ref": "요한일서 2:15-21",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 2,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -41491,12 +41491,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 6:6-8",
+    "passage_ref": "잠언 6:4-10",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 6,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -41917,12 +41917,12 @@
     ]
   },
   {
-    "passage_ref": "시편 91:3-4",
+    "passage_ref": "시편 91:1-6",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 91,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -42113,12 +42113,12 @@
     ]
   },
   {
-    "passage_ref": "애가 3:22-23",
+    "passage_ref": "애가 3:19-25",
     "book_name": "애가",
     "book_id": 25,
     "chapter": 3,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "OT",
     "genre": "",
     "soft_tags": {
@@ -42243,12 +42243,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 4:8-9",
+    "passage_ref": "고린도후서 4:5-11",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 4,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -42271,12 +42271,12 @@
     ]
   },
   {
-    "passage_ref": "시편 121:7-8",
+    "passage_ref": "시편 121:4-10",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 121,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -42303,12 +42303,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 6:10-11",
+    "passage_ref": "에베소서 6:7-13",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 6,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -42359,12 +42359,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 2:3-4",
+    "passage_ref": "디모데후서 2:1-6",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 2,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -42614,12 +42614,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 40:29-31",
+    "passage_ref": "이사야 40:27-33",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 40,
-    "verse_start": 29,
-    "verse_end": 31,
+    "verse_start": 27,
+    "verse_end": 33,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -42670,12 +42670,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 8:8-9",
+    "passage_ref": "마태복음 8:5-11",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 8,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -42724,12 +42724,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 6:5-6",
+    "passage_ref": "마태복음 6:2-8",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 6,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -42864,12 +42864,12 @@
     ]
   },
   {
-    "passage_ref": "시편 116:1-2",
+    "passage_ref": "시편 116:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 116,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -42899,12 +42899,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 11:9-10",
+    "passage_ref": "누가복음 11:6-12",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 11,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -42977,12 +42977,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 2:1-2",
+    "passage_ref": "디모데전서 2:1-4",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -43216,12 +43216,12 @@
     ]
   },
   {
-    "passage_ref": "요나 2:1-2",
+    "passage_ref": "요나 2:1-4",
     "book_name": "요나",
     "book_id": 32,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -43268,12 +43268,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 8:3-4",
+    "passage_ref": "요한계시록 8:1-6",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 8,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -43348,12 +43348,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 1:41-42",
+    "passage_ref": "누가복음 1:38-44",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 1,
-    "verse_start": 41,
-    "verse_end": 42,
+    "verse_start": 38,
+    "verse_end": 44,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -43483,12 +43483,12 @@
     ]
   },
   {
-    "passage_ref": "민수기 6:24-26",
+    "passage_ref": "민수기 6:22-28",
     "book_name": "민수기",
     "book_id": 4,
     "chapter": 6,
-    "verse_start": 24,
-    "verse_end": 26,
+    "verse_start": 22,
+    "verse_end": 28,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -43569,12 +43569,12 @@
     ]
   },
   {
-    "passage_ref": "시편 22:9-10",
+    "passage_ref": "시편 22:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 22,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -43596,12 +43596,12 @@
     ]
   },
   {
-    "passage_ref": "사무엘상 2:1-2",
+    "passage_ref": "사무엘상 2:1-4",
     "book_name": "사무엘상",
     "book_id": 9,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -43785,12 +43785,12 @@
     ]
   },
   {
-    "passage_ref": "시편 112:1-2",
+    "passage_ref": "시편 112:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 112,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -43839,12 +43839,12 @@
     ]
   },
   {
-    "passage_ref": "창세기 12:1-2",
+    "passage_ref": "창세기 12:1-4",
     "book_name": "창세기",
     "book_id": 1,
     "chapter": 12,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -44099,12 +44099,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 24:3-4",
+    "passage_ref": "잠언 24:1-6",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 24,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -44530,12 +44530,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 2:36-38",
+    "passage_ref": "누가복음 2:34-40",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 2,
-    "verse_start": 36,
-    "verse_end": 38,
+    "verse_start": 34,
+    "verse_end": 40,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -44695,12 +44695,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:9-11",
+    "passage_ref": "요한복음 15:7-13",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
-    "verse_start": 9,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -44770,12 +44770,12 @@
     ]
   },
   {
-    "passage_ref": "하박국 3:17-19",
+    "passage_ref": "하박국 3:15-21",
     "book_name": "하박국",
     "book_id": 35,
     "chapter": 3,
-    "verse_start": 17,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -44995,12 +44995,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 14:17-19",
+    "passage_ref": "로마서 14:15-21",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 14,
-    "verse_start": 17,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -45045,12 +45045,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 5:18-20",
+    "passage_ref": "에베소서 5:16-22",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 5,
-    "verse_start": 18,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -45181,12 +45181,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 13:44-46",
+    "passage_ref": "마태복음 13:42-48",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 13,
-    "verse_start": 44,
-    "verse_end": 46,
+    "verse_start": 42,
+    "verse_end": 48,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -45541,12 +45541,12 @@
     ]
   },
   {
-    "passage_ref": "미가 7:7-9",
+    "passage_ref": "미가 7:5-11",
     "book_name": "미가",
     "book_id": 33,
     "chapter": 7,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -45616,12 +45616,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 12:1-3",
+    "passage_ref": "히브리서 12:1-5",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 12,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -45968,12 +45968,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 9:6-7",
+    "passage_ref": "이사야 9:3-9",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 9,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -45997,12 +45997,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 3:15-17",
+    "passage_ref": "골로새서 3:13-19",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 3,
-    "verse_start": 15,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -46176,12 +46176,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 32:17-18",
+    "passage_ref": "이사야 32:14-20",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 32,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -46360,12 +46360,12 @@
     ]
   },
   {
-    "passage_ref": "스가랴 9:9-10",
+    "passage_ref": "스가랴 9:6-12",
     "book_name": "스가랴",
     "book_id": 38,
     "chapter": 9,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -46543,12 +46543,12 @@
     ]
   },
   {
-    "passage_ref": "열왕기상 19:11-12",
+    "passage_ref": "열왕기상 19:8-14",
     "book_name": "열왕기상",
     "book_id": 11,
     "chapter": 19,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -46718,12 +46718,12 @@
     ]
   },
   {
-    "passage_ref": "시편 19:1-2",
+    "passage_ref": "시편 19:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 19,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -46818,12 +46818,12 @@
     ]
   },
   {
-    "passage_ref": "하박국 2:1-2",
+    "passage_ref": "하박국 2:1-4",
     "book_name": "하박국",
     "book_id": 35,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -46868,12 +46868,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 10:3-4",
+    "passage_ref": "요한복음 10:1-6",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 10,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -46918,12 +46918,12 @@
     ]
   },
   {
-    "passage_ref": "시편 51:10-12",
+    "passage_ref": "시편 51:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 51,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -46947,12 +46947,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 2:4-5",
+    "passage_ref": "요한계시록 2:1-7",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 2,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -46976,12 +46976,12 @@
     ]
   },
   {
-    "passage_ref": "호세아 6:1-3",
+    "passage_ref": "호세아 6:1-5",
     "book_name": "호세아",
     "book_id": 28,
     "chapter": 6,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -47092,12 +47092,12 @@
     ]
   },
   {
-    "passage_ref": "시편 42:1-2",
+    "passage_ref": "시편 42:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 42,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -47121,12 +47121,12 @@
     ]
   },
   {
-    "passage_ref": "시편 13:1-2",
+    "passage_ref": "시편 13:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 13,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -47324,12 +47324,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 41:17-18",
+    "passage_ref": "이사야 41:14-20",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 41,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -47556,12 +47556,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 7:37-38",
+    "passage_ref": "요한복음 7:34-40",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 7,
-    "verse_start": 37,
-    "verse_end": 38,
+    "verse_start": 34,
+    "verse_end": 40,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -47734,12 +47734,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 3:12-14",
+    "passage_ref": "골로새서 3:10-16",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 3,
-    "verse_start": 12,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -47786,12 +47786,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 4:29-31",
+    "passage_ref": "신명기 4:27-33",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 4,
-    "verse_start": 29,
-    "verse_end": 31,
+    "verse_start": 27,
+    "verse_end": 33,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -47906,12 +47906,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 28:13-14",
+    "passage_ref": "잠언 28:10-16",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 28,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -48026,12 +48026,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 23:23-24",
+    "passage_ref": "마태복음 23:20-26",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 23,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -48122,12 +48122,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 4:14-16",
+    "passage_ref": "히브리서 4:12-18",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 4,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -48156,12 +48156,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 1:3-5",
+    "passage_ref": "베드로전서 1:1-7",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 1,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -48284,12 +48284,12 @@
     ]
   },
   {
-    "passage_ref": "역대상 16:8-9",
+    "passage_ref": "역대상 16:5-11",
     "book_name": "역대상",
     "book_id": 13,
     "chapter": 16,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -48334,12 +48334,12 @@
     ]
   },
   {
-    "passage_ref": "시편 9:1-2",
+    "passage_ref": "시편 9:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 9,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -48359,12 +48359,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 1:3-5",
+    "passage_ref": "빌립보서 1:1-7",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 1,
-    "verse_start": 3,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -48434,12 +48434,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 6:17-18",
+    "passage_ref": "로마서 6:14-20",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 6,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -48534,12 +48534,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 12:28-29",
+    "passage_ref": "히브리서 12:25-31",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 12,
-    "verse_start": 28,
-    "verse_end": 29,
+    "verse_start": 25,
+    "verse_end": 31,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -48684,12 +48684,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 14:6-8",
+    "passage_ref": "로마서 14:4-10",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 14,
-    "verse_start": 6,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -48938,12 +48938,12 @@
     ]
   },
   {
-    "passage_ref": "시편 86:5-7",
+    "passage_ref": "시편 86:3-9",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 86,
-    "verse_start": 5,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -48962,12 +48962,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 10:11-12",
+    "passage_ref": "잠언 10:8-14",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 10,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -48986,12 +48986,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 17:9-10",
+    "passage_ref": "잠언 17:6-12",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 17,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -49010,12 +49010,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 19:11-12",
+    "passage_ref": "잠언 19:8-14",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 19,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -49281,12 +49281,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 4:10-12",
+    "passage_ref": "요한일서 4:8-14",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 4,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -49305,12 +49305,12 @@
     ]
   },
   {
-    "passage_ref": "유다서 1:22-23",
+    "passage_ref": "유다서 1:19-25",
     "book_name": "유다서",
     "book_id": 65,
     "chapter": 1,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -49490,12 +49490,12 @@
     ]
   },
   {
-    "passage_ref": "스바냐 2:1-3",
+    "passage_ref": "스바냐 2:1-5",
     "book_name": "스바냐",
     "book_id": 36,
     "chapter": 2,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -49628,12 +49628,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 1:19-21",
+    "passage_ref": "야고보서 1:17-23",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 1,
-    "verse_start": 19,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -49697,12 +49697,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 40:9-11",
+    "passage_ref": "이사야 40:7-13",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 40,
-    "verse_start": 9,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -49766,12 +49766,12 @@
     ]
   },
   {
-    "passage_ref": "에스라 8:21-23",
+    "passage_ref": "에스라 8:19-25",
     "book_name": "에스라",
     "book_id": 15,
     "chapter": 8,
-    "verse_start": 21,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -49881,12 +49881,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 16:18-20",
+    "passage_ref": "잠언 16:16-22",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 16,
-    "verse_start": 18,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -50104,12 +50104,12 @@
     ]
   },
   {
-    "passage_ref": "시편 46:1-2",
+    "passage_ref": "시편 46:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 46,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -50279,12 +50279,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 9:25-27",
+    "passage_ref": "고린도전서 9:23-29",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 9,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -51299,12 +51299,12 @@
     ]
   },
   {
-    "passage_ref": "마태복음 24:45-47",
+    "passage_ref": "마태복음 24:43-49",
     "book_name": "마태복음",
     "book_id": 40,
     "chapter": 24,
-    "verse_start": 45,
-    "verse_end": 47,
+    "verse_start": 43,
+    "verse_end": 49,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -51534,12 +51534,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 3:3-4",
+    "passage_ref": "잠언 3:1-6",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 3,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -51723,12 +51723,12 @@
     ]
   },
   {
-    "passage_ref": "시편 89:1-2",
+    "passage_ref": "시편 89:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 89,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -51817,12 +51817,12 @@
     ]
   },
   {
-    "passage_ref": "시편 119:9-11",
+    "passage_ref": "시편 119:7-13",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 119,
-    "verse_start": 9,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -51842,12 +51842,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 5:21-22",
+    "passage_ref": "디모데전서 5:18-24",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 5,
-    "verse_start": 21,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -51892,12 +51892,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 3:1-3",
+    "passage_ref": "요한일서 3:1-5",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 3,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -51924,12 +51924,12 @@
     ]
   },
   {
-    "passage_ref": "빌립보서 4:8-9",
+    "passage_ref": "빌립보서 4:5-11",
     "book_name": "빌립보서",
     "book_id": 50,
     "chapter": 4,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -51999,12 +51999,12 @@
     ]
   },
   {
-    "passage_ref": "레위기 11:44-45",
+    "passage_ref": "레위기 11:41-47",
     "book_name": "레위기",
     "book_id": 3,
     "chapter": 11,
-    "verse_start": 44,
-    "verse_end": 45,
+    "verse_start": 41,
+    "verse_end": 47,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -52049,12 +52049,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 22:11-12",
+    "passage_ref": "잠언 22:8-14",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 22,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -52074,12 +52074,12 @@
     ]
   },
   {
-    "passage_ref": "에스겔 36:25-27",
+    "passage_ref": "에스겔 36:23-29",
     "book_name": "에스겔",
     "book_id": 26,
     "chapter": 36,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -52124,12 +52124,12 @@
     ]
   },
   {
-    "passage_ref": "스가랴 13:1-2",
+    "passage_ref": "스가랴 13:1-4",
     "book_name": "스가랴",
     "book_id": 38,
     "chapter": 13,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -52149,12 +52149,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 15:1-3",
+    "passage_ref": "요한복음 15:1-5",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 15,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -52224,12 +52224,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 5:25-27",
+    "passage_ref": "에베소서 5:23-29",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 5,
-    "verse_start": 25,
-    "verse_end": 27,
+    "verse_start": 23,
+    "verse_end": 29,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52274,12 +52274,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 2:20-22",
+    "passage_ref": "디모데후서 2:18-24",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 2,
-    "verse_start": 20,
-    "verse_end": 22,
+    "verse_start": 18,
+    "verse_end": 24,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52299,12 +52299,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 1:15-16",
+    "passage_ref": "디도서 1:12-18",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 1,
-    "verse_start": 15,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52324,12 +52324,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 9:13-14",
+    "passage_ref": "히브리서 9:10-16",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 9,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52399,12 +52399,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 2:11-12",
+    "passage_ref": "베드로전서 2:8-14",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 2,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52424,12 +52424,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 1:7-9",
+    "passage_ref": "요한일서 1:5-11",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 1,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52449,12 +52449,12 @@
     ]
   },
   {
-    "passage_ref": "요한계시록 19:7-8",
+    "passage_ref": "요한계시록 19:4-10",
     "book_name": "요한계시록",
     "book_id": 66,
     "chapter": 19,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -52598,12 +52598,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 6:14-15",
+    "passage_ref": "로마서 6:11-17",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 6,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52622,12 +52622,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 2:19-21",
+    "passage_ref": "갈라디아서 2:17-23",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 2,
-    "verse_start": 19,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52646,12 +52646,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 11:5-6",
+    "passage_ref": "로마서 11:2-8",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 11,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52694,12 +52694,12 @@
     ]
   },
   {
-    "passage_ref": "베드로전서 5:10-11",
+    "passage_ref": "베드로전서 5:7-13",
     "book_name": "베드로전서",
     "book_id": 60,
     "chapter": 5,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52790,12 +52790,12 @@
     ]
   },
   {
-    "passage_ref": "디모데후서 1:8-10",
+    "passage_ref": "디모데후서 1:6-12",
     "book_name": "디모데후서",
     "book_id": 55,
     "chapter": 1,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52867,12 +52867,12 @@
     ]
   },
   {
-    "passage_ref": "베드로후서 3:17-18",
+    "passage_ref": "베드로후서 3:14-20",
     "book_name": "베드로후서",
     "book_id": 61,
     "chapter": 3,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -52917,12 +52917,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 15:9-11",
+    "passage_ref": "고린도전서 15:7-13",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 15,
-    "verse_start": 9,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -53063,12 +53063,12 @@
     ]
   },
   {
-    "passage_ref": "스가랴 4:6-7",
+    "passage_ref": "스가랴 4:3-9",
     "book_name": "스가랴",
     "book_id": 38,
     "chapter": 4,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -53087,12 +53087,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 6:1-2",
+    "passage_ref": "고린도후서 6:1-4",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 6,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -53111,12 +53111,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 12:14-16",
+    "passage_ref": "히브리서 12:12-18",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 12,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -53135,12 +53135,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 1:16-17",
+    "passage_ref": "로마서 1:13-19",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 1,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -53433,12 +53433,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 2:8-10",
+    "passage_ref": "에베소서 2:6-12",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 2,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -53615,12 +53615,12 @@
     ]
   },
   {
-    "passage_ref": "갈라디아서 5:5-6",
+    "passage_ref": "갈라디아서 5:2-8",
     "book_name": "갈라디아서",
     "book_id": 48,
     "chapter": 5,
-    "verse_start": 5,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -54003,12 +54003,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 61:10-11",
+    "passage_ref": "이사야 61:7-13",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 61,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -54129,12 +54129,12 @@
     ]
   },
   {
-    "passage_ref": "미가 7:18-20",
+    "passage_ref": "미가 7:16-22",
     "book_name": "미가",
     "book_id": 33,
     "chapter": 7,
-    "verse_start": 18,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -54328,12 +54328,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 17:27-28",
+    "passage_ref": "잠언 17:24-30",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 17,
-    "verse_start": 27,
-    "verse_end": 28,
+    "verse_start": 24,
+    "verse_end": 30,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -54378,12 +54378,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 27:23-24",
+    "passage_ref": "잠언 27:20-26",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 27,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -54403,12 +54403,12 @@
     ]
   },
   {
-    "passage_ref": "시편 1:1-2",
+    "passage_ref": "시편 1:1-4",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 1,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -54428,12 +54428,12 @@
     ]
   },
   {
-    "passage_ref": "시편 37:23-24",
+    "passage_ref": "시편 37:20-26",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 37,
-    "verse_start": 23,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -54453,12 +54453,12 @@
     ]
   },
   {
-    "passage_ref": "시편 84:11-12",
+    "passage_ref": "시편 84:8-14",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 84,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -54558,12 +54558,12 @@
     ]
   },
   {
-    "passage_ref": "디도서 1:7-8",
+    "passage_ref": "디도서 1:4-10",
     "book_name": "디도서",
     "book_id": 56,
     "chapter": 1,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -54723,12 +54723,12 @@
     ]
   },
   {
-    "passage_ref": "골로새서 2:9-10",
+    "passage_ref": "골로새서 2:6-12",
     "book_name": "골로새서",
     "book_id": 51,
     "chapter": 2,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55148,12 +55148,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 30:7-9",
+    "passage_ref": "잠언 30:5-11",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 30,
-    "verse_start": 7,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -55172,12 +55172,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 5:10-12",
+    "passage_ref": "전도서 5:8-14",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 5,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -55220,12 +55220,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 6:8-10",
+    "passage_ref": "고린도후서 6:6-12",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 6,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55244,12 +55244,12 @@
     ]
   },
   {
-    "passage_ref": "출애굽기 16:16-18",
+    "passage_ref": "출애굽기 16:14-20",
     "book_name": "출애굽기",
     "book_id": 2,
     "chapter": 16,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -55268,12 +55268,12 @@
     ]
   },
   {
-    "passage_ref": "시편 34:8-10",
+    "passage_ref": "시편 34:6-12",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 34,
-    "verse_start": 8,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -55292,12 +55292,12 @@
     ]
   },
   {
-    "passage_ref": "시편 107:8-9",
+    "passage_ref": "시편 107:5-11",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 107,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -55316,12 +55316,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 15:16-17",
+    "passage_ref": "잠언 15:13-19",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 15,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -55364,12 +55364,12 @@
     ]
   },
   {
-    "passage_ref": "전도서 3:12-13",
+    "passage_ref": "전도서 3:9-15",
     "book_name": "전도서",
     "book_id": 21,
     "chapter": 3,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -55388,12 +55388,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 55:1-3",
+    "passage_ref": "이사야 55:1-5",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 55,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -55412,12 +55412,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 58:11-12",
+    "passage_ref": "이사야 58:8-14",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 58,
-    "verse_start": 11,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -55484,12 +55484,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 4:13-14",
+    "passage_ref": "요한복음 4:10-16",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 4,
-    "verse_start": 13,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -55532,12 +55532,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:31-32",
+    "passage_ref": "로마서 8:28-34",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 31,
-    "verse_end": 32,
+    "verse_start": 28,
+    "verse_end": 34,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55556,12 +55556,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 3:21-23",
+    "passage_ref": "고린도전서 3:19-25",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 3,
-    "verse_start": 21,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55580,12 +55580,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 3:4-5",
+    "passage_ref": "고린도후서 3:1-7",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 3,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55604,12 +55604,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 9:8-9",
+    "passage_ref": "고린도후서 9:5-11",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 9,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55659,12 +55659,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 4:4-5",
+    "passage_ref": "디모데전서 4:1-7",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 4,
-    "verse_start": 4,
-    "verse_end": 5,
+    "verse_start": 1,
+    "verse_end": 7,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -55839,12 +55839,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:10-11",
+    "passage_ref": "로마서 8:7-13",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -56073,12 +56073,12 @@
     ]
   },
   {
-    "passage_ref": "계시록 1:17-18",
+    "passage_ref": "계시록 1:14-20",
     "book_name": "계시록",
     "book_id": 66,
     "chapter": 1,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "묵시",
     "soft_tags": {
@@ -56125,12 +56125,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 4:23-25",
+    "passage_ref": "로마서 4:21-27",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 4,
-    "verse_start": 23,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -56177,12 +56177,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 6:39-40",
+    "passage_ref": "요한복음 6:36-42",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 6,
-    "verse_start": 39,
-    "verse_end": 40,
+    "verse_start": 36,
+    "verse_end": 42,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -56203,12 +56203,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 13:20-21",
+    "passage_ref": "히브리서 13:17-23",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 13,
-    "verse_start": 20,
-    "verse_end": 21,
+    "verse_start": 17,
+    "verse_end": 23,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -56379,12 +56379,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 53:10-12",
+    "passage_ref": "이사야 53:8-14",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 53,
-    "verse_start": 10,
-    "verse_end": 12,
+    "verse_start": 8,
+    "verse_end": 14,
     "testament": "OT",
     "genre": "대선지",
     "soft_tags": {
@@ -56540,12 +56540,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 12:22-24",
+    "passage_ref": "히브리서 12:20-26",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 12,
-    "verse_start": 22,
-    "verse_end": 24,
+    "verse_start": 20,
+    "verse_end": 26,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -56563,12 +56563,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 14:12-14",
+    "passage_ref": "요한복음 14:10-16",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 14,
-    "verse_start": 12,
-    "verse_end": 14,
+    "verse_start": 10,
+    "verse_end": 16,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -56586,12 +56586,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 6:19-20",
+    "passage_ref": "히브리서 6:16-22",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 6,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -56655,12 +56655,12 @@
     ]
   },
   {
-    "passage_ref": "스가랴 6:12-13",
+    "passage_ref": "스가랴 6:9-15",
     "book_name": "스가랴",
     "book_id": 38,
     "chapter": 6,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -56770,12 +56770,12 @@
     ]
   },
   {
-    "passage_ref": "고린도전서 3:16-17",
+    "passage_ref": "고린도전서 3:13-19",
     "book_name": "고린도전서",
     "book_id": 46,
     "chapter": 3,
-    "verse_start": 16,
-    "verse_end": 17,
+    "verse_start": 13,
+    "verse_end": 19,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -56795,12 +56795,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 3:7-8",
+    "passage_ref": "잠언 3:4-10",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 3,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -57095,12 +57095,12 @@
     ]
   },
   {
-    "passage_ref": "야고보서 5:14-15",
+    "passage_ref": "야고보서 5:11-17",
     "book_name": "야고보서",
     "book_id": 59,
     "chapter": 5,
-    "verse_start": 14,
-    "verse_end": 15,
+    "verse_start": 11,
+    "verse_end": 17,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -57120,12 +57120,12 @@
     ]
   },
   {
-    "passage_ref": "에베소서 1:22-23",
+    "passage_ref": "에베소서 1:19-25",
     "book_name": "에베소서",
     "book_id": 49,
     "chapter": 1,
-    "verse_start": 22,
-    "verse_end": 23,
+    "verse_start": 19,
+    "verse_end": 25,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -57334,12 +57334,12 @@
     ]
   },
   {
-    "passage_ref": "히브리서 10:23-25",
+    "passage_ref": "히브리서 10:21-27",
     "book_name": "히브리서",
     "book_id": 58,
     "chapter": 10,
-    "verse_start": 23,
-    "verse_end": 25,
+    "verse_start": 21,
+    "verse_end": 27,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -57403,12 +57403,12 @@
     ]
   },
   {
-    "passage_ref": "사도행전 13:1-3",
+    "passage_ref": "사도행전 13:1-5",
     "book_name": "사도행전",
     "book_id": 44,
     "chapter": 13,
     "verse_start": 1,
-    "verse_end": 3,
+    "verse_end": 5,
     "testament": "NT",
     "genre": "역사",
     "soft_tags": {
@@ -57426,12 +57426,12 @@
     ]
   },
   {
-    "passage_ref": "디모데전서 3:14-16",
+    "passage_ref": "디모데전서 3:12-18",
     "book_name": "디모데전서",
     "book_id": 54,
     "chapter": 3,
-    "verse_start": 14,
-    "verse_end": 16,
+    "verse_start": 12,
+    "verse_end": 18,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -57706,12 +57706,12 @@
     ]
   },
   {
-    "passage_ref": "요한복음 1:12-13",
+    "passage_ref": "요한복음 1:9-15",
     "book_name": "요한복음",
     "book_id": 43,
     "chapter": 1,
-    "verse_start": 12,
-    "verse_end": 13,
+    "verse_start": 9,
+    "verse_end": 15,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -57731,12 +57731,12 @@
     ]
   },
   {
-    "passage_ref": "로마서 8:28-30",
+    "passage_ref": "로마서 8:26-32",
     "book_name": "로마서",
     "book_id": 45,
     "chapter": 8,
-    "verse_start": 28,
-    "verse_end": 30,
+    "verse_start": 26,
+    "verse_end": 32,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -57886,12 +57886,12 @@
     ]
   },
   {
-    "passage_ref": "고린도후서 6:16-18",
+    "passage_ref": "고린도후서 6:14-20",
     "book_name": "고린도후서",
     "book_id": 47,
     "chapter": 6,
-    "verse_start": 16,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {
@@ -57936,12 +57936,12 @@
     ]
   },
   {
-    "passage_ref": "호세아 1:10-11",
+    "passage_ref": "호세아 1:7-13",
     "book_name": "호세아",
     "book_id": 28,
     "chapter": 1,
-    "verse_start": 10,
-    "verse_end": 11,
+    "verse_start": 7,
+    "verse_end": 13,
     "testament": "OT",
     "genre": "소선지",
     "soft_tags": {
@@ -58036,12 +58036,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 14:1-2",
+    "passage_ref": "신명기 14:1-4",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 14,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -58061,12 +58061,12 @@
     ]
   },
   {
-    "passage_ref": "시편 68:4-6",
+    "passage_ref": "시편 68:2-8",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 68,
-    "verse_start": 4,
-    "verse_end": 6,
+    "verse_start": 2,
+    "verse_end": 8,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -58368,12 +58368,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 22:19-20",
+    "passage_ref": "누가복음 22:16-22",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 22,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -58667,12 +58667,12 @@
     ]
   },
   {
-    "passage_ref": "느헤미야 9:7-8",
+    "passage_ref": "느헤미야 9:4-10",
     "book_name": "느헤미야",
     "book_id": 16,
     "chapter": 9,
-    "verse_start": 7,
-    "verse_end": 8,
+    "verse_start": 4,
+    "verse_end": 10,
     "testament": "OT",
     "genre": "역사",
     "soft_tags": {
@@ -58876,12 +58876,12 @@
     ]
   },
   {
-    "passage_ref": "잠언 31:8-9",
+    "passage_ref": "잠언 31:5-11",
     "book_name": "잠언",
     "book_id": 20,
     "chapter": 31,
-    "verse_start": 8,
-    "verse_end": 9,
+    "verse_start": 5,
+    "verse_end": 11,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -58972,12 +58972,12 @@
     ]
   },
   {
-    "passage_ref": "레위기 19:33-34",
+    "passage_ref": "레위기 19:30-36",
     "book_name": "레위기",
     "book_id": 3,
     "chapter": 19,
-    "verse_start": 33,
-    "verse_end": 34,
+    "verse_start": 30,
+    "verse_end": 36,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -59020,12 +59020,12 @@
     ]
   },
   {
-    "passage_ref": "신명기 16:19-20",
+    "passage_ref": "신명기 16:16-22",
     "book_name": "신명기",
     "book_id": 5,
     "chapter": 16,
-    "verse_start": 19,
-    "verse_end": 20,
+    "verse_start": 16,
+    "verse_end": 22,
     "testament": "OT",
     "genre": "율법",
     "soft_tags": {
@@ -59116,12 +59116,12 @@
     ]
   },
   {
-    "passage_ref": "시편 82:3-4",
+    "passage_ref": "시편 82:1-6",
     "book_name": "시편",
     "book_id": 19,
     "chapter": 82,
-    "verse_start": 3,
-    "verse_end": 4,
+    "verse_start": 1,
+    "verse_end": 6,
     "testament": "OT",
     "genre": "시가",
     "soft_tags": {
@@ -59140,12 +59140,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 10:1-2",
+    "passage_ref": "이사야 10:1-4",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 10,
     "verse_start": 1,
-    "verse_end": 2,
+    "verse_end": 4,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -59164,12 +59164,12 @@
     ]
   },
   {
-    "passage_ref": "이사야 58:6-7",
+    "passage_ref": "이사야 58:3-9",
     "book_name": "이사야",
     "book_id": 23,
     "chapter": 58,
-    "verse_start": 6,
-    "verse_end": 7,
+    "verse_start": 3,
+    "verse_end": 9,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -59188,12 +59188,12 @@
     ]
   },
   {
-    "passage_ref": "스가랴 7:9-10",
+    "passage_ref": "스가랴 7:6-12",
     "book_name": "스가랴",
     "book_id": 38,
     "chapter": 7,
-    "verse_start": 9,
-    "verse_end": 10,
+    "verse_start": 6,
+    "verse_end": 12,
     "testament": "OT",
     "genre": "예언",
     "soft_tags": {
@@ -59236,12 +59236,12 @@
     ]
   },
   {
-    "passage_ref": "누가복음 4:18-19",
+    "passage_ref": "누가복음 4:15-21",
     "book_name": "누가복음",
     "book_id": 42,
     "chapter": 4,
-    "verse_start": 18,
-    "verse_end": 19,
+    "verse_start": 15,
+    "verse_end": 21,
     "testament": "NT",
     "genre": "복음",
     "soft_tags": {
@@ -59260,12 +59260,12 @@
     ]
   },
   {
-    "passage_ref": "요한일서 3:17-18",
+    "passage_ref": "요한일서 3:14-20",
     "book_name": "요한일서",
     "book_id": 62,
     "chapter": 3,
-    "verse_start": 17,
-    "verse_end": 18,
+    "verse_start": 14,
+    "verse_end": 20,
     "testament": "NT",
     "genre": "서신",
     "soft_tags": {

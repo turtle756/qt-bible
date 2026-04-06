@@ -26,6 +26,15 @@ export const GET: RequestHandler = async (event) => {
   const userId = event.locals.user.id;
 
   try {
+    // 0. 오늘 이미 조립된 QT가 있으면 캐시된 passage 사용
+    const todayShown = await pool.query(
+      `SELECT passage_ref FROM recently_shown
+       WHERE user_id = $1 AND block_type = 'passage' AND shown_date = CURRENT_DATE
+       ORDER BY id DESC LIMIT 1`,
+      [userId]
+    );
+    const cachedPassageRef = todayShown.rows[0]?.passage_ref || null;
+
     // 1. Profile load + time decay
     let profileResult = await pool.query(
       'SELECT * FROM user_spiritual_profile WHERE user_id = $1', [userId]
@@ -65,12 +74,20 @@ export const GET: RequestHandler = async (event) => {
     // 3. Load pools
     const pools = getPools();
 
-    // 4. Passage selection (user profile scoring)
-    const passageCandidates = pools.passages
-      .filter((p: any) => !recentPassages.has(p.passage_ref))
-      .map((p: any) => ({ ...p, score: scoring.scoreBlock(profile, p.soft_tags) }));
+    // 4. Passage selection — 오늘 캐시가 있으면 재사용
+    let selectedPassage: any = null;
 
-    const selectedPassage = scoring.selectFromCandidates(passageCandidates);
+    if (cachedPassageRef) {
+      selectedPassage = pools.passages.find((p: any) => p.passage_ref === cachedPassageRef);
+    }
+
+    if (!selectedPassage) {
+      const passageCandidates = pools.passages
+        .filter((p: any) => !recentPassages.has(p.passage_ref))
+        .map((p: any) => ({ ...p, score: scoring.scoreBlock(profile, p.soft_tags) }));
+      selectedPassage = scoring.selectFromCandidates(passageCandidates);
+    }
+
     if (!selectedPassage) {
       return Response.json({ error: 'No suitable passage found' }, { status: 404 });
     }
@@ -111,11 +128,13 @@ export const GET: RequestHandler = async (event) => {
     const keywords = pools.keyword.filter((k: any) => k.passage_ref === selectedPassage.passage_ref);
     const selectedKeyword = keywords.length > 0 ? keywords[0] : null;
 
-    // 6. Record exposure
-    await pool.query(
-      `INSERT INTO recently_shown (user_id, block_type, passage_ref, shown_date) VALUES ($1, 'passage', $2, CURRENT_DATE)`,
-      [userId, selectedPassage.passage_ref]
-    );
+    // 6. Record exposure (오늘 처음이면만)
+    if (!cachedPassageRef) {
+      await pool.query(
+        `INSERT INTO recently_shown (user_id, block_type, passage_ref, shown_date) VALUES ($1, 'passage', $2, CURRENT_DATE)`,
+        [userId, selectedPassage.passage_ref]
+      );
+    }
 
     // 7. Already completed today?
     const todayHistory = await pool.query(
