@@ -67,7 +67,22 @@ export const GET: RequestHandler = async (event) => {
   const userId = event.locals.user.id;
 
   try {
-    // 0. 오늘 이미 조립된 QT가 있으면 캐시된 passage 사용
+    // 0. 오늘 이미 조립된 QT가 DB 캐시에 있으면 바로 반환
+    const cachedQt = await pool.query(
+      `SELECT assembled_data FROM qt_daily_cache WHERE user_id = $1 AND qt_date = CURRENT_DATE`,
+      [userId]
+    );
+    if (cachedQt.rows[0]) {
+      // already_completed만 최신으로 갱신
+      const data = cachedQt.rows[0].assembled_data;
+      const todayHistory = await pool.query(
+        'SELECT completed FROM qt_history WHERE user_id = $1 AND qt_date = CURRENT_DATE', [userId]
+      );
+      data.already_completed = todayHistory.rows[0]?.completed || false;
+      return Response.json(data);
+    }
+
+    // 기존 recently_shown 캐시 확인 (하위 호환)
     const todayShown = await pool.query(
       `SELECT passage_ref FROM recently_shown
        WHERE user_id = $1 AND block_type = 'passage' AND shown_date = CURRENT_DATE
@@ -221,7 +236,7 @@ export const GET: RequestHandler = async (event) => {
     const alreadyCompleted = todayHistory.rows[0]?.completed || false;
 
     // 8. Assembled QT response
-    return Response.json({
+    const assembledData = {
       date: new Date().toISOString().split('T')[0],
       already_completed: alreadyCompleted,
       maturity_level: maturity,
@@ -268,7 +283,17 @@ export const GET: RequestHandler = async (event) => {
         source_passage: selectedPrayer.passage_ref,
         score: selectedPrayer.score
       } : null
-    });
+    };
+
+    // DB에 오늘의 QT 저장
+    await pool.query(
+      `INSERT INTO qt_daily_cache (user_id, qt_date, assembled_data)
+       VALUES ($1, CURRENT_DATE, $2)
+       ON CONFLICT (user_id, qt_date) DO NOTHING`,
+      [userId, JSON.stringify(assembledData)]
+    );
+
+    return Response.json(assembledData);
   } catch (err) {
     console.error('daily-qt error:', err);
     return Response.json({ error: 'Failed to assemble daily QT' }, { status: 500 });

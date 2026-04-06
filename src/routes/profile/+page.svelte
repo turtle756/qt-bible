@@ -15,10 +15,11 @@
 		created_at: string;
 	}
 
-	interface QtLogEntry {
-		log_date: string;
-		book_id: number;
-		chapter: number;
+	interface QtCalEntry {
+		qt_date: string;
+		passage_ref: string;
+		title: string;
+		completed: boolean;
 	}
 
 	interface Badge {
@@ -36,7 +37,12 @@
 	// Calendar
 	let calYear = $state(new Date().getFullYear());
 	let calMonth = $state(new Date().getMonth()); // 0-indexed
+	let calEntries = $state<QtCalEntry[]>([]);
 	let completedDates = $state<Set<string>>(new Set());
+
+	// QT 상세 보기
+	let selectedQt: any = $state(null);
+	let showQtDetail = $state(false);
 
 	// Maturity setting
 	let editingMaturity = $state(false);
@@ -82,15 +88,26 @@
 	});
 
 	async function loadCalendar() {
+		const m = `${calYear}-${String(calMonth + 1).padStart(2, '0')}`;
 		try {
-			const res = await fetch(`/api/qt-log?year=${calYear}&month=${calMonth + 1}`);
-			const data: QtLogEntry[] = await res.json();
+			const res = await fetch(`/api/v2/qt-history?month=${m}`);
+			const data: QtCalEntry[] = await res.json();
 			if (Array.isArray(data)) {
-				completedDates = new Set(data.map((d) => d.log_date.substring(0, 10)));
+				calEntries = data;
+				completedDates = new Set(data.filter(d => d.completed).map(d => d.qt_date.substring(0, 10)));
 			}
 		} catch {
+			calEntries = [];
 			completedDates = new Set();
 		}
+	}
+
+	async function openQtDetail(dateStr: string) {
+		try {
+			const res = await fetch(`/api/v2/qt-history?date=${dateStr}`);
+			selectedQt = await res.json();
+			if (selectedQt) showQtDetail = true;
+		} catch {}
 	}
 
 	function prevMonth() {
@@ -245,20 +262,26 @@
 						<div></div>
 					{:else}
 						{@const dateStr = formatDate(day)}
+						{@const hasEntry = calEntries.some(e => e.qt_date.substring(0, 10) === dateStr)}
 						{@const completed = completedDates.has(dateStr)}
 						{@const isToday =
 							day === new Date().getDate() &&
 							calMonth === new Date().getMonth() &&
 							calYear === new Date().getFullYear()}
-						<div
+						<button
+							type="button"
+							disabled={!hasEntry}
+							onclick={() => hasEntry && openQtDetail(dateStr)}
 							class="aspect-square flex items-center justify-center rounded-xl text-xs font-medium transition-colors {completed
 								? 'bg-primary text-white'
-								: isToday
-									? 'border border-primary text-primary'
-									: 'text-text-secondary hover:bg-bg'}"
+								: hasEntry
+									? 'bg-primary-bg/60 text-primary'
+									: isToday
+										? 'border border-primary text-primary'
+										: 'text-text-secondary hover:bg-bg'} {hasEntry ? 'cursor-pointer' : ''}"
 						>
 							{day}
-						</div>
+						</button>
 					{/if}
 				{/each}
 			</div>
@@ -328,4 +351,59 @@
 			</button>
 		</div>
 	</div>
+
+	<!-- QT 상세 보기 모달 -->
+	{#if showQtDetail && selectedQt}
+		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" role="dialog">
+			<div class="bg-surface rounded-2xl max-w-lg w-full shadow-xl max-h-[85vh] overflow-y-auto">
+				<div class="flex items-center justify-between p-5 border-b border-border">
+					<div>
+						<h2 class="font-bold text-text">{selectedQt.passage?.title || selectedQt.passage?.ref}</h2>
+						<p class="text-xs text-text-secondary mt-0.5">{selectedQt.date} · {selectedQt.passage?.ref}</p>
+					</div>
+					<button
+						onclick={() => (showQtDetail = false)}
+						aria-label="닫기"
+						class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-bg text-text-secondary"
+					>
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</div>
+				<div class="p-5 space-y-4 text-sm text-text leading-relaxed">
+					{#if selectedQt.commentary?.content}
+						<div>
+							<h3 class="font-semibold text-primary text-xs mb-1">오늘의 해설</h3>
+							<p>{selectedQt.commentary.content}</p>
+						</div>
+					{/if}
+					{#if selectedQt.keyword?.content}
+						<div class="bg-primary-bg/50 rounded-xl p-3 border-l-3 border-primary">
+							<h3 class="font-semibold text-primary text-xs mb-1">핵심 원어</h3>
+							<p>{selectedQt.keyword.content}</p>
+						</div>
+					{/if}
+					{#if selectedQt.question?.content}
+						<div>
+							<h3 class="font-semibold text-primary text-xs mb-1">함께 생각해 보기</h3>
+							<p>{selectedQt.question.content}</p>
+						</div>
+					{/if}
+					{#if selectedQt.prayer?.content}
+						<div class="bg-verse-hover rounded-xl p-3">
+							<h3 class="font-semibold text-primary text-xs mb-1">기도 안내</h3>
+							<p>{selectedQt.prayer.content}</p>
+						</div>
+					{/if}
+					{#if selectedQt.note}
+						<div class="border-t border-border pt-4">
+							<h3 class="font-semibold text-primary text-xs mb-1">나의 묵상 노트</h3>
+							<p class="whitespace-pre-wrap text-text-secondary">{selectedQt.note}</p>
+						</div>
+					{/if}
+				</div>
+			</div>
+		</div>
+	{/if}
 {/if}

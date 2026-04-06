@@ -186,5 +186,14 @@ export async function initDB() {
   )`);
   await pool.query(`CREATE INDEX IF NOT EXISTS idx_card_shown_user_date ON card_shown_history(user_id, shown_date)`);
 
+  await pool.query(`CREATE TABLE IF NOT EXISTS qt_daily_cache (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    qt_date DATE NOT NULL,
+    assembled_data JSONB NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    UNIQUE(user_id, qt_date)
+  )`);
+
   console.log('DB tables ready');
 }
