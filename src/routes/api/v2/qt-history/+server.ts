@@ -30,15 +30,24 @@ export const GET: RequestHandler = async (event) => {
   }
 
   if (month) {
-    // 월별 QT 기록 요약 (캘린더용)
+    // 월별 QT 기록 요약 (캘린더용) — qt_daily_cache + qt_history 합산
     const result = await pool.query(
-      `SELECT c.qt_date, c.assembled_data->'passage'->>'ref' as passage_ref,
+      `SELECT COALESCE(c.qt_date, h.qt_date) as qt_date,
+              c.assembled_data->'passage'->>'ref' as passage_ref,
+              c.assembled_data->'passage'->>'title' as title,
+              COALESCE(h.completed, false) as completed
+       FROM qt_history h
+       LEFT JOIN qt_daily_cache c ON c.user_id = h.user_id AND c.qt_date = h.qt_date
+       WHERE h.user_id = $1 AND to_char(h.qt_date, 'YYYY-MM') = $2
+       UNION
+       SELECT c.qt_date,
+              c.assembled_data->'passage'->>'ref' as passage_ref,
               c.assembled_data->'passage'->>'title' as title,
               COALESCE(h.completed, false) as completed
        FROM qt_daily_cache c
        LEFT JOIN qt_history h ON h.user_id = c.user_id AND h.qt_date = c.qt_date
        WHERE c.user_id = $1 AND to_char(c.qt_date, 'YYYY-MM') = $2
-       ORDER BY c.qt_date`,
+       ORDER BY qt_date`,
       [userId, month]
     );
     return Response.json(result.rows);

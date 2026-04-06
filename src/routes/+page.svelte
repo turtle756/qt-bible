@@ -78,7 +78,6 @@
 				const c = JSON.parse(cached);
 				qt = c.qt; profile = c.profile; verses = c.verses;
 				allCards = c.allCards || []; allThemes = c.allThemes || [];
-				// 선택한 카드 복원
 				const savedCard = localStorage.getItem('selectedCardToday');
 				const savedDate = localStorage.getItem('cardModalDate');
 				if (savedCard && savedDate === today) {
@@ -86,6 +85,10 @@
 				}
 				dataLoaded = true;
 				loading = false;
+				// 백그라운드로 API 호출해서 DB 캐시 보장
+				const savedThemeId = localStorage.getItem('themeOverride');
+				const themeParam = savedThemeId ? `?monthOverride=${savedThemeId}` : '';
+				fetch(`/api/v2/daily-qt${themeParam}`).catch(() => {});
 				return;
 			} catch {}
 		}
