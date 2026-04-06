@@ -335,6 +335,16 @@
 			{/if}
 		</div>
 
+		<!-- 후원 -->
+		<div class="bg-surface rounded-2xl border border-border p-5 shadow-sm text-center">
+			<h2 class="text-sm font-semibold text-text mb-2">DailyQT 후원하기</h2>
+			<p class="text-xs text-text-secondary mb-3">서비스 운영에 도움을 주실 수 있습니다</p>
+			<div class="bg-bg rounded-xl p-3 border border-border">
+				<p class="text-xs text-text-secondary">토스뱅크</p>
+				<p class="text-sm font-semibold text-text mt-0.5 tracking-wider">1001-2811-4751</p>
+			</div>
+		</div>
+
 		<!-- Actions -->
 		<div class="space-y-3">
 			<button
