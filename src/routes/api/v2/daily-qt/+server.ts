@@ -96,15 +96,38 @@ export const GET: RequestHandler = async (event) => {
       .filter(([k, v]: [string, any]) => k.startsWith('TH') && v >= 30)
       .map(([k]: [string, any]) => k);
 
-    // 5. Slot selection
+    // 5. Slot selection — 절 범위 겹침 매칭
+    function refsOverlap(refA: string, refB: string): boolean {
+      // "요한복음 14:23-31" vs "요한복음 14:27" 같은 경우 매칭
+      const parseR = (r: string) => {
+        const m = r.match(/^(.+?)\s+(\d+):(\d+)(?:-(\d+))?$/);
+        if (!m) return null;
+        return { book: m[1], ch: +m[2], vs: +m[3], ve: m[4] ? +m[4] : +m[3] };
+      };
+      const a = parseR(refA), b = parseR(refB);
+      if (!a || !b) return false;
+      if (a.book !== b.book || a.ch !== b.ch) return false;
+      return a.vs <= b.ve && b.vs <= a.ve; // 범위 겹침
+    }
+
     function selectSlot(poolItems: any[], passageRef: string, passageTHKeys: string[]) {
+      // 1순위: 정확 일치 + 성숙도
       let candidates = poolItems.filter((item: any) =>
         item.passage_ref === passageRef &&
         (!item.allowed_maturity || item.allowed_maturity.includes(maturity))
       );
+      // 2순위: 절 범위 겹침 + 성숙도
       if (candidates.length === 0) {
-        candidates = poolItems.filter((item: any) => item.passage_ref === passageRef);
+        candidates = poolItems.filter((item: any) =>
+          refsOverlap(item.passage_ref, passageRef) &&
+          (!item.allowed_maturity || item.allowed_maturity.includes(maturity))
+        );
       }
+      // 3순위: 절 범위 겹침 (성숙도 무관)
+      if (candidates.length === 0) {
+        candidates = poolItems.filter((item: any) => refsOverlap(item.passage_ref, passageRef));
+      }
+      // 4순위: TH 태그 겹침
       if (candidates.length === 0 && passageTHKeys.length > 0) {
         candidates = poolItems.filter((item: any) => {
           if (item.allowed_maturity && !item.allowed_maturity.includes(maturity)) return false;
@@ -125,7 +148,11 @@ export const GET: RequestHandler = async (event) => {
     const selectedQuestion = selectSlot(pools.question, selectedPassage.passage_ref, passageTH);
     const selectedPrayer = selectSlot(pools.prayer, selectedPassage.passage_ref, passageTH);
 
-    const keywords = pools.keyword.filter((k: any) => k.passage_ref === selectedPassage.passage_ref);
+    // 원어 — 정확 일치 또는 범위 겹침
+    let keywords = pools.keyword.filter((k: any) => k.passage_ref === selectedPassage.passage_ref);
+    if (keywords.length === 0) {
+      keywords = pools.keyword.filter((k: any) => refsOverlap(k.passage_ref, selectedPassage.passage_ref));
+    }
     const selectedKeyword = keywords.length > 0 ? keywords[0] : null;
 
     // 6. Record exposure (오늘 처음이면만)
